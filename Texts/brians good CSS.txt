@@ -1,0 +1,102 @@
+BODY.outside {
+margin:0, 0, 0, 0;
+overflow:hidden;
+font-family:Arial, Helvetica, sans-serif;
+font-weight:bold;
+}
+.outside H1 {
+color:#999999;
+}
+
+BODY.content {
+background-color:#FCFCFC;
+border:thin solid #CCCCCC;
+font-family:Arial, Helvetica, sans-serif;
+font-weight:bold;
+color:#666666;
+scrollbar-arrow-color:#FFFFFF;
+scrollbar-track-color:E3E3E3;
+scrollbar-shadow-color:#CCCCCC;
+scrollbar-highlight-color:CCCCCC;
+scrollbar-3dlight-color:#999999;
+scrollbar-darkshadow-Color:#999999;
+
+}
+
+.content H1 {
+font-size:28px;
+color:#FCFCFC;
+}
+
+.header {
+border:thin solid #666666;
+padding-top:10;
+padding-left:10;
+background-color:#999999;
+filter:alpha(opacity=50);
+position:absolute;
+top:0;
+left:0;
+z-index:2;
+}
+
+.navbar {
+border:thin solid #999999;
+position:absolute;
+top:0;
+left:0;
+z-index:1;
+}
+
+.navbar DIV {
+width:100%;
+}
+
+.navbar TD {
+padding:2 0 2 0
+}
+
+.menu {
+}
+.menuitem {
+}
+
+.submenuitem {
+}
+.submenuitem DIV {
+padding-left:15;
+}
+
+.navbar A:link {
+color:#990000;
+text-decoration: none
+}
+
+.navbar A:hover {
+color:#000099;
+background-color:#F0F0F0;
+border:thin solid #000000;
+border-color:#003366;
+cursor:pointer;
+text-decoration: underline
+}
+
+.navbar A:visited {
+}
+
+.navbar A:active {
+}
+
+.opticity {
+filter:alpha(opacity=50);
+}
+
+.main {
+border:thin solid #CCCCCC;
+background-color:#ECECEC;
+position:absolute;
+z-index:0;
+top:0;
+left:0;
+padding:82 15 15 215;
+}

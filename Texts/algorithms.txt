@@ -1,0 +1,14 @@
+http://teeniesets.com/pb123456/
+
+digit 1: 1 higher than digit 4, between 1 and 9
+digit 2: 1 lower than digit 5, between 0 and 8
+digit 3: same as digit 6, any digit between 0 and 9
+digit 4: 1 lower than digit 1, between 0 and 8
+digit 5: 1 higher than digit 2, between 1 and 9
+digit 6: same as digit 3, any digit between 0 and 9
+
+begins at:
+pb125035
+
+ends at:
+pb319229?

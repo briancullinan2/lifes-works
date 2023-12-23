@@ -1,0 +1,274 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="I.F.4_files/styles.css" type="text/css">
+
+<script language="javascript" src="I.F.4_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Technology Shaping the Music</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="I.F.4_files/moduleI.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="I.F.4_files/moduleI.gif" alt="module banner" height="126" 
+width="600"> 
+</p>
+<h3>Technology Shaping the Music</h3>
+<p>  Recording has dramatically shaped what a performance is since the 
+earliest
+  days of this technology. </p>
+<p><strong>Recordings</strong><br>
+  From the 1920s, when A&amp;R men (artist and repertory agents) went 
+scouring
+  the cities and countryside of the East coast, Midwest, and some 
+sections of
+  the South, early non-electric recordings captured the sound of 
+professional
+  and itinerate musicians. There were originally no microphones and 
+musicians
+  had to gather near a large cone-shaped recording horn that captured 
+their sound.
+  Whatever made the loudest sound appeared as such on the 
+recording—there
+  was no way to <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113994071"
+ class="glossarylink" target="_blank">mix</a> the session other than to 
+place louder instruments further
+from the recording horn.</p>
+<p>During these early recording sessions, a master record was cut in 
+real time
+  by a technician as the musicians performed and it was used to generate
+ duplicates
+  that were sold. The commercial records were molded from shellac (you 
+can dissolve
+  pieces of one of these records in a solvent and can create a shellac 
+to use
+  on wood). These shellac discs were played in people's homes on 
+machines
+  that basically reversed the process: a needle traced its way around 
+the record
+  in an analog reproduction of the musical performance, the needle was 
+displaced
+  side to side as it moved in the groove, and that displacement was 
+amplified
+  acoustically by the body of the record player (at first through a 
+large horn
+  in early models). </p>
+<p>As the electric microphone was refined, it soon enabled a much more 
+subtler
+  process to develop in the recording session. Eventually with the 
+advent of
+  tape, which was a commercial bi-product of World War II, studio 
+recording sessions
+  were mixed down and multiple imputs from multiple microphones—one or
+  even more to each performer in the session—enabled producers to 
+increasingly
+  shape the overall recording. Further, tape allowed for could multiple 
+recordings
+  or 'takes'of the same piece.</p>
+<p>By the 1950s, recordings are frequently studio assemblages of various
+ takes
+  or live performances recorded in the studio. So we will encounter a 
+variety
+  of recordings in this course, from one-take complete performances as 
+found
+  in early jazz recordings through multiple edits, overdubs, and 
+replacing whole
+  sections or even notes of a single instrumental line in later jazz.</p>
+<p>In this course, we will also experience jazz mostly through 
+recordings (either
+  sound recordings or video footage with sound). Recordings are frozen 
+snapshots
+  of sound in time. This means that we always need to remember that a 
+commercially-issued
+  recording is fixed and unchanging.</p>
+<p><strong>Radio</strong><br>
+  By the 1930s, radio was giving the young recording business a run for 
+its money.
+    While starting off broadcasting live performances from the studio, 
+by the
+late 1940s radio was playing records spun by DJs almost without 
+exception.</p>
+<p><strong>Digital recording and the question of performance</strong><br>
+  By the late 1980s, digital recording had become increasingly the 
+method of
+    choice for all record producers—from home production to the pro 
+studios.
+    Digital editing made it possible to <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113943071"
+ class="glossarylink" target="_blank">fine</a> tune studio takes unlike 
+ever before:
+    <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113989071"
+ class="glossarylink" target="_blank">pitch</a> variation in a vocal 
+performance, nuances of instrumental performance—all
+    can be adjusted, altered, tweaked, and processed to a remarkable 
+degree.
+    As a result, recordings are increasingly much more 'perfect' than
+    what one can hear live. Rarely can performers working before live 
+audiences
+    match the level that they attain in the studio. Digital recordings 
+have become
+    so distant from <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113955071"
+ class="glossarylink" target="_blank">live performance</a> that a mixed 
+and edited digital recording
+    is virtually a 'sculpted' work created by the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113981071"
+ class="glossarylink" target="_blank">producer</a> using
+the artist's output as raw material.</p>
+</body></html>

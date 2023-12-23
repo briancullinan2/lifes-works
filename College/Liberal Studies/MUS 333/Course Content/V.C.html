@@ -1,0 +1,257 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="V.C_files/styles.css" type="text/css">
+
+<script language="javascript" src="V.C_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=5WcwLjGRLNNWgHmnQT21sn7ZZqhCQkvNDwKVc72nQfZrYLYd8gpb!258805519!prd2.vista.nau.edu!80!443!1006298310!prd3.vista.nau.edu!80!443!1273168913820";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=5WcwLjGRLNNWgHmnQT21sn7ZZqhCQkvNDwKVc72nQfZrYLYd8gpb!258805519!prd2.vista.nau.edu!80!443!1006298310!prd3.vista.nau.edu!80!443!1273168913820";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Lennie Tristano</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="V.C_files/moduleV.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="V.C_files/moduleV.gif" alt="module banner" height="125" 
+width="600"> </p>
+<h3>Lennie Tristano</h3>
+<p><a 
+href="javascript:doWindowOpen('http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.456400&amp;subview=article_text','new_frame','width=600,height=420,menubar=1,toolbar=1,scrollbars=1,status=1,location=1,resizable=1',0)">Lennie
+ Tristano</a> (piano), <a 
+href="javascript:doWindowOpen('http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.250800&amp;subview=article_text','new_frame','width=600,height=420,menubar=1,toolbar=1,scrollbars=1,status=1,location=1,resizable=1',0)">Lee
+ Konitz</a> (alto sax)' Billy Bauer (guitar); Arnold Fishkin (bass); 
+Shelley Manne (drums)</p>
+<p>Pianist Lennie Tristano and alto sax player Lee Konitz (of <cite>The 
+Birth of the Cool</cite> recording fame) were two players who, 
+unfortunately, received little or no recognition from the general 
+public. They were considered "musician's musicians" and plied their 
+craft in and around New York City. </p>
+<p>Tristano's music featured unusual, often complex melodies and 
+harmonies played with a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> (bass &amp; drums) 
+than was relegated to a subdued, strict time keeping role, quite 
+different from the often flamboyant bop rhythm sections of the day. To 
+quote Martin Schowten in his notes to the Capitol LP "Crosscurrents", 
+"Lennie's [Tristano] select coterie of musicians [Konitz (alto sax), 
+Warne Marsh (tenor sax), and Billy Bauer (guitar)] developed a 
+low-temperature [read "cool"] approach to composition and <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113976071"
+ class="glossarylink" target="_blank">improvisation</a>… In terms of the
+ dynamic level, nothing much was allowed to happen …"</p>
+<p>Tristano, blind from infancy, was also a prominent jazz educator 
+whose teachings influenced many, many players in the early 50's, among 
+them, Lee Konitz. Konitz came to prominence playing with Claude 
+Thornhill's band in 1947 the same year he joined Miles Davis, Gil Evans 
+Gerry Mulligan in the project that created <cite>The Birth of the Cool</cite>
+ recordings. All of this while he was just 20 years old! He became a 
+teacher to students all over the world and has won many jazz polls as 
+best alto player.</p>
+<p>"Subconscious Lee" is a Lee Konitz composition based on the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113922071"
+ class="glossarylink" target="_blank">chord</a> progression of Cole 
+Porter's "What Is This Thing Called Love," and has an AABA <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a>, each section 8 <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113941071"
+ class="glossarylink" target="_blank">measures</a> long. (It was and is 
+common practice for jazz composers to borrow a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113997071"
+ class="glossarylink" target="_blank">chord progression</a> that he or 
+she likes and to write a new <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a> over it.) Take a look 
+at the melody and notice that in every A section the melody is different
+ but the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a> remain the same. While 
+the solos in this particular recording aren't quite as "low-temperature"
+ as Mr. Schowten suggests, they do, however, possess less drive, <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113963071"
+ class="glossarylink" target="_blank">rhythmic</a> variety and emotional
+ content then their Bop counterparts. </p>
+<p><strong><img src="V.C_files/Sub-Conscious-Lee.gif" alt="Subconscious 
+Lee" height="643" width="600"></strong></p>
+<p><strong><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="tristanol_subcon_lee" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleV/tristanol_subcon_lee.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="V.C_files/tristanol_subcon_lee.swf" quality="high" 
+bgcolor="#ffffff" name="tristanol_subcon_lee" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a style="left: 526px ! important; top: 
+1141.2px ! important;" title="Click here to block this object with 
+Adblock Plus" class="admzuzlqbptshelkhibi snfhlshzmkeofqixiaix" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleV/tristanol_subcon_lee.swf"></a>
+</object></strong></p>
+<p>0:00 melody – 1<sup>st </sup> "A" section</p>
+<p>0:08 2<sup>nd</sup> "A" section</p>
+<p>0:16 "B" section</p>
+<p>0:24 last "A" section</p>
+<p>0:33 piano solos over entire form</p>
+<p> 1:02 guitar solos over entire form</p>
+<p> 1:34 alto sax solos over entire form</p>
+<p> 2:05 piano solos over 1<sup>st</sup> "A" section</p>
+<p> 2:12 guitar solos over 2<sup>nd</sup> "A" section</p>
+<p> 2:20 alto sax solos over "B" section</p>
+<p> 2:28 piano solos over last "A" section</p>
+2:36 melody to end
+</body></html>

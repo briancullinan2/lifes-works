@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="VIII.C.1.d_files/styles.css" 
+type="text/css">
+
+<script language="javascript" src="VIII.C.1.d_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=LYt9LjGYyQ9YtkC2QgpTppT1W3h8Fw1tnLdwqwCzJcvhJy2ld6mQ!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273185368864";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=LYt9LjGYyQ9YtkC2QgpTppT1W3h8Fw1tnLdwqwCzJcvhJy2ld6mQ!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273185368864";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<title>“Wrappin’ It Up” </title>
+<link href="VIII.C.1.d_files/moduleVIII.css" rel="stylesheet" 
+type="text/css">
+</head><body>
+<p><img src="VIII.C.1.d_files/moduleVIII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h2>New York Swing</h2>
+<h3><strong>“Wrappin’ It Up”</strong> </h3>
+<p> Redman left the Henderson Orchestra in 1927 to become musical 
+director for the McKinley’s Cotton Pickers. Under his influence, the 
+band was transformed into a precise, swinging group. He went on to lead 
+his own band from 1931 to 1940, which was considered one of the top 
+bands of the period. In 1940, he began to work as a freelance arranger, 
+creating music for Paul Whiteman, Count Basie, Jimmy Dorsey and many 
+others.</p>
+<p> Redman had written virtually all of the arrangements played by the 
+Henderson Orchestra from 1924 to 1927. With Redman gone, Fletcher 
+Henderson became the chief arranger for his band. His composition and 
+arrangement of “Wrappin’ It Up” was recorded just over eight years after
+ “The Stampede” in 1934. It’s hard to believe that both pieces were 
+recorded by the same band! The Swing era in full bloom! The two-beat <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a> feel of “The Stampede” 
+has been replaced by a steady four-to-the-bar rhythm feel. The tuba has 
+been replaced by a string bass and the banjo has been replaced by a 
+guitar. While the band is larger by only one player, the arrangement 
+written by Henderson has the different sections of the group—saxes, 
+brass (trumpets &amp; trombones) and the rhythm <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a>—are sounding 
+separately from one another. “Wrappin’ It Up” is an ABAC <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a>.</p>
+<p> Follow the chart below as you listen to <strong>The Fletcher 
+Henderson Orchestra's </strong><strong>“Wrappin’ It Up.” (1934)</strong>.
+ </p>
+<p><strong>
+  <object id="hendersonf_stampede" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" align="middle" 
+height="100" width="550">
+    <param name="allowScriptAccess" value="sameDomain">
+    <param name="movie" 
+value="../audio/moduleVIII/hendersonf_wrapitup.swf">
+    <param name="quality" value="high">
+    <param name="bgcolor" value="#ffffff">
+    <embed src="VIII.C.1.d_files/hendersonf_wrapitup.swf" quality="high"
+ bgcolor="#ffffff" name="hendersonf_stampede" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVIII/hendersonf_wrapitup.swf"></a>
+  
+</object>
+</strong> </p>
+<p><strong>Introduction </strong></p>
+<p> 0:00-0:09 Brass and saxes play alternate <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113941071"
+ class="glossarylink" target="_blank">measures</a>. A call-and-response 
+technique is used throughout the piece.</p>
+<p><strong>1st <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113953071"
+ class="glossarylink" target="_blank">chorus</a> </strong></p>
+<p> 0:09-0:19 <strong>A</strong> Saxes play <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a> with brass 
+accompaniment. </p>
+<p> 0:19-0:28 <strong>B</strong> Saxes play melody with brass 
+accompaniment. </p>
+<p> 0:28-0:37 <strong>A</strong> Brass join saxes playing melody. </p>
+<p> 0:37-0:47 <strong>C</strong> Brass and saxes continue playing 
+melody.</p>
+<p><strong>2nd chorus </strong></p>
+<p> 0:47-1:24 Sax <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> (Hilton Jefferson) 
+begins. Solo lasts for one chorus with sustained brass accompaniment.</p>
+<p><strong>3rd chorus </strong></p>
+<p> 1:24-2:00 Trumpet solo (Henry 'Red' Allen) begins. Solo lasts for 
+one chorus with a busy sax and brass accompaniment.</p>
+<p><strong>4th chorus </strong></p>
+<p> 2:00 to end Melody to end. Henderson has embellished the melody with
+ alternating brass and sax passages and short solo sections.</p>
+<p> Henderson fronted star-studded bands until 1939. Giving in to the 
+pressures of leading a band in the 1930s, he broke up his group and 
+joined the Benny Goodman <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113954071"
+ class="glossarylink" target="_blank">big band</a> as both arranger and 
+pianist. It marked the first time that an African American performed on 
+stage with a white band. During the 1940s Henderson wrote for many other
+ bands besides Goodman’s. </p>
+<p>&nbsp; </p>
+<h3><strong> </strong> </h3>
+</body></html>

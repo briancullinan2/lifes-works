@@ -1,0 +1,430 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="roots.D.3a_files/styles.css" 
+type="text/css">
+
+<script language="javascript" src="roots.D.3a_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Stylistic features of ragtime</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="roots.D.3a_files/roots.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="roots.D.3a_files/roots.gif" alt="roots of jazz banner" 
+height="126" width="600"> 
+</p>
+<h3>Stylistic features of ragtime </h3>
+ <p>Ragtime is usually in duple meter with either two or four beats to 
+the bear. It features 
+melodic <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113976071"
+ class="glossarylink" target="_blank">improvisation</a> over diatonic <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113968071"
+ class="glossarylink" target="_blank">harmony</a> (basically the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a> that are built on the 
+major 
+scale steps I, IV, V and some secondary dominants).</p>
+ <p>The treble or higher part played by the pianist's right hand carried
+ the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a> and 
+generated twice the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113963071"
+ class="glossarylink" target="_blank">rhythmic</a> activity as the bass 
+or lower part played by the pianist's left hand. 
+The treble part was also highly <strong> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113936071"
+ class="glossarylink" target="_blank">syncopated</a></strong> which was 
+set in opposition to a 
+very rhythmically regular <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113995071"
+ class="glossarylink" target="_blank">bass line</a>.So, ragtime balanced
+ this wonderful contradiction of an 
+unpredictably melodic, active, and highly syncopated improvisation in 
+the treble cast against a 
+predictable, repetitive, and non-syncopated bass line.</p>
+ <p>Much of the syncopation in ragtime occurs within the  subdivision of
+ the beat. The beat in 
+ragtime is a duple subdivision (where the beat is divided into twos, 
+fours, etc.). Generally, the 
+first part (one) gets the accent. So, if we <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113980071"
+ class="glossarylink" target="_blank">subdivide</a> a beat into four 
+units then the accent, or 
+emphasis, is usually on subdivision beat 1 (here marked by an '&gt;' 
+sign).</p>
+ <table class="smTable" border="0">
+   <caption>
+   Subdivisions
+   </caption>
+   <tbody><tr>
+     <td>Beat:</td>
+     <td>1</td>
+     <td>&nbsp;</td>
+     <td>&nbsp;</td>
+     <td>&nbsp;</td>
+   </tr>
+   <tr>
+     <td>Subdivision:</td>
+     <td>1</td>
+     <td>2</td>
+     <td>3</td>
+     <td>4</td>
+   </tr>
+   <tr>
+     <td>Accent:</td>
+     <td>&gt; </td>
+     <td>&nbsp;</td>
+     <td>&nbsp;</td>
+     <td>&nbsp;</td>
+   </tr>
+ </tbody></table>
+ <p>This sounds like 'ONE-two-three-four,' 'ONE-two-three-four,' and so 
+forth.</p>
+ <p>In ragtime, syncopation shifts the accents to subdivided beats 2 and
+ 4, as follows.</p>
+ <table class="smTable" border="0">
+   <caption>
+   Subdivisions
+   </caption>
+   <tbody><tr>
+     <td>Beat:</td>
+     <td>1</td>
+     <td>&nbsp;</td>
+     <td>&nbsp;</td>
+     <td>&nbsp;</td>
+   </tr>
+   <tr>
+     <td>Subdivision:</td>
+     <td>1</td>
+     <td>2</td>
+     <td>3</td>
+     <td>4</td>
+   </tr>
+   <tr>
+     <td>Accent:</td>
+     <td>&gt; </td>
+     <td>&gt;</td>
+     <td>&nbsp;</td>
+     <td>&nbsp;</td>
+   </tr>
+ </tbody></table>
+ <p>This sounds like 'one-TWO-three-FOUR,' 'one-TWO-three-FOUR,' and so 
+forth. </p>
+ <p><img src="roots.D.3a_files/joplin_scott.gif" alt="Scott Joplin" 
+align="left" height="225" width="185">Listen to<strong> Scott Joplin's 
+"Mapleleaf Rag" </strong> to see if you 
+can hear the syncopation within the beat. </p>
+ <p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://
+fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="weareclimb_jacobs" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/roots/joplins_mapleleafrag.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="roots.D.3a_files/joplins_mapleleafrag.swf" quality="high" 
+bgcolor="#ffffff" name="weareclimb_jacobs" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/
+getflashplayer" align="middle" height="100" width="550"><a 
+class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/joplins_mapleleafrag.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/joplins_mapleleafrag.swf"></a>
+</object></p>
+ <p>The recording that you hear is actually the renowned ragtime 
+composer Scott Joplin who 
+recorded this piano roll in 1916. His touch on the keyboard, like most 
+ragtime pianists, was heavy 
+and percussive so that the sound would project in the bars and barrel 
+houses where ragtime was 
+performed. The sustaining pedal was used hardly at all since often the 
+ragtime pianist would 
+stomp out an additional <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a> with his foot. </p>
+ <p>Read the article "<strong><a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=opera.006184#opera.006184"
+ target="_blank">Scott Joplin.</a></strong>" </p>
+ <p>"Mapleleaf Rag" was composed by Joplin in 1899. Its <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a> is interesting, in that 
+it 
+is the same form that was used in military marches in the later part of 
+the nineteenth century 
+through the twentieth century. </p>
+ <p>The form of "Mapleleaf Rag" is constructed in two large sections, 
+each in a 
+different key. The first <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> (which, in turn, 
+consists of two different musical sections: A and B, 
+each repeated) is in the key of Ab major. The second section (which also
+ consists of two different 
+musical sections: C and D, each repeated) is in the key of Db major. 
+This latter section is called a 
+Trio, which dates from a time when a reduced group of performers in an 
+instrumental ensemble 
+(three of them) would play in contrast to the full ensemble of the first
+ section.</p>
+ <p><strong> Form of "Mapleleaf Rag" </strong></p>
+ <p>first section second section</p>
+ <p> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113973071"
+ class="glossarylink" target="_blank">Vamp</a> Trio </p>
+ <p> ||: A :||: B :|| A ||: C :||: D :||</p>
+ <p><a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113965071"
+ class="glossarylink" target="_blank">mm</a>: 16 16 16 16 16</p>
+ <p>key: Ab Db:</p>
+ <p>relationship: I IV</p>
+ <p>Each of the subsections in "Mapleleaf Rag" (A, B, C, and D) are each
+ 16 mm 
+long. The two major sections are linked by a single statement of the A 
+material that is called a 
+Vamp.</p>
+ <p> Listen again to<strong> Scott Joplin's "Mapleleaf Rag" </strong> 
+and follow the 
+form in the listening chart below.</p>
+ <p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://
+fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="weareclimb_jacobs" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/roots/joplins_mapleleafrag.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="roots.D.3a_files/joplins_mapleleafrag.swf" quality="high" 
+bgcolor="#ffffff" name="weareclimb_jacobs" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/
+getflashplayer" align="middle" height="100" width="550"><a 
+class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/joplins_mapleleafrag.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/joplins_mapleleafrag.swf"></a>
+</object></p>
+ <table class="smTable" summary="Typical ragtime form" border="0" 
+width="50%">
+    <caption>
+    Time Form table
+    </caption>
+    <tbody><tr>
+      <th scope="col">Time</th>
+      <th scope="col"><strong>Form</strong></th>
+    </tr>
+    <tr>
+      <td>0:00-0:23 </td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td>0:23-0:45 </td>
+      <td>A repeated</td>
+    </tr>
+    <tr>
+      <td>0:45-1:07 </td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <td>1:07-1:29 </td>
+      <td>B repeated</td>
+    </tr>
+    <tr>
+      <td>1:29-1:50</td>
+      <td> A (Vamp)</td>
+    </tr>
+    <tr>
+      <td>1:50-2:12</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td>2:12-2:35 </td>
+      <td>C repeated</td>
+    </tr>
+    <tr>
+      <td>2:35-2:56 </td>
+      <td>D</td>
+    </tr>
+    <tr>
+      <td>2:56-to end </td>
+      <td>D repeated</td>
+    </tr>
+</tbody></table>
+  <p>&nbsp;</p>
+ <p>A more typical ragtime form appears below. Note that "Mapleleaf 
+Rag," in this 
+recording, does not go back and repeat the opening A and B material. 
+Also the Vamp in &amp;
+quot;Mapleleaf Rag" is much longer, at 16 <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113941071"
+ class="glossarylink" target="_blank">measures</a>, rather than the more
+ typical 4 
+measures and there is no Introduction.</p>
+  <p>[Trio]</p>
+ <p> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113967071"
+ class="glossarylink" target="_blank">Intro</a> ||: A :||: B :|| Vamp 
+||: C :||: D :||</p>
+ <p> 4mm 16mm 16mm 4mm 16mm 16mm</p>
+ <p><strong> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113943071"
+ class="glossarylink" target="_blank">Fine</a></strong><strong> D.C.</strong></p>
+</body></html>

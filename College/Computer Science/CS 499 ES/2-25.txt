@@ -1,0 +1,23 @@
+Accellerometers
+1 hz 	4.7 uF
+
+500 hz	.01 uF
+
+analog bandwidth
+decrease bandwidth -> decrease noise
+
+Ratiometric - ouput depends on voltage
+
+Vs = 5v 
+
+Tilt, 17.5 milig per deg of tilt
+
+45 degrees, 12.2 milig per degree of tilt.
+
+
+ADC
+Comparator A+ measure directly, use timers, inputs and reference voltages.
+	compare v+ > v- -> High (1)
+		v- > v+ -> Low (0)
+successive approximation
+sigma-delta

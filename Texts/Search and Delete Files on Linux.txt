@@ -1,0 +1,7 @@
+This is a great Linux command for deleting files with a certain pattern.
+
+find ./ -name '.svn'|xargs rm -Rf
+
+This command first finds all the files or folders that match the name '.svn'. Find prints out the name is plain format which can then be piped to the rm command (remove).  Xargs just executes the command, it might format it too.  -R for the rm command means recursive, so it will delete directories too.  -f means force, so I don't have to confirm every removed file (VERY DANGEROUS!). Review the files being removed by remove everything to the right of the pipe '|' before using -f (force)!
+
+I needed this command when I accidentally uploaded .svn (subversion) files to the website server.  Obviously those files wouldn't be needed by the website and they exist in every single folder so I didn't want to have to go through and delete them all individually.

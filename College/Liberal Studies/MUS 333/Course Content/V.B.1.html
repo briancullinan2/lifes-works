@@ -1,0 +1,363 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="V.B.1_files/styles.css" type="text/css">
+
+<script language="javascript" src="V.B.1_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=5WcwLjGRLNNWgHmnQT21sn7ZZqhCQkvNDwKVc72nQfZrYLYd8gpb!258805519!prd2.vista.nau.edu!80!443!1006298310!prd3.vista.nau.edu!80!443!1273168913820";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=5WcwLjGRLNNWgHmnQT21sn7ZZqhCQkvNDwKVc72nQfZrYLYd8gpb!258805519!prd2.vista.nau.edu!80!443!1006298310!prd3.vista.nau.edu!80!443!1273168913820";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Gerry Mulligan</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="V.B.1_files/moduleV.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="V.B.1_files/moduleV.gif" alt="module banner" height="125" 
+width="600"> </p>
+<h3><strong>Gerry Mulligan
+
+</strong></h3>
+<p> Next to Harry Carney, Duke Ellington's longtime baritone saxophone 
+player, <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.317500&amp;subview=article_text"
+ target="_blank">Gerry Mulligan</a> was probably the best known and 
+highly regarded baritone saxophone player in modern jazz. In addition to
+ his remarkable abilities as a player, Mulligan was also a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113943071"
+ class="glossarylink" target="_blank">fine</a> arranger, composer and 
+bandleader who led a number of groups that helped to define the cool 
+jazz movement. </p>
+<p> Mulligan's first big break came when Gene Krupa hired him as both 
+saxophonist and arranger in the 1940's. His bop influenced writing 
+caught the attention of <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113954071"
+ class="glossarylink" target="_blank">big band</a> leader Claude 
+Thornhill. It was in Thornhill's band that Mulligan met Gill Evans. This
+ serendipitous meeting helped to lay the groundwork for Miles Davis' <cite>Birth
+ of the Cool</cite> recording. Before the Birth of the Cool nonet played
+ its engagement at the Royal Roost, Mulligan, Gil Evans, Miles and 
+number of other musicians interested in something new were gathering at 
+Evan's Manhattan apartment to play, arrange and refine the nonet's 
+sound. Mulligan's contribution to the group and subsequent recording 
+included arrangements of <cite>Darn That Dream</cite> and <cite>Godchild.</cite>
+ He also composed and arranged three original songs <cite>Venus de Milo,
+ Rocker</cite> and <cite>Jeru.</cite> Let's take a close look at Jeru. </p>
+<p> Jeru incorporated a couple of devices that became <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113933071"
+ class="glossarylink" target="_blank">standard</a> cool jazz fare – 
+shifting meters and phrases of unequal lengths. The tune basically in 
+4/4 meter and is an A-A-B-A <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a>. The first two phrases 
+(A-A) are the standard 8 bears long. Letter B, the bridge, is 12 bars 
+long and has bars of 3/4, 2/4 and 6/4 in it. The last letter A of the 
+form is 9 bars long rather than 8. Here's how it looks: </p>
+<p><strong><img src="V.B.1_files/Jeru.gif" alt="Jeru" height="741" 
+width="600"></strong></p>
+<p>Look at letter B – 12 bars long: </p>
+<p> The meter signatures are bigger than usual so they stand out. </p>
+<p> bar 1 – 4/4 </p>
+<p> bar 2 – 3/4 </p>
+<p> bar 3 – 2/4 </p>
+<p> bars 4-7 – 3/4 </p>
+<p> bar 8 - 6/4 and </p>
+<p> bars 9-12 - 4/4 </p>
+<p> The last letter A is, as mentioned, is 9 bars long. </p>
+<p><strong><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="tristanol_subcon_lee" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleV/davism_jeru.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="V.B.1_files/davism_jeru.swf" quality="high" 
+bgcolor="#ffffff" name="tristanol_subcon_lee" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="admzuzlqbptshelkhibi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleV/davism_jeru.swf"></a><a
+ class="admzuzlqbptshelkhibi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleV/davism_jeru.swf"></a>
+</object></strong></p>
+<p>0:00 Horns play the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a> of 1<sup>st</sup> 
+letter A </p>
+<p> 0:11 Horns play the melody of 2<sup>nd</sup> letter A </p>
+<p> 0:21 Horns play letter B Here's how to count the beats with the 
+changing meters: </p>
+<blockquote>
+  <p> "1-2-3-4 </p>
+  <p> 1-2-3 </p>
+  <p> 1-2 </p>
+  <p> 1-2-3 </p>
+  <p> 1-2-3 </p>
+  <p> 1-2-3 </p>
+  <p> 1-2-3 </p>
+  <p> 1-2-3-4-5-6 </p>
+</blockquote>
+<p> 0:31 1-2-3-4 (Baritone sax <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a>) </p>
+<blockquote>
+  <p> 1-2-3-4 </p>
+  <p> 1-2-3-4 </p>
+  <p> 1-2-3-4" </p>
+</blockquote>
+<p> 0:36 Horns play the melody of last letter A – 9 bars long. </p>
+<p> 0:48 Miles Davis trumpet solo - A-A-B-A - each <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> 8 bars long! The 
+standard 32 bar A-A-B- form with no meter changes. Horns plays behind 
+Miles for 8 bars and drops out for the 2 nd letter A and the bridge. </p>
+<p> 1:20 Horns play behind Miles for the last letter A. </p>
+<p> 1:31 Mulligan baritone solo begins </p>
+<p> Here, Mulligan inserts a horn lead in to his solo made up of 3 bars 
+of 4/4 and a bar of 2/4 – Mulligan solos for 4 more bars in 4/4 ending 
+the first letter A (8 bars minus 2 beats.) </p>
+<blockquote>
+  <p> "1-2-3-4 </p>
+  <p> 1-2-3-4 </p>
+  <p> 1-2-3-4 </p>
+  <p> 1-2 </p>
+  <p> 1-2-3-4 </p>
+  <p> 1-2-3-4 </p>
+  <p> 1-2-3-4 </p>
+  <p> 1-2-3-4" </p>
+</blockquote>
+<p> 1:41 The 2<sup>nd</sup> letter A is a repeat of the first. </p>
+<p> 1:51 Letter B and the last A sections of the solo are each 8 bars 
+long. </p>
+<p> 2:13 Horns enter with a brand new melody! New letter A </p>
+<p> 2:24 New letter A repeats </p>
+<p> 2:35 New letter B melody using counting format above. This tie Miles
+ Davis plays the last 4 bars of letter B. </p>
+<p> 2:50 Last letter A to end. </p>
+<p>Mulligan's use of mixed meters and phrases of varying lengths helped 
+to create an arrangement full of unexpected twists and turns. Mulligan 
+moved to Los Angeles after the <cite>Birth of the Cool</cite> recording 
+sessions and helped to establish what became known as West Coast Jazz. 
+The label is a misnomer as most of the people involved with West Coast 
+Jazz were not from the west coast! Gerry Mulligan, for example, was born
+ in Queens . New York – almost as far from the west coast as you can get
+ and still be in the United States ! The label came to signify music 
+played by white musicians in a very relaxed, laid back style totally 
+ignoring the contributions being made by African-American musicians like
+ tenor saxophonists Dexter Gordon and Buddy Collette who were performing
+ in the LA area at the same time. </p>
+<p> Before returning to New York in the late 1950's Mulligan and 
+trumpeter <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.022200&amp;subview=article_text"
+ target="_blank">Chet Baker</a> formed a group with no piano in it. This
+ piano-less quartet (sax, trumpet bass and drums) created quite a 
+sensation and was recorded often by the recording company, Pacific Jazz.
+ The lack of a piano left a lot space for the soloists to fill by 
+themselves. They were now free to experiment with the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a> and scales (<a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113968071"
+ class="glossarylink" target="_blank">harmony</a>) and not be bound by 
+the pianist. Because of this new found freedom, Mulligan and Baker were 
+able to weave spontaneously created melody lines around each other. This
+ counterpoint became a feature of cool jazz. Let's listen to Mulligan 
+and Baker along with Carson Smith on bass and Larry Bunker on drums in a
+ 1953 live recording of My Funny Valentine. An A-A-B-A form, the last 
+letter A section is 12 bars long – 8 bars plus a 4 bar tag. The 
+performance is two choruses long and is anchored by what seems to a 
+written out (not improvised) <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113995071"
+ class="glossarylink" target="_blank">bass line</a>. The line is 
+repeated with very few alterations for both the trumpet and baritone sax
+ solos. </p>
+<p><strong><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="tristanol_subcon_lee" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleV/mulligang_myfunnyval.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="V.B.1_files/mulligang_myfunnyval.swf" quality="high" 
+bgcolor="#ffffff" name="tristanol_subcon_lee" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="admzuzlqbptshelkhibi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleV/mulligang_myfunnyval.swf"></a><a
+ class="admzuzlqbptshelkhibi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleV/mulligang_myfunnyval.swf"></a>
+</object></strong></p>
+<p>0:00 Drum roll with mallets </p>
+<p> 0:11 Bass enters playing quarter note pattern </p>
+<p> Baker enters playing letter A for the 1<sup>st</sup> time. Notice 
+that Baker's trumpet sound is more aggressive and edgy than most cool 
+players we've listened to so far.. </p>
+<p> 0:39 Baker plays letter A for the 2<sup>nd</sup> time </p>
+<p> 1:10 Letter B – Bass play double stops (2 notes played at the same 
+time) </p>
+<p> 1:42 The last letter A with embellishments. Bass play quarter notes 
+as in 1<sup>st</sup> and 2<sup>nd</sup> letter A </p>
+<p> This last letter A is 11 bars long rather than 12. </p>
+<p> 2:22 Mulligan sax solo starts – 1<sup>st</sup> letter A. Bass line 
+repeats as played for Baker </p>
+<p> 2:54 Mulligan solo continues – 2<sup>nd</sup> letter A </p>
+<p> 3:27 Letter B – Bass play double stops again (2 notes played at the 
+same time) </p>
+<p> 4:01 Mulligan solos on the 1<sup>st</sup> 8 bars of the last letter 
+A. </p>
+<p> 4:35 Baker enters with the last 4 bars of the melody embellished to 
+end. Mulligan improvises lines around Baker's melody </p>
+4:51 Drum roll. <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113985071"
+ class="glossarylink" target="_blank">Tempo</a> slows to end
+</body></html>

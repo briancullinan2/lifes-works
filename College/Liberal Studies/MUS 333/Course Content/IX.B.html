@@ -1,0 +1,275 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="IX.B_files/styles.css" type="text/css">
+
+<script language="javascript" src="IX.B_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=LYt9LjGYyQ9YtkC2QgpTppT1W3h8Fw1tnLdwqwCzJcvhJy2ld6mQ!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273185368864";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=LYt9LjGYyQ9YtkC2QgpTppT1W3h8Fw1tnLdwqwCzJcvhJy2ld6mQ!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273185368864";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Louis Armstrong and His Hot Five</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="IX.B_files/moduleIX.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style1 {font-weight: bold}
+-->
+</style>
+</head><body>
+<p><img src="IX.B_files/moduleIX.gif" alt="module banner" height="125" 
+width="600"> </p>
+<h3><strong> Louis Armstrong and His Hot Five </strong><strong></strong></h3>
+<p> Louis Armstrong and His Hot Five’s 1928 recording of “West End 
+Blues” contains one of the most inventive cornet solos ever recorded and
+ we also hear Dixieland turning into something else. This is a great 
+recording in which to hear elements that will point the way and be an 
+open door into the new style called Swing. </p>
+<p> Armstrong, here, was recording with a new group in Chicago . His Hot
+ Five
+  and Hot Seven were some of the very top Dixieland performers on the 
+scene.
+  Many were band leaders in their own right. This was a studio band—they
+  rarely performed in public and came together only to record. 
+Armstrong’s
+  Hot Five featured Armstrong on trumpet and vocals, Fred Robinson on 
+trombone,
+  Jimmy Strong on clarinet, Earl ‘Fatha’ Hines on piano, Mancy Cara
+  on banjo, and drummer Zutty Singleton. </p>
+<p> “West End Blues,” composed by Joe Oliver and Clarence Williams,
+  is a straight-ahead 12 bar blues. In each <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113953071"
+ class="glossarylink" target="_blank">chorus</a>, you will hear three 
+musical
+  phrases. Review 12 bar blues in the 
+
+
+‘Basic Materials of Music’ <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> of the course, if you 
+need a refresher. </p>
+<p> Some things to pay particular attention to in “West End Blues” as 
+you listen.</p>
+<p><strong> Introduction </strong></p>
+<p> Armstrong opens will a brilliant call that immediately catches your 
+attention. It rises up to the top of the horn and then descends mixing 
+many different rhythms in a 
+
+
+stunning
+
+<a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113994071"
+ class="glossarylink" target="_blank">mix</a>.</p>
+<p><strong> 1st Chorus </strong></p>
+<p> In the next section of the course, you will hear and we will discuss
+ Dixieland style. One of its hallmarks is that all <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a> instruments (trumpet or
+ cornet, clarinet, and trombone) are improvising together at the same 
+time and their <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113976071"
+ class="glossarylink" target="_blank">improvisation</a> is of equal 
+weight (no one is more important). 
+
+
+In this 1st Chorus, though, who is playing the lead? Does one 
+instrumental line dominate?
+
+What instrument are your ears immediately attracted to? This focus on a 
+single <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113970071"
+ class="glossarylink" target="_blank">soloist</a> (or section) within an
+ ensemble part of the piece will become a hallmark of Swing.</p>
+<p><strong> 4th Chorus </strong></p>
+<p> It is in the 4th Chorus that we hear, in a single moment, Dixieland 
+changing into Swing. The great pianist Earl ‘Fatha’ Hines is on this 
+recording session. </p>
+<p>Read the article <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.202500&amp;subview=article_text"
+ target="_blank">Earl Hines.</a></p>
+<p> In "West End Blues," Hines begins by changing typical 
+Ragtime-influenced Dixieland piano style (two beat, highly <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113936071"
+ class="glossarylink" target="_blank">syncopated</a>, duple 
+subdivisions) by sounding a cascade of rapidly flowing notes that 
+overruns the expected syncopations in the right hand. He returns to 
+Dixieland tradition by playing a two-beat ‘oompah’ style in the left 
+hand (<a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113995071"
+ class="glossarylink" target="_blank">bass line</a>). However, he 
+immediately begins to flatten and smooth out the bass line into four 
+undifferentiated beats of a walking bass line. For a moment we have move
+ somewhere beyond Dixieland and into the new style that will be called 
+Swing.</p>
+<p><strong> 5th Chorus </strong></p>
+<p>  This is one of the most famous solos in all of jazz. Armstrong 
+builds an amazing amount of tension and energy by simply playing one <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113989071"
+ class="glossarylink" target="_blank">pitch</a>! He coils things up on 
+the single note through the first phrase of the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a> and it takes the next two
+ phases for that energy to uncoil, descend, and dissipate. All the 
+while, he is playing duplets, triplets, quadruplets, quintuplets and 
+other non-duple divisions of the beat that was not that commonly heard 
+in jazz at that time. Armstrong was a huge fan of Italian opera, which 
+was popular music in the nineteenth through early twentieth centuries, 
+and he heard a lot of great performances in his native New Orleans . 
+Some have argued that Armstrong brought more complicated musical 
+strategies and gestures from Italian opera singing into jazz and adapted
+ it to terrific effect.</p>
+<p><strong> </strong></p>
+</body></html>

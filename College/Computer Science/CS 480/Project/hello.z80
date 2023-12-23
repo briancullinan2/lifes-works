@@ -1,0 +1,324 @@
+.nolist
+#include "ti83plus.inc"
+#define    ProgStart    $9D95
+.list
+.org    ProgStart - 2
+.db    t2ByteTok, tAsmCmp
+
+  ; Begin main program execution
+  call   clear
+  call   disclaimer
+  call   prompt
+  jp     exit
+
+prompt:
+  ; turn off run indicator
+  b_call(_RunIndicOff)
+  ; print out the prompt string
+  ld     hl, promptstr
+  b_call(_VPutS)
+  ; set the input counter to 0 and put on the stack
+  ld     bc, 0
+  push   bc
+  call   input
+  ; reset counter
+  pop    bc    ; this is now the string length
+  ; evaluate the inputstr
+  call   newline
+  ld     hl, inputstr
+  push   hl
+  call   putstr
+  ; return if input is quit or exit
+  b_call(_GetKey)
+  ret
+
+input:
+  ; switch the return address with the input variables
+  ; so we can use it to count
+  pop    hl
+  pop    bc
+  push   hl
+  push   bc
+
+loop1:
+  ; retreive key input
+  b_call(_GetKey)    ; Get a key
+  ; check if it is enter key
+  cp     kEnter
+  jr     z, endin
+  ; convert key to letter
+  call   convertkey
+  ; put the key in the input string
+  ld     hl, inputstr  
+  pop    bc
+  add    hl, bc
+  ; increment counter and put back on stack
+  inc    bc
+  push   bc
+  ; save character and display
+  ld     (hl), a
+  inc    hl
+  ld     (hl), $0   ; terminate the single character
+  dec    hl
+  ; display character
+  ld     b, (hl)
+  ld     c, 0
+  push   bc
+  call   putchar
+  ; repeat to accept another key
+  jr loop1
+
+endin:
+  ; switch the input and the return address back
+  pop    bc
+  pop    hl
+  push   bc
+  push   hl
+
+  ; return if enter key is pressed
+  ret
+
+disclaimer:
+  ; display each message of the disclaimer
+  ld     hl, disclaim
+  push   hl
+  call   putstr
+  call   newline
+  call   newline
+  ret
+
+newline:
+  ; copy the pen position into hl
+  call   linefeed
+  call   carraigeret
+  ret
+
+linefeed:
+  ld     hl, (PenCol)
+  ; add a line to the pen position
+  ld     bc, $0600
+  add    hl, bc
+  ld     (PenCol), hl
+  ret
+carraigeret:
+  ld     hl, (PenCol)
+  ; clear the column
+  ld     l, 0
+  ld     (PenCol), hl
+  ret
+
+; destroys bc and hl
+; input stack variable with char in high position
+putchar:
+  ; check if we need to line wrap
+  ld     bc, (PenCol)
+  ld     a, c
+  cp     90
+  ld     bc, return1
+  push   hl
+  push   bc
+  jr     nc, newline
+  pop    bc
+return1:
+  pop    hl
+  ; print character
+  pop    hl
+  pop    bc
+  push   hl
+  ld     a, b
+  b_call(_VPutMap)
+  ret
+
+; uses every register
+; takes an input on the stack pointing to the start of a string
+putstr:
+  ; loop through each character until we hit a null terminator
+  pop    hl ; the return address
+  pop    bc ; the pointer to string
+  push   hl
+loop2:
+  ld     a, (bc)
+  ; put counter back on stack
+  push   bc
+
+  ; check for end of string
+  cp     0
+  jr     z, endofstr
+
+  ; check for new line character
+  cp     10
+  ld     de, skipchar
+  push   de
+  jr     z, linefeed
+  pop    de
+
+  ; check for carriage return
+  cp     13
+  ld     de, skipchar
+  push   de
+  jr     z, carraigeret
+  pop    de
+
+  ; print out char
+  ld     d, a
+  ld     e, 0
+  push   de
+  call   putchar
+skipchar:
+  pop    bc  ; load the counter
+  inc    bc  ; increment counter so it looks at next character
+  jr     loop2
+endofstr:
+  ret
+
+clear:
+  ld     hl, 0
+  ; clear pen and cursor positions
+  ld     (PenCol), hl
+  ld     (CurRow), hl
+  ; clear screen and lcd
+  b_call(_ClrScrnFull)
+  b_call(_ClrLCDFull)
+  ret
+
+exit:
+  call   clear
+  ret
+
+
+disclaim:
+  .db "TISh comes with absolutely",13,10
+  .db "no warranty permitted by",13,10
+  .db "applicable law.",0
+promptstr:
+  .db "# ", 0
+inputstr:
+  .db 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+  .db 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+  .db 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+  .db 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+
+; convert the key to a letter
+; uses a
+; destroys b 
+convertkey:
+  ; add values to key to make them valid characters
+; check if it is uppercase
+
+;a
+  ld     b, $61
+  cp     $32
+  jp     z, hit
+;b
+  ld     b, $62
+  cp     $2C
+  jp     z, hit
+;c
+  ld     b, $63
+  cp     $2D
+  jp     z, hit
+;d
+  ld     b, $64
+  cp     $B6
+  jp     z, hit
+;e
+  ld     b, $65
+  cp     $B7
+  jp     z, hit
+;f
+  ld     b, $66
+  cp     $B9
+  jp     z, hit
+;g
+  ld     b, $67
+  cp     $BB
+  jp     z, hit
+;h
+  ld     b, $68
+  cp     $84
+  jp     z, hit
+;i
+  ld     b, $69
+  cp     $BD
+  jp     z, hit
+;j
+  ld     b, $6A
+  cp     $8B
+  jp     z, hit
+;k
+  ld     b, $6B
+  cp     $85
+  jp     z, hit
+;l
+  ld     b, $6C
+  cp     $86
+  jp     z, hit
+;m
+  ld     b, $6D
+  cp     $83
+  jp     z, hit
+;n
+  ld     b, $6E
+  cp     $C1
+  jp     z, hit
+;o
+  ld     b, $6F
+  cp     $95
+  jp     z, hit
+;p
+  ld     b, $70
+  cp     $96
+  jp     z, hit
+;q
+  ld     b, $71
+  cp     $97
+  jp     z, hit
+;r
+  ld     b, $72
+  cp     $82
+  jp     z, hit
+;s
+  ld     b, $73
+  cp     $BF
+  jp     z, hit
+;t
+  ld     b, $74
+  cp     $92
+  jp     z, hit
+;u
+  ld     b, $75
+  cp     $93
+  jp     z, hit
+;v
+  ld     b, $76
+  cp     $94
+  jp     z, hit
+;w
+  ld     b, $77
+  cp     $81
+  jp     z, hit
+;x
+  ld     b, $78
+  cp     $8A
+  jp     z, hit
+;y
+  ld     b, $79
+  cp     $8F
+  jp     z, hit
+;z
+  ld     b, $7A
+  cp     $90
+  jp     z, hit
+;space
+  ld     b, $20
+  cp     $8E
+  jp     z, hit
+;default
+  ld     b, $0
+
+hit:
+  ld     a, b
+  ret
+
+.end
+.end

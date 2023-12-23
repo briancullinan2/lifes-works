@@ -1,0 +1,65 @@
+TIMERS
+
+Some Byte structure about the bytes
+Tasselx <- clock select 
+TASSEEL_0
+TASESEL_1
+00 TACLK <-- external
+01 ACLCK <-- Internal (missing) 32 KHZ 
+10 SMCLK <-- Subsystem clock, almost all same freq of master clock, 800 KHZ, 1.1mhz
+11 Inclk <- external
+
+
+IDX <- input divider
+// What is this
+00  ID_0  /divide by 1
+01  ID_1
+10  ID_2
+11  ID_3  /divide by 8
+
+
+//mc-0, mc_1, mc_2, mc_3, (we are using mc_2)
+MCX 00 HALT Timer <- Consume Less Power
+    01 Count to TACCR0
+    10 Count to 0xffffh
+    11 Count to TACCR0 then down to 0h
+
+TACLR - Reset timer, divider, direction
+TA1Z -> Interup enable
+TA1FG -> interrupt flag
+
+
+
+SAMPLE Program
+
+
+P1OUT =1;
+P1DIR =1;
+
+TACTL = MC_2 | ID_3 | TASSEL_2 | TACLR;
+for (;;) {
+  // Overflow flag
+  while (TACTL_bit.TAIFG == 0) {}
+  TACTL_bit.TAIFG = 0;
+  P1out ^= 1;
+}
+
+
+2^16 /800 KHZ = .08s
+2^16 /100 KH = 0.65 s
+
+
+1 second delay
+100,000 caherts at 100KHZ
+0.5 Second Delay = 50,000
+	TACCR0=49,999
+
+
+
+Morse code generator
+need to know which divisor to use and what
+
+void morse( char* s, space)
+dit = miliseconds 
+
+have it do youre name

@@ -1,0 +1,287 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="X.D.2_files/styles.css" type="text/css">
+
+<script language="javascript" src="X.D.2_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=LYt9LjGYyQ9YtkC2QgpTppT1W3h8Fw1tnLdwqwCzJcvhJy2ld6mQ!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273185368864";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=LYt9LjGYyQ9YtkC2QgpTppT1W3h8Fw1tnLdwqwCzJcvhJy2ld6mQ!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273185368864";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>“Big Butter and Egg Man from the West” </title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="X.D.2_files/moduleX.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="X.D.2_files/moduleX.gif" alt="module banner" height="126" 
+width="600"> </p>
+<h3> <strong> “Big Butter and Egg Man from the West” </strong></h3>
+<p>“Big Butter and Egg Man from the West” was recorded in 1926 in 
+Chicago . The title was slang for a big spender that actually had little
+ money. </p>
+<p>The song in an A B C A <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a>, with each <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> being eight bars long.
+ Armstrong’s fourth <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113953071"
+ class="glossarylink" target="_blank">chorus</a> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> became very famous and 
+was a model for many other Dixieland cornet players. Gunther Schuller 
+claimed that “no composer, not even a Mozart or a Schubert, composed 
+anything more natural and simply inspired” <strong><a 
+href="javascript:showPage(-1,%20-1,%20-1,%20'/mod10/Bibliog.html',%20'WEBCT_NO_ANCHOR_VALUE',%20'3');">(Schuller
+ 1968)</a>.</strong> We close with Dixieland again moving toward Swing. </p>
+<p>Follow the chart below as you listen to <strong> Louis Armstrong and 
+His Hot Five’s “Big Butter and Egg Man from the West” (1926).</strong><strong>
+ </strong></p>
+<p><strong> <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+ 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" 
+value="../audio/moduleX/armstrongl_hot5_bigbutter.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="X.D.2_files/armstrongl_hot5_bigbutter.swf" quality="high" 
+bgcolor="#ffffff" allowscriptaccess="sameDomain" 
+type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a style="left: 526px ! important; top: 318px !
+ important;" title="Click here to block this object with Adblock Plus" 
+class="lbmypuufeyqkkttocprv rbeuzmkqpjjuofuakxvi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleX/armstrongl_hot5_bigbutter.swf"></a>
+</object></strong></p>
+<p><strong>1st Chorus </strong></p>
+<p><a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">Melody</a> played by Armstrong 
+with some <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113976071"
+ class="glossarylink" target="_blank">improvisation</a>. Both the 
+clarinet and trombone improvise freely behind Armstrong throughout the 1
+ st chorus. The <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113991071"
+ class="glossarylink" target="_blank">rhythm section</a> plays a steady 
+four-to-the-bar-pattern.<strong></strong></p>
+<p>0:00-0:10 <strong>A </strong> 8mm</p>
+<p>0:10-0:19 <strong>B</strong> 8mm</p>
+<p>0:19-0:28 <strong>C</strong> 8mm</p>
+<p>0:28-0: 37 <strong>A</strong> 8mm</p>
+<p><strong>2nd Chorus</strong></p>
+<p>Vocal (Alix) accompanied by <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a> section only. She sings
+ lyrics to the same melody Armstrong played in the 1str Chorus. Piano 
+and banjo get away from the strict four-to-the-bar pattern played in the
+ 1st Chorus and start to play more freely.</p>
+<p>0: 37-0: 47 <strong>A</strong></p>
+<p>Lyrics: “I want a Butter and Egg Man,</p>
+<p>a way out on the West.”</p>
+<p>&nbsp;</p>
+<p>0: 47-0:56 <strong>B</strong></p>
+<p> “‘Cause I’m getting tired of working all day,</p>
+<p>I want somebody who wants me to play.”</p>
+<p>&nbsp;</p>
+<p>0:56-1:06 <strong>C</strong></p>
+<p> “Pretty close has never been mine,</p>
+<p> But if my dream comes true, the sun’s gonna shine.”</p>
+<p>&nbsp; </p>
+<p>1:06-1:16 <strong>A</strong></p>
+<p>“‘Cause I want a Butter and Egg Man,</p>
+<p>Want the great big Butter and Egg for me.”</p>
+<p>&nbsp; </p>
+<p><strong>3rd Chorus</strong></p>
+<p>Armstrong replies to Alix. </p>
+<p>1:16-1:24 <strong>A and B</strong> Armstrong speaks the lyrics; he 
+does not sing them.</p>
+<p> “Here, here!</p>
+<p> Now Mama I’m your Butter and Egg Man.</p>
+<p>But I’m different Honey, </p>
+<p>but I’m from way down in the South.</p>
+<p> Now listen Baby,”</p>
+<p>&nbsp;</p>
+<p>1:24-1:35 <strong>B</strong></p>
+<p>“I’ll buy you all the pretty things that you think you need,</p>
+<p> A-a-as long I can keep this cornet up to my mouth.”</p>
+<p> 1:35-1:44 <strong>C</strong> Armstrong starts to <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113994071"
+ class="glossarylink" target="_blank">mix</a> speaking with singing.</p>
+<p> (singing) “Oh-h-h, I’ll play you a little minor in G,</p>
+<p> (speaking) And if you say it’s necessary Baby, I’ll even high C!” 
+(laughs)</p>
+<p>&nbsp; </p>
+<p>1:44-1:58 <strong>A</strong></p>
+<p>(singing) “‘Cause I’m your Big Butter and Egg Man,</p>
+<p>(speaking) Come here Baby and kiss me!</p>
+<p> Big Butter and Egg Man from way down South.”</p>
+<p>&nbsp; </p>
+<p><strong>4th Chorus</strong></p>
+<p> 1:58-2:37 Trumpet solo. Armstrong solos with rhythm accompaniment 
+only; no horns for an entire chorus. Piano and banjo keep strict 
+four-to-the-bar pattern throughout.</p>
+<p><strong>5th Chorus</strong></p>
+<p> 2:37-2:46 Starts with section <strong>C </strong>and Alix sings the 
+lyrics to <strong>C</strong>:</p>
+<p> “Pretty close has never been mine,</p>
+<p>But if my dream comes true, the sun’s gonna shine.”</p>
+<p> 2:46 to end Horns play the last A section and Alix (vocals) drops 
+out. Both the clarinet and trombone improvise freely behind Armstrong as
+ in the 1st Chorus.</p>
+<p><strong> &nbsp;</strong></p>
+<p><strong>  </strong></p>
+</body></html>

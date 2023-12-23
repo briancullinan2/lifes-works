@@ -1,0 +1,47 @@
+<!-- BEGIN SURVEY -->
+	<!-- BEGIN CHECKBOX -->
+	<div class="input" oncreate="createSurveyElement('checkbox', null, this); this.id=nextId(); elLoop([this])">
+		<div class="input_heading" oncreate="this.xml=this.parentNode.xml">
+			<!-- BEGIN QUESTION -->
+			<label>{QUESTION_DATA}</label>
+			<!-- END QUESTION -->
+		</div>
+		<div class="input_content" oncreate="this.xml=this.parentNode.xml">
+			<!-- BEGIN LOCATION -->
+			<!-- END LOCATION -->
+			<div class="responses" oncreate="this.xml=this.parentNode.xml; this.id=nextId();">
+				<!-- BEGIN RESPONSE -->
+				<input type="checkbox" name="" value="{RESPONSE_DATA}" oncreate="this.name=this.parentNode.parentNode.id;" onchange="setSurveyElementValue(this.parentNode.xml, this.value)" />
+				<label>{RESPONSE_DATA}</label>
+				<br />
+				<!-- END RESPONSE -->
+			</div>
+		</div>
+		<div class="input_footing" oncreate="this.xml=this.parentNode.xml">
+		</div>
+	</div>
+	<!-- END CHECKBOX -->
+	<!-- BEGIN RADIO -->
+	<div class="input" oncreate="createSurveyElement('radio', null, this); this.id=nextId(); elLoop([this])">
+		<div class="input_heading" oncreate="this.xml=this.parentNode.xml">
+			<!-- BEGIN QUESTION -->
+			<label>{QUESTION_DATA}</label>
+			<!-- END QUESTION -->
+		</div>
+		<div class="input_content" oncreate="this.xml=this.parentNode.xml">
+			<!-- BEGIN LOCATION -->
+			<!-- END LOCATION -->
+			<div class="responses" oncreate="this.xml=this.parentNode.xml; this.id=nextId();">
+				<!-- BEGIN RESPONSE -->
+				<input type="radio" name="" value="{RESPONSE_DATA}" oncreate="this.name=this.parentNode.parentNode.id;" onchange="setSurveyElementValue(this.parentNode.xml, this.value)" />
+				<label>{RESPONSE_DATA}</label>
+				<br />
+				<!-- END RESPONSE -->
+			</div>
+		</div>
+		<div class="input_footing" oncreate="this.xml=this.parentNode.xml">
+		</div>
+	</div>
+	<!-- END RADIO -->
+	{INPUT_LIST}
+<!-- END SURVEY -->

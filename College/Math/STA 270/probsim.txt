@@ -1,0 +1,20 @@
+probsim <- function(num,desired, n)
+{
+temp <- c()
+storage <- c()
+n1 <- min(1000,n)
+
+
+for(i in 1:n1)
+{
+temp[i] <- sample(seq(1,num),1)
+if(temp[i] == desired) temp[i]=1
+else temp[i]=0
+storage[i] <- sum(temp)/length(temp)
+}
+
+x <- seq(1,n1)
+
+plot(x,storage,type="l", ylim=c(0,1),main="Probability Simulation: The Long-Run Probability of What You Want", xlab="Trial #", ylab ="Proportion of Time Your Desired Outcome Occurs")
+}
+

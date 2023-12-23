@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="I.F.2_files/styles.css" type="text/css">
+
+<script language="javascript" src="I.F.2_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Music and Perception</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="I.F.2_files/moduleI.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="I.F.2_files/moduleI.gif" alt="module banner" height="126" 
+width="600"> 
+</p>
+<h3>Music and Perception</h3>
+<p>  Add perception of music into the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113994071"
+ class="glossarylink" target="_blank">mix</a> and things become further 
+muddied. From
+    nineteenth-century philosophers to late twentieth-century 
+Franco-American
+    Deconstructionists, there have been some remarkable points argued 
+concerning
+    perception that can be applied to music that run counter to most 
+people's
+    every-day assumptions. One example, among many, involves the 
+reversal of
+    cause and effect, where it is argued that we only perceive the cause
+ of some
+    stimulus only after we perceive its effect, such as pain <strong>(<a
+ 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod1/Biblio.html"
+ target="_blank">Nietzsche 1888:265-66</a>)</strong>.</p>
+<p><strong>Memory</strong><br>
+  We listen to a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113955071"
+ class="glossarylink" target="_blank">live performance</a> and remember 
+aspects of it later. We also listen
+    to a recording and can also remember it at a later time. Music is 
+heard,
+    performed, or reanimated by recordings or memory at later times. So,
+ frequently
+    music that has been heard before is always part of a process of our 
+living
+    experience. We compare our memories of a performance—either live or
+    recorded—with what we encounter in the moment. Music of the present
+    is an inescapable part of the past. As a result, determining 'when' a
+    piece 'is,' or even 'what' it 'is,' for
+a group of listeners can be a pretty complicated affair. </p>
+<p>Luckily, we are not going to jump off the deep end in this course. 
+Memory
+  of a particular musical performance or recording can never be 
+separated from
+  the actual performance or recording in the mind of the listener. We 
+continually
+  reanimate past events in the present and cannot escape our own 
+participation
+in the recall of past events, even music <strong>(<a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod1/Biblio.html"
+ target="_blank">Collingwood 1946 and Carr 1961</a>)</strong>.</p>
+</body></html>

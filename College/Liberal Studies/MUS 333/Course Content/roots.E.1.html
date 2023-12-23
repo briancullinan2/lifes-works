@@ -1,0 +1,259 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="roots.E.1_files/styles.css" type="text/css">
+
+<script language="javascript" src="roots.E.1_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Introduction</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="roots.E.1_files/roots.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="roots.E.1_files/roots.gif" alt="roots of jazz banner" 
+height="126" width="600"> 
+</p>
+<h3>Introduction</h3>
+<p>  Like jazz, blues is a creation of the twentieth century––there
+  was no music called the blues until then. It is a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a> of African-American
+  music that has its origins in an oral tradition of <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113976071"
+ class="glossarylink" target="_blank">improvisation</a>. Some of the
+  traditions that came together to form the jazz also inform the blues, 
+such
+as yells, hollers, cries, work songs, and blackface minstrelsy.</p>
+<p><strong>Yells, hollers, and cries</strong><br>
+  Yells, cries, and hollers were used in the Southern, rural countryside
+ to communicate
+    over long distances––from one end of a field to the other––or
+    in an urban setting to advertise goods for sale. The following 
+recording
+    was made in Charleston in 1921. It documents a street vendor calling
+ out
+    his fruit for sale––blackberries, strawberries––and,
+    like most cries or hollers, is both florid and <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113926071"
+ class="glossarylink" target="_blank">melismatic</a>. This vendor’s
+    cry is similar to ones that you can still hear in ballparks where 
+vendors
+    hawk drinks and hot dogs.</p>
+<p>Play <strong>“Street cries of Charleston.”</strong></p>
+  <p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="weareclimb_jacobs" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/roots/streetcries.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="roots.E.1_files/streetcries.swf" quality="high" 
+bgcolor="#ffffff" name="weareclimb_jacobs" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/streetcries.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/streetcries.swf"></a>
+</object></p>
+<p> <br>
+  <strong>Work songs</strong><br>
+  Work songs are common to many cultures and are often found in 
+traditional cultures,
+  such as in West Africa. Anyone who has performed repetitive, hard, 
+physical
+  labor knows that it can be eased and the time will pass more quickly 
+if the
+  work can be done in a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113963071"
+ class="glossarylink" target="_blank">rhythmic</a> fashion. When working
+ as a group, singing a
+  song can also help everyone move in unison to coordinate the task at 
+hand.
+  Work songs have probably been sung for all of these reasons. These 
+songs appear
+  to have largely disappeared in America by the early twentieth century,
+ with
+  the exception of prison work gangs who sang work songs into the 1950s.</p>
+<p>Listen to a 1947 recording by ten prisoners at the Mississippi State 
+Penitentiary
+  in Parchman who worked a prison axe gang. The performance is couched 
+in the
+  familiar call-and-response pattern, which is used by most work songs. 
+The drawn-out
+  singing style of this song is a legacy of work song performance styles
+ that
+  date back to the 1930s.</p>
+<p>Play <strong>C.B. and the axe gang, “Rosie.”</strong></p>
+  <p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="weareclimb_jacobs" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/roots/cbaxegang_rosie.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="roots.E.1_files/cbaxegang_rosie.swf" quality="high" 
+bgcolor="#ffffff" name="weareclimb_jacobs" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/cbaxegang_rosie.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/cbaxegang_rosie.swf"></a>
+</object></p>
+  <p>&nbsp;</p>
+</body></html>

@@ -1,0 +1,56 @@
+Mon 2/2/09
+Notes:
+
+Interrupt Service Request===============
+1) Complete current instruction, start MCLK if it is off
+2) Push PC onto stack
+3) Push SR onto stack
+4) Select highest priority interrupt
+5) Clear interrupt request flag for vectors with single source interrupts
+only if there was a single source and identifiable do we keep it
+
+6) Clear SR
+	a) disables other maskable interrupts
+	b) terminates low power mode
+
+7) load interrupt vector on PC.
+
+=== 6 cycles on MSP430
+
+
+EX
+void main() {
+  WDTCTL = WDTPW | WDTHOLD;
+  P1OUT =1 ;
+  P1DIR =1 ;
+  TACCR0 = 49999;
+  TACCTL0 = CCIE ; <-- Interrupt on CMP0;
+  TACTL = MC_1 | ID_3 | TASSEL_2 | TACLR;
+//  __enable_interrupts();
+  for (;;) { 
+  __low_power_mode_0();
+}
+
+}
+
+#pragma vector = TIMERA0_VECTOR  //associate next function for interrupt vector for timer
+__interrupt void TA0_ISR(void) {
+  P1OUT ^= 1;
+  __low_power_mode_off_on_exit();
+}
+
+// TIPS for interrupts
+keep interrupts short
+enable only what you ahve to when you have to, make sure initialization and everything is done. power saving
+
+Low power Modes
+Active mode, I=300 uA, VCC = 1.8V (min for device) I=200uAo
+LPM 0 - disables CPU + MCLK, not smclk, aclk
+	I=85ua
+LPM 3 - Only ACLK is active
+	I=1uA
+LPM 4 - everything off (only can wake from an external signal)
+	I=0.1uA
+
+
+

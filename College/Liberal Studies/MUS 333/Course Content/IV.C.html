@@ -1,0 +1,257 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="IV.C_files/styles.css" type="text/css">
+
+<script language="javascript" src="IV.C_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=STQvLcTWvQkvQy1w2pQWCGVg4jkyh4cwhpDJnnppbHHxS3fggm1k!-1292065854!prd5.vista.nau.edu!80!443!2077950845!prd6.vista.nau.edu!80!443!1272763190745";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=STQvLcTWvQkvQy1w2pQWCGVg4jkyh4cwhpDJnnppbHHxS3fggm1k!-1292065854!prd5.vista.nau.edu!80!443!2077950845!prd6.vista.nau.edu!80!443!1272763190745";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Free jazz</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="IV.C_files/moduleIV.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="IV.C_files/moduleIV.gif" alt="module banner" height="125" 
+width="600"> </p>
+<h3> <strong>Free jazz</strong></h3>
+<p>Free jazz is a label attached to a particular style of avant-garde 
+jazz in
+  the 1960s.&nbsp; The name was derived from the title of an influential
+ 1960
+  album, Free Jazz, by saxophonist Ornette Coleman and his group.&nbsp; 
+In addition
+  to Coleman, free jazz became associated with a wide range of work from
+ diverse
+  artists such as pianist Cecil Taylor, tenor saxophonist Albert Ayler, 
+and later
+  John Coltrane.</p>
+<p>On the face of things, free jazz performances rejected the 
+conventions of
+  bop and cool jazz from the 1950s: fast, complex, and busy 
+improvisational lines,
+  rapid <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113922071"
+ class="glossarylink" target="_blank">chord</a> changes, or the return 
+to arrangements in cool jazz.&nbsp; Free
+  jazz rejected predetermined chord progressions and the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113953071"
+ class="glossarylink" target="_blank">chorus</a> structure of
+  jazz <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a>.&nbsp; Group <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113976071"
+ class="glossarylink" target="_blank">improvisation</a> was cultivated 
+within shifting and looser
+  forms.&nbsp; Shifts in the performance were built around predetermined
+ signals—melodic
+  gestures, even nods of the head.&nbsp; &nbsp;<a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113933071"
+ class="glossarylink" target="_blank">Standard</a> meters, such as duple
+  meter in four beats to the bar, could be shunned or several meters 
+could be
+  implied in the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113994071"
+ class="glossarylink" target="_blank">mix</a> that was created.</p>
+<p>Many performers began to push the envelope in terms of what was 
+acceptable
+  as musical sound.&nbsp; Many pushed for more overt emotional 
+expression in
+  imitation of the human voice (shrieks, moans, yells).&nbsp; </p>
+<p>Free jazz ensembles generally did not use a piano, since the 
+instrument was
+  the main chording or <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113968071"
+ class="glossarylink" target="_blank">harmony</a> instrument in jazz at 
+the time.&nbsp; Electronic
+  instruments and electronic manipulation was usually avoided in free 
+jazz, since
+  many were interested in working with textures, rather than 
+melodies.&nbsp; Often
+  free jazz pieces feature a great deal of turbulence and the style 
+opened jazz
+  up to the influences of &nbsp;a variety of world music, including 
+African and
+  Indian music.</p>
+<p>For all of this, many free jazz performances did devolve back upon 
+convention.&nbsp; Many
+  returned to four beats to the bar over a steady <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113985071"
+ class="glossarylink" target="_blank">tempo</a>.&nbsp; On often hears
+  distinct <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> or <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a> sections backed by 
+accompaniment.&nbsp; There were
+  even prearranged melodies that were used.</p>
+While Ornette Coleman is widely credited for showcasing free jazz ideas 
+through
+his landmark recordings and performances, there were earlier free jazz 
+efforts
+by pianist Lennie Tristano on recordings such as “Intuition” and 
+“Digression” that
+were made nearly a decade earlier in 1949.&nbsp; While Tristano’s 
+efforts
+with saxophonist Lee Konitz in playing without a predetermined theme or <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113931071"
+ class="glossarylink" target="_blank">harmonic</a>
+pattern were conceptually revolutionary and in line with what would 
+later be
+considered free jazz, the results sounded much closer to contemporary 
+bebop than
+the boiling, over-the-top performances by Ornette and others.
+</body></html>

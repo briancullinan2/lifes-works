@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="I.H.3.d.1.a_files/styles.css" 
+type="text/css">
+
+<script language="javascript" src="I.H.3.d.1.a_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Saxophones (aka Sax, Saxes)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="I.H.3.d.1.a_files/moduleI.css" rel="stylesheet" 
+type="text/css">
+<script language="JavaScript">
+<!-- Hide from non-Javascript browsers
+function windowOpen(url)
+{
+open(url, "remote", "directories=no,location=no,menubar=no,resizable=yes,scrollbars=no,status=yes,toolbar=no,width=315,height=315"); 
+}
+// -->
+</script>
+</head><body>
+<p><img src="I.H.3.d.1.a_files/moduleI.gif" alt="module banner" 
+height="126" width="600"> 
+</p>
+<h3>Saxophones (aka Sax, Saxes)</h3>
+<p> The saxophone family contains a number of progressively larger (and 
+lower-pitched) 
+  acoustic instruments that are made of metal, use a single reed to 
+create a vibration, 
+  and use a mechanism to cover and uncover the holes in the instrument's
+ 
+  tube. They all share a common sound, although each has a distinct 
+character.</p>
+<strong><img src="I.H.3.d.1.a_files/soprano_sax.gif" alt="Soprano 
+saxophone (aka Soprano Sax) " align="right" height="175" width="175">Soprano
+ saxophone (aka Soprano Sax)</strong>
+<p> The soprano sax is the highest-pitched instrument of the sax family.
+ Specifically,
+   it is pitched in Bb (when the soprano sax plays its written <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113989071"
+ class="glossarylink" target="_blank">pitch</a> 'C,'
+   it actually sounds the pitch 'Bb'). This difference between written
+  and sounded <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113949071"
+ class="glossarylink" target="_blank">pitches</a> is called a 
+'transposition' and it enables
+  the  instrument to more easily perform in certain ways than if it were
+ a 'non-transposing'
+  instrument (like the bass, guitar, tuba who all sound the pitch as 
+written).</p>
+<p>Watch and listen to Branford Marsalis perform on the soprano sax. <strong><a
+ 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/%7Emus333-c/video/marsalisb.html')">Watch
+
+  and listen to the example.</a></strong></p>
+<strong><img src="I.H.3.d.1.a_files/alto_sax.gif" alt="Alto saxophone 
+(aka Alto Sax) " align="left" height="175" width="175">Alto saxophone 
+(aka Alto Sax)
+</strong>
+<p> The alto sax is larger and lower-pitched than the soprano sax and is
+ pitched
+   in 'Eb.'</p>
+<p>Watch and listen to Paquito D'Rivera perform on the alto sax. <strong><a
+ 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/%7Emus333-c/video/drivera.html')">Watch
+
+  and listen to the example.</a></strong></p>
+<strong><img src="I.H.3.d.1.a_files/tenor_sax.gif" alt="Tenor saxophone 
+(aka Tenor Sax) " align="right" height="175" width="175">Tenor saxophone
+ (aka Tenor Sax)</strong>
+<p>The tenor sax is pitched in 'Bb,' an octave below the soprano sax.</p>
+<p>Watch and listen to tenor saxophonist John Coltrane perform "So 
+What." <strong><a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/%7Emus333-c/video/coltrane_sowhat.html')">Watch
+
+    and listen to the example.</a></strong></p>
+<strong><img src="I.H.3.d.1.a_files/baritone_sax.gif" alt="Baritone 
+saxophone (aka Baritone Sax, Bari Sax)" align="left" height="175" 
+width="175">Baritone saxophone (aka Baritone Sax, Bari Sax)</strong>
+<p>The baritone sax is pitched in 'Eb,' an octave below the alto sax.</p>
+<p>Watch and listen to bari saxophonist Gerry Mulligan perform "<a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113943071"
+ class="glossarylink" target="_blank">Fine</a> &amp; 
+  Mellow." <strong><a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/%7Emus333-c/video/mulligang_fine.html')">Watch
+ and listen to the example.</a></strong></p>
+</body></html>

@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="III.B_files/styles.css" type="text/css">
+
+<script language="javascript" src="III.B_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Fusion (late 1960s to the 1990s)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="III.B_files/moduleIII.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="III.B_files/moduleIII.gif" alt="module banner" height="125"
+ width="600"> </p>
+<h3><strong><a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113972071"
+ class="glossarylink" target="_blank">Fusion</a> (late 1960s to the 
+1990s)</strong></h3>
+<p>From the late 1960s through the 1990s, jazz has been fused with a 
+variety of <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113962071"
+ class="glossarylink" target="_blank">musical styles</a>. 
+In this <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> of the course, we will
+ focus on those <strong> fusion</strong> styles&amp;
+mdash;<a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113966071"
+ class="glossarylink" target="_blank">funk</a>, rock, and club 
+sound—that were both dominant and most influential at the 
+time. </p>
+<p>Jazz-funk fusion is a mixing of jazz with <strong> funk</strong> to 
+create a more electric 
+and popularly-infused style of jazz. Jazz funk fusion is generally in 
+duple meter and is 
+characterized by highly <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113936071"
+ class="glossarylink" target="_blank">syncopated</a> and complex 
+instrumental <strong> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113991071"
+ class="glossarylink" target="_blank">rhythm section</a></strong> 
+work that frequently creates <strong> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113934071"
+ class="glossarylink" target="_blank">polyrhythms</a></strong>.</p>
+<p>Read the article on<strong> <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.226300#jazz.226300"
+ target="_blank">jazz-rock</a> </strong>fusion. We will discuss club 
+sounds in more detail later in this 
+section of the course. </p>
+<p>Most instruments used in jazz funk and rock fusion are electric 
+(electric guitar, electric bass, 
+electric piano, and synthesizer). The soprano sax—which can cut through 
+the dense 
+electronics more easily—is used much more than alto or tenor.<strong></strong>Both
+ 
+styles frequently use <strong> vamps</strong>, like in funk and rock, 
+while jazz<strong> 
+standards</strong> and <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113933071"
+ class="glossarylink" target="_blank">standard</a> jazz musical forms 
+are not used.<strong> </strong>The 
+emphasis is no longer on improvised solos and the texture in both styles
+ can be quite dense at 
+times. Drummers frequently accent every beat, rather than the beats two 
+and four as in other 
+styles of jazz. Neither jazz funk or rock swings and both styles are 
+played in a straight-ahead 
+manner. While funk, itself, is frequently vocal music backed by a hot 
+instrumental <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a> 
+section, jazz funk (and rock) is almost exclusively instrumental. Listen
+ for these style 
+characteristics when you hear different pieces in this section of the 
+course.</p>
+</body></html>

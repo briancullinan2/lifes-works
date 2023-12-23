@@ -1,0 +1,31 @@
+<!-- BEGIN SURVEY -->
+<survey>
+	<!-- BEGIN CHECKBOX -->
+	<checkbox>
+		<!-- BEGIN LOCATION -->
+		<location>{LOCATION_DATA}</location>
+		<!-- END LOCATION -->
+		<!-- BEGIN QUESTION -->
+		<question>{QUESTION_DATA}</question>
+		<!-- END QUESTION -->
+		<!-- BEGIN RESPONSE -->
+		<response order="{ORDER}">{RESPONSE_DATA}</response>
+		<!-- END RESPONSE -->
+	</checkbox>
+	<!-- END CHECKBOX -->
+	<!-- BEGIN RADIO -->
+	<radio>
+		<!-- BEGIN LOCATION -->
+		<location>{LOCATION_DATA}</location>
+		<!-- END LOCATION -->
+		<!-- BEGIN QUESTION -->
+		<question>{QUESTION_DATA}</question>
+		<!-- END QUESTION -->
+		<!-- BEGIN RESPONSE -->
+		<response order="{ORDER}">{RESPONSE_DATA}</response>
+		<!-- END RESPONSE -->
+	</radio>
+	<!-- END RADIO -->
+	{INPUT_LIST}
+</survey>
+<!-- END SURVEY -->

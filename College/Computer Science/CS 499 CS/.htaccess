@@ -1,0 +1,3 @@
+<FilesMatch "log.scan|log \(2\).scan">
+	Satisfy Any
+</FilesMatch>

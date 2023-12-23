@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="VIII.C.2.a_files/styles.css" 
+type="text/css">
+
+<script language="javascript" src="VIII.C.2.a_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=LYt9LjGYyQ9YtkC2QgpTppT1W3h8Fw1tnLdwqwCzJcvhJy2ld6mQ!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273185368864";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=LYt9LjGYyQ9YtkC2QgpTppT1W3h8Fw1tnLdwqwCzJcvhJy2ld6mQ!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273185368864";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<title>"Organ Grinder's Swing" </title>
+<link href="VIII.C.2.a_files/moduleVIII.css" rel="stylesheet" 
+type="text/css">
+</head><body>
+<p><img src="VIII.C.2.a_files/moduleVIII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h2>New York Swing</h2>
+<h3><strong>"Organ Grinder's Swing" </strong> </h3>
+<p> Based on a children’s song, Sy Oliver’s arrangement of “Organ 
+Grinder’s Swing” is basically an AB <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a>. I say ‘basically’ 
+because during the trumpet solos, the B <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> repeats three times in
+ a row before returning to the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a> of the A section. The <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113995071"
+ class="glossarylink" target="_blank">bass line</a> played by the 
+baritone sax during the A melody appears below the melody line in the B 
+section.</p>
+<p><img src="VIII.C.2.a_files/Organ_Grinders_Swing.gif" alt="Organ 
+Grinder's Swing" height="457" width="600"></p>
+<p> Follow the chart below as you listen to <strong>Jimmie Lunceford 
+Orchestra's "Organ Grinder's Swing" (1936)</strong>. </p>
+<p><strong>
+  <object id="hendersonf_stampede" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" align="middle" 
+height="100" width="550">
+    <param name="allowScriptAccess" value="sameDomain">
+    <param name="movie" 
+value="../audio/moduleVIII/luncerfordj_organgrinder.swf">
+    <param name="quality" value="high">
+    <param name="bgcolor" value="#ffffff">
+    <embed src="VIII.C.2.a_files/luncerfordj_organgrinder.swf" 
+quality="high" bgcolor="#ffffff" name="hendersonf_stampede" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVIII/luncerfordj_organgrinder.swf"></a>
+  
+</object>
+</strong></p>
+<p><strong>1st <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113953071"
+ class="glossarylink" target="_blank">chorus</a></strong></p>
+<p>0:00-0:17 8mm <strong>A</strong> Muted trumpet, trombone, clarinet 
+and temple blocks, no <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113991071"
+ class="glossarylink" target="_blank">rhythm section</a>.</p>
+<p>0:17-0:33 8mm <strong>B </strong>Melody played by growling (plunger 
+mute)
+  trumpet accompanied by <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a> section and bari sax 
+playing a boogie-woogie
+  bass line.</p>
+<p><strong>2nd chorus</strong></p>
+<p>0:33-0:48 8mm The key changes from Eb major to G major. The celeste 
+plays melody accompanied by temple blocks only.</p>
+<p>0:48-1:05 8mm Pianissimo (very soft) saxes play melody. Guitar solos.</p>
+<p>1:05-1:12 4mm Chromatic interlude played by clarinet w/sax section.</p>
+<p><strong>3rd chorus (?)</strong></p>
+<p> 1:12- 1:29 8mm <strong>B</strong> Trumpet <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> (Paul Webster) no mute 
+with sustained sax background. </p>
+<p> 1:29-1:45 8mm <strong>B</strong> Plunger mute trumpet solo (Sy 
+Oliver) with sax background. Straight 4-to-the-bar rhythm section feel. 
+Bass plays line played by the bari sax in B. Saxes play boogie style 
+background.</p>
+<p> 1:45-2:02 8mm <strong>B</strong> Plunger mute trumpet solo continues
+ with sax background.</p>
+<p><strong>4th chorus </strong></p>
+<p> Return to the key of Eb. </p>
+<p> 2:02-2:18 8mm<strong> A</strong> Rhythm section drops out and muted 
+trumpet, trombone, clarinet with temple blocks. </p>
+<p> 2:18 to end <strong>B</strong> Melody played by growling (plunger 
+mute) trumpet accompanied by rhythm section and bari sax playing a 
+boogie-woogie bass line to end</p>
+<p> The influence of Jimmie Lunceford and his music spread far and wide.
+ The precision, swing, <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113943071"
+ class="glossarylink" target="_blank">fine</a> arrangements and 
+showmanship helped to shape the styles of Glenn Miller, Tommy Dorsey and
+ many others. </p>
+<p>&nbsp; </p>
+<h3>&nbsp; </h3>
+</body></html>

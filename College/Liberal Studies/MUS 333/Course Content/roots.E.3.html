@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="roots.E.3_files/styles.css" type="text/css">
+
+<script language="javascript" src="roots.E.3_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Why 12 Bar Blues?</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="roots.E.3_files/roots.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="roots.E.3_files/roots.gif" alt="roots of jazz banner" 
+height="126" width="600"> 
+</p>
+<h3>Why 12 Bar Blues?</h3>
+<p>  Sung 12 bar blues features a very characteristic three-phrase 
+pattern in its
+    lyrics. One of the most common text forms found in 12 bar blues is 
+the distinctive
+    A A B pattern where the first line (A) is repeated in the second 
+line (A),
+    while the third line is different (B). Early blues songs were 
+usually improvised,
+    so repeating the second line allowed time for the performer to 
+assemble a
+    contrasting third line. Further, many songs in the repertories of 
+late nineteenth-century
+    African American singers featured a couplet of two lines with a 
+rhyming third
+    line. It is thought that as this text <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a> was adapted to blues as 
+the second
+line was repeated.</p>
+<p>The great Bessie Smith's 1927 recording of "Back Water Blues"
+  is a classic performance of 12 bar blues that featured jazz pianist 
+James P.
+  Johnson
+  in a song about the terrible flooding of the Mississippi that year 
+when 20,000
+  people lost their homes. Listen to the first two choruses (or two 
+cycles of
+  the form), as she sings the lyrics of the first two verses. Note the A
+ A B
+  pattern of the lyrics and see if you can begin to hear the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113922071"
+ class="glossarylink" target="_blank">chord</a> changes at
+  the beginning of each phrase and within the phrase itself (in the 
+second and
+  third lines). </p>
+<p>Bessie Smith begins singing after a two bar piano introduction. The <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113985071"
+ class="glossarylink" target="_blank">tempo</a>
+  is moderate and the song is in duple meter of four beats per bar.</p>
+<p>Listen to an excerpt of <strong>Bessie Smith's "Back Water Blues"</strong>
+ and
+  follow along with the lyrics.</p>
+  <p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="weareclimb_jacobs" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/roots/smithb_backwaterblues.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="roots.E.3_files/smithb_backwaterblues.swf" quality="high" 
+bgcolor="#ffffff" name="weareclimb_jacobs" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a style="left: 526px ! important; top: 
+383.4px ! important;" title="Click here to block this object with 
+Adblock Plus" class="lbmypuufeyqkkttocprv rbeuzmkqpjjuofuakxvi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/smithb_backwaterblues.swf"></a>
+</object></p>
+<p> <br>
+  "Back Water Blues"</p>
+<p>2 bar introduction</p>
+<p>[Verse 1]<br>
+  [A] When it rained five days and the sky turned dark as night,<br>
+  [A] When it rained five days and the sky turned dark as night,<br>
+  [B] Then trouble took place in the lowlands at night.</p>
+<p>[Verse 2]<br>
+  [A] I woke up this morning, can't even get out o' my door,<br>
+  [A] I woke up this morning, can't even get out o' my door,<br>
+  [B] That's enough trouble to make poor girl wonder where she want to
+  go.</p>
+<p>[Source: Transcription of lyrics from the recording.]</p>
+<p>&nbsp; </p>
+</body></html>

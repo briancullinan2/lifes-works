@@ -1,0 +1,76 @@
+    Private Sub Lines_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Dim J, I As Integer
+        Dim MyList As Windows.Forms.ListBox
+        Dim MyRnd As Integer
+        MyMain = New Main()
+        A = Int(Me.Height / 24)
+        B = Int(Me.Width / 24)
+        For J = 0 To B - 1
+            MyList = New Windows.Forms.ListBox()
+            Me.Controls.Add(MyList)
+            For I = 0 To A
+                MyList.Items.Add(" 0")
+            Next
+            MyList.Visible = False
+        Next
+        Randomize()
+        MyRnd = CInt(Int(((A * 2) * Rnd()) + 1))
+        Ticker.Interval = MyRnd * 10
+        Ticker.Enabled = True
+    End Sub
+
+    Private Sub Ticker_Tick(ByVal sender As Object, ByVal e As System.EventArgs) Handles Ticker.Tick
+        Dim MyRnd As Integer
+        Dim MyList As Windows.Forms.ListBox
+        'ColorChanger1.Enabled = True
+        WhiteSetter.Enabled = True
+        Randomize()
+        MyRnd = CInt(Int((B - 1) * Rnd()))
+        MyList = Me.Controls.Item(MyRnd)
+        MyRnd = CInt(Int((MyMain.Codes.Items.Count - 1) * Rnd()))
+        MyList.Items.Item(0) = MyMain.Codes.Items.Item(MyRnd) & "R255"
+        MyRnd = CInt(Int(((A * 2) * Rnd()) + 1))
+        Ticker.Interval = MyRnd * 10
+    End Sub
+
+    Private Sub WhiteSetter_Tick(ByVal sender As Object, ByVal e As System.EventArgs) Handles WhiteSetter.Tick
+        Dim J, I As Integer
+        Dim MyList As Windows.Forms.ListBox
+        Dim MyRnd As Integer
+        Dim MyBrush As Drawing.Brush
+        Dim LastStart As Boolean
+        On Error Resume Next
+        Me.Refresh()
+        For J = 0 To B - 1
+            MyList = Me.Controls.Item(J)
+            For I = 0 To MyList.Items.Count - 1
+                If LastStart = True Then
+                    LastStart = False
+                    GoTo A
+                End If
+                If Microsoft.VisualBasic.Right(MyList.Items.Item(I), Len(MyList.Items.Item(I)) - 1) = "R255" Then
+                    MyList.Items.Item(I) = Microsoft.VisualBasic.Left(MyList.Items.Item(I), 1) & 255
+                    MyRnd = CInt(Int((MyMain.Codes.Items.Count - 1) * Rnd()))
+                    MyList.Items.Item(I + 1) = MyMain.Codes.Items.Item(MyRnd) & "R255"
+                    LastStart = True
+                ElseIf Microsoft.VisualBasic.Right(MyList.Items.Item(I), Len(MyList.Items.Item(I)) - 1) = "0" Then
+                    MyList.Items.Item(I) = " 0"
+                Else
+                    MyList.Items.Item(I) = Microsoft.VisualBasic.Left(MyList.Items.Item(I), 1) & Microsoft.VisualBasic.Right(MyList.Items.Item(I), Len(MyList.Items.Item(I)) - 1) - 5
+                End If
+A:
+            Next
+        Next
+        For J = 0 To B - 1
+            MyList = Me.Controls.Item(J)
+            For I = 0 To MyList.Items.Count - 1
+                If Microsoft.VisualBasic.Right(MyList.Items.Item(I), Len(MyList.Items.Item(I)) - 1) = "R255" Then
+                    Me.CreateGraphics.DrawString(Microsoft.VisualBasic.Left(MyList.Items.Item(I), 1), New Drawing.Font("Lucida Sans Unicode", 14, Drawing.FontStyle.Bold), Drawing.Brushes.White, J * 24, I * 24)
+                Else
+                    Me.CreateGraphics.DrawString(Microsoft.VisualBasic.Left(MyList.Items.Item(I), 1), New Drawing.Font("Lucida Sans Unicode", 14, Drawing.FontStyle.Bold), Drawing.Brushes.Green, J * 24, I * 24)
+                End If
+                'MyList.Items.Item(I) = Microsoft.VisualBasic.Left(MyList.Items.Item(I), 1) & 255
+                'Me.CreateGraphics.DrawString(Microsoft.VisualBasic.Left(MyList.Items.Item(I), 1), New Drawing.Font("Lucida Sans Unicode", 14, Drawing.FontStyle.Bold), Drawing.Brushes.Green, J * 24, I * 24)
+            Next
+        Next
+    End Sub

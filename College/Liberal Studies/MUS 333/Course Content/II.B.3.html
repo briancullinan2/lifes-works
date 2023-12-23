@@ -1,0 +1,264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="II.B.3_files/styles.css" type="text/css">
+
+<script language="javascript" src="II.B.3_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Miles</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="II.B.3_files/moduleII.css" rel="stylesheet" type="text/css">
+<script language="JavaScript">
+<!-- Hide from non-Javascript browsers
+function windowOpen(url)
+{
+open(url, "remote", "directories=no,location=no,menubar=no,resizable=yes,scrollbars=no,status=yes,toolbar=no,width=315,height=315"); 
+}
+// -->
+</script>
+</head><body>
+<p><img src="II.B.3_files/moduleII.gif" alt="module banner" height="125"
+ width="600"> </p>
+<h3><strong>Miles </strong></h3>
+<p>Trumpeter Miles Davis (1926-1991) was one of jazz's most important 
+innovators and performers. He was often out in front pushing a new style
+ in interesting ways long before others. The same applies to the final 
+work of his career that fused jazz and hip-hop into an influential and 
+compelling <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113994071"
+ class="glossarylink" target="_blank">mix</a>.</p>
+<p>Before looking into his posthumous 1992 Grammy-award winning release,
+ Doo-Bop, read about <strong> <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.114100#jazz.114100"
+ target="_blank">Miles Davis</a></strong>.
+  Please become familiar with the basic outline of his career, since we 
+will
+  return frequently to discuss Miles' innovations from the late 1950s 
+through
+  the early 1990s.</p>
+<p>Doo-Bop (1992) was released the year following Miles' death. The <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113981071"
+ class="glossarylink" target="_blank">producer</a> Easy Mo Bee had been 
+recommended to Miles—who was looking for a young producer with which to 
+work—by Russell Simmons of Def Jam Records. Additionally, Miles had 
+projects going with Prince, producer Sid Reynolds, and recorded material
+ from the late 1980s that Miles called the Rubber Band Session that he 
+wanted to update and release. </p>
+<p>After Miles' death on September 28, 1991, only the sessions with Mo 
+Bee were ready for release, but Mo Bee and some of Miles' staff were 
+impressed by the trumpet tracks from the Rubber Band Sessions and it was
+ decided that Mo Bee would build some new material around them. </p>
+<p>In the original sessions with Miles, Easy Mo Bee along with rappers 
+J. R. and A. B. Money, Kenny Garrett (alto sax), John Bigham (drum 
+programming), Foley (guitar), and many other musicians began creating a 
+song by first recording their instrumental tracks, then Miles would 
+layer a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> trumpet track over the 
+mix. For updating Miles' 1985-86 Rubber Band Session solo trumpet 
+recordings, the reverse process was used. With these recordings, Easy Mo
+ Bee laid his tracks down on top of Miles' previous recordings.</p>
+<p>"The Doo-Bop Song," whose title is a riff on the late 1940s-50s jazz 
+style of bebop, is a tribute to Miles. It features work by DJs Easy Mo 
+Bee, A. B. Money and J. R. Easy Mo Bee, as producer, also used samples 
+in the mix from Kool &amp; The Gang's "Summer Madness" and "The Fishing 
+Hole, which was the television theme song The Andy Griffith Show. </p>
+<p>"The Doo-Bop Song" is built up of sections of Miles' improv over a <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113973071"
+ class="glossarylink" target="_blank">vamp</a> that alternates with a 
+sung <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113953071"
+ class="glossarylink" target="_blank">chorus</a> (heard three times) and
+ three different <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113957071"
+ class="glossarylink" target="_blank">DJ</a> voice overs. There are also
+ distinctive break samples, where the groove is interrupted.</p>
+<p>Follow the chart below and listen to <strong> <a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/audio/moduleII/davism_doobop.html"
+ target="_blank">Miles
+      Davis' "The
+Doo Bop Song" (1992). </a></strong></p>
+<p>0:00-1:05 bass-heavy <strong> vamp</strong> and groove </p>
+<p>[0:005] add Miles' trumpet line</p>
+<p>[0:42-0:43] break sample from Kool &amp; The Gang's "Summer Madness"</p>
+<p> 1:05-1:27 sung <strong> chorus</strong>, Miles, vamp, and samples</p>
+<p> 1:27-1:49 Miles backed by vamp</p>
+<p> 1:49-2:22 <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113927071"
+ class="glossarylink" target="_blank">voice over</a> by J.R., Miles, and
+ vamp</p>
+<p>[ 2:09-2:10] break sample from Kool &amp; The Gang's "Summer Madness"</p>
+<p> 2:22-2:33 break sample vocal of 'because we all the best' from Kool 
+&amp; The Gang' "Summer Madness" with Miles</p>
+<p> 2:33-3:06 sung chorus, vamp, Miles, and samples</p>
+<p> 3:06-3:16 break sample, Miles, and vamp</p>
+<p> 3:16-3:38 voice over by A. B. Money, Miles, and vamp</p>
+<p>[ 3:26-3:27] break sample, Miles, and vamp</p>
+<p>[ 3:37-3:38] break sample, Miles, and vamp</p>
+<p> 3:38-4:00 voice over by Easy Mo Bee, Miles, and vamp</p>
+<p>[ 3:43-3:48] Easy Mo Bee and sample from "The Fishing Hole" (Theme 
+song from <em>The Andy Griffith Show</em>)]</p>
+<p> 4:00-4:32 Easy Mo Bee and sung chorus, vamp, Miles, and samples</p>
+<p>[ 4:10] add guitar solo</p>
+<p> 4:32-end break sample, Miles, and vamp to end</p>
+<p>Watch <strong> <a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/%7Emus333-c/video/davism_wrinkle.html')">Miles
+ Davis
+perform "Wrinkle".</a></strong></p>
+</body></html>

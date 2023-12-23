@@ -1,0 +1,286 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="VIII.F.3_files/styles.css" type="text/css">
+
+<script language="javascript" src="VIII.F.3_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=LYt9LjGYyQ9YtkC2QgpTppT1W3h8Fw1tnLdwqwCzJcvhJy2ld6mQ!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273185368864";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=LYt9LjGYyQ9YtkC2QgpTppT1W3h8Fw1tnLdwqwCzJcvhJy2ld6mQ!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273185368864";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<title>Charlie Christian</title>
+<style type="text/css">
+<!--
+.style1 {font-weight: bold}
+-->
+</style>
+<link href="VIII.F.3_files/moduleVIII.css" rel="stylesheet" 
+type="text/css">
+</head><body>
+<p><img src="VIII.F.3_files/moduleVIII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h2>Benny Goodman</h2>
+<h3>Charlie Christian</h3>
+<p> African-American Charlie Christian gave birth to modern jazz guitar.
+ Christian advanced the guitar beyond the confines of the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> as the first guitarist
+ to explore the instrument’s <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> potential. He played an 
+amplified electric guitar in a style derived from Lester Young’s cool, 
+uncluttered saxophone solos. Born in Dallas in 1916, Christian and his 
+family moved to Oklahoma City , where he began playing the guitar at age
+ twelve, advancing to professional gigs by the time he turned fifteen.</p>
+<p>Read the article on <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.086700#jazz.086700"
+ target="_blank">Charlie Christian</a> </p>
+<p> Record <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113981071"
+ class="glossarylink" target="_blank">producer</a> John Hammond brought 
+Charlie Christian and his superlative guitar playing to Benny Goodman’s 
+attention in the summer of 1939. After hearing Charlie play, Goodman 
+hired him on the spot as a member of the Benny Goodman Sextet. Christian
+ was a featured <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113970071"
+ class="glossarylink" target="_blank">soloist</a> in the Goodman band 
+for two years until his untimely death from tuberculosis in 1942 at just
+ age twenty-five. In spite of his short career, Christian became the 
+most influential guitarist jazz has ever known and his influence is 
+still being heard today in the playing of John Abercrombie and Pat 
+Metheny.</p>
+<p> In the 1941 sextet recording of “I Found a New Baby,” you’ll hear 
+Christian at his best. His choice of notes (harmonies) and <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113963071"
+ class="glossarylink" target="_blank">rhythmic</a> phrasing suggests the
+ beginnings of Bop. The Goodman Sextet was fully integrated, containing 
+three white players – Goodman, George Auld on tenor sax, and Artie 
+Bernstein on bass – and three African-American players – Christian, 
+Count Basie on piano, and Jo Jones on drums.</p>
+<p>Follow the chart below as you listen to <strong> The Benny Goodman 
+Sextet Featuring Charlie Christian and Count Basie’s “I Found a New Baby
+ (1941). </strong></p>
+<p><strong>
+  <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ align="middle" height="100" width="550">
+    <param name="allowScriptAccess" value="sameDomain">
+    <param name="movie" value="../audio/moduleVIII/goodmanb6_ifound.swf">
+    <param name="quality" value="high">
+    <param name="bgcolor" value="#ffffff">
+    <embed src="VIII.F.3_files/goodmanb6_ifound.swf" quality="high" 
+bgcolor="#ffffff" allowscriptaccess="sameDomain" 
+type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVIII/goodmanb6_ifound.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVIII/goodmanb6_ifound.swf"></a>
+  </object>
+</strong></p>
+<p><strong>Introduction </strong></p>
+<p>0:00-0:07 2 bars drums + 4 bars horns</p>
+<p>&nbsp; </p>
+<p><strong>1st <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113953071"
+ class="glossarylink" target="_blank">chorus</a> </strong></p>
+<p>0:07-0:17<strong> A</strong> Goodman plays only the pickups and the 
+first bar of the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a>. For the remainder of 
+the chorus, he solos on the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a>– no melody. Horns play 
+background.</p>
+<p>0:17-0:26 <strong>A</strong></p>
+<p>0:26-0:36 <strong>B</strong> Goodman on the chords– no melody. Horns 
+lay out.</p>
+<p>0:36-0:45 <strong>A</strong> Goodman solos on the chords– no melody. 
+Horns play background once again.</p>
+<p>&nbsp; </p>
+<p><strong>2nd chorus </strong></p>
+<p>0:45-1:22 Guitar (Christian) solos over entire A A B A <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a>.</p>
+<p>&nbsp; </p>
+<p><strong>3rd chorus </strong></p>
+<p> 1:22-1:40 <strong>A A</strong> Piano (Basie) solos. Horns play 
+backgrounds during first two A sections.</p>
+<p> 1:40-1:49 <strong>B</strong> Basie and Goodman trade one bar 
+phrases.</p>
+<p> 1:49-1:58 <strong>A</strong> Piano solo continues with horns playing
+ background once again.</p>
+<p>&nbsp; </p>
+<p><strong>4th chorus </strong></p>
+<p> 1:58-2:17 <strong>A A</strong> Muted trumpet solo (Williams) – light
+ sax background.</p>
+<p> 2:17-2:25 <strong>B</strong> Sax solo (Auld) – accompanied by <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113991071"
+ class="glossarylink" target="_blank">rhythm section</a></p>
+<p> 2:25-2:35 <strong>A</strong> Sax solo continues to end of chorus</p>
+<p>&nbsp; </p>
+<p><strong>Close </strong></p>
+<p> 2:35-2:43 <strong>B</strong> drum solo – horns play riff over chords
+ of B section</p>
+<p> 2:43 to end <strong>A </strong>Trumpet plays melody (the first and 
+only statement of the A melody) as clarinet and sax engage in Dixieland 
+style group <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113976071"
+ class="glossarylink" target="_blank">improvisation</a>. </p>
+<p>&nbsp;</p>
+</body></html>

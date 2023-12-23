@@ -1,0 +1,263 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="VIII.F.1_files/styles.css" type="text/css">
+
+<script language="javascript" src="VIII.F.1_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=LYt9LjGYyQ9YtkC2QgpTppT1W3h8Fw1tnLdwqwCzJcvhJy2ld6mQ!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273185368864";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=LYt9LjGYyQ9YtkC2QgpTppT1W3h8Fw1tnLdwqwCzJcvhJy2ld6mQ!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273185368864";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<title>Big band and combo</title>
+<style type="text/css">
+<!--
+.style1 {font-weight: bold}
+-->
+</style>
+<link href="VIII.F.1_files/moduleVIII.css" rel="stylesheet" 
+type="text/css">
+<script language="JavaScript">
+<!-- Hide from non-Javascript browsers
+function windowOpen(url)
+{
+open(url, "remote", "directories=no,location=no,menubar=no,resizable=yes,scrollbars=no,status=yes,toolbar=no,width=315,height=315"); 
+}
+// -->
+</script></head><body>
+<p><img src="VIII.F.1_files/moduleVIII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h2>Benny Goodman</h2>
+<h3><strong><a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113954071"
+ class="glossarylink" target="_blank">Big band</a> and <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113921071"
+ class="glossarylink" target="_blank">combo</a></strong></h3>
+<p>Much of Goodman’s time in New York was spent working for leaders who 
+functioned more as personalities than performers. Goodman believed that 
+musicians, not entertainers, should build a band. Forming his own band 
+in 1934, Goodman at first patterned his group after Glen Gray and his 
+Casa Loma Orchestra, a jazz-oriented band popular with college audiences
+ at the time. Soon after, Benny and his band were playing on the 
+three-hour coast-to-coast radio program Let’s Dance alongside Kel 
+Murray’s dance band and Xavier Cugat’s Latin band for a twenty-six week 
+run.</p>
+<p>At the start the band was basically a dance orchestra and only 
+occasionally played a ‘hot’ tune or two. For this engagement, Goodman 
+brought in arranger Fletcher Henderson to spice things up. Benny was not
+ a fan of the music being played by the sweet bands and wanted to 
+present music that was ‘hotter.’ The public, however, wasn’t ready for 
+what the band had to offer. A nationwide tour followed Goodman’s 
+engagement at the Roosevelt Hotel in New York and both were dismal 
+failures. All of that changed when the Goodman band performed at the 
+Palomar Ballroom in Los Angeles. Whitney Balliett, jazz columnist for 
+the New Yorker Magazine described it best.</p>
+<p>In 1935, the clarinetist and bandleader Benny Goodman, aged just 
+twenty-six, left New York with his fourteen-piece "swing" band and, 
+traveling in a rag-tag group of cars, headed for the huge Palomar 
+Ballroom in Los Angeles. It was not an easy trip. There were half a 
+dozen dismal, sparsely attended one-nighters and three weeks at a dance 
+hall in Denver, where the band was forced to play waltzes, tangos, and 
+novelty numbers. On the opening night at the Palomar, the band played 
+ballad numbers in the first set, and there was little response from the 
+dancers. Then one of the musicians said, if they were going to bomb 
+again they might as well do it in style. So Goodman called for his hot, 
+often up-<a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113985071"
+ class="glossarylink" target="_blank">tempo</a> arrangements, many of 
+them by the ingenious black bandleader and arranger Fletcher Henderson, 
+and the kids stopped dancing, clustered around the bandstand, and began 
+roaring. Before the weeks at the Palomar were over, it was clear that 
+Goodman had suddenly made jazz—still a suspect and largely subliminal 
+American folk music, despite the brilliant inventions during the 
+previous decade of Jelly Roll Morton, Louis Armstrong, Sidney Bechet, 
+and Duke Ellington—into a popular music (Balliett 2000).</p>
+<p>The radio broadcasts from the Palomar were heard all over the United 
+States. The success of Goodman and his band was assured. When Benny 
+brought his band to the Paramount Ballroom in New York later that year, 
+people were literally dancing in the aisles. His performances were sold 
+out wherever he went. Swing music had taken the world of music by storm 
+and Goodman led the way.</p>
+<p>Benny’s virtuosity on the clarinet was unmatched. No one could play 
+with such flawless technique and with such a beautiful sound. He 
+surrounded himself with the best musicians he could find and gave no 
+thought to their race. Goodman’s groups always maintained the highest 
+standards of musicianship. His bands and combos were among the first to 
+have black and white performers playing together in public.</p>
+<p>Benny took great pleasure in featuring his sideman as soloists. 
+Drummer Gene Krupa, pianist Teddy Wilson, and trumpet players Harry 
+James and Ziggy Elman went on to <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a> their own bands as a 
+result of the exposure Goodman gave them. The fans adored them. Watch 
+and listen to Benny and the band perform “Let me Off Uptown.” The 
+all-star cast of this video includes vocalist Anita O’Day, trumpet 
+player Roy Eldridge, and drummer Gene Krupa. </p>
+<p><strong> &nbsp;</strong><strong><a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/~mus333-c/video/krupa_gene.html')">Watch
+ the Gene Krupa video.</a></strong></p>
+<p>A highlight of a Goodman performance was the trio tunes he did with 
+Krupa and Wilson. I have the feeling that by giving Wilson the lion’s 
+share of the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> space that Goodman was 
+letting his audience know that an African-American musician was 
+deserving of the spotlight. Watch and listen to the Benny Goodman Trio 
+play “Avalon” in a 1954 performance.</p>
+<p class="style1"> <a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/~mus333-c/video/goodmantrio.html')">Watch
+ the Benny Goodman Trio video.</a></p>
+<p class="style1">&nbsp;</p>
+</body></html>

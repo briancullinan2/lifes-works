@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="IV.C.3_files/styles.css" type="text/css">
+
+<script language="javascript" src="IV.C.3_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=STQvLcTWvQkvQy1w2pQWCGVg4jkyh4cwhpDJnnppbHHxS3fggm1k!-1292065854!prd5.vista.nau.edu!80!443!2077950845!prd6.vista.nau.edu!80!443!1272763190745";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=STQvLcTWvQkvQy1w2pQWCGVg4jkyh4cwhpDJnnppbHHxS3fggm1k!-1292065854!prd5.vista.nau.edu!80!443!2077950845!prd6.vista.nau.edu!80!443!1272763190745";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Cecil Taylor</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="IV.C.3_files/moduleIV.css" rel="stylesheet" type="text/css">
+<script language="JavaScript">
+<!-- Hide from non-Javascript browsers
+function windowOpen(url)
+{
+open(url, "remote", "directories=no,location=no,menubar=no,resizable=yes,scrollbars=no,status=yes,toolbar=no,width=315,height=315"); 
+}
+// -->
+</script></head><body>
+<p><img src="IV.C.3_files/moduleIV.gif" alt="module banner" height="125"
+ width="600"> </p>
+<h3> <strong>Cecil Taylor</strong></h3>
+<p>Cecil Taylor remains one of the most innovative of the 1960s free 
+jazz generation
+  of musicians.&nbsp; Taylor’s music often moves beyond the narrow 
+limits
+of what some believe is and is not jazz.</p>
+<p>Read the article on <strong><a 
+href="javascript:doWindowOpen('http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.442100&amp;subview=article_text','new_frame','width=600,height=420,menubar=1,toolbar=1,scrollbars=1,status=1,location=1,resizable=1',0)">Cecil
+ Taylor</a></strong>.</p>
+<p>Taylor’s music, starting in the late 1960s, put great demands on many
+  of its listeners as it moved into the realm of avant-garde classical <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113977071"
+ class="glossarylink" target="_blank">art music</a>.&nbsp; His
+  prodigious piano technique sounded complex clusters of <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113949071"
+ class="glossarylink" target="_blank">pitches</a>, dense and irregular
+  phrasing, and rhythms not common found in jazz.&nbsp; In his emphasis 
+on musical
+  textures, rather than musical lines, generating layers or groups of 
+tightly
+  packed staccato (short and dry) figures played in a percussive manner,
+ and
+  with some sections of his improvisations that no longer function in a 
+key or
+  mode (atonal), his improvisations move very close to the 
+improvisations found
+  in art music at the time by the likes of Karlheinz Stockhausen, 
+Luciano Berio,
+  and Lucas Foss.</p>
+<p>Watch the performance of <strong><a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/%7Emus333-c/video/taylor_cecil.html')">Cecil
+Taylor</a>.</strong></p>
+<p>"Enter Evening" (1966) is totally free throughout.&nbsp; This
+  piece explores a wide range of <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113931071"
+ class="glossarylink" target="_blank">harmonic</a>, melodic, sonic and <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113963071"
+ class="glossarylink" target="_blank">rhythmic</a> ideas. &nbsp;It
+  features Taylor on Piano and bells, Eddie Gale Stevens, Jr. on 
+trumpet, Jimmy
+  Lyons on alto sax, oboist Ken McIntyre, both Henry Grimes and Alan 
+Silva on
+  bass, and drummer Andrew Cyrille.&nbsp; As you can hear, the musicians
+ are
+  guided in their improvisations by the ideas put forth by Taylor.</p>
+<p>Listen to the performance of the <strong>Cecil Taylor Unit’s "Enter
+    Evening" (1966).</strong></p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="taylorc_entereve" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleIV/taylorc_entereve.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="IV.C.3_files/taylorc_entereve.swf" quality="high" 
+bgcolor="#ffffff" name="taylorc_entereve" allowscriptaccess="sameDomain"
+ type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIV/taylorc_entereve.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIV/taylorc_entereve.swf"></a>
+</object></p>
+</body></html>

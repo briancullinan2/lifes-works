@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="VIII.A.1_files/styles.css" type="text/css">
+
+<script language="javascript" src="VIII.A.1_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=3JcQLjfRvCGgSSRFLzhzLghVgvwWzzNdGDvL2T6THQnTgdBpCJbD!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273176049675";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=3JcQLjfRvCGgSSRFLzhzLghVgvwWzzNdGDvL2T6THQnTgdBpCJbD!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273176049675";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<title>Swing musical style</title>
+<link href="VIII.A.1_files/moduleVIII.css" rel="stylesheet" 
+type="text/css">
+</head><body>
+<p><img src="VIII.A.1_files/moduleVIII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h3> Swing musical style</h3>
+<p>While influenced by the Blues, especially in a style of Swing that 
+developed in Kansas City, Swing jazz was primarily organized through the
+ popular songs that were set in arrangements for the new big bands.</p>
+<p>Big bands are easy to spot—they truly are big. These ensembles of ten
+ or more musicians marked a change from the small group jazz from 
+earlier times and from what would follow in Bebop and other modern jazz 
+styles.</p>
+<p>Big bands are built of sections, or groups, of like instruments from 
+the brass and woodwind families, coupled with a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a>.</p>
+<p>Brass section of a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113954071"
+ class="glossarylink" target="_blank">big band</a> usually had two to 
+five trumpets (with three being the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113933071"
+ class="glossarylink" target="_blank">standard</a> number) and one to 
+five trombones (with two to three being standard).</p>
+<p>The sax, or reed section of the big band usually found three to five 
+musicians musicians, playing the following instruments (this 
+distribution of five saxes was standard).</p>
+<p>two alto saxes</p>
+<p>two tenor saxes</p>
+<p>one baritone sax</p>
+<p>Some big bands added a clarinet to sound the highest reed voice.</p>
+<p>The big band <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113991071"
+ class="glossarylink" target="_blank">rhythm section</a> usually 
+employed the piano, rhythm guitar, bass, and drums.</p>
+<p><strong>Piano</strong></p>
+<p>The piano played <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a> (called ‘<a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113932071"
+ class="glossarylink" target="_blank">comping</a>’) and also played 
+melodic solos.</p>
+<p><strong>Rhythm guitar </strong></p>
+<p>The rhythm guitar replaced the banjo from earlier jazz ensembles. It,
+ like the banjo, easily projected in the ensemble when playing in a 
+loud, strumming rhythm. The rhythm guitar did not play single line 
+melodies, which would have to wait for the rise of the amplified, or 
+electric guitar. While the rhythm guitar played chords, like a piano, 
+its function was also to articulate a steady rhythm like the drummer.</p>
+<p><strong>Acoustic bass</strong></p>
+<p>The acoustic or string bass outlined <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113922071"
+ class="glossarylink" target="_blank">chord</a> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113964071"
+ class="glossarylink" target="_blank">roots</a> in a style of playing 
+called a ‘walking’ <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113995071"
+ class="glossarylink" target="_blank">bass line</a>, where the performer
+ improvised a bass line that primarily moved by step to the next closest
+ note in the scale (called conjunct melodic motion), rather than 
+skipping around like earlier jazz bass lines that were more like the 
+‘oompah’ lines that you can hear tubas play in bands (called disjunct 
+melodic motion). In fact earlier jazz, like Dixieland and Ragtime (the 
+latter which we already discussed) commonly used tubas, rather than the 
+acoustic bass, which only replaced the tuba during the 1930s.</p>
+<p>While the bass player often served as a time-keeper, like the 
+drummer, in many big bands bass lines became more melodic over time.</p>
+<p><strong>Drums</strong></p>
+<p>The swing drummer’s primary job was to keep the beat steady (remember
+ that this is dance music) and often emphasized the ‘back beat’ (or 
+beats two and four in a duple meter of four beats). Like the bass 
+player, Swing drummers rarely had the opportunity to <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a>. The drummer principally 
+would be featured in fills when the ensemble was not playing.</p>
+<p>Most importantly, the rhythm section as a whole helped create a swing
+ feeling in the big band. </p>
+<p>&nbsp;</p>
+</body></html>

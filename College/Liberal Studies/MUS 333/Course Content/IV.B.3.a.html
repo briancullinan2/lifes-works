@@ -1,0 +1,450 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="IV.B.3.a_files/styles.css" type="text/css">
+
+<script language="javascript" src="IV.B.3.a_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=STQvLcTWvQkvQy1w2pQWCGVg4jkyh4cwhpDJnnppbHHxS3fggm1k!-1292065854!prd5.vista.nau.edu!80!443!2077950845!prd6.vista.nau.edu!80!443!1272763190745";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=STQvLcTWvQkvQy1w2pQWCGVg4jkyh4cwhpDJnnppbHHxS3fggm1k!-1292065854!prd5.vista.nau.edu!80!443!2077950845!prd6.vista.nau.edu!80!443!1272763190745";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>My Favorite Things (1960)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="IV.B.3.a_files/moduleIV.css" rel="stylesheet" 
+type="text/css">
+<script language="JavaScript">
+<!-- Hide from non-Javascript browsers
+function windowOpen(url)
+{
+open(url, "remote", "directories=no,location=no,menubar=no,resizable=yes,scrollbars=no,status=yes,toolbar=no,width=315,height=315"); 
+}
+// -->
+</script>
+</head><body>
+<p><img src="IV.B.3.a_files/moduleIV.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h3> <strong>My Favorite Things (1960)</strong> </h3>
+<p>What could actor/singer Julie Andrews and saxophonist John Coltrane 
+possibly
+have in common?</p>
+<p>Answer:</p>
+They both loved to perform the song “My Favorite Things” from the
+Richard Rodgers and Oscar Hammerstein musical “The Sound of Music.”
+<p> The musical “The Sound of Music” opened on Broadway in November
+  of1959 with actor Mary Martin playing the lead role of Maria. The 
+production
+  won four Tony Awards. When the musical was made into a film in 1965, 
+Julie
+  Andrews played Maria. The film went on to win five Oscars, including 
+Best Picture
+  that year. Let’s watch and listen to Ms. Andrews sing “My Favorite
+  Things” to a bed full of children who have been frightened by a storm.
+  You can watch the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a> go by as you listen. 
+The <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a> is A (minor) - A (minor)
+- A (major <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113968071"
+ class="glossarylink" target="_blank">harmony</a>, same melody as the 
+first two A sections) - B </p>
+<p>View the melody for <a 
+href="javascript:showPage(-1,%20-1,%20-1,%20'/images/mIV/my_fav_things_melody.pdf',%20'WEBCT_NO_ANCHOR_VALUE',%20'3');">My
+ Favorite
+    Things</a> (pdf) </p>
+<p>Watch a performance of <a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/%7Emus333-c/video/soundmusic_myfavthings.html')">My
+
+    Favorite Things</a> from "The Sound of Music".&nbsp; </p>
+<p> Less than a year after “The Sound of Music” started on Broadway,
+  John Coltrane along with McCoy Tyner on piano, Steve Davis on bass and
+ Elvin
+  Jones on drums recorded the now classic version of “My Favorite 
+Things” on
+  October 21, 1960. Here’s a short chip from a German television show in
+1964. </p>
+<p>Watch a performance of <a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/~mus333-c/video/coltrane_myfavthings.html')">My
+Favorite
+ Things</a> by the John Coltrane Qunitet.&nbsp;  </p>
+<p> "My Favorite Things" is in triple meter and  was not normally the
+  type of song with which jazz musicians would choose to work.&nbsp; 
+However,
+  pianist McCoy Tyner said that "it was a <strong><a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113948071"
+ class="glossarylink" target="_blank">song_plugger</a></strong>,
+  I think, who brought us the sheet music [of "My Favorite
+Things"] at the Jazz Gallery.&nbsp; </p>
+<p>I didn't like the tune at first but John did, so we started playing
+  it and it began to grow on me.&nbsp; The audience really liked it, the
+ way
+  we played it in three-quarter time.&nbsp; It was probably the only 
+jazz waltz
+  they'd ever heard since Sonny Rollins' 'Valse Hot.'&nbsp; So
+  John decided to record it on his next album" <strong>(<a 
+href="javascript:showPage(-1,%20-1,%20-1,%20'/mod4/Biblio.html',%20'WEBCT_NO_ANCHOR_VALUE',%20'3');">Thomas
+
+  [n.d.],133</a>). </strong></p>
+<p>Coltrane and his quartet were soon in the studio in October of 1960 
+and recorded
+  enough material for three albums: My Favorite Things, Coltrane Plays 
+the Blues,
+  and Coltrane's Sound.&nbsp; Propelled by the title track, the album My
+  Favorite Things sold more than 50,000 units during its first year, 
+which was
+  ten times that of a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113933071"
+ class="glossarylink" target="_blank">standard</a> popular jazz 
+album.&nbsp; It was a jazz hit.</p>
+<p>"My Favorite Things" was recorded with Coltrane on soprano sax,
+  McCoy Tyner on piano, bassist Steve Davis, and Elvin Jones on 
+drums.&nbsp; The
+  song is a waltz, or quicker-paced triple meter dance.&nbsp; It 
+features 16
+  measure sections of the theme or tune of "My Favorite Things" sounded
+  between longer passages of <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113976071"
+ class="glossarylink" target="_blank">improvisation</a>.</p>
+<p>The improvisational passages are based on two different modes:&nbsp; E
+ Major
+  and E Dorian.&nbsp; These, in turn, are spun out into a two <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113922071"
+ class="glossarylink" target="_blank">chord</a> modal accompanimental
+  pattern (minor ninth <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a> on E and F#) by pianist
+ McCoy Tyner.</p>
+<p>E Major and E Dorian modes share common elements, yet distinct 
+differences
+  remain with Dorian having lowered 3rd, 4th, and 7th scale degrees 
+compared
+  to Major.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; W&nbsp;&nbsp;&nbsp; 
+W&nbsp;&nbsp;&nbsp; H&nbsp;&nbsp; W&nbsp;&nbsp; W&nbsp;&nbsp; 
+W&nbsp;&nbsp;&nbsp; H</p>
+<p>E Major:&nbsp;&nbsp; E &nbsp;&nbsp;F# &nbsp;&nbsp;G# 
+&nbsp;&nbsp;A&nbsp;&nbsp; B &nbsp;&nbsp;C# &nbsp;&nbsp;D# &nbsp;&nbsp;E</p>
+<p>E Dorian:&nbsp; E &nbsp;&nbsp;F# &nbsp;&nbsp;G&nbsp;&nbsp; 
+&nbsp;&nbsp;A &nbsp;&nbsp;B &nbsp;&nbsp;C# &nbsp;&nbsp;D&nbsp;&nbsp; 
+&nbsp;&nbsp;E</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; W 
+&nbsp;&nbsp;&nbsp;&nbsp;H&nbsp; &nbsp;&nbsp;W &nbsp;&nbsp;W 
+&nbsp;&nbsp;W &nbsp;&nbsp;H &nbsp;&nbsp;W</p>
+<p>The alternation between the tune and modal <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> of improvisation was 
+infinitely
+  expandable.&nbsp; Coltrane extended his three choruses into a near 
+fourteen
+  minute performance in My Favorite Things (1960).&nbsp; On Afro Blue 
+Impressions
+  (1963) he recorded the song again in a performance of twenty-two 
+minutes and
+  there was even a three hour <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113955071"
+ class="glossarylink" target="_blank">live performance</a> of the song 
+played without a break.</p>
+<p>The <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113985071"
+ class="glossarylink" target="_blank">tempo</a> of "My Favorite Things" 
+moves rapidly and it is easy
+  to hear the triple meter as a single ONE consisting of three 
+beats.&nbsp; Listen
+  closely for pianist McCoy Tyner’s alternation between two chords as he
+  comps.&nbsp; Note, too, the repetitive and drone-like <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113995071"
+ class="glossarylink" target="_blank">bass line</a> and in the
+  <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113967071"
+ class="glossarylink" target="_blank">Intro</a> the ostinato that the <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113991071"
+ class="glossarylink" target="_blank">rhythm section</a> sets up and is 
+used, with slight
+variations, throughout the piece.</p>
+<p><img src="IV.B.3.a_files/ostinato_pattern.gif" alt="Ostinato pattern"
+ height="81" width="500"></p>
+<p>In the second <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113953071"
+ class="glossarylink" target="_blank">chorus</a>, McCoy Tyner’s <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> is played in a very 
+pianistic
+  and chordal style, rather than in a single note, horn-like line. His 
+voicing
+  of chords in fourths influenced many pianists that came after him.</p>
+<p>In contrast to Tyner’s approach, Coltrane’s solo in the third
+  chorus is filled with rapid, scalar passages that demonstrate not only
+ incredible
+  virtuosity, but also a knowledge and command of harmony that no jazz 
+player
+  at the time had even begun to approach.&nbsp; Coltrane’s influence is
+  still being felt today over thirty-five years after his death.</p>
+<p>Follow the Listening Chart, below, and listen to the<strong> John 
+Coltrane
+    Quartet's "My Favorite Things" (1961).</strong></p>
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="coltranej_myfavthings" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleIV/coltranej_myfavthings.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="IV.B.3.a_files/coltranej_myfavthings.swf" quality="high" 
+bgcolor="#ffffff" name="coltranej_myfavthings" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIV/coltranej_myfavthings.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIV/coltranej_myfavthings.swf"></a>
+</object>
+<p><strong>Intro</strong></p>
+<p>0:00-0:09&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 16
+  <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113965071"
+ class="glossarylink" target="_blank">mm</a> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">Rhythm</a> section introduction</p>
+<p>0:09-0:18&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113963071"
+ class="glossarylink" target="_blank">Rhythmic</a>
+  ostinato feel is set up. It’s used with slight alterations throughout
+  the piece.</p>
+<p><strong>1st chorus:&nbsp; Coltrane, soprano sax</strong></p>
+<p>0:18-0:35&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1st
+  A section (E Dorian) </p>
+<p>0:35-0:44&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Rhythm
+  section improvised interlude (E Dorian)</p>
+<p>0:44-1:01&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1st
+  A section again (E Dorian)</p>
+<p>1:01-1:27&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Harmony
+  shifts to E major – Coltrane improv</p>
+<p>1:27-1:44&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; B
+  section of melody &nbsp;– the bridge – highly embellished</p>
+<p>1:44-2:01&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Coltrane
+  play letter A again rather than the last 24 bars of the melody</p>
+<p>2:01-2:18&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; E
+  Dorian improv</p>
+<p><strong>2nd chorus:&nbsp; McCoy Tyner, piano</strong></p>
+<p>2:18-2:35&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+1st
+  A section (E Dorian)</p>
+<p>2:35-3:08&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 32&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; E
+  Dorian improv</p>
+<p>3:08-3:25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+1st
+  A section (E Dorian)</p>
+<p>3:25-5:57&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 148&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; E
+  Major improv</p>
+<p>5:57-6:13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+segment
+  of Theme</p>
+<p>6:13-6:46&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 32&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; E
+  Dorian improv</p>
+<p>6:46-7:02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+1st &nbsp;A
+  section (E Dorian)</p>
+<p><strong>3rd chorus:&nbsp; Coltrane, soprano sax</strong></p>
+<p>7:02-7:10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; E
+  Dorian improv</p>
+<p>7:10-7:27&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1st &nbsp;A
+  section (E Dorian)</p>
+<p>7:27-9:43&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 136&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; E
+  Dorian improv</p>
+<p>9:43-10:00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1st
+  A section (E Dorian)</p>
+<p>10:00-12:17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+136&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; E
+  Major improv</p>
+<p>12:17-12:33&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; B
+  section of melody – E major</p>
+12:33-12:50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C
+section of melody - last bars of the song in E minor rather than in E 
+major
+<p>12:50-out&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 33&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Coltrane,
+  solo</p>
+<p><strong>Coda</strong></p>
+12:50-out&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 33&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Coltrane,
+solo
+</body></html>

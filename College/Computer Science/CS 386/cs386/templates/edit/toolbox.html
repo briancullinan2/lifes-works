@@ -1,0 +1,55 @@
+<img src="{SITE_TEMPLATE}graphics/add_checkbox.jpg" class="button" onclick="addClone('checkbox_input');" />
+<img src="{SITE_TEMPLATE}graphics/add_radio.jpg" class="button" onclick="addClone('radio_input')" />
+
+<div class="hidden">
+	
+	<div class="input" id="checkbox_input" oncreate="createSurveyElement('checkbox', null, this); this.id=nextId(); elLoop([this])">
+		<div class="input_heading" oncreate="this.xml=this.parentNode.xml">
+			<h3>Checkbox</h3>
+			Question: 
+			<input type="text" name="element" value="QUESTION" oncreate="createSurveyElement('question', this.parentNode.xml, this)" onchange="setSurveyElementValue(this.xml, this.value);" />
+		</div>
+		<div class="input_content" oncreate="this.xml=this.parentNode.xml">
+			<input type="hidden" name="element" value="LOCATION" oncreate="createSurveyElement('location', this.parentNode.xml, this); this.id=nextId(); addLocationListner(this.parentNode.parentNode, this);" onchange="setSurveyElementValue(this.xml, this.value);" />
+			Responses:<br />
+			<div class="responses" oncreate="this.xml=this.parentNode.xml; addClone('checkbox_response', this); this.id=nextId();">
+			
+				<img src="{SITE_TEMPLATE}graphics/add_response.jpg" class="button" onclick="addClone('checkbox_response', this.parentNode);" />
+			</div>
+		</div>
+		<div class="input_footing" oncreate="this.xml=this.parentNode.xml">
+			<input type="button" value="Remove" onclick="mainXML.removeChild(this.parentNode.xml); main.removeChild(this.parentNode.parentNode);" />
+		</div>
+	</div>
+	
+	<div id="checkbox_response" oncreate="this.xml=this.parentNode.xml; this.id=nextId();">
+		<input type="text" name="element" value="RESPONSE" oncreate="createSurveyElement('response', this.parentNode.parentNode.xml, this); this.parentNode.xml=this.xml;" onchange="setSurveyElementValue(this.xml, this.value)" />
+		<img src="{SITE_TEMPLATE}graphics/remove.jpg" class="button" onclick="this.parentNode.parentNode.xml.removeChild(this.parentNode.xml); this.parentNode.parentNode.removeChild(this.parentNode);" />
+	</div>
+	
+	<div class="input" id="radio_input" oncreate="createSurveyElement('radio', null, this); this.id=nextId(); elLoop([this])">
+		<div class="input_heading" oncreate="this.xml=this.parentNode.xml">
+			<h3>Radio</h3>
+			Question: 
+			<input type="text" name="element" value="QUESTION" oncreate="createSurveyElement('question', this.parentNode.xml, this)" onchange="setSurveyElementValue(this.xml, this.value);" />
+		</div>
+		<div class="input_content" oncreate="this.xml=this.parentNode.xml">
+			<input type="hidden" name="element" value="LOCATION" oncreate="createSurveyElement('location', this.parentNode.xml, this); this.id=nextId(); addLocationListner(this.parentNode.parentNode, this);" onchange="setSurveyElementValue(this.xml, this.value);" />
+			Responses:<br />
+			<div class="responses" oncreate="this.xml=this.parentNode.xml; addClone('checkbox_response', this); this.id=nextId();">
+			
+				<img src="{SITE_TEMPLATE}graphics/add_response.jpg" class="button" onclick="addClone('checkbox_response', this.parentNode);" />
+			</div>
+		</div>
+		<div class="input_footing" oncreate="this.xml=this.parentNode.xml">
+			<input type="button" value="Remove" onclick="mainXML.removeChild(this.parentNode.xml); main.removeChild(this.parentNode.parentNode);" />
+		</div>
+	</div>
+	
+	<div id="radio_response" oncreate="this.xml=this.parentNode.xml; this.id=nextId();">
+		<input type="text" name="element" value="RESPONSE" oncreate="createSurveyElement('response', this.parentNode.parentNode.xml, this); this.parentNode.xml=this.xml;" onchange="setSurveyElementValue(this.xml, this.value)" />
+		<img src="{SITE_TEMPLATE}graphics/remove.jpg" class="button" onclick="this.parentNode.parentNode.xml.removeChild(this.parentNode.xml); this.parentNode.parentNode.removeChild(this.parentNode);" />
+	</div>
+
+
+</div>

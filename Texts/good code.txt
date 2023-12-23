@@ -1,0 +1,49 @@
+<script LANGUAGE="JavaScript" TYPE="text/javascript">
+var last=0
+var number=0
+
+function start(name){
+if(number !=""){
+document.getElementById("Link" + (number -1)).setAttribute("background","graphics/navbar-background");
+document.getElementById("Link" + number).setAttribute("background","graphics/navbar-background");
+document.getElementById("Link" + (number - -1)).setAttribute("background","graphics/navbar-background");
+}
+if(name=="") {
+var MyURL = window.parent.main.document.URL
+number = Math.abs(MyURL.substring(MyURL.length - 6, MyURL.length - 4));
+//alert(MyURL.substring(MyURL.length - 6, MyURL.length - 4))
+}
+else {
+number = name
+}
+document.getElementById("Link" + (number -1)).setAttribute("background","graphics/clickedtop.gif");
+document.getElementById("Link" + number).setAttribute("background","graphics/clicked.gif");
+document.getElementById("Link" + (number - -1)).setAttribute("background","graphics/clickedbottom.gif");
+
+last=number
+}
+</script>
+
+function hidetip(){
+  if (document.all)
+    document.all.tooltip.style.visibility="hidden"
+    else if (document.layers){
+    clearInterval(currentscroll)
+    document.tooltip.visibility="hidden"
+}
+}
+
+window.onscroll = floatButton;
+window.onresize = meresize;
+window.onfocus = show;
+var ie5=(document.getElementById && document.all);
+var ns6=(document.getElementById && !document.all);
+var opacity = 50
+    if(ie5){
+        alphatable.style.filter="alpha(opacity=0)";
+	alphatable.filters.alpha.opacity = opacity;
+    }
+    if(ns6){
+        alphatable.style.MozOpacity = 0 + '%';
+	alphatable.style.MozOpacity = opacity + '%';
+    }

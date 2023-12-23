@@ -1,0 +1,282 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="IV.B_files/styles.css" type="text/css">
+
+<script language="javascript" src="IV.B_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=STQvLcTWvQkvQy1w2pQWCGVg4jkyh4cwhpDJnnppbHHxS3fggm1k!-1292065854!prd5.vista.nau.edu!80!443!2077950845!prd6.vista.nau.edu!80!443!1272763190745";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=STQvLcTWvQkvQy1w2pQWCGVg4jkyh4cwhpDJnnppbHHxS3fggm1k!-1292065854!prd5.vista.nau.edu!80!443!2077950845!prd6.vista.nau.edu!80!443!1272763190745";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Modal and Free Jazz (late 1950s and beyond)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="IV.B_files/moduleIV.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="IV.B_files/moduleIV.gif" alt="module banner" height="125" 
+width="600"> </p>
+<h3><strong>Modal Jazz </strong></h3>
+<p>The formation of modal jazz was worked out by Miles and pianist Bill 
+Evans
+  in a series of late 1950s records, Milestones (1958), Sketches of 
+Spain (1959-60),
+and most famously in Kind of Blue (1959).</p>
+<p>In Kind of Blue, Miles recorded with an all-star sextet that featured
+ Julian 'Cannonball' Adderly
+  on alto sax, the great John Coltrane on tenor sax, the influential 
+composer
+  and pianist Bill Evans, Paul Chambers on bass, and James Cobb on 
+drums.&nbsp; We
+  will discuss Kind of Blue in much more detail later in the course in 
+Topic
+  4, but for now let's talk about some of the basic things that made 
+modal
+  jazz new and distinctive.</p>
+<p><strong>Introduction</strong></p>
+<p>Miles and pianist Bill Evans began to experiment with alternating 
+whole scales
+  rather than a series of <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a> as a basis for <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113976071"
+ class="glossarylink" target="_blank">improvisation</a> and, further, to
+  generate <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a> in jazz.&nbsp; The rapid <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113922071"
+ class="glossarylink" target="_blank">chord</a> changes in bop, where a 
+rapidly
+  changing series of chords was used as the basis for improvisation, had
+ increasingly
+  become less attractive to many jazz musicians as the emphasis became 
+increasingly
+  focused on technical and virtuosic display.</p>
+<p>With modal jazz, more so than the actual <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113989071"
+ class="glossarylink" target="_blank">pitch</a> content of the scales 
+used,
+  the fact that rapid <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113931071"
+ class="glossarylink" target="_blank">harmonic</a> changes were 
+radically slowed became striking
+  and influential.&nbsp; Musicians call the rate at which chords or the <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113968071"
+ class="glossarylink" target="_blank">harmony</a>
+  changes the 'harmonic <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a>' of a piece.&nbsp; 
+Harmonic rhythm
+  slowed from the nearly one chord change to the beat (or in the case of
+ the
+  virtuosic late bop improvisation of Coltrane where he substituted 
+three chords
+  in the space of every single chord in the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113933071"
+ class="glossarylink" target="_blank">standard</a> progression) to where
+ performers
+  could settle into a mode for a whole <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> of a piece.&nbsp; 
+Coltrane, performing
+  modal works in contrast to his late bop performances, would even 
+improvise
+  in a single mode for three hours without a break in one famous <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113955071"
+ class="glossarylink" target="_blank">live performance</a>.&nbsp; 
+Further,
+  changes in mode could also dictate structural change in a work, or 
+signal that
+  the group was moving from one part of the form to the next.</p>
+<p>The word mode goes back quite far in Western music.&nbsp; At root the
+ term
+  encompasses many of the other scale patterns of whole and half 
+steps—of
+  diatonic scales, for example—that go beyond major and minor 
+scales.&nbsp; Miles
+  and his collaborators expanded the concept of the chord (three or four
+ pitch
+  aggregates drawn from a scale) to include all seven <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113949071"
+ class="glossarylink" target="_blank">pitches</a> of a diatonic 
+scale.&nbsp; Some
+  of the new modal jazz scales explored scale constructions other 
+cultures such
+  as India and Spain, most prominently. </p>
+As a practical matter when accompanying a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113970071"
+ class="glossarylink" target="_blank">soloist</a>, <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113991071"
+ class="glossarylink" target="_blank">rhythm section</a> musicians (like
+the pianist and bass player) would often localize and emphasize parts of
+ the
+scale.&nbsp; There are famous recorded examples of modal works from the 
+late
+1950s through the mid-1960s by pianists Bill Evans (with Miles) and 
+McCoy Tyner
+(with John Coltrane) where they alternate between two chordal areas 
+culled from
+the full mode.&nbsp; Bass players often focused on repeating patterns (a
+ process
+which will be radicalized further in later <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113972071"
+ class="glossarylink" target="_blank">fusion</a> styles with the 
+adoption of
+explicitly repetitive <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113966071"
+ class="glossarylink" target="_blank">funk</a> and rock bass lines), or 
+the sustained emphasis on
+a single pitch called a drone.
+</body></html>

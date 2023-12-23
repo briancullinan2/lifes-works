@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="V.A_files/styles.css" type="text/css">
+
+<script language="javascript" src="V.A_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=5WcwLjGRLNNWgHmnQT21sn7ZZqhCQkvNDwKVc72nQfZrYLYd8gpb!258805519!prd2.vista.nau.edu!80!443!1006298310!prd3.vista.nau.edu!80!443!1273168913820";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=5WcwLjGRLNNWgHmnQT21sn7ZZqhCQkvNDwKVc72nQfZrYLYd8gpb!258805519!prd2.vista.nau.edu!80!443!1006298310!prd3.vista.nau.edu!80!443!1273168913820";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Introduction</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="V.A_files/moduleV.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="V.A_files/moduleV.gif" alt="module banner" height="125" 
+width="600"> </p>
+<h3><strong>Introduction</strong></h3>
+<p> To quote jazz columnist Joe Goldberg, </p>
+<blockquote>
+  <p>"Jazz musicians were probably the first people to use the word 
+"cool" who weren't talking about the weather." (Gene Sculatti, <cite>The
+ Catalog of Cool</cite>, Warner Books. 1982.) </p>
+</blockquote>
+<p>The two prevailing ideas concerning the evolution of cool jazz in the
+ late 1940's are: </p>
+<ol>
+  <li>The most popular idea: <br>
+    <br>
+    As a reaction to the frantic tempos and <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113922071"
+ class="glossarylink" target="_blank">chord</a>-laden music of bop – 
+i.e. "Hot Jazz". Cool jazz was far more subtle and restrained than bop. 
+While cool jazz and bop were both popular jazz styles that existed at 
+the same time, the proponents of one style were often loath to admit 
+that the other even existed. Cool jazz players were considered wimpy and
+ "white" by boppers who themselves were, in turn, thought of by the cool
+ jazz players as crazy and out of control. These cool jazz players 
+didn't drop everything bop however. The cool jazz players developed the 
+advanced <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113968071"
+ class="glossarylink" target="_blank">harmony</a> (scales &amp; <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a>) put forth by the 
+boppers even further than the boppers did.<br>
+    <br>
+  </li>
+  <li>A less popular idea:<br>
+    <br>
+  As a natural evolution of the more relaxed, genteel playing of jazz 
+musicians like tenor saxophonist Lester Young. Young's light saxophone 
+sound coupled with the unhurried pace of his solos contrasted sharply 
+with the "in your face" sounds and virtuosic solos characteristic of bop
+ playing. (Bop will be covered in detail in the next <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> of the course,) Listen
+ to Young's <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> from the 1939 recording 
+of "Lester Leaps In" that he played with Count Basie on piano. The 
+recording was made almost 10 years before there was any mention of a 
+style called cool jazz. Listen to a minute or two to hear one of the 
+original "cool" musicians.</li>
+</ol>
+<p><strong><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="countbasie_kc7_lester" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleV/countbasie_kc7_lester.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="V.A_files/countbasie_kc7_lester.swf" quality="high" 
+bgcolor="#ffffff" name="countbasie_kc7_lester" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="admzuzlqbptshelkhibi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleV/countbasie_kc7_lester.swf"></a><a
+ class="admzuzlqbptshelkhibi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleV/countbasie_kc7_lester.swf"></a>
+</object></strong></p>
+<p>While some jazz writers may feel that one of these ideas may 
+supersede the other, both of them contributed equally to the creation of
+ cool jazz. By the way, journalists looking for a name for this laid 
+back jazz style coined the term "cool jazz" not the musicians who played
+ it.</p>
+In general, cool jazz, like the name implies takes an easier to digest, 
+softer less edgy and aggressive approach to jazz music. The music often 
+has an intellectual, almost classical music sound to it, which can 
+elicit a feeling of emotional detachment. Oddly enough, in spite of this
+ description, cool jazz was a big hit with audiences and its influence 
+is still being felt today. People still ask bands to play Dave Brubeck's
+ <em><cite>Take Five</cite>.</em> Today's "smooth Jazz" while not as 
+rich harmonically or compositionally as cool jazz was is successful for 
+the same softer, non-aggressive reasons.
+</body></html>

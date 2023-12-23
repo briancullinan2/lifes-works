@@ -1,0 +1,1482 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="V.A_files/styles.css" type="text/css">
+
+<script language="javascript" src="V.A_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=5WcwLjGRLNNWgHmnQT21sn7ZZqhCQkvNDwKVc72nQfZrYLYd8gpb!258805519!prd2.vista.nau.edu!80!443!1006298310!prd3.vista.nau.edu!80!443!1273168913820";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=5WcwLjGRLNNWgHmnQT21sn7ZZqhCQkvNDwKVc72nQfZrYLYd8gpb!258805519!prd2.vista.nau.edu!80!443!1006298310!prd3.vista.nau.edu!80!443!1273168913820";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Introduction</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="V.A_files/moduleV.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="V.A_files/moduleV.gif" alt="module banner" height="125" 
+width="600"> </p>
+<h3><strong>Introduction</strong></h3>
+<p> To quote jazz columnist Joe Goldberg, </p>
+<blockquote>
+  <p>"Jazz musicians were probably the first people to use the word 
+"cool" who weren't talking about the weather." (Gene Sculatti, <cite>The
+ Catalog of Cool</cite>, Warner Books. 1982.) </p>
+</blockquote>
+<p>The two prevailing ideas concerning the evolution of cool jazz in the
+ late 1940's are: </p>
+<ol>
+  <li>The most popular idea: <br>
+    <br>
+    As a reaction to the frantic tempos and <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113922071"
+ class="glossarylink" target="_blank">chord</a>-laden music of bop – 
+i.e. "Hot Jazz". Cool jazz was far more subtle and restrained than bop. 
+While cool jazz and bop were both popular jazz styles that existed at 
+the same time, the proponents of one style were often loath to admit 
+that the other even existed. Cool jazz players were considered wimpy and
+ "white" by boppers who themselves were, in turn, thought of by the cool
+ jazz players as crazy and out of control. These cool jazz players 
+didn't drop everything bop however. The cool jazz players developed the 
+advanced <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113968071"
+ class="glossarylink" target="_blank">harmony</a> (scales &amp; <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a>) put forth by the 
+boppers even further than the boppers did.<br>
+    <br>
+  </li>
+  <li>A less popular idea:<br>
+    <br>
+  As a natural evolution of the more relaxed, genteel playing of jazz 
+musicians like tenor saxophonist Lester Young. Young's light saxophone 
+sound coupled with the unhurried pace of his solos contrasted sharply 
+with the "in your face" sounds and virtuosic solos characteristic of bop
+ playing. (Bop will be covered in detail in the next <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> of the course,) Listen
+ to Young's <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> from the 1939 recording 
+of "Lester Leaps In" that he played with Count Basie on piano. The 
+recording was made almost 10 years before there was any mention of a 
+style called cool jazz. Listen to a minute or two to hear one of the 
+original "cool" musicians.</li>
+</ol>
+<p><strong><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="countbasie_kc7_lester" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleV/countbasie_kc7_lester.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="V.A_files/countbasie_kc7_lester.swf" quality="high" 
+bgcolor="#ffffff" name="countbasie_kc7_lester" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="admzuzlqbptshelkhibi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleV/countbasie_kc7_lester.swf"></a><a
+ class="admzuzlqbptshelkhibi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleV/countbasie_kc7_lester.swf"></a>
+</object></strong></p>
+<p>While some jazz writers may feel that one of these ideas may 
+supersede the other, both of them contributed equally to the creation of
+ cool jazz. By the way, journalists looking for a name for this laid 
+back jazz style coined the term "cool jazz" not the musicians who played
+ it.</p>
+In general, cool jazz, like the name implies takes an easier to digest, 
+softer less edgy and aggressive approach to jazz music. The music often 
+has an intellectual, almost classical music sound to it, which can 
+elicit a feeling of emotional detachment. Oddly enough, in spite of this
+ description, cool jazz was a big hit with audiences and its influence 
+is still being felt today. People still ask bands to play Dave Brubeck's
+ <em><cite>Take Five</cite>.</em> Today's "smooth Jazz" while not as 
+rich harmonically or compositionally as cool jazz was is successful for 
+the same softer, non-aggressive reasons.
+</body></html><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="V.B.1_files/styles.css" type="text/css">
+
+<script language="javascript" src="V.B.1_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=5WcwLjGRLNNWgHmnQT21sn7ZZqhCQkvNDwKVc72nQfZrYLYd8gpb!258805519!prd2.vista.nau.edu!80!443!1006298310!prd3.vista.nau.edu!80!443!1273168913820";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=5WcwLjGRLNNWgHmnQT21sn7ZZqhCQkvNDwKVc72nQfZrYLYd8gpb!258805519!prd2.vista.nau.edu!80!443!1006298310!prd3.vista.nau.edu!80!443!1273168913820";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Gerry Mulligan</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="V.B.1_files/moduleV.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="V.B.1_files/moduleV.gif" alt="module banner" height="125" 
+width="600"> </p>
+<h3><strong>Gerry Mulligan
+
+</strong></h3>
+<p> Next to Harry Carney, Duke Ellington's longtime baritone saxophone 
+player, <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.317500&amp;subview=article_text"
+ target="_blank">Gerry Mulligan</a> was probably the best known and 
+highly regarded baritone saxophone player in modern jazz. In addition to
+ his remarkable abilities as a player, Mulligan was also a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113943071"
+ class="glossarylink" target="_blank">fine</a> arranger, composer and 
+bandleader who led a number of groups that helped to define the cool 
+jazz movement. </p>
+<p> Mulligan's first big break came when Gene Krupa hired him as both 
+saxophonist and arranger in the 1940's. His bop influenced writing 
+caught the attention of <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113954071"
+ class="glossarylink" target="_blank">big band</a> leader Claude 
+Thornhill. It was in Thornhill's band that Mulligan met Gill Evans. This
+ serendipitous meeting helped to lay the groundwork for Miles Davis' <cite>Birth
+ of the Cool</cite> recording. Before the Birth of the Cool nonet played
+ its engagement at the Royal Roost, Mulligan, Gil Evans, Miles and 
+number of other musicians interested in something new were gathering at 
+Evan's Manhattan apartment to play, arrange and refine the nonet's 
+sound. Mulligan's contribution to the group and subsequent recording 
+included arrangements of <cite>Darn That Dream</cite> and <cite>Godchild.</cite>
+ He also composed and arranged three original songs <cite>Venus de Milo,
+ Rocker</cite> and <cite>Jeru.</cite> Let's take a close look at Jeru. </p>
+<p> Jeru incorporated a couple of devices that became <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113933071"
+ class="glossarylink" target="_blank">standard</a> cool jazz fare – 
+shifting meters and phrases of unequal lengths. The tune basically in 
+4/4 meter and is an A-A-B-A <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a>. The first two phrases 
+(A-A) are the standard 8 bears long. Letter B, the bridge, is 12 bars 
+long and has bars of 3/4, 2/4 and 6/4 in it. The last letter A of the 
+form is 9 bars long rather than 8. Here's how it looks: </p>
+<p><strong><img src="V.B.1_files/Jeru.gif" alt="Jeru" height="741" 
+width="600"></strong></p>
+<p>Look at letter B – 12 bars long: </p>
+<p> The meter signatures are bigger than usual so they stand out. </p>
+<p> bar 1 – 4/4 </p>
+<p> bar 2 – 3/4 </p>
+<p> bar 3 – 2/4 </p>
+<p> bars 4-7 – 3/4 </p>
+<p> bar 8 - 6/4 and </p>
+<p> bars 9-12 - 4/4 </p>
+<p> The last letter A is, as mentioned, is 9 bars long. </p>
+<p><strong><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="tristanol_subcon_lee" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleV/davism_jeru.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="V.B.1_files/davism_jeru.swf" quality="high" 
+bgcolor="#ffffff" name="tristanol_subcon_lee" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="admzuzlqbptshelkhibi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleV/davism_jeru.swf"></a><a
+ class="admzuzlqbptshelkhibi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleV/davism_jeru.swf"></a>
+</object></strong></p>
+<p>0:00 Horns play the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a> of 1<sup>st</sup> 
+letter A </p>
+<p> 0:11 Horns play the melody of 2<sup>nd</sup> letter A </p>
+<p> 0:21 Horns play letter B Here's how to count the beats with the 
+changing meters: </p>
+<blockquote>
+  <p> "1-2-3-4 </p>
+  <p> 1-2-3 </p>
+  <p> 1-2 </p>
+  <p> 1-2-3 </p>
+  <p> 1-2-3 </p>
+  <p> 1-2-3 </p>
+  <p> 1-2-3 </p>
+  <p> 1-2-3-4-5-6 </p>
+</blockquote>
+<p> 0:31 1-2-3-4 (Baritone sax <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a>) </p>
+<blockquote>
+  <p> 1-2-3-4 </p>
+  <p> 1-2-3-4 </p>
+  <p> 1-2-3-4" </p>
+</blockquote>
+<p> 0:36 Horns play the melody of last letter A – 9 bars long. </p>
+<p> 0:48 Miles Davis trumpet solo - A-A-B-A - each <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> 8 bars long! The 
+standard 32 bar A-A-B- form with no meter changes. Horns plays behind 
+Miles for 8 bars and drops out for the 2 nd letter A and the bridge. </p>
+<p> 1:20 Horns play behind Miles for the last letter A. </p>
+<p> 1:31 Mulligan baritone solo begins </p>
+<p> Here, Mulligan inserts a horn lead in to his solo made up of 3 bars 
+of 4/4 and a bar of 2/4 – Mulligan solos for 4 more bars in 4/4 ending 
+the first letter A (8 bars minus 2 beats.) </p>
+<blockquote>
+  <p> "1-2-3-4 </p>
+  <p> 1-2-3-4 </p>
+  <p> 1-2-3-4 </p>
+  <p> 1-2 </p>
+  <p> 1-2-3-4 </p>
+  <p> 1-2-3-4 </p>
+  <p> 1-2-3-4 </p>
+  <p> 1-2-3-4" </p>
+</blockquote>
+<p> 1:41 The 2<sup>nd</sup> letter A is a repeat of the first. </p>
+<p> 1:51 Letter B and the last A sections of the solo are each 8 bars 
+long. </p>
+<p> 2:13 Horns enter with a brand new melody! New letter A </p>
+<p> 2:24 New letter A repeats </p>
+<p> 2:35 New letter B melody using counting format above. This tie Miles
+ Davis plays the last 4 bars of letter B. </p>
+<p> 2:50 Last letter A to end. </p>
+<p>Mulligan's use of mixed meters and phrases of varying lengths helped 
+to create an arrangement full of unexpected twists and turns. Mulligan 
+moved to Los Angeles after the <cite>Birth of the Cool</cite> recording 
+sessions and helped to establish what became known as West Coast Jazz. 
+The label is a misnomer as most of the people involved with West Coast 
+Jazz were not from the west coast! Gerry Mulligan, for example, was born
+ in Queens . New York – almost as far from the west coast as you can get
+ and still be in the United States ! The label came to signify music 
+played by white musicians in a very relaxed, laid back style totally 
+ignoring the contributions being made by African-American musicians like
+ tenor saxophonists Dexter Gordon and Buddy Collette who were performing
+ in the LA area at the same time. </p>
+<p> Before returning to New York in the late 1950's Mulligan and 
+trumpeter <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.022200&amp;subview=article_text"
+ target="_blank">Chet Baker</a> formed a group with no piano in it. This
+ piano-less quartet (sax, trumpet bass and drums) created quite a 
+sensation and was recorded often by the recording company, Pacific Jazz.
+ The lack of a piano left a lot space for the soloists to fill by 
+themselves. They were now free to experiment with the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a> and scales (<a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113968071"
+ class="glossarylink" target="_blank">harmony</a>) and not be bound by 
+the pianist. Because of this new found freedom, Mulligan and Baker were 
+able to weave spontaneously created melody lines around each other. This
+ counterpoint became a feature of cool jazz. Let's listen to Mulligan 
+and Baker along with Carson Smith on bass and Larry Bunker on drums in a
+ 1953 live recording of My Funny Valentine. An A-A-B-A form, the last 
+letter A section is 12 bars long – 8 bars plus a 4 bar tag. The 
+performance is two choruses long and is anchored by what seems to a 
+written out (not improvised) <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113995071"
+ class="glossarylink" target="_blank">bass line</a>. The line is 
+repeated with very few alterations for both the trumpet and baritone sax
+ solos. </p>
+<p><strong><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="tristanol_subcon_lee" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleV/mulligang_myfunnyval.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="V.B.1_files/mulligang_myfunnyval.swf" quality="high" 
+bgcolor="#ffffff" name="tristanol_subcon_lee" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="admzuzlqbptshelkhibi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleV/mulligang_myfunnyval.swf"></a><a
+ class="admzuzlqbptshelkhibi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleV/mulligang_myfunnyval.swf"></a>
+</object></strong></p>
+<p>0:00 Drum roll with mallets </p>
+<p> 0:11 Bass enters playing quarter note pattern </p>
+<p> Baker enters playing letter A for the 1<sup>st</sup> time. Notice 
+that Baker's trumpet sound is more aggressive and edgy than most cool 
+players we've listened to so far.. </p>
+<p> 0:39 Baker plays letter A for the 2<sup>nd</sup> time </p>
+<p> 1:10 Letter B – Bass play double stops (2 notes played at the same 
+time) </p>
+<p> 1:42 The last letter A with embellishments. Bass play quarter notes 
+as in 1<sup>st</sup> and 2<sup>nd</sup> letter A </p>
+<p> This last letter A is 11 bars long rather than 12. </p>
+<p> 2:22 Mulligan sax solo starts – 1<sup>st</sup> letter A. Bass line 
+repeats as played for Baker </p>
+<p> 2:54 Mulligan solo continues – 2<sup>nd</sup> letter A </p>
+<p> 3:27 Letter B – Bass play double stops again (2 notes played at the 
+same time) </p>
+<p> 4:01 Mulligan solos on the 1<sup>st</sup> 8 bars of the last letter 
+A. </p>
+<p> 4:35 Baker enters with the last 4 bars of the melody embellished to 
+end. Mulligan improvises lines around Baker's melody </p>
+4:51 Drum roll. <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113985071"
+ class="glossarylink" target="_blank">Tempo</a> slows to end
+</body></html><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="V.B_files/styles.css" type="text/css">
+
+<script language="javascript" src="V.B_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=5WcwLjGRLNNWgHmnQT21sn7ZZqhCQkvNDwKVc72nQfZrYLYd8gpb!258805519!prd2.vista.nau.edu!80!443!1006298310!prd3.vista.nau.edu!80!443!1273168913820";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=5WcwLjGRLNNWgHmnQT21sn7ZZqhCQkvNDwKVc72nQfZrYLYd8gpb!258805519!prd2.vista.nau.edu!80!443!1006298310!prd3.vista.nau.edu!80!443!1273168913820";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Miles Davis</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="V.B_files/moduleV.css" rel="stylesheet" type="text/css">
+<script language="JavaScript">
+<!-- Hide from non-Javascript browsers
+function windowOpen(url)
+{
+open(url, "remote", "directories=no,location=no,menubar=no,resizable=yes,scrollbars=no,status=yes,toolbar=no,width=315,height=315"); 
+}
+// -->
+</script>
+</head><body>
+<p><img src="V.B_files/moduleV.gif" alt="module banner" height="125" 
+width="600"> </p>
+<h3><strong> Miles Davis </strong></h3>
+<p>Miles Davis, who has been discussed in the Cut 'n' <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113994071"
+ class="glossarylink" target="_blank">Mix</a>, <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113972071"
+ class="glossarylink" target="_blank">Fusion</a> and Modal &amp; Free 
+Jazz sections of this course, was also one of the most important 
+contributors to the cool jazz style. During the mid '40's, he played and
+ recorded with bop saxophonist Charlie Parker. While still playing and 
+recording with Parker and feeling the need for a change of direction in 
+his music, Miles put a 9-piece band (a nonet) together in the late '40's
+ with another of cool jazz's important contributors, composer/arranger <a
+ 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.142600&amp;subview=article_text"
+ target="_blank">Gil Evans</a>. Their idea was to come up with music 
+that embraced more refined, cerebral sensibilities that were not present
+ in the freewheeling, highly charged bop style. </p>
+<p>Evans, baritone saxophonist Gerry Mulligan, pianist John Lewis and 
+John Carisi wrote the arrangements. The often lush harmonies, orchestral
+ colors and contrapuntal lines (two or more melodies being played at the
+ same time) found in the arrangements gave the impression of a small <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113954071"
+ class="glossarylink" target="_blank">big band</a> rather than that of a
+ big small band or <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113921071"
+ class="glossarylink" target="_blank">combo</a>. The arrangements 
+themselves took on as much importance as the solos creating almost 
+seamless transitions from ensemble sections where all of the horns were 
+playing to a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> and back again to the 
+ensemble.</p>
+<p>The nonet played its only live engagement for two weeks at the Roost 
+in 1948. In 1949-50 the group recorded 11 songs at the Capitol Records 
+Studio in New York . First released in the early '50's on 78 rpm records
+ (which may account for the short length of the performances – 78's 
+could only handle 3-4 minute of music per side), all 11 of the songs 
+were released in 1957 on a 12" LP entitled <cite>The Birth of the Cool.</cite>
+ The live engagement and the recording constituted the entire output of 
+the band! </p>
+<p> While not a big seller at the time, its effect on jazz musicians was
+ profound. Cool jazz had matured into a viable style that others, 
+especially on the West Coast, began to explore and are still exploring 
+today.</p>
+<p>Let's listen to a cut from <cite>The Birth of the Cool.</cite> 
+"Boplicity", written by Miles Davis and arranged by Gil Evans. Evans was
+ a master of combining advanced harmonies with a splendid ear for 
+orchestration. The addition of a french horn and a tuba, instruments not
+ usually found modern jazz bands, to the lineup of players and Evans' 
+arrangement with its flowing lines creates a peaceful, relaxed feeling 
+—i.e. Cool. The solos are low-keyed and devoid of fast, technical 
+passages. The song is in an A-A-B-A <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a>, each <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> 8 <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113941071"
+ class="glossarylink" target="_blank">measures</a> long.</p>
+<p><strong><img src="V.B_files/Boplicity.gif" alt="Boplicity" 
+height="642" width="600"></strong></p>
+<p>By the way, do you remember what an A-A-B-A <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113935071"
+ class="glossarylink" target="_blank">song form</a> is? If not follow 
+this breadcrumb trail starting from the <strong>MUS333 Homepage : Course
+ Content &gt; Introduction &gt; How are people listening? &gt; Basic 
+Materials of Music &gt; Song Form</strong>. The form of "Boplicity" fits
+ perfectly into the A-A-B-A scheme both rhythmically and harmonically. 
+Melodically, however, a couple of notes have been changed in the 2<sup>nd</sup>
+ and 3<sup>rd</sup> A sections. While you are listening to the 
+recording, have the music to "Boplicity" up on your screen. Compare 
+measures 1 and 2 with measures 9 and 10. Now listen again and compare 
+measures 7 and 8 with measures 31 and 32. You'll hear slight differences
+ in the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a>. If you aren't able to 
+hear the differences, look at the music one more time and see that in 
+measure 9 the notes go higher up on the staff and have a new <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a> pattern compared to 
+measure 1. In measure 10 the 2<sup>nd</sup> note goes up rather than 
+down as in measure 2. Measures 31 and 32 have a totally different rhythm
+ pattern than measures 7 and 8. While the differences in the melody are 
+slight, we want to be sure that you notice them.</p>
+<p> Another thing to be aware of is that during the melody up until the 
+baritone sax solo starts and the last eight measures of the recording 
+the horns are in <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113963071"
+ class="glossarylink" target="_blank">rhythmic</a> unison. The notes 
+each horn might be playing are not the same but the rhythm used in 
+playing them is—rhythmic unison.</p>
+<p><strong><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="countbasie_kc7_lester" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleV/davism_boplicity.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="V.B_files/davism_boplicity.swf" quality="high" 
+bgcolor="#ffffff" name="countbasie_kc7_lester" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="admzuzlqbptshelkhibi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleV/davism_boplicity.swf"></a><a
+ class="admzuzlqbptshelkhibi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleV/davism_boplicity.swf"></a>
+</object></strong></p>
+<p>Lee Konitz (alto, sax); Gerry Mulligan (baritone sax); Miles Davis 
+(trumpet); J.J. Johnson (trombone); Sandy Siegelstein (french horn); 
+Bill Barber (tuba); John Lewis (piano); Nelson Boyd (bass); Kenny Clarke
+ (drums) </p>
+<p>0:00 melody – 1<sup>st</sup> "A" section</p>
+<p>0:14 2<sup>nd</sup> "A" section</p>
+<p>0:27 "B" section</p>
+<p>0:42 last "A" section</p>
+<p>0:56 2<sup>nd</sup> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113953071"
+ class="glossarylink" target="_blank">chorus</a>: baritone sax solo on 1<sup>st</sup>
+ two "A" sections</p>
+<p> 1:24 instrumental interlude – 1<sup>st</sup> 6 measures of "B" 
+section</p>
+<p> 1:35 trumpet solo – last 4 measures of "B" section </p>
+<p> (The "B" section was extended by 2 measures to 10 measures rather 
+than 8.)</p>
+<p> 1:42 instrumental interlude on last "A" section</p>
+<p> 1:58 3<sup>rd</sup> chorus: trumpet solos on 1<sup>st</sup> two "A" 
+sections, horns play background</p>
+<p> 2:25 piano solos on "B" section, horns play background</p>
+<p> 2:40 last "A" section of melody to end</p>
+<p>Before leaving "Boplicity" let's take another look at the printed 
+music. You are probably wondering why punctuation marks and mathematical
+ symbols appear in the music. What do dashes, dots and commas have to do
+ with music making? Why do musicians pay attention to "greater than" 
+(&gt;) symbols and to "is greater than or equal to" (≥) symbols? To 
+musicians playing any style of music, these punctuation marks and math 
+symbols have nothing to do with either English or Mathematics. These 
+dashes, dots, and commas, are called "articulation marks" and tell the 
+player how to play the note that one of them or a combination of them is
+ attached to.</p>
+<p> In measure 1 you'll se a dash above the third note. It's commonly 
+called a "long mark" and it tells the player to play the note full 
+value, in this case a quarter note (two eighth notes tied together). 
+There is no audible space between it and the note that follows every 
+time you see a dash – the notes are connected to one another.</p>
+<p> The note that follows has a dot underneath it. The dot or "staccato 
+mark" means that the note is played shorter than is printed – often half
+ of its value. Here the quarter note sounds like an eighth note – half 
+of a quarter is an eighth. Listen for a short but audible space between 
+it and the next note every time you see a dot.</p>
+<p> Take a look at measure 4 and find the comma above the staff before 
+the last note. The comma is called a "breath mark." For every one in the
+ band it means that the note just before the breath mark (comma) is to 
+be played a bit shorter so that there is an audible space between it and
+ the next note. (Probably for the wind instrument players (saxes, 
+trumpets and trombones) it's a good place to take a breath, too!) The 
+breath mark differs from the dot in that the note it follows is note 
+played half of its value but just a tad shorter. As you listen to the 
+recording listen for the space between the notes separated by a breath 
+mark.</p>
+<p> Measure 6 has the first of the math symbols in it – the greater than
+ symbol (&gt;). To the musician this symbol is called an "accent mark." A
+ note with an accent mark placed above or below it is given a little 
+more emphasis, a slight increase in volume.</p>
+<p> The math symbol over the last note in measure 17 (≥) is the "is 
+greater than or equal to" symbol. To the musician it's a combination of 
+two articulation marks – in this case an accent mark we just discussed 
+along with a long mark talked about earlier. So we have a note that is 
+emphasized and played full value.</p>
+<p> Now go back and listen to the track one more time and pay particular
+ attention to the articulation marks.</p>
+<p>The Miles Davis and Gil Evans collaborations continued on well into 
+the '50's with the 1957 release <cite>of Miles Ahead</cite>, 1958 
+release of <cite>Porgy and Bess</cite> and the 1959 release of <cite>Sketches
+ of Spain. </cite></p>
+<p>Evans arranged the music from George Gershwin's Broadway show <cite>Porgy
+ and Bess</cite> for Miles and big band. The arrangement of the song 
+"Summertime" continues the cool feeling established with <cite>The Birth
+ of the Cool</cite> recordings. Again you'll hear lush harmonies and 
+orchestral colors heard in the earlier recording this time on a larger 
+scale as the band playing behind Miles is much larger – twenty players 
+compared to nine. Evans added French horns, a tuba and alto flutes to 
+the saxes, trumpets and trombones normally found in a big band creating 
+unusual, yet engaging sonorities. </p>
+<p>After a straightforward, unadorned performance of the familiar 
+melody, Davis plays three solo choruses accompanied by a light, 
+unobtrusive band background. Miles is playing with a harmon mute 
+throughout the recording. </p>
+<p><strong><img src="V.B_files/Summertime.gif" alt="Summertime" 
+height="540" width="600"> </strong></p>
+<p>The top line of the music is the melody – what Miles played. The 
+bottom line is the accompanying (or counter) melody the band played 
+throughout the recording. </p>
+<p><strong><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="countbasie_kc7_lester" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleV/davism_evansg_summer.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="V.B_files/davism_evansg_summer.swf" quality="high" 
+bgcolor="#ffffff" name="countbasie_kc7_lester" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="admzuzlqbptshelkhibi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleV/davism_evansg_summer.swf"></a><a
+ class="admzuzlqbptshelkhibi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleV/davism_evansg_summer.swf"></a>
+</object></strong></p>
+<p>0:00 Miles plays the 16 measure long melody with counter melody</p>
+<p>0:35 1<sup>st</sup> trumpet solo chorus – counter melody continues</p>
+<p> 1:10 2<sup>nd</sup> trumpet solo chorus – counter melody continues –
+ flutes louder than the other horns</p>
+<p> 1:46 3<sup>rd</sup> trumpet solo chorus – counter melody continues –
+ played as in the beginning</p>
+<p> 2:22 Miles plays the melody this time taking great liberties – 
+counter melody continues</p>
+<p> 3:03 Band slows down</p>
+<p> 3:16 Summertime ends</p>
+<p>Here's a short clip of Miles Davis and Gil Evans working together on a
+ 1959 television show. They are playing a Dave Brubeck composition 
+called "The Duke." Gil is the one waving his arms as he is about to take
+ off! Believe it or not there was live jazz performed on television in 
+the 1950's. Now that's cool!</p>
+<p><a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/~mus333-c/video/davis_evans.html')">Watch
+the
+ video.</a></p>
+<p>&nbsp;</p>
+</body></html><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="V.C_files/styles.css" type="text/css">
+
+<script language="javascript" src="V.C_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=5WcwLjGRLNNWgHmnQT21sn7ZZqhCQkvNDwKVc72nQfZrYLYd8gpb!258805519!prd2.vista.nau.edu!80!443!1006298310!prd3.vista.nau.edu!80!443!1273168913820";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=5WcwLjGRLNNWgHmnQT21sn7ZZqhCQkvNDwKVc72nQfZrYLYd8gpb!258805519!prd2.vista.nau.edu!80!443!1006298310!prd3.vista.nau.edu!80!443!1273168913820";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Lennie Tristano</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="V.C_files/moduleV.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="V.C_files/moduleV.gif" alt="module banner" height="125" 
+width="600"> </p>
+<h3>Lennie Tristano</h3>
+<p><a 
+href="javascript:doWindowOpen('http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.456400&amp;subview=article_text','new_frame','width=600,height=420,menubar=1,toolbar=1,scrollbars=1,status=1,location=1,resizable=1',0)">Lennie
+ Tristano</a> (piano), <a 
+href="javascript:doWindowOpen('http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.250800&amp;subview=article_text','new_frame','width=600,height=420,menubar=1,toolbar=1,scrollbars=1,status=1,location=1,resizable=1',0)">Lee
+ Konitz</a> (alto sax)' Billy Bauer (guitar); Arnold Fishkin (bass); 
+Shelley Manne (drums)</p>
+<p>Pianist Lennie Tristano and alto sax player Lee Konitz (of <cite>The 
+Birth of the Cool</cite> recording fame) were two players who, 
+unfortunately, received little or no recognition from the general 
+public. They were considered "musician's musicians" and plied their 
+craft in and around New York City. </p>
+<p>Tristano's music featured unusual, often complex melodies and 
+harmonies played with a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> (bass &amp; drums) 
+than was relegated to a subdued, strict time keeping role, quite 
+different from the often flamboyant bop rhythm sections of the day. To 
+quote Martin Schowten in his notes to the Capitol LP "Crosscurrents", 
+"Lennie's [Tristano] select coterie of musicians [Konitz (alto sax), 
+Warne Marsh (tenor sax), and Billy Bauer (guitar)] developed a 
+low-temperature [read "cool"] approach to composition and <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113976071"
+ class="glossarylink" target="_blank">improvisation</a>… In terms of the
+ dynamic level, nothing much was allowed to happen …"</p>
+<p>Tristano, blind from infancy, was also a prominent jazz educator 
+whose teachings influenced many, many players in the early 50's, among 
+them, Lee Konitz. Konitz came to prominence playing with Claude 
+Thornhill's band in 1947 the same year he joined Miles Davis, Gil Evans 
+Gerry Mulligan in the project that created <cite>The Birth of the Cool</cite>
+ recordings. All of this while he was just 20 years old! He became a 
+teacher to students all over the world and has won many jazz polls as 
+best alto player.</p>
+<p>"Subconscious Lee" is a Lee Konitz composition based on the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113922071"
+ class="glossarylink" target="_blank">chord</a> progression of Cole 
+Porter's "What Is This Thing Called Love," and has an AABA <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a>, each section 8 <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113941071"
+ class="glossarylink" target="_blank">measures</a> long. (It was and is 
+common practice for jazz composers to borrow a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113997071"
+ class="glossarylink" target="_blank">chord progression</a> that he or 
+she likes and to write a new <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a> over it.) Take a look 
+at the melody and notice that in every A section the melody is different
+ but the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a> remain the same. While 
+the solos in this particular recording aren't quite as "low-temperature"
+ as Mr. Schowten suggests, they do, however, possess less drive, <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113963071"
+ class="glossarylink" target="_blank">rhythmic</a> variety and emotional
+ content then their Bop counterparts. </p>
+<p><strong><img src="V.C_files/Sub-Conscious-Lee.gif" alt="Subconscious 
+Lee" height="643" width="600"></strong></p>
+<p><strong><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="tristanol_subcon_lee" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleV/tristanol_subcon_lee.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="V.C_files/tristanol_subcon_lee.swf" quality="high" 
+bgcolor="#ffffff" name="tristanol_subcon_lee" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a style="left: 526px ! important; top: 
+1141.2px ! important;" title="Click here to block this object with 
+Adblock Plus" class="admzuzlqbptshelkhibi snfhlshzmkeofqixiaix" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleV/tristanol_subcon_lee.swf"></a>
+</object></strong></p>
+<p>0:00 melody – 1<sup>st </sup> "A" section</p>
+<p>0:08 2<sup>nd</sup> "A" section</p>
+<p>0:16 "B" section</p>
+<p>0:24 last "A" section</p>
+<p>0:33 piano solos over entire form</p>
+<p> 1:02 guitar solos over entire form</p>
+<p> 1:34 alto sax solos over entire form</p>
+<p> 2:05 piano solos over 1<sup>st</sup> "A" section</p>
+<p> 2:12 guitar solos over 2<sup>nd</sup> "A" section</p>
+<p> 2:20 alto sax solos over "B" section</p>
+<p> 2:28 piano solos over last "A" section</p>
+2:36 melody to end
+</body></html><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="V.D_files/styles.css" type="text/css">
+
+<script language="javascript" src="V.D_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=5WcwLjGRLNNWgHmnQT21sn7ZZqhCQkvNDwKVc72nQfZrYLYd8gpb!258805519!prd2.vista.nau.edu!80!443!1006298310!prd3.vista.nau.edu!80!443!1273168913820";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=5WcwLjGRLNNWgHmnQT21sn7ZZqhCQkvNDwKVc72nQfZrYLYd8gpb!258805519!prd2.vista.nau.edu!80!443!1006298310!prd3.vista.nau.edu!80!443!1273168913820";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Dave Brubeck Quartet</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="V.D_files/moduleV.css" rel="stylesheet" type="text/css">
+<script language="JavaScript">
+<!-- Hide from non-Javascript browsers
+function windowOpen(url)
+{
+open(url, "remote", "directories=no,location=no,menubar=no,resizable=yes,scrollbars=no,status=yes,toolbar=no,width=315,height=315"); 
+}
+// -->
+</script></head><body>
+<p><img src="V.D_files/moduleV.gif" alt="module banner" height="125" 
+width="600"> </p>
+<h3>Dave Brubeck Quartet</h3>
+<p> The <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.063300&amp;subview=article_text"
+ target="_blank">Dave Brubeck Quartet</a> was a very popular group on 
+college campuses during the 50's and into the '60's. His recordings <cite>Jazz
+ Goes to College</cite> and <cite>Time Out</cite> were big hits. Brubeck
+ and his group – Paul Desmond (alto sax), Eugene Wright (bass), Joe 
+Morello (drums) – actually made recordings on college campuses often to 
+the chagrin to some college administrators who thought jazz music was 
+only appropriate for parties and not for either recordings or the 
+concert stage.</p>
+<p> A student of French classical composer Darius Milhaud at Mills 
+College in the 40's, Brubeck brought much of what he learned to jazz. 
+His compositions are filled with counterpoint, harmonies and forms that 
+show the influence of his European teacher. You heard a composition of 
+his <cite>The Duke</cite> in the discussion of Miles Davis and Gil 
+Evans. What is thought of to be Brubeck's most famous song, <cite>Take 
+Five, </cite>was not written by him but by alto saxophonist. Paul 
+Desmond. Desmond was the personification of the cool jazz sax player. 
+His airy sax sound coupled with lyrical solos is being copied today.</p>
+<p><cite>Take Five</cite> is one of the most popular jazz songs ever 
+written. The title refers to the fact that the song is played in a 5/4 
+meter, five beats to the bar, not common at all with jazz players. The 
+famous <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a> is announced by an 
+equally famous <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113995071"
+ class="glossarylink" target="_blank">bass line</a>. I've played the 
+song many times and can tell you that as soon as the audience hears the 
+bass part, the applause starts as the wait for the melody to begin. 
+Let's watch and listen the Dave Brubeck Quartet perform <cite>Take Five</cite>
+ from a television show done in the 1960's. </p>
+<p><strong><img src="V.D_files/Take_5.gif" alt="Take Five" height="469" 
+width="600"></strong></p>
+<p><strong><a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/~mus333-c/video/brubeck_dave_5.html')">Watch
+
+      the video. </a></strong></p>
+<p>&nbsp;</p>
+</body></html>

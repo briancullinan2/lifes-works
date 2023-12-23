@@ -1,0 +1,230 @@
+Chapter 1. Steps to Get You Started
+
+ Note 
+  Although this manual reflects the most current information possible, you should read the Red Hat Linux Release Notes for information that may not have been available prior to our documentation being finalized. The Release Notes can be found on the Red Hat Linux CD #1 and online at:
+
+http://www.redhat.com/docs/manuals/linux/
+ 
+ 
+
+1.1. Do You Have the Right Components?
+If you have purchased a Red Hat Linux product from Red Hat, Inc., you are ready to go. However, mistakes occasionally happen, so now is a good time to double-check the contents of your product. 
+
+A Registration Information card is included with your product. A list of the contents of your boxed set version is on the back of the card. Read over the list and check to make sure that you have all of the installation media (such as CD-ROMs) and manuals that are included with the version of Red Hat Linux that you purchased. 
+
+If you have purchased a Red Hat Linux product from Red Hat (or one of our distributors), and you are missing one or more of the items listed, please let us know. Contact information is also available on the Registration Information card. 
+
+How to identify a Red Hat boxed set: The bottom of our box has an ISBN number next to one of the bar codes. That ISBN number should be in this form: 
+
+1-58569-x-y
+ 
+
+(The x and y will be unique numbers.) 
+
+Red Hat partners with companies (international and domestic) so that we can make Red Hat Linux available to you in the most convenient form. Because of these partnerships, you might find that your Red Hat Linux product may not have been actually produced by Red Hat. 
+
+If your product has a different ISBN number (or none at all), you must contact the company that produced it. Normally, third-party producers include their logo and/or contact information on the outside of their box; a Red Hat product lists only our name and contact information. 
+
+1.1.1. Where to Find Other Manuals
+If your particular product did not include all of the printed Red Hat Linux manuals, you can find them online or on the Red Hat Linux Documentation CD included with your Red Hat Linux product. 
+
+To find the manuals in both HTML and PDF formats online, go to:
+
+http://www.redhat.com/docs/
+ 
+
+1.1.2. Registering Your Product
+If you have purchased a Red Hat product, you should register it. Registration offers many useful services, such as installation support, access to Red Hat Network, and more. To register your product, go to:
+
+http://www.redhat.com/apps/activate/
+ 
+
+You will find your Product ID on the Registration Information card in your Red Hat Linux product. Once registered, you will have access to all the extras that Red Hat provides to its registered users. 
+
+For more information on registering and the scope of Red Hat's technical support offerings, see Appendix C Getting Technical Support. 
+
+1.1.3. No Boxed Set? No Problem!
+Of course, not everyone purchases a Red Hat Linux boxed set. It is entirely possible to install Red Hat Linux using a CD created by another company, or even via FTP. In these cases, you may need to create one or more diskettes to get started. 
+
+For information on downloading and installing Red Hat Linux, refer to:
+
+http://www.redhat.com/download/howto_download.html
+ 
+
+For people installing Red Hat Linux from a CD-ROM not from Red Hat, you may need a boot diskette (also referred to as a boot disk), and if you are using a PCMCIA device during the installation (such as a laptop), a PCMCIA driver diskette. You may also be able to start the installation directly from the CD-rom. We will discuss this in more detail when we outline the various installation methods. For more information on making a boot CD-ROM, see Section 1.4.2 Making an Installation Boot CD-ROM. For information on making diskettes, see Section 1.4.3 Making an Installation Boot Diskette. 
+
+1.3. Do You Have Enough Disk Space?
+Nearly every modern-day operating system (OS) uses disk partitions, and Red Hat Linux is no exception. When you install Red Hat Linux, you may have to work with disk partitions. If you have not worked with disk partitions before (or need a quick review of the basic concepts), read Appendix E An Introduction to Disk Partitions before proceeding. 
+
+If Red Hat Linux will share your system with another OS, you will need to make sure you have enough available disk space on your hard drive(s) for this dual boot installation. Refer to Appendix G Configuring a Dual-Boot System for instructions on creating a dual boot system. 
+
+The disk space used by Red Hat Linux must be separate from the disk space used by other OSes you may have installed on your system, such as Windows, OS/2, or even a different version of Linux. At least two partitions (/ and swap) must be dedicated to Red Hat Linux. 
+
+Before you start the installation process, one of the following conditions must be met: 
+
+
+Your computer must have enough unpartitioned[1] disk space for the installation of Red Hat Linux. 
+
+You must have one or more partitions that may be deleted, thereby freeing up enough disk space to install Red Hat Linux. 
+
+1.3.1. Installation Disk Space Requirements
+
+ Note 
+  These recommendations are based on an installation that only installs one language (such as English). If you plan to install multiple languages to use on your system, you should increase the disk space requirements.
+
+These recommendations do not take into account additional space for your user data. You must have additional space available if you plan to save any user data (personal files) to your system.
+ 
+
+
+Personal Desktop
+A personal desktop installation, including a graphical desktop environment, requires at least 1.7GB of free space. Choosing both the GNOME and KDE desktop environments requires at least 1.8GB of free disk space. 
+
+Workstation
+A workstation installation, including a graphical desktop environment and software development tools, requires at least 2.1GB of free space. Choosing both the GNOME and KDE desktop environments requires at least 2.2GB of free disk space. 
+
+Server
+A server installation requires 850MB for a minimal installation without X (the graphical environment), at least 1.5GB of free space if all package groups other than X are installed, and at least 5.0GB to install all packages including the GNOME and KDE desktop environments. 
+
+Custom
+A Custom installation requires 475MB for a minimal installation and at least 5.0GB of free space if every package is selected.
+
+If you are not sure that you meet these conditions, or if you want to know how to create free disk space for your Red Hat Linux installation, refer to Appendix E An Introduction to Disk Partitions. 
+
+Notes[1] Unpartitioned disk space means that available disk space on the hard drive(s) you are installing to has not been divided into sections for data. When you partition a disk, each partition will behave like a separate disk drive.
+ 
+1.4. Can You Install Using the CD-ROM?
+There are several methods that can be used to install Red Hat Linux. 
+
+Installing from a CD-ROM requires that you have purchased a Red Hat Linux 9 product, or you have a Red Hat Linux CD-ROM, and you have a CD-ROM drive. Most new computers will allow booting from the CD-ROM. If your system will support booting from the CD-ROM, it is an easy way to begin a local CD-ROM installation. 
+
+Your BIOS may need to be changed to allow booting from your CD-ROM drive. For more information about changing your BIOS, see Section 3.3.1 Booting the Installation Program. 
+
+1.4.1. Alternative Boot Methods
+
+Boot CD-ROM
+If you can boot using the CD-ROM drive, you can create your own CD-ROM to boot the installation program. This may be useful, for example, if you are performing an installation over a network or from a hard drive. See Section 1.4.2 Making an Installation Boot CD-ROM for further instructions.
+
+If you choose to create a boot CD-ROM, it will not be necessary to create a driver diskette.
+
+If you cannot boot from the CD-ROM drive, the following alternative boot method is available: 
+
+
+Boot Diskette
+If you need a boot diskette[1], you must create it. A boot diskette will be needed if you cannot boot from the CD-ROM. It can be used to boot from a network, block, or PCMCIA device (you will also need the corresponding driver diskette for your booting scenario).
+
+The boot diskette image file, bootdisk.img, is located in the images directory on your Red Hat Linux CD-ROM. Refer to Section 1.4.3 Making an Installation Boot Diskette, for more information on making a boot diskette. 
+
+If you choose to create a boot diskette, you must also create the appropriate driver diskette if you are installing over a network or from a hard drive.
+
+Driver Diskettes
+If you are performing anything other than a IDE CD-ROM or hard disk installation and are using a boot diskette, you will need at least one driver diskette that you must make in advance. You will be prompted by the installation program to insert the driver diskette at the correct time.
+
+For more information on driver diskettes, refer to Appendix F Driver Diskettes.
+
+During your installation of Red Hat Linux, the following driver diskettes may be required:
+
+
+Network Device Drivers Diskette
+If you need a network device drivers diskette to boot from a network, you must create it. The network device driver diskette image file, drvnet.img, is located in the images/ directory on your Red Hat Linux CD-ROM. Refer to Section 1.4.3 Making an Installation Boot Diskette or Appendix F Driver Diskettes, for more information on making a diskette. 
+
+Block Device Drivers Diskette
+If you need a block device driver diskette to boot from a block device (for example, a SCSI CD-ROM drive), you must create it. The block device driver diskette image file, drvblock.img, is located in the images/ directory on your Red Hat Linux CD-ROM. Refer to Section 1.4.3 Making an Installation Boot Diskette or Appendix F Driver Diskettes, for more information on making a diskette. 
+
+PCMCIA Device Drivers Diskette
+You may need a PCMCIA device driver diskette if you are using a PCMCIA device to install Red Hat Linux. If you need a PCMCIA device driver diskette, you must create it. 
+
+The following checklist can help you determine if you must create a PCMCIA device driver diskette: 
+
+
+You will install Red Hat Linux from a CD-ROM, and your CD-ROM drive is attached to your computer through a PCMCIA card. 
+
+You will use a PCMCIA network adapter during the installation.
+
+The PCMCIA device driver diskette image file, pcmciadd.img, is located in the images/ directory on your Red Hat Linux CD-ROM. Refer to Section 1.4.3 Making an Installation Boot Diskette or Appendix F Driver Diskettes, for more information on making a diskette. 
+
+
+ Note 
+  USB Diskette Drive — You can also boot the installation program using a boot diskette in a USB diskette drive (if your system supports booting from a USB diskette drive).
+ 
+
+1.4.2. Making an Installation Boot CD-ROM
+isolinux is now used for booting the Red Hat Linux installation CD. To create your own CD-ROM to boot the installation program, use the following instructions:
+
+Copy the isolinux/ directory from the first Red Hat Linux CD-ROM into a temporary directory (referred to here as <path-to-workspace>) using the following command:
+
+cp -r <path-to-cd>/isolinux/ <path-to-workspace>
+ 
+
+Change directories to the <path-to-workspace> directory you have created:
+
+cd <path-to-workspace>
+ 
+
+Make sure the files you have copied have appropriate permissions:
+
+chmod u+w isolinux/*
+ 
+
+Finally, issue the following command to create the ISO image file:
+
+mkisofs -o file.iso -b isolinux.bin -c boot.cat -no-emul-boot \ 
+-boot-load-size 4 -boot-info-table -R -J -v -T isolinux/
+ 
+
+
+ Note 
+  The above command was split into two lines for printing purposes only. When you execute this command, be sure to type it as a single command, all on the same line.
+ 
+
+Burn the resulting ISO image (named file.iso and located in <path-to-workspace>) to a CD-ROM as you normally would.
+
+1.4.3. Making an Installation Boot Diskette
+isolinux is now used for booting the Red Hat Linux installation CD. If you have problems booting from the Red Hat Linux CD, you can write the images/bootdisk.img image to a diskette.
+
+You may need to create a diskette from an image file; for example, you may need to use updated diskette images obtained from the Red Hat Linux errata page:
+
+http://www.redhat.com/apps/support/errata/
+ 
+
+An image file contains an exact copy (or image) of a diskette's contents. Since a diskette contains file system information in addition to the data contained in files, the contents of the image file are not usable until they have been written to a diskette. 
+
+To start, you need a blank, formatted, high-density (1.44MB), 3.5-inch diskette. You need access to a computer with a 3.5-inch diskette drive. The computer must be able to run either an MS-DOS program or the dd utility found on most Linux-like operating systems. 
+
+The images/ directory on your Red Hat Linux CD-ROM contains boot images. Once you have selected the proper image (bootdisk.img), transfer the image file onto a diskette using one of the following methods. 
+
+1.4.3.1. Using the rawrite Utility
+To make a diskette using MS-DOS, use the rawrite utility included on the Red Hat Linux CD-ROM in the dosutils directory. First, label a blank, formatted 3.5-inch diskette appropriately (such as "Boot Disk" or "Updates Disk"). Insert it into the diskette drive. Then, use the following commands (assuming your CD-ROM is drive D:): 
+
+C:\> d:
+D:\> cd \dosutils
+D:\dosutils> rawrite
+Enter disk image source file name: ..\images\bootdisk.img
+Enter target diskette drive: a:
+Please insert a formatted diskette into drive A: and
+press --ENTER-- : [Enter]
+D:\dosutils>
+ 
+
+First, rawrite asks you for the filename of a diskette image; enter the directory and name of the image you wish to write (for example, ..\images\bootdisk.img). Then rawrite asks for a diskette drive to write the image to; enter a:. Finally, rawrite asks for confirmation that a formatted diskette is in the drive you have selected. After pressing [Enter] to confirm, rawrite copies the image file onto the diskette. If you need to make another diskette, label that diskette, and run rawrite again, specifying the appropriate image file. 
+
+
+ Note 
+  The rawrite utility only accepts 8.3-type file names, such as filename.img[2]. If you download an update image from http://www.redhat.com/ named something similar to update-anaconda-03292002.img, you must rename it as updates.img before you run rawrite.
+ 
+
+1.4.3.2. Using the dd Command
+To make a diskette under Linux (or any other Linux-like operating system), you must have permission to write to the device representing a 3.5-inch diskette drive (known as /dev/fd0 under Linux). 
+
+First, label a blank, formatted diskette appropriately (such as "Boot Diskette" or "Updates Diskette"). Insert it into the diskette drive (but do not mount[3] the diskette). After mounting the Red Hat Linux CD-ROM, change to the directory containing the desired image file, and use the following command (changing the name of the image file and diskette device as appropriate): 
+
+dd if=bootdisk.img of=/dev/fd0 bs=1440k
+ 
+
+To make another diskette, label that diskette, and run dd again, specifying the appropriate image file. 
+
+Notes[1] A boot diskette can be a diskette you created to boot (or start) the installation program, or it can be a diskette you create during the installation process that can later be used to boot the operating system. Normally, your computer boots from a hard disk, but if the hard disk is damaged, you can boot the computer from a bootable diskette.
+ 
+[2] The 8.3-type file name originates from the naming convention of eight characters, a period, and three characters for a file name extension. This naming convention supports file names between 1 and 8 characters, which cannot have spaces, and may not contain ? or _ characters at the start of the name.
+ 
+[3] When you mount a diskette or CD-ROM, you make that device's contents available to you. See the Red Hat Linux Getting Started Guide for more information.
+ 

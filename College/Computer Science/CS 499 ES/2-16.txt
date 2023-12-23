@@ -1,0 +1,59 @@
+#include <msp430x2xx3.h>
+
+LED1 EQU BIT1
+B1 EQU BIT2
+RSEG CODE  (what type of binary file does this become)
+Reset:
+// source -> dest
+	mov.w #WDTPW | WDTHOLD, &WDTCTL
+
+bis.b	#LED1, &P1OUT
+bis.b	#LED1, &P1DIR
+
+Loop:
+bit.b #B1, &P1IN
+jnz ButtonUp
+ButtonDown:
+bic.b #LED1, &P1OUT
+jmp Loop
+ButtonUp:
+bis.b #LED1, &P1OUT
+jmp Loop
+
+RSEG RESET
+DW RESET
+END
+
+
+//INSTRUCTIONS-> only 27 operations
+Single operand operators
+RRC -> Rotate right through carry
+SWPB -> Swap bytes
+RRA -> arithmetic
+SXT -> Sign extend byte to word
+PUSH -> push a value 
+CALL -> subroutine call // does not honor c conventions
+RETI -> Return from interrupt // pop sr, pc
+JNE/JNZ  // R2 - 0, (what flags get set)
+JEQ/JZ
+jnc, jc
+JN, 
+JGE
+JL
+JMP
+MOV
+ADD
+ADDC
+SUBC
+SUB
+CMP
+DADD
+BIT // TEST BITS
+BIC // BIT CLEAR dest &= ~src
+BIS // logical or
+XOR 
+AND
+
+
+1st arg -> r12, 2nd -> r14
+return goes to r12

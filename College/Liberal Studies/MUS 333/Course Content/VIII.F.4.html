@@ -1,0 +1,286 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="VIII.F.4_files/styles.css" type="text/css">
+
+<script language="javascript" src="VIII.F.4_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=LYt9LjGYyQ9YtkC2QgpTppT1W3h8Fw1tnLdwqwCzJcvhJy2ld6mQ!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273185368864";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=LYt9LjGYyQ9YtkC2QgpTppT1W3h8Fw1tnLdwqwCzJcvhJy2ld6mQ!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273185368864";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<title>Lionel Hampton</title>
+<style type="text/css">
+<!--
+.style1 {font-weight: bold}
+-->
+</style>
+<link href="VIII.F.4_files/moduleVIII.css" rel="stylesheet" 
+type="text/css">
+</head><body>
+<p><img src="VIII.F.4_files/moduleVIII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h2>Benny Goodman</h2>
+<h3>Lionel Hampton</h3>
+<p>Lionel Hampton, born in 1909 in Louisville, Kentucky, started his 
+career as a professional 
+musician as a drummer. At a 1930 recording session, Louis Armstrong 
+asked Lionel, or ‘
+Hamp’ as he was known in the music business, if he could play behind him
+ (Louis) on 
+“Memories of You” and “Shine” on the vibraphone that was sitting in 
+the studio. Hamp became the first musician, jazz or otherwise, to record
+ an improvised <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> on 
+the vibraphone. Hampton was a featured <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113970071"
+ class="glossarylink" target="_blank">soloist</a> in quartets and 
+quintets led by clarinetist Benny 
+Goodman in the late 1930s. Forming his own <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113954071"
+ class="glossarylink" target="_blank">big band</a> in 1940, Hampton had a
+ huge hit with his 
+recording of “Flyin’ Home.” His music remains popular with Swing music 
+enthusiasts.</p>
+<p>Read the article on <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.186500#jazz.186500"
+ target="_blank">Lionel Hampton</a> </p>
+<p>In the following 1939 recording of “When Lights Are Low,” you’ll hear
+ 
+Hamp playing in the midst of one of the many all-star groups that he 
+assembled over the years. 
+Soon-to-be Bop pioneer Dizzy Gillespie is playing trumpet; Benny Carter 
+(the composer and 
+arranger of the song and a top swing musician) is playing the alto sax; 
+and Coleman Hawkins, 
+Ben Webster and Chu Berry are all playing tenor sax. The <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> has Clyde Hart on 
+piano, Charlie Christian on guitar, Milt Hinton on bass, and Cozy Cole 
+on drums. Hampton’
+s fluid technique and infectious swing are clearly evident in this 
+recording.</p>
+<p>Follow the chart below as you listen to <strong> Lionel Hampton and 
+His Orchestra’s 
+“When Lights Are Low” (1939). </strong></p>
+<p><strong>
+  <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://
+fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="motenb_motenswing" align="middle" height="100" width="550">
+    <param name="allowScriptAccess" value="sameDomain">
+    <param name="movie" 
+value="../audio/moduleVIII/hamptonl_whenlights.swf">
+    <param name="quality" value="high">
+    <param name="bgcolor" value="#ffffff">
+    <embed src="VIII.F.4_files/hamptonl_whenlights.swf" quality="high" 
+bgcolor="#ffffff" name="motenb_motenswing" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://
+www.macromedia.com/go/getflashplayer" align="middle" height="100" 
+width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVIII/hamptonl_whenlights.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVIII/hamptonl_whenlights.swf"></a>
+  </object>
+</strong></p>
+<p><strong>1st <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113953071"
+ class="glossarylink" target="_blank">chorus</a></strong></p>
+<p>0:00-0:10 <strong>A</strong> 8mm Horns play <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a> – two-beat <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113991071"
+ class="glossarylink" target="_blank">rhythm section</a> 
+feel.</p>
+<p>0:10-0:20 <strong>A</strong> 8mm </p>
+<p>0:20-0:30 <strong>B</strong> 8mm Hampton solo on Vibraharp (vibes)– 
+does not 
+play melody – improvises over <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a> – rhythm section shifts
+ to a four-to-the-bar 
+feel which continues to the end of the piece.</p>
+<p>0:30-0:40 <strong>A</strong> 8mm Alto sax solo (Carter) – does not 
+play melody 
+– improvises over chords.</p>
+<p>&nbsp; </p>
+<p><strong>2nd chorus </strong></p>
+<p>0:40-0:49 <strong>A</strong> Vibraharp solo - rhythm accompaniment 
+only - no horn 
+backgrounds.</p>
+<p>0:49-0:59 <strong>A</strong> section of vibes solo</p>
+<p>0:59-1:09 <strong>B</strong> vibes solo continues</p>
+<p> 1:09-1:18 <strong>A</strong> section of vibes solo</p>
+<p>&nbsp; </p>
+<p>1:18-1:28 <strong>Interlude</strong>: rhythm section drops out – 4 
+bar vibes solo ( 
+Hampton) - 4 bar tenor solo (Hawkins)</p>
+<p>&nbsp;</p>
+<p><strong>3rd chorus</strong></p>
+<p> 1:28-1:37 <strong>A</strong> Tenor sax solo (Hawkins) - rhythm 
+accompaniment only<!--
+p-->
+</p><p> 1:37-1:47 <strong>A</strong> Tenor solo continues</p>
+<p> 1:47-1:57 <strong>B</strong> Piano solo (Hart)</p>
+<p> 1:57-2:06 <strong>A</strong> Horns play written (not improvised) 
+riffs - Hampton solos<!--
+p-->
+</p><p> 2:06 to end Ending</p>
+<p>&nbsp;</p>
+</body></html>

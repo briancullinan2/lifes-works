@@ -1,0 +1,3883 @@
+
+Starting Nmap 5.00 ( http://nmap.org ) at 2010-12-07 17:57 MST
+Stats: 0:00:02 elapsed; 0 hosts completed (0 up), 0 undergoing Host Discovery
+Parallel DNS resolution of 256 hosts. Timing: About 12.89% done; ETC: 17:57 (0:00:14 remaining)
+All 1000 scanned ports on egrnet64.nau.edu (134.114.64.0) are filtered
+Too many fingerprints match this host to give specific OS details
+
+All 1000 scanned ports on cse-gw.net.nau.edu (134.114.64.1) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on ftp.cefns.nau.edu (134.114.64.2):
+Not shown: 975 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+21/tcp   open     ftp
+22/tcp   open     ssh
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1556/tcp open     unknown
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4045/tcp open     lockd
+4444/tcp filtered krb524
+5666/tcp open     nrpe
+Device type: general purpose
+Running (JUST GUESSING) : Sun Solaris 10|9 (92%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (92%), Sun Solaris 10 (89%), Sun Solaris 10 (x86) (88%), Sun Solaris 9 (SPARC) (87%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on bespin.cefns.nau.edu (134.114.64.3):
+Not shown: 962 closed ports
+PORT      STATE    SERVICE
+7/tcp     filtered echo
+19/tcp    filtered chargen
+22/tcp    open     ssh
+25/tcp    filtered smtp
+79/tcp    filtered finger
+80/tcp    open     http
+111/tcp   filtered rpcbind
+135/tcp   filtered msrpc
+139/tcp   filtered netbios-ssn
+161/tcp   filtered snmp
+443/tcp   open     https
+445/tcp   filtered microsoft-ds
+515/tcp   filtered printer
+587/tcp   open     submission
+593/tcp   filtered http-rpc-epmap
+646/tcp   filtered ldp
+1025/tcp  filtered NFS-or-IIS
+1080/tcp  filtered socks
+1433/tcp  filtered ms-sql-s
+1434/tcp  filtered ms-sql-m
+1556/tcp  open     unknown
+1863/tcp  filtered msnp
+2049/tcp  filtered nfs
+2522/tcp  open     unknown
+3268/tcp  filtered globalcatLDAP
+4045/tcp  open     lockd
+4444/tcp  filtered krb524
+5666/tcp  open     nrpe
+6112/tcp  open     dtspc
+7100/tcp  open     font-service
+13782/tcp open     netbackup
+32771/tcp open     sometimes-rpc5
+32772/tcp open     sometimes-rpc7
+32773/tcp open     sometimes-rpc9
+32774/tcp open     sometimes-rpc11
+32777/tcp open     sometimes-rpc17
+32778/tcp open     sometimes-rpc19
+32779/tcp open     sometimes-rpc21
+Device type: general purpose
+Running (JUST GUESSING) : Sun Solaris 10|9 (90%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (90%), Sun Solaris 10 (90%), Sun Solaris 10 (x86) (88%), Sun Solaris 9 (SPARC) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on kvm2.ucc.nau.edu (134.114.64.4):
+Not shown: 977 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+2068/tcp open     advocentkvm
+3211/tcp open     unknown
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+8192/tcp open     sophos
+OS fingerprint not ideal because: maxTimingRatio (1.117600e+01) is greater than 1.4
+No OS matches for host
+
+Interesting ports on ithor.cefns.nau.edu (134.114.64.5):
+Not shown: 820 filtered ports, 173 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+443/tcp  open  https
+902/tcp  open  iss-realsecure
+903/tcp  open  iss-console-mgr
+5988/tcp open  unknown
+5989/tcp open  unknown
+OS fingerprint not ideal because: maxTimingRatio (1.123200e+01) is greater than 1.4
+No OS matches for host
+
+Interesting ports on balance64-6.cefns.nau.edu (134.114.64.6):
+Not shown: 975 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+22/tcp   open     ssh
+25/tcp   filtered smtp
+79/tcp   filtered finger
+80/tcp   open     http
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+199/tcp  open     smux
+443/tcp  open     https
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+5666/tcp open     nrpe
+OS fingerprint not ideal because: maxTimingRatio (1.123200e+01) is greater than 1.4
+No OS matches for host
+
+Interesting ports on grandcanyonsemester.nau.edu (134.114.64.7):
+Not shown: 976 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+80/tcp   open     http
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+199/tcp  open     smux
+443/tcp  open     https
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+5666/tcp open     nrpe
+Device type: general purpose
+Running (JUST GUESSING) : Sun Solaris 10|9 (91%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (91%), Sun Solaris 10 (90%), Sun Solaris 10 (x86) (88%), Sun Solaris 9 (SPARC) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on drudonna.cefns.nau.edu (134.114.64.8):
+Not shown: 974 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+22/tcp   open     ssh
+25/tcp   filtered smtp
+79/tcp   filtered finger
+80/tcp   open     http
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+199/tcp  open     smux
+443/tcp  open     https
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+3306/tcp open     mysql
+4444/tcp filtered krb524
+5666/tcp open     nrpe
+OS fingerprint not ideal because: maxTimingRatio (1.123200e+01) is greater than 1.4
+No OS matches for host
+
+Interesting ports on tatooine.cefns.nau.edu (134.114.64.9):
+Not shown: 975 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+22/tcp   open     ssh
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+199/tcp  open     smux
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4045/tcp open     lockd
+4444/tcp filtered krb524
+5666/tcp open     nrpe
+7007/tcp open     afs3-bos
+Device type: general purpose
+Running (JUST GUESSING) : Sun Solaris 10|9 (90%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (90%), Sun Solaris 10 (89%), Sun Solaris 10 (x86) (88%), Sun Solaris 9 (SPARC) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on bryx.cefns.nau.edu (134.114.64.10):
+Not shown: 967 closed ports
+PORT      STATE    SERVICE
+7/tcp     filtered echo
+19/tcp    filtered chargen
+22/tcp    open     ssh
+25/tcp    filtered smtp
+79/tcp    filtered finger
+111/tcp   filtered rpcbind
+135/tcp   filtered msrpc
+139/tcp   filtered netbios-ssn
+161/tcp   filtered snmp
+445/tcp   filtered microsoft-ds
+515/tcp   filtered printer
+587/tcp   open     submission
+593/tcp   filtered http-rpc-epmap
+646/tcp   filtered ldp
+898/tcp   open     sun-manageconsole
+1025/tcp  filtered NFS-or-IIS
+1080/tcp  filtered socks
+1433/tcp  filtered ms-sql-s
+1434/tcp  filtered ms-sql-m
+1863/tcp  filtered msnp
+2049/tcp  filtered nfs
+3268/tcp  filtered globalcatLDAP
+4045/tcp  open     lockd
+4444/tcp  filtered krb524
+5987/tcp  open     unknown
+5988/tcp  open     unknown
+13722/tcp open     netbackup
+13782/tcp open     netbackup
+13783/tcp open     netbackup
+32771/tcp open     sometimes-rpc5
+32774/tcp open     sometimes-rpc11
+32776/tcp open     sometimes-rpc15
+32777/tcp open     sometimes-rpc17
+Device type: general purpose
+Running (JUST GUESSING) : Sun Solaris 10|9 (90%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (90%), Sun Solaris 10 (90%), Sun Solaris 10 (x86) (88%), Sun Solaris 9 (SPARC) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on balance64-11.cefns.nau.edu (134.114.64.11):
+Not shown: 977 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+199/tcp  open     smux
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+3306/tcp open     mysql
+4444/tcp filtered krb524
+5666/tcp open     nrpe
+OS fingerprint not ideal because: maxTimingRatio (1.173200e+01) is greater than 1.4
+No OS matches for host
+
+Interesting ports on mygeeto64.cefns.nau.edu (134.114.64.12):
+Not shown: 978 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+199/tcp  open     smux
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+5666/tcp open     nrpe
+OS fingerprint not ideal because: maxTimingRatio (1.197800e+01) is greater than 1.4
+No OS matches for host
+
+Interesting ports on bestine.cefns.nau.edu (134.114.64.13):
+Not shown: 978 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+22/tcp   open     ssh
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+5666/tcp open     nrpe
+OS fingerprint not ideal because: maxTimingRatio (1.197800e+01) is greater than 1.4
+No OS matches for host
+
+Interesting ports on joralla64.cefns.nau.edu (134.114.64.14):
+Not shown: 978 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+199/tcp  open     smux
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+5666/tcp open     nrpe
+OS fingerprint not ideal because: maxTimingRatio (1.197800e+01) is greater than 1.4
+No OS matches for host
+
+Interesting ports on naboo.cefns.nau.edu (134.114.64.15):
+Not shown: 974 closed ports
+PORT      STATE    SERVICE
+7/tcp     filtered echo
+19/tcp    filtered chargen
+22/tcp    open     ssh
+25/tcp    filtered smtp
+79/tcp    filtered finger
+111/tcp   filtered rpcbind
+135/tcp   filtered msrpc
+139/tcp   filtered netbios-ssn
+161/tcp   filtered snmp
+445/tcp   filtered microsoft-ds
+515/tcp   filtered printer
+593/tcp   filtered http-rpc-epmap
+646/tcp   filtered ldp
+1025/tcp  filtered NFS-or-IIS
+1080/tcp  filtered socks
+1433/tcp  filtered ms-sql-s
+1434/tcp  filtered ms-sql-m
+1556/tcp  open     unknown
+1863/tcp  filtered msnp
+2049/tcp  filtered nfs
+3268/tcp  filtered globalcatLDAP
+4045/tcp  open     lockd
+4444/tcp  filtered krb524
+6788/tcp  open     unknown
+6789/tcp  open     ibm-db2-admin
+27000/tcp open     flexlm0
+Device type: general purpose
+Running (JUST GUESSING) : Sun Solaris 10|9 (91%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (91%), Sun Solaris 10 (89%), Sun Solaris 10 (x86) (88%), Sun Solaris 9 (SPARC) (86%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on neimoidia.cefns.nau.edu (134.114.64.16):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+22/tcp   open     ssh
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+OS fingerprint not ideal because: maxTimingRatio (1.211200e+01) is greater than 1.4
+No OS matches for host
+
+Interesting ports on sol.egr.nau.edu (134.114.64.17):
+Not shown: 972 closed ports
+PORT      STATE    SERVICE
+7/tcp     filtered echo
+19/tcp    filtered chargen
+22/tcp    open     ssh
+25/tcp    filtered smtp
+79/tcp    filtered finger
+111/tcp   filtered rpcbind
+135/tcp   filtered msrpc
+139/tcp   filtered netbios-ssn
+161/tcp   filtered snmp
+445/tcp   filtered microsoft-ds
+515/tcp   filtered printer
+593/tcp   filtered http-rpc-epmap
+646/tcp   filtered ldp
+1025/tcp  filtered NFS-or-IIS
+1080/tcp  filtered socks
+1433/tcp  filtered ms-sql-s
+1434/tcp  filtered ms-sql-m
+1556/tcp  open     unknown
+1863/tcp  filtered msnp
+2040/tcp  open     lam
+2049/tcp  filtered nfs
+3268/tcp  filtered globalcatLDAP
+4444/tcp  filtered krb524
+13782/tcp open     netbackup
+32772/tcp open     sometimes-rpc7
+32775/tcp open     sometimes-rpc13
+32776/tcp open     sometimes-rpc15
+32777/tcp open     sometimes-rpc17
+OS fingerprint not ideal because: maxTimingRatio (1.036000e+01) is greater than 1.4
+No OS matches for host
+
+Interesting ports on geonosis.cefns.nau.edu (134.114.64.18):
+Not shown: 977 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+22/tcp   open     ssh
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+625/tcp  open     apple-xsrvr-admin
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+5666/tcp open     nrpe
+OS fingerprint not ideal because: maxTimingRatio (1.036000e+01) is greater than 1.4
+No OS matches for host
+
+Interesting ports on balance64-19.cefns.nau.edu (134.114.64.19):
+Not shown: 977 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+80/tcp   filtered http
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+199/tcp  open     smux
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+5666/tcp open     nrpe
+OS fingerprint not ideal because: maxTimingRatio (1.036000e+01) is greater than 1.4
+No OS matches for host
+
+Interesting ports on sullust.cefns.nau.edu (134.114.64.20):
+Not shown: 965 closed ports
+PORT      STATE    SERVICE
+7/tcp     filtered echo
+19/tcp    filtered chargen
+22/tcp    open     ssh
+25/tcp    filtered smtp
+79/tcp    filtered finger
+80/tcp    open     http
+111/tcp   filtered rpcbind
+135/tcp   filtered msrpc
+139/tcp   filtered netbios-ssn
+161/tcp   filtered snmp
+199/tcp   open     smux
+443/tcp   open     https
+445/tcp   filtered microsoft-ds
+515/tcp   filtered printer
+593/tcp   filtered http-rpc-epmap
+646/tcp   filtered ldp
+1025/tcp  filtered NFS-or-IIS
+1080/tcp  filtered socks
+1433/tcp  filtered ms-sql-s
+1434/tcp  filtered ms-sql-m
+1863/tcp  filtered msnp
+2049/tcp  filtered nfs
+3268/tcp  filtered globalcatLDAP
+4444/tcp  filtered krb524
+5222/tcp  open     unknown
+5269/tcp  open     unknown
+5666/tcp  open     nrpe
+7070/tcp  open     realserver
+7443/tcp  open     unknown
+7777/tcp  open     unknown
+9090/tcp  open     zeus-admin
+9091/tcp  open     unknown
+13722/tcp open     netbackup
+13782/tcp open     netbackup
+13783/tcp open     netbackup
+OS fingerprint not ideal because: maxTimingRatio (4.204000e+00) is greater than 1.4
+No OS matches for host
+
+All 1000 scanned ports on felucia.cefns.nau.edu (134.114.64.21) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on helska.cefns.nau.edu (134.114.64.22):
+Not shown: 977 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+22/tcp   open     ssh
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+3306/tcp open     mysql
+4444/tcp filtered krb524
+5666/tcp open     nrpe
+OS fingerprint not ideal because: maxTimingRatio (4.406000e+00) is greater than 1.4
+No OS matches for host
+
+Interesting ports on barkhesh.cefns.nau.edu (134.114.64.23):
+Not shown: 976 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+22/tcp   open     ssh
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+199/tcp  open     smux
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+3306/tcp open     mysql
+4444/tcp filtered krb524
+5666/tcp open     nrpe
+Device type: general purpose
+Running (JUST GUESSING) : Linux 2.6.X (86%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (86%), Linux 2.6.18.pi (x86) (85%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on dantooine.cefns.nau.edu (134.114.64.24):
+Not shown: 975 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+22/tcp   open     ssh
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+199/tcp  open     smux
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4045/tcp open     lockd
+4444/tcp filtered krb524
+5666/tcp open     nrpe
+7007/tcp open     afs3-bos
+Device type: general purpose
+Running (JUST GUESSING) : Sun Solaris 10|9 (92%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (92%), Sun Solaris 10 (89%), Sun Solaris 10 (x86) (88%), Sun Solaris 9 (SPARC) (87%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on taanab.cefns.nau.edu (134.114.64.25):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+22/tcp   open     ssh
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+Device type: general purpose
+Running (JUST GUESSING) : Linux 2.6.X (86%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (86%), Linux 2.6.18.pi (x86) (85%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on raxus.cefns.nau.edu (134.114.64.26):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+22/tcp   open     ssh
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+Device type: general purpose
+Running (JUST GUESSING) : Linux 2.6.X (85%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (85%), Linux 2.6.18.pi (x86) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on talor.cefns.nau.edu (134.114.64.27):
+Not shown: 973 closed ports
+PORT      STATE    SERVICE
+7/tcp     filtered echo
+19/tcp    filtered chargen
+22/tcp    open     ssh
+25/tcp    filtered smtp
+79/tcp    filtered finger
+111/tcp   filtered rpcbind
+135/tcp   filtered msrpc
+139/tcp   filtered netbios-ssn
+161/tcp   filtered snmp
+445/tcp   filtered microsoft-ds
+515/tcp   filtered printer
+593/tcp   filtered http-rpc-epmap
+646/tcp   filtered ldp
+1025/tcp  filtered NFS-or-IIS
+1080/tcp  filtered socks
+1433/tcp  filtered ms-sql-s
+1434/tcp  filtered ms-sql-m
+1863/tcp  filtered msnp
+2049/tcp  filtered nfs
+3268/tcp  filtered globalcatLDAP
+4045/tcp  open     lockd
+4444/tcp  filtered krb524
+6002/tcp  open     X11:2
+7007/tcp  open     afs3-bos
+32771/tcp open     sometimes-rpc5
+32772/tcp open     sometimes-rpc7
+32773/tcp open     sometimes-rpc9
+Device type: general purpose
+Running (JUST GUESSING) : Sun Solaris 10|9 (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (93%), Sun Solaris 10 (90%), Sun Solaris 10 (x86) (89%), Sun Solaris 9 (SPARC) (86%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on talus.cefns.nau.edu (134.114.64.28):
+Not shown: 972 closed ports
+PORT      STATE    SERVICE
+7/tcp     filtered echo
+19/tcp    filtered chargen
+22/tcp    open     ssh
+25/tcp    filtered smtp
+79/tcp    filtered finger
+111/tcp   filtered rpcbind
+135/tcp   filtered msrpc
+139/tcp   filtered netbios-ssn
+161/tcp   filtered snmp
+445/tcp   filtered microsoft-ds
+515/tcp   filtered printer
+593/tcp   filtered http-rpc-epmap
+646/tcp   filtered ldp
+1025/tcp  filtered NFS-or-IIS
+1080/tcp  filtered socks
+1433/tcp  filtered ms-sql-s
+1434/tcp  filtered ms-sql-m
+1863/tcp  filtered msnp
+2049/tcp  filtered nfs
+3268/tcp  filtered globalcatLDAP
+4045/tcp  open     lockd
+4444/tcp  filtered krb524
+6002/tcp  open     X11:2
+6003/tcp  open     X11:3
+7007/tcp  open     afs3-bos
+32771/tcp open     sometimes-rpc5
+32772/tcp open     sometimes-rpc7
+32773/tcp open     sometimes-rpc9
+Device type: general purpose
+Running (JUST GUESSING) : Sun Solaris 10|9 (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (93%), Sun Solaris 10 (90%), Sun Solaris 10 (x86) (89%), Sun Solaris 9 (SPARC) (87%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on vortex.cefns.nau.edu (134.114.64.29):
+Not shown: 990 filtered ports
+PORT      STATE  SERVICE
+1096/tcp  open   unknown
+3389/tcp  open   ms-term-serv
+8192/tcp  closed sophos
+8193/tcp  closed sophos
+8194/tcp  closed sophos
+10001/tcp open   unknown
+10002/tcp open   unknown
+10003/tcp open   unknown
+10004/tcp open   unknown
+16001/tcp closed unknown
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows 2003 (93%)
+Aggressive OS guesses: Microsoft Windows 2003 Small Business Server SP1 (93%), Microsoft Windows Server 2003 SP1 (86%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on corellia.cefns.nau.edu (134.114.64.30):
+Not shown: 976 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+22/tcp   open     ssh
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4045/tcp open     lockd
+4444/tcp filtered krb524
+5666/tcp open     nrpe
+7007/tcp open     afs3-bos
+Device type: general purpose
+Running (JUST GUESSING) : Sun Solaris 10|9 (92%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (92%), Sun Solaris 10 (89%), Sun Solaris 10 (x86) (88%), Sun Solaris 9 (SPARC) (87%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on dagobah.cefns.nau.edu (134.114.64.31):
+Not shown: 977 closed ports
+PORT      STATE    SERVICE
+7/tcp     filtered echo
+19/tcp    filtered chargen
+22/tcp    open     ssh
+25/tcp    filtered smtp
+79/tcp    filtered finger
+111/tcp   filtered rpcbind
+135/tcp   filtered msrpc
+139/tcp   filtered netbios-ssn
+161/tcp   filtered snmp
+445/tcp   filtered microsoft-ds
+515/tcp   filtered printer
+593/tcp   filtered http-rpc-epmap
+646/tcp   filtered ldp
+1025/tcp  filtered NFS-or-IIS
+1080/tcp  filtered socks
+1433/tcp  filtered ms-sql-s
+1434/tcp  filtered ms-sql-m
+1556/tcp  open     unknown
+1863/tcp  filtered msnp
+2049/tcp  filtered nfs
+3268/tcp  filtered globalcatLDAP
+4444/tcp  filtered krb524
+13782/tcp open     netbackup
+OS fingerprint not ideal because: maxTimingRatio (3.412000e+00) is greater than 1.4
+No OS matches for host
+
+Interesting ports on ator.cefns.nau.edu (134.114.64.32):
+Not shown: 996 filtered ports
+PORT      STATE SERVICE
+80/tcp    open  http
+3389/tcp  open  ms-term-serv
+49153/tcp open  unknown
+49154/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: specialized
+Running (JUST GUESSING) : Mirapoint embedded (85%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on acm.cefns.nau.edu (134.114.64.33):
+Not shown: 976 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+22/tcp   open     ssh
+25/tcp   filtered smtp
+79/tcp   filtered finger
+80/tcp   open     http
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+443/tcp  open     https
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+5666/tcp open     nrpe
+OS fingerprint not ideal because: maxTimingRatio (3.296000e+00) is greater than 1.4
+No OS matches for host
+
+All 1000 scanned ports on 134.114.64.34 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.35 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.36 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on r2-d2.cet.nau.edu (134.114.64.37) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.38 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.39 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.40 are filtered
+Too many fingerprints match this host to give specific OS details
+
+All 1000 scanned ports on 134.114.64.41 are filtered
+Too many fingerprints match this host to give specific OS details
+
+All 1000 scanned ports on 134.114.64.42 are filtered
+Too many fingerprints match this host to give specific OS details
+
+All 1000 scanned ports on 134.114.64.43 are filtered
+Too many fingerprints match this host to give specific OS details
+
+All 1000 scanned ports on 134.114.64.44 are filtered
+Too many fingerprints match this host to give specific OS details
+
+All 1000 scanned ports on 134.114.64.45 are filtered
+Too many fingerprints match this host to give specific OS details
+
+All 1000 scanned ports on 134.114.64.46 are filtered
+Too many fingerprints match this host to give specific OS details
+
+All 1000 scanned ports on 134.114.64.47 are filtered
+Too many fingerprints match this host to give specific OS details
+
+All 1000 scanned ports on 134.114.64.48 are filtered
+Too many fingerprints match this host to give specific OS details
+
+All 1000 scanned ports on 134.114.64.49 are filtered
+Too many fingerprints match this host to give specific OS details
+
+All 1000 scanned ports on 134.114.64.50 are filtered
+Too many fingerprints match this host to give specific OS details
+
+All 1000 scanned ports on 134.114.64.51 are filtered
+Too many fingerprints match this host to give specific OS details
+
+All 1000 scanned ports on 134.114.64.52 are filtered
+Too many fingerprints match this host to give specific OS details
+
+All 1000 scanned ports on 134.114.64.53 are filtered
+Too many fingerprints match this host to give specific OS details
+
+All 1000 scanned ports on jar-jar.cet.nau.edu (134.114.64.54) are filtered
+Too many fingerprints match this host to give specific OS details
+
+All 1000 scanned ports on 134.114.64.55 are filtered
+Too many fingerprints match this host to give specific OS details
+
+All 1000 scanned ports on 134.114.64.56 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Sun Solaris 10
+OS details: Sun Solaris 10 (SPARC)
+
+All 1000 scanned ports on 134.114.64.57 are filtered
+Device type: VoIP phone|general purpose|specialized
+Running: Cisco embedded, IBM i5/OS V5, Linux 2.6.X, Microsoft Windows 2003, Mirapoint embedded, Polycom embedded, Sun Solaris 10|7, Sun SunOS
+Too many fingerprints match this host to give specific OS details
+
+All 1000 scanned ports on 134.114.64.58 are filtered
+Device type: VoIP phone|general purpose|specialized
+Running: Cisco embedded, IBM i5/OS V5, Linux 2.6.X, Microsoft Windows 2003, Mirapoint embedded, Polycom embedded, Sun Solaris 10|7, Sun SunOS
+Too many fingerprints match this host to give specific OS details
+
+All 1000 scanned ports on 134.114.64.59 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Sun Solaris 10
+OS details: Sun Solaris 10 (SPARC)
+
+All 1000 scanned ports on 134.114.64.60 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Sun Solaris 10
+OS details: Sun Solaris 10 (SPARC)
+
+All 1000 scanned ports on 134.114.64.61 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Sun Solaris 10
+OS details: Sun Solaris 10 (SPARC)
+
+All 1000 scanned ports on 134.114.64.62 are filtered
+Device type: VoIP phone|general purpose|specialized
+Running: Cisco embedded, IBM i5/OS V5, Linux 2.6.X, Microsoft Windows 2003, Mirapoint embedded, Polycom embedded, Sun Solaris 10|7, Sun SunOS
+Too many fingerprints match this host to give specific OS details
+
+All 1000 scanned ports on 134.114.64.63 are filtered
+Device type: VoIP phone|general purpose|specialized
+Running: Cisco embedded, IBM i5/OS V5, Linux 2.6.X, Microsoft Windows 2003, Mirapoint embedded, Polycom embedded, Sun Solaris 10|7, Sun SunOS
+Too many fingerprints match this host to give specific OS details
+
+All 1000 scanned ports on 134.114.64.64 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.65 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.66 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.67 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on oldkongo.egr.nau.edu (134.114.64.68) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.69 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.70 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.71 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.72 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.73 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.74 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on rotor3.cet.nau.edu (134.114.64.75) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.76 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egrprt235.egr.nau.edu (134.114.64.77):
+Not shown: 972 closed ports
+PORT      STATE    SERVICE
+7/tcp     filtered echo
+19/tcp    filtered chargen
+21/tcp    open     ftp
+23/tcp    open     telnet
+25/tcp    filtered smtp
+79/tcp    filtered finger
+80/tcp    open     http
+111/tcp   filtered rpcbind
+135/tcp   filtered msrpc
+139/tcp   filtered netbios-ssn
+161/tcp   filtered snmp
+280/tcp   open     http-mgmt
+443/tcp   open     https
+445/tcp   filtered microsoft-ds
+515/tcp   filtered printer
+593/tcp   filtered http-rpc-epmap
+631/tcp   open     ipp
+646/tcp   filtered ldp
+1025/tcp  filtered NFS-or-IIS
+1080/tcp  filtered socks
+1433/tcp  filtered ms-sql-s
+1434/tcp  filtered ms-sql-m
+1863/tcp  filtered msnp
+2049/tcp  filtered nfs
+3268/tcp  filtered globalcatLDAP
+4444/tcp  filtered krb524
+9100/tcp  open     jetdirect
+14000/tcp open     unknown
+Device type: specialized|general purpose
+Running (JUST GUESSING) : Mirapoint embedded (89%), Sun Solaris 7 (86%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (89%), Sun Solaris 7 (SPARC) (86%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on hp2420-69-223.egr.nau.edu (134.114.64.78):
+Not shown: 971 closed ports
+PORT      STATE    SERVICE
+7/tcp     filtered echo
+19/tcp    filtered chargen
+21/tcp    open     ftp
+23/tcp    open     telnet
+25/tcp    filtered smtp
+79/tcp    filtered finger
+80/tcp    open     http
+111/tcp   filtered rpcbind
+135/tcp   filtered msrpc
+139/tcp   filtered netbios-ssn
+161/tcp   filtered snmp
+280/tcp   open     http-mgmt
+443/tcp   open     https
+445/tcp   filtered microsoft-ds
+515/tcp   filtered printer
+593/tcp   filtered http-rpc-epmap
+631/tcp   open     ipp
+646/tcp   filtered ldp
+1025/tcp  filtered NFS-or-IIS
+1080/tcp  filtered socks
+1433/tcp  filtered ms-sql-s
+1434/tcp  filtered ms-sql-m
+1863/tcp  filtered msnp
+2049/tcp  filtered nfs
+3268/tcp  filtered globalcatLDAP
+4444/tcp  filtered krb524
+7627/tcp  open     unknown
+9100/tcp  open     jetdirect
+14000/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (2.132000e+00) is greater than 1.4
+No OS matches for host
+
+Interesting ports on egrprt100a.egr.nau.edu (134.114.64.79):
+Not shown: 971 closed ports
+PORT      STATE    SERVICE
+7/tcp     filtered echo
+19/tcp    filtered chargen
+21/tcp    open     ftp
+23/tcp    open     telnet
+25/tcp    filtered smtp
+79/tcp    filtered finger
+80/tcp    open     http
+111/tcp   filtered rpcbind
+135/tcp   filtered msrpc
+139/tcp   filtered netbios-ssn
+161/tcp   filtered snmp
+280/tcp   open     http-mgmt
+443/tcp   open     https
+445/tcp   filtered microsoft-ds
+515/tcp   filtered printer
+593/tcp   filtered http-rpc-epmap
+631/tcp   open     ipp
+646/tcp   filtered ldp
+1025/tcp  filtered NFS-or-IIS
+1080/tcp  filtered socks
+1433/tcp  filtered ms-sql-s
+1434/tcp  filtered ms-sql-m
+1863/tcp  filtered msnp
+2049/tcp  filtered nfs
+3268/tcp  filtered globalcatLDAP
+4444/tcp  filtered krb524
+7627/tcp  open     unknown
+9100/tcp  open     jetdirect
+14000/tcp open     unknown
+Device type: specialized
+Running (JUST GUESSING) : Mirapoint embedded (87%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (87%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egrprt100aB.egr.nau.edu (134.114.64.80):
+Not shown: 972 closed ports
+PORT      STATE    SERVICE
+7/tcp     filtered echo
+19/tcp    filtered chargen
+21/tcp    open     ftp
+23/tcp    open     telnet
+25/tcp    filtered smtp
+79/tcp    filtered finger
+80/tcp    open     http
+111/tcp   filtered rpcbind
+135/tcp   filtered msrpc
+139/tcp   filtered netbios-ssn
+161/tcp   filtered snmp
+280/tcp   open     http-mgmt
+443/tcp   open     https
+445/tcp   filtered microsoft-ds
+515/tcp   filtered printer
+593/tcp   filtered http-rpc-epmap
+631/tcp   open     ipp
+646/tcp   filtered ldp
+1025/tcp  filtered NFS-or-IIS
+1080/tcp  filtered socks
+1433/tcp  filtered ms-sql-s
+1434/tcp  filtered ms-sql-m
+1863/tcp  filtered msnp
+2049/tcp  filtered nfs
+3268/tcp  filtered globalcatLDAP
+4444/tcp  filtered krb524
+9100/tcp  open     jetdirect
+14000/tcp open     unknown
+Device type: specialized|general purpose
+Running (JUST GUESSING) : Mirapoint embedded (88%), Sun Solaris 7 (85%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (88%), Sun Solaris 7 (SPARC) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.81 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.82 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egrprt234.egr.nau.edu (134.114.64.83):
+Not shown: 972 closed ports
+PORT      STATE    SERVICE
+7/tcp     filtered echo
+19/tcp    filtered chargen
+21/tcp    open     ftp
+23/tcp    open     telnet
+25/tcp    filtered smtp
+79/tcp    filtered finger
+80/tcp    open     http
+111/tcp   filtered rpcbind
+135/tcp   filtered msrpc
+139/tcp   filtered netbios-ssn
+161/tcp   filtered snmp
+280/tcp   open     http-mgmt
+443/tcp   open     https
+445/tcp   filtered microsoft-ds
+515/tcp   filtered printer
+593/tcp   filtered http-rpc-epmap
+631/tcp   open     ipp
+646/tcp   filtered ldp
+1025/tcp  filtered NFS-or-IIS
+1080/tcp  filtered socks
+1433/tcp  filtered ms-sql-s
+1434/tcp  filtered ms-sql-m
+1863/tcp  filtered msnp
+2049/tcp  filtered nfs
+3268/tcp  filtered globalcatLDAP
+4444/tcp  filtered krb524
+9100/tcp  open     jetdirect
+14000/tcp open     unknown
+Device type: specialized
+Running (JUST GUESSING) : Mirapoint embedded (88%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (88%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on egrprt237.egr.nau.edu (134.114.64.84) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|9|7 (96%), Linux 2.6.X (91%), Microsoft Windows 2003 (91%), Cisco embedded (90%), IBM i5/OS V5 (90%), Mirapoint embedded (90%), Polycom embedded (90%), Sun SunOS (90%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Sun Solaris 9 (SPARC) (93%), Linux 2.6.21-gentoo-r4 (PowerPC) (91%), Microsoft Windows Server 2003 SP1 (91%), Cisco IP Phone 7912G (90%), IBM i5/OS V5R3M0 (90%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (90%), Linux 2.6.18.pi (x86) (90%), Microsoft Windows 2003 Small Business Server SP1 (90%), Mirapoint Messaging Operating System 3.6.5 (90%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on hp2420-225.egr.nau.edu (134.114.64.85):
+Not shown: 974 closed ports
+PORT      STATE    SERVICE
+7/tcp     filtered echo
+19/tcp    filtered chargen
+25/tcp    filtered smtp
+79/tcp    filtered finger
+80/tcp    open     http
+111/tcp   filtered rpcbind
+135/tcp   filtered msrpc
+139/tcp   filtered netbios-ssn
+161/tcp   filtered snmp
+280/tcp   open     http-mgmt
+443/tcp   open     https
+445/tcp   filtered microsoft-ds
+515/tcp   filtered printer
+593/tcp   filtered http-rpc-epmap
+646/tcp   filtered ldp
+1025/tcp  filtered NFS-or-IIS
+1080/tcp  filtered socks
+1433/tcp  filtered ms-sql-s
+1434/tcp  filtered ms-sql-m
+1863/tcp  filtered msnp
+2049/tcp  filtered nfs
+3268/tcp  filtered globalcatLDAP
+4444/tcp  filtered krb524
+7627/tcp  open     unknown
+9100/tcp  open     jetdirect
+14000/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (3.236000e+00) is greater than 1.4
+No OS matches for host
+
+All 1000 scanned ports on 134.114.64.86 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.87 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egrprt106.egr.nau.edu (134.114.64.88):
+Not shown: 972 closed ports
+PORT      STATE    SERVICE
+7/tcp     filtered echo
+19/tcp    filtered chargen
+21/tcp    open     ftp
+23/tcp    open     telnet
+25/tcp    filtered smtp
+79/tcp    filtered finger
+80/tcp    open     http
+111/tcp   filtered rpcbind
+135/tcp   filtered msrpc
+139/tcp   filtered netbios-ssn
+161/tcp   filtered snmp
+280/tcp   open     http-mgmt
+443/tcp   open     https
+445/tcp   filtered microsoft-ds
+515/tcp   filtered printer
+593/tcp   filtered http-rpc-epmap
+631/tcp   open     ipp
+646/tcp   filtered ldp
+1025/tcp  filtered NFS-or-IIS
+1080/tcp  filtered socks
+1433/tcp  filtered ms-sql-s
+1434/tcp  filtered ms-sql-m
+1863/tcp  filtered msnp
+2049/tcp  filtered nfs
+3268/tcp  filtered globalcatLDAP
+4444/tcp  filtered krb524
+9100/tcp  open     jetdirect
+14000/tcp open     unknown
+Device type: specialized|general purpose
+Running (JUST GUESSING) : Mirapoint embedded (88%), Sun Solaris 7 (85%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (88%), Sun Solaris 7 (SPARC) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.89 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|9|7 (96%), Linux 2.6.X (91%), Microsoft Windows 2003 (91%), Cisco embedded (90%), IBM i5/OS V5 (90%), Mirapoint embedded (90%), Polycom embedded (90%), Sun SunOS (90%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Sun Solaris 9 (SPARC) (93%), Linux 2.6.21-gentoo-r4 (PowerPC) (91%), Microsoft Windows Server 2003 SP1 (91%), Cisco IP Phone 7912G (90%), IBM i5/OS V5R3M0 (90%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (90%), Linux 2.6.18.pi (x86) (90%), Microsoft Windows 2003 Small Business Server SP1 (90%), Mirapoint Messaging Operating System 3.6.5 (90%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.90 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on hp2300-210.egr.nau.edu (134.114.64.91):
+Not shown: 970 closed ports
+PORT      STATE    SERVICE
+7/tcp     filtered echo
+19/tcp    filtered chargen
+21/tcp    open     ftp
+23/tcp    open     telnet
+25/tcp    filtered smtp
+79/tcp    filtered finger
+80/tcp    open     http
+111/tcp   filtered rpcbind
+135/tcp   filtered msrpc
+139/tcp   filtered netbios-ssn
+161/tcp   filtered snmp
+280/tcp   open     http-mgmt
+443/tcp   open     https
+445/tcp   filtered microsoft-ds
+515/tcp   filtered printer
+593/tcp   filtered http-rpc-epmap
+631/tcp   open     ipp
+646/tcp   filtered ldp
+1025/tcp  filtered NFS-or-IIS
+1080/tcp  filtered socks
+1433/tcp  filtered ms-sql-s
+1434/tcp  filtered ms-sql-m
+1863/tcp  filtered msnp
+2049/tcp  filtered nfs
+3268/tcp  filtered globalcatLDAP
+4444/tcp  filtered krb524
+9100/tcp  open     jetdirect
+9220/tcp  open     unknown
+9290/tcp  open     unknown
+14000/tcp open     unknown
+Device type: specialized
+Running (JUST GUESSING) : Mirapoint embedded (85%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.92 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|9|7 (96%), Linux 2.6.X (91%), Microsoft Windows 2003 (91%), Cisco embedded (90%), IBM i5/OS V5 (90%), Mirapoint embedded (90%), Polycom embedded (90%), Sun SunOS (90%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Sun Solaris 9 (SPARC) (93%), Linux 2.6.21-gentoo-r4 (PowerPC) (91%), Microsoft Windows Server 2003 SP1 (91%), Cisco IP Phone 7912G (90%), IBM i5/OS V5R3M0 (90%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (90%), Linux 2.6.18.pi (x86) (90%), Microsoft Windows 2003 Small Business Server SP1 (90%), Mirapoint Messaging Operating System 3.6.5 (90%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egrprt317.egr.nau.edu (134.114.64.93):
+Not shown: 971 closed ports
+PORT      STATE    SERVICE
+7/tcp     filtered echo
+19/tcp    filtered chargen
+21/tcp    open     ftp
+23/tcp    open     telnet
+25/tcp    filtered smtp
+79/tcp    filtered finger
+80/tcp    open     http
+111/tcp   filtered rpcbind
+135/tcp   filtered msrpc
+139/tcp   filtered netbios-ssn
+161/tcp   filtered snmp
+280/tcp   open     http-mgmt
+443/tcp   open     https
+445/tcp   filtered microsoft-ds
+515/tcp   filtered printer
+593/tcp   filtered http-rpc-epmap
+631/tcp   open     ipp
+646/tcp   filtered ldp
+1025/tcp  filtered NFS-or-IIS
+1080/tcp  filtered socks
+1433/tcp  filtered ms-sql-s
+1434/tcp  filtered ms-sql-m
+1863/tcp  filtered msnp
+2049/tcp  filtered nfs
+3268/tcp  filtered globalcatLDAP
+4444/tcp  filtered krb524
+7627/tcp  open     unknown
+9100/tcp  open     jetdirect
+14000/tcp open     unknown
+Device type: specialized|general purpose
+Running (JUST GUESSING) : Mirapoint embedded (88%), Sun Solaris 7 (85%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (88%), Sun Solaris 7 (SPARC) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.94 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.95 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|9|7 (96%), Linux 2.6.X (91%), Microsoft Windows 2003 (91%), Cisco embedded (90%), IBM i5/OS V5 (90%), Mirapoint embedded (90%), Polycom embedded (90%), Sun SunOS (90%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Sun Solaris 9 (SPARC) (93%), Linux 2.6.21-gentoo-r4 (PowerPC) (91%), Microsoft Windows Server 2003 SP1 (91%), Cisco IP Phone 7912G (90%), IBM i5/OS V5R3M0 (90%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (90%), Linux 2.6.18.pi (x86) (90%), Microsoft Windows 2003 Small Business Server SP1 (90%), Mirapoint Messaging Operating System 3.6.5 (90%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.96 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.97 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.98 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|9|7 (96%), Linux 2.6.X (91%), Microsoft Windows 2003 (91%), Cisco embedded (90%), IBM i5/OS V5 (90%), Mirapoint embedded (90%), Polycom embedded (90%), Sun SunOS (90%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Sun Solaris 9 (SPARC) (93%), Linux 2.6.21-gentoo-r4 (PowerPC) (91%), Microsoft Windows Server 2003 SP1 (91%), Cisco IP Phone 7912G (90%), IBM i5/OS V5R3M0 (90%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (90%), Linux 2.6.18.pi (x86) (90%), Microsoft Windows 2003 Small Business Server SP1 (90%), Mirapoint Messaging Operating System 3.6.5 (90%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.99 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on profiles.cefns.nau.edu (134.114.64.100):
+Not shown: 995 filtered ports
+PORT      STATE SERVICE
+80/tcp    open  http
+3389/tcp  open  ms-term-serv
+49154/tcp open  unknown
+49155/tcp open  unknown
+49167/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: specialized|general purpose
+Running (JUST GUESSING) : Mirapoint embedded (85%), Sun Solaris 7 (85%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (85%), Sun Solaris 7 (SPARC) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.101 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.102 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.103 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|9|7 (96%), Linux 2.6.X (91%), Microsoft Windows 2003 (91%), Cisco embedded (90%), IBM i5/OS V5 (90%), Mirapoint embedded (90%), Polycom embedded (90%), Sun SunOS (90%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Sun Solaris 9 (SPARC) (93%), Linux 2.6.21-gentoo-r4 (PowerPC) (91%), Microsoft Windows Server 2003 SP1 (91%), Cisco IP Phone 7912G (90%), IBM i5/OS V5R3M0 (90%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (90%), Linux 2.6.18.pi (x86) (90%), Microsoft Windows 2003 Small Business Server SP1 (90%), Mirapoint Messaging Operating System 3.6.5 (90%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.104 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.105 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr246-05.egr.nau.edu (134.114.64.106):
+Not shown: 995 filtered ports
+PORT      STATE  SERVICE
+3389/tcp  open   ms-term-serv
+8192/tcp  open   sophos
+8193/tcp  open   sophos
+8194/tcp  open   sophos
+27000/tcp closed flexlm0
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows 2003 (89%)
+Aggressive OS guesses: Microsoft Windows 2003 Small Business Server SP1 (89%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.107 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|9|7 (96%), Linux 2.6.X (91%), Microsoft Windows 2003 (91%), Cisco embedded (90%), IBM i5/OS V5 (90%), Mirapoint embedded (90%), Polycom embedded (90%), Sun SunOS (90%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Sun Solaris 9 (SPARC) (93%), Linux 2.6.21-gentoo-r4 (PowerPC) (91%), Microsoft Windows Server 2003 SP1 (91%), Cisco IP Phone 7912G (90%), IBM i5/OS V5R3M0 (90%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (90%), Linux 2.6.18.pi (x86) (90%), Microsoft Windows 2003 Small Business Server SP1 (90%), Mirapoint Messaging Operating System 3.6.5 (90%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.108 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.109 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|9|7 (96%), Linux 2.6.X (91%), Microsoft Windows 2003 (91%), Cisco embedded (90%), IBM i5/OS V5 (90%), Mirapoint embedded (90%), Polycom embedded (90%), Sun SunOS (90%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Sun Solaris 9 (SPARC) (93%), Linux 2.6.21-gentoo-r4 (PowerPC) (91%), Microsoft Windows Server 2003 SP1 (91%), Cisco IP Phone 7912G (90%), IBM i5/OS V5R3M0 (90%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (90%), Linux 2.6.18.pi (x86) (90%), Microsoft Windows 2003 Small Business Server SP1 (90%), Mirapoint Messaging Operating System 3.6.5 (90%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on dtu53.egr.nau.edu (134.114.64.110):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (7.188000e+00) is greater than 1.4
+No OS matches for host
+
+Interesting ports on egr112-16.egr.nau.edu (134.114.64.111):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49154/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+All 1000 scanned ports on cefns322f-01.cefns.nau.edu (134.114.64.112) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr108-03.egr.nau.edu (134.114.64.113):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49154/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on egr315-14.egr.nau.edu (134.114.64.114):
+Not shown: 990 filtered ports
+PORT      STATE SERVICE
+1801/tcp  open  unknown
+2103/tcp  open  zephyr-clt
+2105/tcp  open  eklogin
+2107/tcp  open  unknown
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: specialized|general purpose
+Running (JUST GUESSING) : Mirapoint embedded (85%), Sun Solaris 7 (85%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (85%), Sun Solaris 7 (SPARC) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on student54217.student.nau.edu (134.114.64.115) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on dtu57.egr.nau.edu (134.114.64.116):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (7.388000e+00) is greater than 1.4
+No OS matches for host
+
+All 1000 scanned ports on CEFNStemp.cefns.nau.edu (134.114.64.117) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on dtu38.egr.nau.edu (134.114.64.118):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (7.436000e+00) is greater than 1.4
+No OS matches for host
+
+All 1000 scanned ports on egr31.egr.nau.edu (134.114.64.119) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.120 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on dtu94.egr.nau.edu (134.114.64.121):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (7.506000e+00) is greater than 1.4
+No OS matches for host
+
+Interesting ports on egrl213-02.egr.nau.edu (134.114.64.122):
+Not shown: 997 filtered ports
+PORT      STATE  SERVICE
+1947/tcp  open   unknown
+3389/tcp  open   ms-term-serv
+27000/tcp closed flexlm0
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows 2003 (90%)
+Aggressive OS guesses: Microsoft Windows 2003 Small Business Server SP1 (90%), Microsoft Windows Server 2003 SP1 (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr237-08.egr.nau.edu (134.114.64.123):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49154/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on egr112-01.egr.nau.edu (134.114.64.124):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING) : Sun Solaris 7 (85%)
+Aggressive OS guesses: Sun Solaris 7 (SPARC) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on dtu21.egr.nau.edu (134.114.64.125):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (5.852000e+00) is greater than 1.4
+No OS matches for host
+
+All 1000 scanned ports on egrl302a-01.egr.nau.edu (134.114.64.126) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on dtu11.egr.nau.edu (134.114.64.127):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (5.898000e+00) is greater than 1.4
+No OS matches for host
+
+All 1000 scanned ports on 134.114.64.128 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr100a-01.egr.nau.edu (134.114.64.129):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: specialized|general purpose
+Running (JUST GUESSING) : Mirapoint embedded (85%), Sun Solaris 7 (85%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (85%), Sun Solaris 7 (SPARC) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.130 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on student22364.student.nau.edu (134.114.64.131):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1723/tcp open     pptp
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows 2003 (89%)
+Aggressive OS guesses: Microsoft Windows 2003 Small Business Server SP1 (89%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr239-01.egr.nau.edu (134.114.64.132):
+Not shown: 998 filtered ports
+PORT      STATE  SERVICE
+3389/tcp  open   ms-term-serv
+27000/tcp closed flexlm0
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows 2003 (90%)
+Aggressive OS guesses: Microsoft Windows 2003 Small Business Server SP1 (90%), Microsoft Windows Server 2003 SP1 (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr322g-01.egr.nau.edu (134.114.64.133):
+Not shown: 995 filtered ports
+PORT      STATE  SERVICE
+3389/tcp  open   ms-term-serv
+8192/tcp  open   sophos
+8193/tcp  open   sophos
+8194/tcp  open   sophos
+27000/tcp closed flexlm0
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows 2003 (90%)
+Aggressive OS guesses: Microsoft Windows 2003 Small Business Server SP1 (90%), Microsoft Windows Server 2003 SP1 (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr108-06.egr.nau.edu (134.114.64.134):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49154/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on egr235-15.egr.nau.edu (134.114.64.135):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+All 1000 scanned ports on CEFNS122S-01.cefns.nau.edu (134.114.64.136) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr249a-04.egr.nau.edu (134.114.64.137):
+Not shown: 995 filtered ports
+PORT      STATE  SERVICE
+3389/tcp  open   ms-term-serv
+8192/tcp  open   sophos
+8193/tcp  open   sophos
+8194/tcp  open   sophos
+27000/tcp closed flexlm0
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows 2003 (89%)
+Aggressive OS guesses: Microsoft Windows 2003 Small Business Server SP1 (89%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on egr11.egr.nau.edu (134.114.64.138) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr317-lec.egr.nau.edu (134.114.64.139):
+Not shown: 993 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+49176/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: specialized|general purpose
+Running (JUST GUESSING) : Mirapoint embedded (85%), Sun Solaris 7 (85%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (85%), Sun Solaris 7 (SPARC) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr112-11.egr.nau.edu (134.114.64.140):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|specialized
+Running (JUST GUESSING) : Sun Solaris 7 (86%), Mirapoint embedded (85%)
+Aggressive OS guesses: Sun Solaris 7 (SPARC) (86%), Mirapoint Messaging Operating System 3.6.5 (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr315-17.egr.nau.edu (134.114.64.141):
+Not shown: 989 filtered ports
+PORT      STATE SERVICE
+2103/tcp  open  zephyr-clt
+2105/tcp  open  eklogin
+2107/tcp  open  unknown
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+16993/tcp open  unknown
+49153/tcp open  unknown
+49154/tcp open  unknown
+49156/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: specialized
+Running (JUST GUESSING) : Mirapoint embedded (85%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr246-04.egr.nau.edu (134.114.64.142):
+Not shown: 993 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49154/tcp open  unknown
+49176/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on egr234-15.egr.nau.edu (134.114.64.143):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on egr224-lec.egr.nau.edu (134.114.64.144):
+Not shown: 993 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+5357/tcp  open  unknown
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49154/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: specialized
+Running (JUST GUESSING) : Mirapoint embedded (85%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr235-lec.egr.nau.edu (134.114.64.145):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49154/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING) : Sun Solaris 7 (85%)
+Aggressive OS guesses: Sun Solaris 7 (SPARC) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr234-07.egr.nau.edu (134.114.64.146):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: specialized|general purpose
+Running (JUST GUESSING) : Mirapoint embedded (85%), Sun Solaris 7 (85%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (85%), Sun Solaris 7 (SPARC) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.147 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr301-02.egr.nau.edu (134.114.64.148):
+Not shown: 998 filtered ports
+PORT      STATE  SERVICE
+3389/tcp  open   ms-term-serv
+27000/tcp closed flexlm0
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows 2003 (90%)
+Aggressive OS guesses: Microsoft Windows 2003 Small Business Server SP1 (90%), Microsoft Windows Server 2003 SP1 (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr302a-01.egr.nau.edu (134.114.64.149):
+Not shown: 997 filtered ports
+PORT     STATE SERVICE
+8192/tcp open  sophos
+8193/tcp open  sophos
+8194/tcp open  sophos
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on egr104-06.egr.nau.edu (134.114.64.150):
+Not shown: 995 filtered ports
+PORT      STATE  SERVICE
+3389/tcp  open   ms-term-serv
+8192/tcp  open   sophos
+8193/tcp  open   sophos
+8194/tcp  open   sophos
+27000/tcp closed flexlm0
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows 2003 (91%)
+Aggressive OS guesses: Microsoft Windows 2003 Small Business Server SP1 (91%), Microsoft Windows Server 2003 SP1 (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr317-21.egr.nau.edu (134.114.64.151):
+Not shown: 993 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49154/tcp open  unknown
+49176/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: specialized|general purpose
+Running (JUST GUESSING) : Mirapoint embedded (89%), Sun Solaris 10|7|9 (89%), HP HP-UX 11.X (87%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (89%), Sun Solaris 10 (89%), Sun Solaris 10 (SPARC) (89%), Sun Solaris 7 (SPARC) (89%), Sun Solaris 9 (SPARC) (88%), HP HP-UX B.11.00 (87%), Sun Solaris 10 (x86) (87%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr113b-01.egr.nau.edu (134.114.64.152):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on dtu86.cefns.nau.edu (134.114.64.153):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (2.102000e+00) is greater than 1.4
+No OS matches for host
+
+All 1000 scanned ports on egr107-07.egr.nau.edu (134.114.64.154) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr250-03.egr.nau.edu (134.114.64.155):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: specialized|general purpose
+Running (JUST GUESSING) : Mirapoint embedded (85%), Sun Solaris 7 (85%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (85%), Sun Solaris 7 (SPARC) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.156 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|9|7 (96%), Linux 2.6.X (91%), Microsoft Windows 2003 (91%), Cisco embedded (90%), IBM i5/OS V5 (90%), Mirapoint embedded (90%), Polycom embedded (90%), Sun SunOS (90%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Sun Solaris 9 (SPARC) (93%), Linux 2.6.21-gentoo-r4 (PowerPC) (91%), Microsoft Windows Server 2003 SP1 (91%), Cisco IP Phone 7912G (90%), IBM i5/OS V5R3M0 (90%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (90%), Linux 2.6.18.pi (x86) (90%), Microsoft Windows 2003 Small Business Server SP1 (90%), Mirapoint Messaging Operating System 3.6.5 (90%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on dtu43.egr.nau.edu (134.114.64.157):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (2.180000e+00) is greater than 1.4
+No OS matches for host
+
+All 1000 scanned ports on 134.114.64.158 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|9|7 (96%), Linux 2.6.X (91%), Microsoft Windows 2003 (91%), Cisco embedded (90%), IBM i5/OS V5 (90%), Mirapoint embedded (90%), Polycom embedded (90%), Sun SunOS (90%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Sun Solaris 9 (SPARC) (93%), Linux 2.6.21-gentoo-r4 (PowerPC) (91%), Microsoft Windows Server 2003 SP1 (91%), Cisco IP Phone 7912G (90%), IBM i5/OS V5R3M0 (90%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (90%), Linux 2.6.18.pi (x86) (90%), Microsoft Windows 2003 Small Business Server SP1 (90%), Mirapoint Messaging Operating System 3.6.5 (90%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr235-14.egr.nau.edu (134.114.64.159):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on egr235-05.egr.nau.edu (134.114.64.160):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: specialized|general purpose
+Running (JUST GUESSING) : Mirapoint embedded (85%), Sun Solaris 7 (85%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (85%), Sun Solaris 7 (SPARC) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on flagstaff.egr.nau.edu (134.114.64.161):
+Not shown: 969 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+21/tcp   open     ftp
+22/tcp   open     ssh
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+311/tcp  open     asip-webadmin
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+548/tcp  open     afp
+554/tcp  open     rtsp
+593/tcp  filtered http-rpc-epmap
+625/tcp  open     apple-xsrvr-admin
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+5900/tcp open     vnc
+7070/tcp open     realserver
+8000/tcp open     http-alt
+8001/tcp open     unknown
+8888/tcp open     sun-answerbook
+OS fingerprint not ideal because: maxTimingRatio (2.108000e+00) is greater than 1.4
+No OS matches for host
+
+Interesting ports on dtu48.egr.nau.edu (134.114.64.162):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (2.078000e+00) is greater than 1.4
+No OS matches for host
+
+All 1000 scanned ports on 134.114.64.163 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on dtu59.egr.nau.edu (134.114.64.164):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (2.126000e+00) is greater than 1.4
+No OS matches for host
+
+Interesting ports on dtu17.egr.nau.edu (134.114.64.165):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (2.144000e+00) is greater than 1.4
+No OS matches for host
+
+Interesting ports on egr234-12.egr.nau.edu (134.114.64.166):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: specialized|general purpose
+Running (JUST GUESSING) : Mirapoint embedded (86%), Sun Solaris 7 (86%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (86%), Sun Solaris 7 (SPARC) (86%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on dtu106.egr.nau.edu (134.114.64.167):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (2.200000e+00) is greater than 1.4
+No OS matches for host
+
+Interesting ports on dtu100.egr.nau.edu (134.114.64.168):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (1.870000e+00) is greater than 1.4
+No OS matches for host
+
+Interesting ports on egr119-02.egr.nau.edu (134.114.64.169):
+Not shown: 995 filtered ports
+PORT      STATE  SERVICE
+3389/tcp  open   ms-term-serv
+8192/tcp  open   sophos
+8193/tcp  open   sophos
+8194/tcp  open   sophos
+27000/tcp closed flexlm0
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows 2003 (90%)
+Aggressive OS guesses: Microsoft Windows 2003 Small Business Server SP1 (90%), Microsoft Windows Server 2003 SP1 (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr315-13.egr.nau.edu (134.114.64.170):
+Not shown: 991 filtered ports
+PORT      STATE SERVICE
+2103/tcp  open  zephyr-clt
+2105/tcp  open  eklogin
+2107/tcp  open  unknown
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on egr112-08.egr.nau.edu (134.114.64.171):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: specialized|general purpose
+Running (JUST GUESSING) : Mirapoint embedded (85%), Sun Solaris 7 (85%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (85%), Sun Solaris 7 (SPARC) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.172 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on wisard-serv1.egr.nau.edu (134.114.64.173):
+Not shown: 994 filtered ports
+PORT     STATE  SERVICE
+21/tcp   open   ftp
+22/tcp   open   ssh
+80/tcp   open   http
+3306/tcp open   mysql
+3690/tcp open   svn
+4000/tcp closed remoteanything
+Device type: general purpose
+Running (JUST GUESSING) : Linux 2.6.X (86%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (86%), Linux 2.6.18.pi (x86) (86%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr315-15.egr.nau.edu (134.114.64.174):
+Not shown: 991 filtered ports
+PORT      STATE SERVICE
+2103/tcp  open  zephyr-clt
+2105/tcp  open  eklogin
+2107/tcp  open  unknown
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49154/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: specialized|general purpose
+Running (JUST GUESSING) : Mirapoint embedded (85%), Sun Solaris 7 (85%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (85%), Sun Solaris 7 (SPARC) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr205-01.egr.nau.edu (134.114.64.175):
+Not shown: 980 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Microsoft Windows 2003|NT (95%), Cisco embedded (93%), Mirapoint embedded (93%), IBM i5/OS V5 (91%), Polycom embedded (91%), Sun Solaris 7|9|10 (91%), Linux 2.6.X (89%)
+Aggressive OS guesses: Microsoft Windows 2003 Small Business Server SP1 (95%), Cisco IP Phone 7912G (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Microsoft Windows Server 2003 SP1 (93%), Microsoft Windows NT 4.0 SP6 (93%), IBM i5/OS V5R3M0 (91%), Polycom SoundPoint 501 IP phone (91%), Sun Solaris 7 (SPARC) (91%), Sun Solaris 9 (SPARC) (91%), Sun Solaris 10 (SPARC) (90%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on dtu101.egr.nau.edu (134.114.64.176):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (1.996000e+00) is greater than 1.4
+No OS matches for host
+
+All 1000 scanned ports on egr13.egr.nau.edu (134.114.64.177) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr114-06.egr.nau.edu (134.114.64.178):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+All 1000 scanned ports on 134.114.64.179 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on turing.egr.nau.edu (134.114.64.180):
+Not shown: 978 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+22/tcp   open     ssh
+25/tcp   filtered smtp
+79/tcp   filtered finger
+80/tcp   open     http
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+Device type: general purpose
+Running (JUST GUESSING) : Linux 2.6.X (85%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on egrl304-01.egr.nau.edu (134.114.64.181) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|9|7 (96%), Linux 2.6.X (91%), Microsoft Windows 2003 (91%), Cisco embedded (90%), IBM i5/OS V5 (90%), Mirapoint embedded (90%), Polycom embedded (90%), Sun SunOS (90%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Sun Solaris 9 (SPARC) (93%), Linux 2.6.21-gentoo-r4 (PowerPC) (91%), Microsoft Windows Server 2003 SP1 (91%), Cisco IP Phone 7912G (90%), IBM i5/OS V5R3M0 (90%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (90%), Linux 2.6.18.pi (x86) (90%), Microsoft Windows 2003 Small Business Server SP1 (90%), Mirapoint Messaging Operating System 3.6.5 (90%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr317-14.egr.nau.edu (134.114.64.182):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on egr234-16.egr.nau.edu (134.114.64.183):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+All 1000 scanned ports on 134.114.64.184 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on egr304-01.egr.nau.edu (134.114.64.185) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on dtu16.egr.nau.edu (134.114.64.186):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (1.982000e+00) is greater than 1.4
+No OS matches for host
+
+All 1000 scanned ports on 134.114.64.187 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on egr31.egr.nau.edu (134.114.64.188) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr236-03.egr.nau.edu (134.114.64.189):
+Not shown: 995 filtered ports
+PORT      STATE  SERVICE
+3389/tcp  open   ms-term-serv
+8192/tcp  open   sophos
+8193/tcp  open   sophos
+8194/tcp  open   sophos
+27000/tcp closed flexlm0
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows 2003 (89%)
+Aggressive OS guesses: Microsoft Windows 2003 Small Business Server SP1 (89%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on HP2605-69-322p.cefns.nau.edu (134.114.64.190):
+Not shown: 977 closed ports
+PORT      STATE    SERVICE
+7/tcp     filtered echo
+19/tcp    filtered chargen
+25/tcp    filtered smtp
+79/tcp    filtered finger
+80/tcp    open     http
+111/tcp   filtered rpcbind
+135/tcp   filtered msrpc
+139/tcp   filtered netbios-ssn
+161/tcp   filtered snmp
+445/tcp   filtered microsoft-ds
+515/tcp   filtered printer
+593/tcp   filtered http-rpc-epmap
+646/tcp   filtered ldp
+1025/tcp  filtered NFS-or-IIS
+1080/tcp  filtered socks
+1433/tcp  filtered ms-sql-s
+1434/tcp  filtered ms-sql-m
+1863/tcp  filtered msnp
+2049/tcp  filtered nfs
+3268/tcp  filtered globalcatLDAP
+4444/tcp  filtered krb524
+9100/tcp  open     jetdirect
+10002/tcp open     unknown
+Device type: general purpose
+Running (JUST GUESSING) : IBM i5/OS V5 (85%)
+Aggressive OS guesses: IBM i5/OS V5R3M0 (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr321-lec.egr.nau.edu (134.114.64.191):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49154/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: specialized|general purpose
+Running (JUST GUESSING) : Mirapoint embedded (85%), Sun Solaris 7 (85%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (85%), Sun Solaris 7 (SPARC) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr235-06.egr.nau.edu (134.114.64.192):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on egr212-01.egr.nau.edu (134.114.64.193):
+Not shown: 999 filtered ports
+PORT     STATE SERVICE
+3389/tcp open  ms-term-serv
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on egr317-19.egr.nau.edu (134.114.64.194):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+All 1000 scanned ports on 134.114.64.195 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr234-09.egr.nau.edu (134.114.64.196):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on dtu125.egr.nau.edu (134.114.64.197):
+Not shown: 978 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+4449/tcp filtered unknown
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (5.144000e+00) is greater than 1.4
+No OS matches for host
+
+All 1000 scanned ports on 134.114.64.198 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr255-02.egr.nau.edu (134.114.64.199):
+Not shown: 980 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Microsoft Windows 2003|NT (97%), Cisco embedded (95%), Mirapoint embedded (95%), IBM i5/OS V5 (93%), Polycom embedded (93%), Sun Solaris 7|9 (93%), Linux 2.6.X (91%), IBM z/OS (90%)
+Aggressive OS guesses: Microsoft Windows 2003 Small Business Server SP1 (97%), Cisco IP Phone 7912G (95%), Mirapoint Messaging Operating System 3.6.5 (95%), Microsoft Windows Server 2003 SP1 (95%), Microsoft Windows NT 4.0 SP6 (95%), IBM i5/OS V5R3M0 (93%), Polycom SoundPoint 501 IP phone (93%), Sun Solaris 7 (SPARC) (93%), Linux 2.6.21-gentoo-r4 (PowerPC) (91%), Sun Solaris 9 (SPARC) (91%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.200 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on dtu41.egr.nau.edu (134.114.64.201):
+Not shown: 977 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+1947/tcp filtered unknown
+2049/tcp filtered nfs
+3013/tcp filtered unknown
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (5.144000e+00) is greater than 1.4
+No OS matches for host
+
+Interesting ports on egr118-lec.egr.nau.edu (134.114.64.202):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on egr315-18.egr.nau.edu (134.114.64.203):
+Not shown: 989 filtered ports
+PORT      STATE SERVICE
+2103/tcp  open  zephyr-clt
+2105/tcp  open  eklogin
+2107/tcp  open  unknown
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+16993/tcp open  unknown
+49153/tcp open  unknown
+49154/tcp open  unknown
+49163/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+All 1000 scanned ports on 134.114.64.204 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.205 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|9|7 (96%), Linux 2.6.X (91%), Microsoft Windows 2003 (91%), Cisco embedded (90%), IBM i5/OS V5 (90%), Mirapoint embedded (90%), Polycom embedded (90%), Sun SunOS (90%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Sun Solaris 9 (SPARC) (93%), Linux 2.6.21-gentoo-r4 (PowerPC) (91%), Microsoft Windows Server 2003 SP1 (91%), Cisco IP Phone 7912G (90%), IBM i5/OS V5R3M0 (90%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (90%), Linux 2.6.18.pi (x86) (90%), Microsoft Windows 2003 Small Business Server SP1 (90%), Mirapoint Messaging Operating System 3.6.5 (90%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on dtu13.egr.nau.edu (134.114.64.206):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (5.144000e+00) is greater than 1.4
+No OS matches for host
+
+All 1000 scanned ports on egrl256-01.egr.nau.edu (134.114.64.207) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr111-04.egr.nau.edu (134.114.64.208):
+Not shown: 995 filtered ports
+PORT      STATE  SERVICE
+3389/tcp  open   ms-term-serv
+8192/tcp  open   sophos
+8193/tcp  open   sophos
+8194/tcp  open   sophos
+27000/tcp closed flexlm0
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows 2003 (89%)
+Aggressive OS guesses: Microsoft Windows 2003 Small Business Server SP1 (89%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr111-05.egr.nau.edu (134.114.64.209):
+Not shown: 995 filtered ports
+PORT      STATE  SERVICE
+3389/tcp  open   ms-term-serv
+8192/tcp  open   sophos
+8193/tcp  open   sophos
+8194/tcp  open   sophos
+27000/tcp closed flexlm0
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows 2003 (90%)
+Aggressive OS guesses: Microsoft Windows 2003 Small Business Server SP1 (90%), Microsoft Windows Server 2003 SP1 (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr114-10.egr.nau.edu (134.114.64.210):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: specialized|general purpose
+Running (JUST GUESSING) : Mirapoint embedded (85%), Sun Solaris 7 (85%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (85%), Sun Solaris 7 (SPARC) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr114-11.egr.nau.edu (134.114.64.211):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: specialized|general purpose
+Running (JUST GUESSING) : Mirapoint embedded (85%), Sun Solaris 7 (85%)
+Aggressive OS guesses: Mirapoint Messaging Operating System 3.6.5 (85%), Sun Solaris 7 (SPARC) (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr237-10.egr.nau.edu (134.114.64.212):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49154/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on egr98c-02.egr.nau.edu (134.114.64.213):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on dtu12.cefns.nau.edu (134.114.64.214):
+Not shown: 978 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+5004/tcp filtered unknown
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (6.024000e+00) is greater than 1.4
+No OS matches for host
+
+Interesting ports on dtu62.egr.nau.edu (134.114.64.215):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (6.030000e+00) is greater than 1.4
+No OS matches for host
+
+Interesting ports on egr317-30.egr.nau.edu (134.114.64.216):
+Not shown: 993 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49154/tcp open  unknown
+49176/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+All 1000 scanned ports on 134.114.64.217 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr317-28.egr.nau.edu (134.114.64.218):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on egrl122k-03.egr.nau.edu (134.114.64.219):
+Not shown: 996 filtered ports
+PORT      STATE  SERVICE
+80/tcp    open   http
+3389/tcp  open   ms-term-serv
+5214/tcp  closed unknown
+45100/tcp open   unknown
+OS fingerprint not ideal because: maxTimingRatio (6.278000e+00) is greater than 1.4
+No OS matches for host
+
+Interesting ports on egr237-09.egr.nau.edu (134.114.64.220):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49154/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on dtu69.egr.nau.edu (134.114.64.221):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (6.936000e+00) is greater than 1.4
+No OS matches for host
+
+All 1000 scanned ports on student165.student.nau.edu (134.114.64.222) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|9|7 (96%), Linux 2.6.X (91%), Microsoft Windows 2003 (91%), Cisco embedded (90%), IBM i5/OS V5 (90%), Mirapoint embedded (90%), Polycom embedded (90%), Sun SunOS (90%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Sun Solaris 9 (SPARC) (93%), Linux 2.6.21-gentoo-r4 (PowerPC) (91%), Microsoft Windows Server 2003 SP1 (91%), Cisco IP Phone 7912G (90%), IBM i5/OS V5R3M0 (90%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (90%), Linux 2.6.18.pi (x86) (90%), Microsoft Windows 2003 Small Business Server SP1 (90%), Mirapoint Messaging Operating System 3.6.5 (90%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr317-27.egr.nau.edu (134.114.64.223):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49154/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on dtu105.egr.nau.edu (134.114.64.224):
+Not shown: 978 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+9594/tcp filtered msgsys
+OS fingerprint not ideal because: maxTimingRatio (5.492000e+00) is greater than 1.4
+No OS matches for host
+
+All 1000 scanned ports on egr29.egr.nau.edu (134.114.64.225) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on dtu15.egr.nau.edu (134.114.64.226):
+Not shown: 977 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+2121/tcp filtered ccproxy-ftp
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+9071/tcp filtered unknown
+OS fingerprint not ideal because: maxTimingRatio (5.492000e+00) is greater than 1.4
+No OS matches for host
+
+All 1000 scanned ports on egrl313-02.egr.nau.edu (134.114.64.227) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr317-04.egr.nau.edu (134.114.64.228):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on egr122l-03.egr.nau.edu (134.114.64.229):
+Not shown: 996 filtered ports
+PORT     STATE SERVICE
+3389/tcp open  ms-term-serv
+8192/tcp open  sophos
+8193/tcp open  sophos
+8194/tcp open  sophos
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on egr122p-05.egr.nau.edu (134.114.64.230):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49154/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+All 1000 scanned ports on 134.114.64.231 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on CEFNStemp.cefns.nau.edu (134.114.64.232) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.233 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr249a-10.egr.nau.edu (134.114.64.234):
+Not shown: 995 filtered ports
+PORT      STATE  SERVICE
+3389/tcp  open   ms-term-serv
+8192/tcp  open   sophos
+8193/tcp  open   sophos
+8194/tcp  open   sophos
+27000/tcp closed flexlm0
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows 2003 (91%)
+Aggressive OS guesses: Microsoft Windows 2003 Small Business Server SP1 (91%), Microsoft Windows Server 2003 SP1 (86%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on dtu70.egr.nau.edu (134.114.64.235):
+Not shown: 978 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+1947/tcp filtered unknown
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (8.342000e+00) is greater than 1.4
+No OS matches for host
+
+Interesting ports on egr112-12.egr.nau.edu (134.114.64.236):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+All 1000 scanned ports on egr15.egr.nau.edu (134.114.64.237) are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr112-06.egr.nau.edu (134.114.64.238):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on dtu37.egr.nau.edu (134.114.64.239):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (9.324000e+00) is greater than 1.4
+No OS matches for host
+
+Interesting ports on dtu47.egr.nau.edu (134.114.64.240):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (9.366000e+00) is greater than 1.4
+No OS matches for host
+
+Interesting ports on egr98c-06.egr.nau.edu (134.114.64.241):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on egr234-11.egr.nau.edu (134.114.64.242):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49154/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on egr114-08.egr.nau.edu (134.114.64.243):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on egr234-lec.egr.nau.edu (134.114.64.244):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49154/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on egr317-07.egr.nau.edu (134.114.64.245):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49155/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on egr237-07.egr.nau.edu (134.114.64.246):
+Not shown: 994 filtered ports
+PORT      STATE SERVICE
+3389/tcp  open  ms-term-serv
+8192/tcp  open  sophos
+8193/tcp  open  sophos
+8194/tcp  open  sophos
+49153/tcp open  unknown
+49154/tcp open  unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Interesting ports on dtu14.egr.nau.edu (134.114.64.247):
+Not shown: 979 closed ports
+PORT     STATE    SERVICE
+7/tcp    filtered echo
+19/tcp   filtered chargen
+25/tcp   filtered smtp
+79/tcp   filtered finger
+111/tcp  filtered rpcbind
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+161/tcp  filtered snmp
+445/tcp  filtered microsoft-ds
+515/tcp  filtered printer
+593/tcp  filtered http-rpc-epmap
+646/tcp  filtered ldp
+1025/tcp filtered NFS-or-IIS
+1080/tcp filtered socks
+1433/tcp filtered ms-sql-s
+1434/tcp filtered ms-sql-m
+1863/tcp filtered msnp
+2049/tcp filtered nfs
+3268/tcp filtered globalcatLDAP
+4444/tcp filtered krb524
+7777/tcp open     unknown
+OS fingerprint not ideal because: maxTimingRatio (8.312000e+00) is greater than 1.4
+No OS matches for host
+
+All 1000 scanned ports on 134.114.64.248 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egrl111-01.egr.nau.edu (134.114.64.249):
+Not shown: 976 closed ports
+PORT      STATE    SERVICE
+7/tcp     filtered echo
+19/tcp    filtered chargen
+25/tcp    filtered smtp
+32/tcp    filtered unknown
+79/tcp    filtered finger
+111/tcp   filtered rpcbind
+135/tcp   filtered msrpc
+139/tcp   filtered netbios-ssn
+161/tcp   filtered snmp
+445/tcp   filtered microsoft-ds
+515/tcp   filtered printer
+593/tcp   filtered http-rpc-epmap
+646/tcp   filtered ldp
+1025/tcp  filtered NFS-or-IIS
+1080/tcp  filtered socks
+1433/tcp  filtered ms-sql-s
+1434/tcp  filtered ms-sql-m
+1863/tcp  filtered msnp
+2049/tcp  filtered nfs
+3268/tcp  filtered globalcatLDAP
+3389/tcp  open     ms-term-serv
+3580/tcp  open     unknown
+4444/tcp  filtered krb524
+48080/tcp open     unknown
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows 2003 (90%)
+Aggressive OS guesses: Microsoft Windows 2003 Small Business Server SP1 (90%), Microsoft Windows Server 2003 SP1 (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Interesting ports on egr111-03.egr.nau.edu (134.114.64.250):
+Not shown: 995 filtered ports
+PORT      STATE  SERVICE
+3389/tcp  open   ms-term-serv
+8192/tcp  open   sophos
+8193/tcp  open   sophos
+8194/tcp  open   sophos
+27000/tcp closed flexlm0
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows 2003 (90%)
+Aggressive OS guesses: Microsoft Windows 2003 Small Business Server SP1 (90%), Microsoft Windows Server 2003 SP1 (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.251 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Linux 2.6.X (96%), Microsoft Windows 2003 (96%), Cisco embedded (96%), IBM i5/OS V5 (96%), Mirapoint embedded (96%), Polycom embedded (96%), Sun Solaris 10|7|9 (96%), Sun SunOS (96%)
+Aggressive OS guesses: Linux 2.6.21-gentoo-r4 (PowerPC) (96%), Microsoft Windows Server 2003 SP1 (96%), Cisco IP Phone 7912G (96%), IBM i5/OS V5R3M0 (96%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (96%), Linux 2.6.18.pi (x86) (96%), Microsoft Windows 2003 Small Business Server SP1 (96%), Mirapoint Messaging Operating System 3.6.5 (96%), Polycom SoundPoint 501 IP phone (96%), Sun Solaris 10 (96%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.252 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.253 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|9|7 (96%), Linux 2.6.X (91%), Microsoft Windows 2003 (91%), Cisco embedded (90%), IBM i5/OS V5 (90%), Mirapoint embedded (90%), Polycom embedded (90%), Sun SunOS (90%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Sun Solaris 9 (SPARC) (93%), Linux 2.6.21-gentoo-r4 (PowerPC) (91%), Microsoft Windows Server 2003 SP1 (91%), Cisco IP Phone 7912G (90%), IBM i5/OS V5R3M0 (90%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (90%), Linux 2.6.18.pi (x86) (90%), Microsoft Windows 2003 Small Business Server SP1 (90%), Mirapoint Messaging Operating System 3.6.5 (90%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.254 are filtered
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|VoIP phone|specialized
+Running (JUST GUESSING) : Sun Solaris 10|7|9 (96%), Linux 2.6.X (94%), Microsoft Windows 2003 (94%), Cisco embedded (93%), IBM i5/OS V5 (93%), Mirapoint embedded (93%), Polycom embedded (93%), Sun SunOS (93%)
+Aggressive OS guesses: Sun Solaris 10 (SPARC) (96%), Linux 2.6.21-gentoo-r4 (PowerPC) (94%), Microsoft Windows Server 2003 SP1 (94%), Cisco IP Phone 7912G (93%), IBM i5/OS V5R3M0 (93%), Linux 2.6.15-28-amd64-server (Ubuntu, x86_64, SMP) (93%), Linux 2.6.18.pi (x86) (93%), Microsoft Windows 2003 Small Business Server SP1 (93%), Mirapoint Messaging Operating System 3.6.5 (93%), Polycom SoundPoint 501 IP phone (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+All 1000 scanned ports on 134.114.64.255 are filtered
+Too many fingerprints match this host to give specific OS details
+
+OS detection performed. Please report any incorrect results at http://nmap.org/submit/ .
+Nmap done: 256 IP addresses (256 hosts up) scanned in 9704.65 seconds

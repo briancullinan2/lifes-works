@@ -1,0 +1,7 @@
+Keypad is 8 pin. Disp = 14.
+
+What coding stuff have they done.
+
+Why compilers suck.
+
+Chortal, chaitin, ssa-form

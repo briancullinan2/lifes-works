@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="IV.A_files/styles.css" type="text/css">
+
+<script language="javascript" src="IV.A_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=STQvLcTWvQkvQy1w2pQWCGVg4jkyh4cwhpDJnnppbHHxS3fggm1k!-1292065854!prd5.vista.nau.edu!80!443!2077950845!prd6.vista.nau.edu!80!443!1272763190745";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=STQvLcTWvQkvQy1w2pQWCGVg4jkyh4cwhpDJnnppbHHxS3fggm1k!-1292065854!prd5.vista.nau.edu!80!443!2077950845!prd6.vista.nau.edu!80!443!1272763190745";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Modal and Free Jazz (late 1950s and beyond)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="IV.A_files/moduleIV.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="IV.A_files/moduleIV.gif" alt="module banner" height="125" 
+width="600"> </p>
+<h3><strong>Introduction</strong></h3>
+<p>Soprano saxophonist, composer, collaborator with Miles Davis, and 
+influential
+  jazz musician Wayne Shorter spoke recently, and ironically, of the 
+musical
+  experiments of the late 1960s and 1970s.&nbsp; "Remember when the 
+avant-garde
+  came along, and all the guys were like (he grunts some notes).&nbsp; 
+The sound
+  was like elephants.&nbsp; They were calling on people to break the 
+mold.&nbsp; All
+to break free of the establishment!&nbsp; Storm the walls!</p>
+<p>"I don't want to fall into that trap of who's doing something
+  new for newness sake.&nbsp; For the sake of what?&nbsp;&nbsp; I can 
+say, 'What
+  is the answer to life?' The <em>question</em> is.&nbsp; I'm in
+  a place now where I want to get all the stops out, but not run rampant
+ with
+  something like the avant-garde.&nbsp; Neo this, neo that.&nbsp; I want
+ all
+  the ingredients in there” <strong>(<a 
+href="javascript:showPage(-1,%20-1,%20-1,%20'/mod4/Biblio.html',%20'WEBCT_NO_ANCHOR_VALUE',%20'3');">Koransky
+
+  2003, 61</a>)</strong>.<strong> </strong></p>
+<p>Things started to change radically in jazz at the end of the decade 
+of the
+  1950s.&nbsp; Miles, among others, began to pass up the rapidly 
+changing <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113922071"
+ class="glossarylink" target="_blank">chord</a>
+  changes of bop in order to slow things down and stretch it out.&nbsp; 
+Other
+  experimenters, like Ornette Coleman, dropped the conceit of 
+pre-planned tunes,
+  chord changes, or even meter.&nbsp; </p>
+<p>The increasing turbulence of jazz in the late 1960s would give way to
+ more
+  radical <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113972071"
+ class="glossarylink" target="_blank">fusion</a> of jazz with <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113966071"
+ class="glossarylink" target="_blank">funk</a> and rock.&nbsp; 
+Performers were pulling at
+  how jazz fundamentally was created and the changes brought forward in 
+the late
+  1950s and early 1960s did overthrow the established norms that had 
+been part
+  of jazz conventions since the 1930s:&nbsp; a swing feel, chord changes
+ from
+  songs and standards as the basis for <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113976071"
+ class="glossarylink" target="_blank">improvisation</a>, and virtuosity 
+as one of
+  primary aesthetic criterions for quality in improvisation.&nbsp; </p>
+<p>Expansion of the concept of the chord to encompass scale structures 
+was developed
+  most influentially by Miles and sidemen that were soon to become 
+important
+  <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> artists in their own 
+right, like saxophonist John Coltrane.&nbsp; This
+  new and expanded way of looking at the basic building blocks of jazz 
+improvisation
+  was eventually called modal jazz.</p>
+Freeing jazz from the tyranny of planned chord changes, <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113933071"
+ class="glossarylink" target="_blank">standard</a> tunes, and set
+meters developed from the work of Ornette Coleman and his groups.&nbsp; 
+This
+experimentation was named after a 1960 Coleman recording called free 
+jazz.
+</body></html>

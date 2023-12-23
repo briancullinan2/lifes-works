@@ -1,0 +1,283 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="III.G.1_files/styles.css" type="text/css">
+
+<script language="javascript" src="III.G.1_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Miles in the 1980s</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="III.G.1_files/moduleIII.css" rel="stylesheet" 
+type="text/css">
+<script language="JavaScript">
+<!-- Hide from non-Javascript browsers
+function windowOpen(url)
+{
+open(url, "remote", "directories=no,location=no,menubar=no,resizable=yes,scrollbars=no,status=yes,toolbar=no,width=315,height=315"); 
+}
+// -->
+</script></head><body>
+<p><img src="III.G.1_files/moduleIII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h3><strong>Miles in the 1980s </strong></h3>
+<p>Miles returned to performing after a stroke in 1982 and moved into a 
+much more aggressive club <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113972071"
+ class="glossarylink" target="_blank">fusion</a> style. True to <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a>, he was able to identify 
+and hire many young and innovative musicians into his band, including 
+Branford Marsalis (tenor and soprano sax), John Scofield (electric 
+guitar), Bob Berg (tenor sax), and Bill Evans (tenor and soprano sax). 
+He often used multiple guitarist, many of whom were very rock-oriented.</p>
+<p>Miles also continue to exploit African imagery and contemporary 
+sounds in his late 1980s albums. His 1986 release, Tutu, features 
+dominant synthesizer work by Marcus Miller (with whom he had worked 
+previously in 1983). Miller played most of the instruments on the album 
+as the songs were built up in the studio, much like a pop 
+recording—instrument by instrument—creating a heavy, club beat for many 
+of the cuts.</p>
+<p>"When I talked to [Miles] about the forties and the fifties," said 
+Marcus Miller, "I got the impression that there was a direct link 
+between the way people walked down the street and the popular music and 
+the bebop that these guys played. The bebop was just an extension of the
+ dance music of the time. So the music was connected with everything in 
+Miles' life, and when you realize that, you begin to see that for a guy 
+like him, music is just a reinterpretation of what's going on. And 
+that's all it is. So for him it didn't make any sense to play in 1983 
+the same music he'd played in 1963. I learned that you should connect 
+your music with your times. The downside being that the music might not 
+last, because there's been plenty of music that was connected to its 
+time and just stayed there. You can only hope that at a certain point it
+ will transcend its time. But you can't think about that: you have to 
+concentrate on making your music relevant to what's going on" <strong>(<a
+ 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod3/Biblio.html"
+ target="_blank">Szwed 2002, 384</a>)</strong>.</p>
+<p>Jazz critics initially attacked Tutu, much like they had earlier with
+ Bitches Brew and for many of the same reasons. However, Warner Bros. 
+promoted the album heavily, created a music video for it by the young, 
+unknown, film director Spike Lee, and Tutu eventually won a Grammy.</p>
+<p>In "Splatch," Miles improvs over a heavy club beat. The piece 
+features Miles on trumpet backed by Marcus Miller's synthesizer work. 
+Adam Holzman is also featured on a synthesizer <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> and Paulhino da Costa and
+ Steve Reid add extra percussion.</p>
+<p>Listen to <strong> Miles Davis' "Splatch" (1986). </strong></p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="mahavishnu_orch_trilogy" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleIII/davism_splatch.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="III.G.1_files/davism_splatch.swf" quality="high" 
+bgcolor="#ffffff" name="mahavishnu_orch_trilogy" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_splatch.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_splatch.swf"></a>
+</object></p>
+<p>"Perfect Way" from Tutu features an even more commercial groove
+  by Marcus Miller that closely duplicates the original by Scritti 
+Politti over
+  which Miles improvises <strong>(<a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod3/Biblio.html"
+ target="_blank">Szwed
+  2002, 383</a>)</strong>.</p>
+<p>Listen to <strong> Miles Davis' "</strong><strong>Perfect Way</strong><strong>"
+ (1986).</strong></p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="mahavishnu_orch_trilogy" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleIII/davism_perfectway.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="III.G.1_files/davism_perfectway.swf" quality="high" 
+bgcolor="#ffffff" name="mahavishnu_orch_trilogy" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_perfectway.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_perfectway.swf"></a>
+</object></p>
+<p>Marcus Miller considered that the title cut of the Tutu album to be 
+in a New Orleans style <strong>(<a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod3/Biblio.html"
+ target="_blank">Szwed 2002, 383</a>)</strong>. Miles and his band 
+performed "Tutu" on Novemebr 3, 1989 at the Tenth Paris Jazz festival. 
+His band featured the following musicians.</p>
+<blockquote>
+  <p>Miles Davis, trumpet </p>
+  <p>Kenny Garrett, sax and flute </p>
+  <p>Kei Akagi, keyboards </p>
+  <p>Joseph 'Foley' McCreary, lead bass </p>
+  <p>Benjamin Rietveld, bass </p>
+  <p>Ricky Welmlan, drums </p>
+  <p>John Bingham, electric percussion</p>
+</blockquote>
+<p>Watch the video of <strong> <a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/%7Emus333-c/video/davism_tutu.html')">Miles
+Davis'
+ "Tutu" (1989). </a></strong></p>
+</body></html>

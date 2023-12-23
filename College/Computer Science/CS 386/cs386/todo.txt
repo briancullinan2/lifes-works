@@ -1,0 +1,10 @@
+These are the things that have yet to be done:
+
+Edit (Brian)
+Manage (Travis)
+Take (Brian)
+Signup (Noah)
+Results (Brian)
+Finishing up the Documentation (David)
+
+Make a results table.

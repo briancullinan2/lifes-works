@@ -1,0 +1,287 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="VIII.E.2_files/styles.css" type="text/css">
+
+<script language="javascript" src="VIII.E.2_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=LYt9LjGYyQ9YtkC2QgpTppT1W3h8Fw1tnLdwqwCzJcvhJy2ld6mQ!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273185368864";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=LYt9LjGYyQ9YtkC2QgpTppT1W3h8Fw1tnLdwqwCzJcvhJy2ld6mQ!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273185368864";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<title>Benny Moten</title>
+<link href="VIII.E.2_files/moduleVIII.css" rel="stylesheet" 
+type="text/css">
+</head><body>
+<p><img src="VIII.E.2_files/moduleVIII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h2>Kansas City Swing</h2>
+<h3><strong>Benny Moten </strong></h3>
+<p>After being stranded in Kansas City in 1927, Basie stayed on and 
+became an influential member of both bassist Walter Page’s Blue Devils 
+band and then Benny Moten’s Kansas City Orchestra in 1929.</p>
+Read the article <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.315100&amp;subview=article_text"
+ target="_blank">Bennie Moten</a>
+<p>Benny Moten’s Kansas City Orchestra’s 1932 recording of “Moten Swing”
+ is a good example of something part-way between Fletcher Henderson’s 
+New York Swing style and the more mature Kansas City Swing style that we
+ will continue to discuss. “Moten Swing” is not based upon 12-bar blues,
+ but rather on popular <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=29145413712071"
+ class="glossarylink" target="_blank">song </a><a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a> (A A B A). The chordal, 
+rather than melodic structure of the arrangement is also more New York 
+(a feature of Walter Donaldson’s arrangements for the Guy Lombardo and 
+his Royal Canadians’ sweet band) than Kansas City. The original <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a> of “You’re Driving Me 
+Crazy” (the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a> of which were borrowed 
+for “Moten Swing”) sounds only in the second A <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> of the second <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113953071"
+ class="glossarylink" target="_blank">chorus</a>.</p>
+<p>The style-defining Kansas City riff <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a> is still present and 
+serves to
+  bring things to a climax. We also hear Count Basie play in several 
+different
+  pianos styles, from the New York stride style of James P. Johnson and 
+Fats
+  Waller of the first chorus, ‘boom-chuck’ Dixieland-style, and 
+boogie-woogie
+  in the bridge of the second chorus. It is, however, at the very end of
+ the
+  piece that we hear the style that he made famous: spare, full of 
+suggestion,
+  and simple. </p>
+<p>Follow the chart below as you listen to <strong> Bennie Moten’s </strong><strong>
+ Kansas City</strong><strong> Orchestra “Moten Swing” featuring Count 
+Basie on piano (1932). </strong></p>
+<p><strong> &nbsp;
+  <object id="motenb_motenswing" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" align="middle" 
+height="100" width="550">
+    <param name="allowScriptAccess" value="sameDomain">
+    <param name="movie" 
+value="../audio/moduleVIII/motenb_motenswing.swf">
+    <param name="quality" value="high">
+    <param name="bgcolor" value="#ffffff">
+    <embed src="VIII.E.2_files/motenb_motenswing.swf" quality="high" 
+bgcolor="#ffffff" name="motenb_motenswing" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVIII/motenb_motenswing.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVIII/motenb_motenswing.swf"></a>
+  
+</object>
+</strong></p>
+<p><strong>1st Chorus – Eb major </strong></p>
+<p>0:00-0:09 <strong>A</strong> Piano (Basie) <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> in NY stride piano style.</p>
+<p>0:09-0:19 <strong>A</strong></p>
+<p>0:19-0:29 <strong>B</strong> Brass call with unison sax response.</p>
+<p>0:29-0:38 <strong>A</strong> Piano solo.</p>
+<p><strong> &nbsp;</strong></p>
+<p><strong>2nd Chorus </strong></p>
+<p>0:38-0:47 <strong>A</strong> Sax riff followed by brass riff.</p>
+<p>0:47-0:56 <strong>A</strong> Saxes play melody to “You’re Driving Me 
+Crazy,” the song from which the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113922071"
+ class="glossarylink" target="_blank">chord</a> progression for “Moten 
+Swing” is borrowed.</p>
+<p>0:56-1:06 <strong>B</strong> Guitar solo (Eddie Durham) accompanied 
+by <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113991071"
+ class="glossarylink" target="_blank">rhythm section</a> only. Basie 
+plays a boogie-woogie style accompaniment.</p>
+<p> 1:06-1:15 <strong>A</strong> Saxes play the same riff that was 
+played during the first A section (at 0:38), this time with no follow-up
+ brass riff.</p>
+<p>&nbsp; </p>
+<p><strong>3rd Chorus </strong></p>
+<p> 1:15-1:35 <strong>A</strong> <strong>(both times) </strong>Alto sax 
+(Eddie Barefield) solos with brass riffing in background.</p>
+<p> 1:35-1:46 <strong>B</strong> Sax solo continues - brass drops out; 
+piano accompaniment with walking <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113995071"
+ class="glossarylink" target="_blank">bass line</a>.</p>
+<p> 1:46-1:54 <strong>A</strong> Sax solo ends – brass enter with 
+background riff.</p>
+<p>&nbsp; </p>
+<p><strong>4th Chorus – modulation to Ab major </strong></p>
+<p> 1:54-2:14 <strong>A</strong> <strong>(both times) </strong>Trumpet 
+solo ( Oran ‘Hot Lips’ Page) – saxes play smooth chordal accompaniment.</p>
+<p> 2:14-2:23 <strong>B</strong> Tenor sax solo (Ben Webster) – 
+accompanied by rhythm section only.</p>
+<p>2:23-2:33 <strong>A</strong> Trumpet solo continues as before.</p>
+<p><strong> &nbsp;</strong></p>
+<p><strong>5th Chorus </strong></p>
+<p> 2:33-3:02 Full band plays the written melody of “Moten Swing” in 
+unison rhythm chords.</p>
+<p> 3:02 to end <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113986071"
+ class="glossarylink" target="_blank">Tag ending</a>.</p>
+<p>&nbsp;</p>
+</body></html>

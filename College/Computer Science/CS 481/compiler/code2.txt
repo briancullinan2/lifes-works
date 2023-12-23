@@ -1,0 +1,37 @@
+push 0
+push 1
+add
+gsave 0
+push 1
+gsave 1
+push 0
+gsave 2
+loop0:
+gload 2
+push 100
+jlt endloop0
+gload 0
+call print
+gload 1
+call print
+gload 0
+gload 1
+add
+gsave 0
+gload 1
+gload 0
+add
+gsave 3
+gload 3
+gsave 1
+push 1
+gload 2
+add
+gsave 2
+jump loop0
+endloop0:
+print:
+gsave 4
+gload 4
+print
+return

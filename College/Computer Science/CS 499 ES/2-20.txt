@@ -1,0 +1,7 @@
+More equipment
+
+
+LCD
+adm1602k-1.pdf
+
+74hc16n

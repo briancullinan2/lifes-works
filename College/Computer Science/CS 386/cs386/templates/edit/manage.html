@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Administrative Management</title>
+<link href="{SITE_TEMPLATE}css/global.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<div id="header">
+	</div>
+	
+	<div id="outer">
+		
+		<div id="survey">
+			<div id="heading">
+			</div>
+			
+			<div id="content">
+				<form name="mainForm" id="mainForm" action="" method="post">
+					
+					<div id="Main">
+					
+						<h1>{USER_NAME}'s Surveys</h1>
+						<select name="survey_id" id="surveySelect">
+							{LIST}
+						</select>
+						<input name="edit" value="Edit" type="submit" />
+						<br /><br />
+						
+						<input name="create" value="Create New Survey" type="submit" onClick="createSurvey()" />
+						<input name="delete" value="Delete Selected Survey" type="submit" />
+						<input name="results" value="View Survey Results" type="submit" onClick="viewResults()" />
+						<br /><br />
+						
+						{ERROR}
+						
+					</div>
+				</form>
+			</div>
+			
+			<div id="footing">
+			</div>
+			
+		</div>
+		
+	</div>
+
+</body>
+</html>

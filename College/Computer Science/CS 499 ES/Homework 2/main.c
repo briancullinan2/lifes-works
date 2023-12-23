@@ -1,0 +1,199 @@
+#include "io430x20x3.h"
+
+const unsigned int sequence[55] = {
+  0x4800, // A - 0100100000000000
+  0x9000, // B - 1001000000000000
+  0x9400, // C - 1001010000000000
+  0x7000, // D - 0111000000000000
+  0x2000, // E - 0010000000000000
+  0x8400, // F - 1000010000000000
+  0x7800, // G - 0111100000000000
+  0x8000, // H - 1000000000000000
+  0x4000, // I - 0100000000000000
+  0x8E00, // J - 1000111000000000
+  0x7400, // K - 0111010000000000
+  0x8800, // L - 1000100000000000
+  0x5800, // M - 0101100000000000
+  0x5000, // N - 0101000000000000
+  0x7C00, // O - 0111110000000000
+  0x8C00, // P - 1000110000000000
+  0x9A00, // Q - 1001101000000000
+  0x6800, // R - 0110100000000000
+  0x6000, // S - 0110000000000000
+  0x3000, // T - 0011000000000000
+  0x6400, // U - 0110010000000000
+  0x8200, // V - 1000001000000000
+  0x6C00, // W - 0110110000000000
+  0x9200, // X - 1001001000000000
+  0x9600, // Y - 1001011000000000
+  0x9800, // Z - 1001100000000000
+  0xAF00, // 1 - 1010111100000000
+  0xA700, // 2 - 1010011100000000
+  0xA300, // 3 - 1010001100000000
+  0xA100, // 4 - 1010000100000000
+  0xA000, // 5 - 1010000000000000
+  0xB000, // 6 - 1011000000000000
+  0xB800, // 7 - 1011100000000000
+  0xBC00, // 8 - 1011110000000000
+  0xBE00, // 9 - 1011111000000000
+  0xBF00, // 0 - 1011111100000000
+  0xCA80, // . - 1100101010000000
+  0xD980, // , - 1101100110000000
+  0xC600, // ? - 1100011000000000
+  0xCF00, // ' - 1100111100000000
+  0xD580, // ! - 1101010110000000
+  0xB200, // / - 1011001000000000
+  0xB600, // ( - 1011011000000000
+  0xD680, // ) - 1101011010000000
+  0xA800, // & - 1010100000000000
+  0xDC00, // : - 1101110000000000
+  0xD500, // ; - 1101010100000000
+  0xB100, // = - 1011000100000000
+  0xAA00, // + - 1010101000000000
+  0xD080, // - - 1101000010000000
+  0xC680, // _ - 1100011010000000
+  0xC900, // " - 1100100100000000
+  0xE240, // $ - 1110001001000000
+  0xCD00, // @ - 1100110100000000
+  0x0000  // @ - 0000000000000000
+};
+
+int get_index(char input) {
+  if(input >= 65 && input <= 90)
+  {
+    return input - 65;
+  }
+  else
+  {
+    if(input >= 48 && input <= 57)
+    {
+      return input - 22;
+    }
+    else
+    {
+      switch(input)
+      {
+      case 46:
+        return 36;
+      case 44:
+        return 37;
+      case 63:
+        return 38;
+      case 39:
+        return 39;
+      case 33:
+        return 40;
+      case 47:
+        return 41;
+      case 40:
+        return 42;
+      case 41:
+        return 43;
+      case 38:
+        return 44;
+      case 58:
+        return 45;
+      case 59:
+        return 46;
+      case 61:
+        return 47;
+      case 43:
+        return 48;
+      case 45:
+        return 49;
+      case 95:
+        return 50;
+      case 34:
+        return 51;
+      case 36:
+        return 52;
+      case 64:
+        return 53;
+      case 32:
+        return 54;
+      default:
+        return 0;
+      }
+    }
+  }
+}
+
+int main (void) {
+        char input[] = "CULLINAN, BRIAN";
+        int input_counter = 0;
+        char input_index = 0;
+	int count = 0;
+        int signal_spacing = 1;
+        unsigned char length = 0;
+        unsigned char dahsdits = 0;
+        unsigned char off = 1;
+        unsigned char max = 1;
+        int dahsdits_counter = 0;
+	// Stop watchdog timer to prevent time out reset
+	WDTCTL = WDTPW + WDTHOLD;
+
+	P1OUT = 0;
+	P1DIR = 1;
+
+	TACTL = MC_1 | ID_3 | TASSEL_2 | TACLR;
+	TACCR0 = 34374;
+        while(input[input_counter] != 0)
+        {
+          input_index = get_index(input[input_counter]);
+          
+          length = sequence[input_index] >> 13;
+          dahsdits = sequence[input_index] << 3 >> 8;
+          //dahsdits = dahsdits >> 3 >> (13-length);
+          dahsdits_counter = 0;
+          if(input_index < 54) {
+            signal_spacing = 3;
+          }
+          else {
+            signal_spacing = 7;
+          }
+        
+          for (;;) {
+                  while (TACTL_bit.TAIFG == 0) {};
+                  count++;
+                  TACTL_bit.TAIFG = 0;
+                  if(off == 1)
+                  {
+                    if ((dahsdits_counter == 0 && count == signal_spacing) || 
+                        (dahsdits_counter > 0 && count == 1)) {
+                          P1OUT = 1;
+                          count = 0;
+                          off = 0;
+                          if(dahsdits_counter == length)
+                          {
+                            P1OUT = 0;
+                            off = 1;
+                            break;
+                          }
+                          else
+                          {
+                            if(dahsdits_counter > 0)
+                              max = dahsdits << dahsdits_counter;
+                            else
+                              max = dahsdits;
+                            max = max >> 7;
+                            max = max*2 + 1;
+                            dahsdits_counter++;
+                          }
+                    }
+                  }
+                  else
+                  {
+                    if(count == max)
+                    {
+                      P1OUT = 0;
+                      count = 0;
+                      off = 1;
+                    }
+                  }
+          }
+          
+          input_counter++;
+        }
+	return 0;
+}
+

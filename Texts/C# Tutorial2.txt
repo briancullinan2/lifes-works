@@ -1,0 +1,454 @@
+Lesson 5: Variable Types(2): Pointers
+
+This lesson gives a brief overview of pointers and their use in C#. It only scratches the surface of a complicated topic, however, so if you are new to pointers it is recommended that you do further reading before using them in your code. Luckily, pointers are only really needed in C# where execution speed is highly important.
+
+
+Pointer Notation
+
+A pointer is a variable that holds the memory address of another type. In C#, pointers can only be declared to hold the memory addresses of value types (except in the case of arrays - see below).
+
+Pointers are declared implicitly, using the 'dereferencer' symbol *, as in the following example: 
+
+int *p;
+[Note that some coders place the dereferencer symbol immediately after the type name, eg.
+
+int* p;
+This variation appears to work just as well as the previous one.]
+
+This declaration sets up a pointer 'p', which will point to the initial memory address of an integer (stored in four bytes).
+
+The combined syntactical element *p ('p' prefixed by the deferencer symbol '*') is used to refer to the type located at the memory location held by p. Hence given its declaration, *p can appear in integer assignments like the following:
+
+*p = 5;
+This code gives the value 5 to the integer that was initialised by the declaration. It is important, however, not to confuse such an assignment with one in which the derefencer symbol is absent, e.g.
+
+p = 5;
+The effect of this assignment is to change the memory location held by p. It doesn't change the value of the integer initialised by the original declaration; it just means that p no longer points to that integer. In fact, p will now point to the start of the four bytes present at memory location 5.
+
+Another important symbol for using pointers is the operator &, which in this context returns the memory address of the variable it prefixes. To give an example of this symbol, the following code sets up p to point to integer i's memory location:
+
+int i = 5;
+int *p;
+p = &i;
+Given the above, the code
+
+*p = 10;
+changes the value of i to 10, since '*p' can be read as 'the integer located at the memory value held by p'.
+
+There is another important piece of notation for pointers. Pointers can be declared for structs (see lesson 11), as in the following example (which uses the 'Coords' struct defined further below):
+
+Coords x = new Coords();
+Coords *y = &x;
+One can then use the declared pointer y to access a public field of x (say z). This would be done using either the expression
+
+(*y).z
+or the equivalent expression, which uses the -> string:
+
+y -> x
+
+Unsafe Code
+
+A major problem with using pointers in C# is that C# operates a background garbage collection process. In freeing up memory, this garbage collection is liable to change the memory location of a current object without warning. So any pointer which previously pointed to that object will no longer do so. Such a scenario leads to two potential problems. Firstly, it could compromise the running of the C# program itself. Secondly, it could affect the integrity of other programs.
+
+Because of these problems, the use of pointers is restricted to code which is explicitly marked by the programmer as 'unsafe'. Because of the potential for malicious use of unsafe code, programs which contain unsafe code will only run if they have been given full trust. 
+
+To address the problem of garbage collection, one can declare a pointer within a 'fixed' expression. This 'pins' the location of the type pointed to - the memory location of the type therefore remains static, safe from garbage collection. Note that the fixed statement can only be used within the context of unsafe code.
+
+There is a further quirk to learn. Any value types declared within unsafe code are automatically 'fixed', and will generate compile-time errors if used within fixed expressions. The same is not true of reference types, however (for the difference between value and reference types see lesson 4). 
+
+The following code gives an example of a method marked 'unsafe'. From the previous paragraph it follows that the pointer p cannot be declared within a 'fixed' statement on line 9, because p is set up to point to the struct c (a value type) which is declared within the unsafe code
+
+1.
+ using System;
+ 
+2.
+ public struct Coords
+ 
+3.
+ {
+ 
+4.
+     int x;
+ 
+5.
+     int y;
+ 
+6.
+     unsafe public static void Main()
+ 
+7.
+     {
+ 
+8.
+         Coords c = new Coords();
+ 
+9.
+         Coords *p = &c;
+ 
+10.
+         {
+ 
+11.
+             p->y = 6;
+ 
+12.
+             (*p).x = 5;
+ 
+13.
+         }
+ 
+14.
+         Console.WriteLine(c.y);
+ 
+15.
+         Console.WriteLine(c.x);
+ 
+16.
+     }
+ 
+17.
+ }
+ 
+ 
+ 
+
+
+
+Compare this with the following code, in which the pointer p on line 8 must be declared within a 'fixed' statment, because it is set up to point to a type which is not declared within the unsafe block of code:
+
+1.
+ using System;
+ 
+2.
+ public struct Coords
+ 
+3.
+ {
+ 
+4.
+     int x;
+ 
+5.
+     int y;
+ 
+6.
+     unsafe public static void notMain(ref Coords c)
+ 
+7.
+     {
+ 
+8.
+         fixed (Coords *p = &c)
+ 
+9.
+         {
+ 
+10.
+             p->y = 6;
+ 
+11.
+             (*p).x = 5;
+ 
+12.
+         }
+ 
+13.
+         Console.WriteLine(c.y);
+ 
+14.
+         Console.WriteLine(c.x);
+ 
+15.
+     }
+ 
+16.
+ }
+ 
+ 
+ 
+
+
+
+In the examples given above, 'unsafe' is included as a method modifier. However, it can also be used within a code block, as in the following code fragment:
+
+1.
+ using System;
+ 
+2.
+ public static void Main()
+ 
+3.
+ {
+ 
+4.
+     unsafe
+ 
+5.
+     {
+ 
+6.
+         Coords c = new Coords();
+ 
+7.
+         [...]
+ 
+8.
+     }
+ 
+9.
+ }
+ 
+ 
+ 
+
+
+
+
+Pointers, Methods and Arrays
+
+Although we stated above that pointers can only be used with value types, an exception to this involves arrays (some authors state that the same exception applies to strings, but we have never been able to make this work).
+
+A pointer can be declared in relation to an array, as in the following:
+
+int[] a = {4, 5};
+int *b = a;
+What happens in this case is that the memory location held by b is the location of the first type held by a. This first type must, as before, be a value type. The code beneath shows that it is possible to step through the values of an array using a pointer, but explaining this further goes beyond the scope of this tutorial.
+
+1. using System;
+2. public class Tester
+3. {
+4.     public static void Main()
+5.     {
+6.         int[] a = {4, 5};
+7.         changeVal(a);
+8.         Console.WriteLine(a[0]);
+ 
+9.         Console.WriteLine(a[1]);
+ 
+10.     }
+ 
+11.     
+12.     public unsafe static void changeVal(int[] a) 
+13.     {
+14.         fixed (int *b = a)
+15.         {
+16.             *b = 5;
+17.             *(b + 1) = 7; 
+18.         }
+19.     }
+20. }
+
+Lesson 6: Arrays
+
+
+Single-Dimensional Arrays
+
+The type of each array declared is given firstly by the type of basic elements it can hold, and secondly by the number of dimensions it has. Single-dimensional arrays have a single dimension (ie, are of rank 1). They are declared using square brackets, eg:
+
+int[] i = new int[100];
+This line of code declares variable i to be an integer array of size 100. It contains space for 100 integer elements, ranging from i[0] to i[99].
+
+To populate an array one can simply specify values for each element, as in the following code:
+
+int i = new int[2]; 
+i[0] = 1;
+i[1] = 2;
+One can also run together the array declaration with the assignment of values to elements using
+
+int[] i = new int[] {1,2};
+or the even shorter version of this:
+
+int[] i = {1,2};
+By default, as we have seen, all arrays start with their lower bound as 0 (and we would recommend that you stick with this default). However, using the .NET framework's System.Array class it is possible to create and manipulate arrays with an alternative initial lower bound.
+
+The (read-only) Length property of an array holds the total number of its elements across all of its dimensions. As single-dimensional arrays have just one dimension, this property will hold the length of the single dimension. For instance, given the definition of array i above, i.Length is 2.
+
+
+Rectangular Arrays
+
+C# supports two types of multidimensional arrays: rectangular and jagged. A rectangular array is a single array with more than one dimension, with the dimensions' sizes fixed in the array's declaration. The following code creates a 2 by 3 multi-dimensional array:
+
+int[,] squareArray = new int[2,3];
+As with single-dimensional arrays, rectangular arrays can be filled at the time they are declared. For instance, the code
+
+int[,] squareArray = {{1, 2, 3}, {4, 5, 6}};
+creates a 2 by 3 array with the given values. It is, of course, important that the given values do fill out exactly a rectangular array.
+
+The System.Array class includes a number of methods for determining the size and bounds of arrays. These include the methods GetUpperBound(int i) and GetLowerBound(int i), which return, respectively, the upper and lower subscripts of dimension i of the array (note that i is zero based, so the first array is actually array 0). 
+
+For instance, since the length of the second dimension of squareArray is 3, the expression
+
+squareArray.GetLowerBound(1)
+returns 0, and the expression 
+
+squareArray.GetUpperBound(1) 
+returns 2. 
+
+System.Array also includes the method GetLength(int i), which returns the number of elements in the ith dimension (again, zero based).
+
+The following piece of code loops through squareArray and writes out the value of its elements (loops are covered in lesson 9).
+
+1. for(int i = 0; i < squareArray.GetLength(0); i++)
+2.     for (int j = 0; j < squareArray.GetLength(1); j++)
+3.         Console.WriteLine(squareArray[i,j]);
+
+A foreach loop can also be used to access each of the elements of an array in turn, but using this construction one doesn't have the same control over the order in which the elements are accessed.
+
+
+Jagged Arrays
+
+Using jagged arrays, one can create multidimensional arrays with irregular dimensions. This flexibility derives from the fact that multidimensional arrays are implemented as arrays of arrays. The following piece of code demonstrates how one might declare an array made up of a group of 4 and a group of 6 elements:
+
+int[][] jag = new int[2][];
+jag[0] = new int [4];
+jag[1] = new int [6];
+The code reveals that each of jag[0] and jag[1] holds a reference to a single-dimensional int array. To illustrate how one accesses the integer elements: the term jag[0][1] provides access to the second element of the first group.
+
+To initialise a jagged array whilst assigning values to its elements, one can use code like the following:
+
+int[][] jag = new int[][] {new int[] {1, 2, 3, 4}, new int[] {5, 6, 7, 8, 9, 10}};
+Be careful using methods like GetLowerBound, GetUpperBound, GetLength, etc. with jagged arrays. Since jagged arrays are constructed out of single-dimensional arrays, they shouldn't be treated as having multiple dimensions in the same way that rectangular arrays do.
+
+To loop through all the elements of a jagged array one can use code like the following:
+
+1. for (int i = 0; i < jag.GetLength(0); i++)
+2.     for (int j = 0; j < jag[i].GetLength(0); j++)
+3.         Console.WriteLine(jag[i][j]);
+
+or
+
+1. for (int i = 0; i < jag.Length; i++)
+2.     for (int j = 0; j < jag[i].Length; j++)
+3.         Console.WriteLine(jag[i][j]);
+ 
+Lesson 7: Enumerators
+
+Enumerators are numerical types limited to a restricted set of values. Their specification includes literals which can then be used as constants for the values they are set to. To illustrate such a specification, the following code declares constant values for each of the days of the week.
+
+1. public enum DAYS 
+2. {
+3.     Monday,
+4.     Tuesday,
+5.     Wednesday,
+6.     Thursday,
+7.     Friday,
+8.     Saturday,
+9.     Sunday
+10. }
+
+
+This code is affected by two default settings. Firstly, the default value type of enumerators is integer. Secondly, by default the first literal specified is set to 0 and this value is then incremented for each subsequent literal. Hence, given the above DAYS.Monday equals the integer 0 and DAYS.Sunday equals the integer 6.
+
+The following code illustrates how to force a different numeric type, a byte, for an enumerator:
+
+1. enum byteEnum : byte
+2. {
+3.     A,
+4.     B
+5. }
+
+
+Furthermore, any and all of the values of the enumerator can be explicitly set. The default incrementation remains in place, so the following code will set Monday to 1 and Sunday to 7.
+
+1. public enum DAYS 
+2. {
+3.     Monday=1,
+4.     Tuesday,
+5.     Wednesday,
+6.     Thursday,
+7.     Friday,
+8.     Saturday,
+9.     Sunday
+10. }
+
+
+A useful feature of enumerators is that one can also retrieve the literal as a string from the numeric constant with which it is associated. The following code prints out both the literal and its constant value for the specified enumerator.
+
+1. using System;
+2. public class EnumTest
+3. {
+4.     public enum DAYS: byte 
+5.     {Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday}
+6.     
+7.     public static void Main()
+8.     {
+9.         Array dayArray = Enum.GetValues(typeof(EnumTest.DAYS));
+10.         foreach (DAYS day in dayArray)
+11.             Console.WriteLine("Number {1} of EnumTest.DAYS is {0}", day, day.ToString("d")); 
+12.     }
+13. }
+
+
+(NB: line 11 in the above has been changed to satisfy the final release. It previously ended "..., day, day.toString());") 
+
+The output of this code is:
+
+Number 0 of EnumTest.DAYS is Sunday
+Number 1 of EnumTest.DAYS is Monday
+Number 2 of EnumTest.DAYS is Tuesday
+Number 3 of EnumTest.DAYS is Wednesday
+Number 4 of EnumTest.DAYS is Thursday
+Number 5 of EnumTest.DAYS is Friday
+Number 6 of EnumTest.DAYS is Saturday
+[Some explanation is required of the string interpolation in the Console.WriteLine method. What happens here is that any number of objects can be passed into the WriteLine method in its params array (see lesson 13). If code {n} is found in the initial string passed to WriteLine, it interpolates into this string the string returned by the 'format' method of the nth extra object passed to it. ]
+
+Lesson 8: Operators
+
+C# has a number of standard operators, taken from C, C++ and Java. Most of these should be quite familiar to programmers; the less common ones are covered elsewhere.
+
+The diagram below lists the standard operators. Note that when writing classes it is possible to change the default behaviour of some of these operators (ie to 'overload' the operator), although this should only be done where the resultant semantics makes sense. The diagram indicates which of the operators are overloadable.
+
+Category Name Syntax Example Overloadable? 
+Primary Grouping (a+b) No 
+  Member A.B No 
+  Struct pointer member access A->B No 
+  Method call f(x) No 
+  Post increment c++ Yes 
+  Post decrement c-- Yes 
+  Constructor call c = new Coord(); No 
+  Array stack allocation int* c = stackalloc int[10] No 
+  Struct size retrieval sizeof (int) No 
+  Arithmetic check on checked {byte c = (byte) d;} No 
+  Arithmetic check off unchecked {byte c = (byte) d;} No 
+Unary Positive value +10 Yes 
+  Negative value -10 Yes 
+  Not !(c==d) Yes 
+  Bitwise complement ~(int x) Yes 
+  Pre increment ++c Yes 
+  Pre decrement --c Yes 
+  Type cast (myType)c No 
+  Value at address int* c = d; No 
+  Address value of int* c = &d; No 
+Type operators Type equality / compatibility a is String No 
+  Type retrieval typeof (int) No 
+Arithmetic Multiplication c*d Yes 
+  Division c/d Yes 
+  Remainder c%d Yes 
+  Addition c+d Yes 
+  Subtraction c-d Yes 
+  Shift bits right c>>3 Yes 
+  Shift bits left c<<3 Yes 
+Relational and Logical Less than c<d Yes 
+  Greater than c>d Yes 
+  Less than or equal to c<=d Yes 
+  Greater than or equal to c>=d Yes 
+  Equality c==d Yes 
+  Inequality c!=d Yes 
+  Bitwise and c&d Yes 
+  Bitwise or c|d Yes 
+  Logical and c&&d No 
+  Logical or c||d No 
+  Conditional int c=(d<10) ? 5:15 No 
+
+
+Overloading operators
+
+To overload an operator in a class, one defines a method using the 'operator' keyword. For instance, the following code overloads the equality operator (see lesson 13 for details about methods).
+
+public static bool operator == (Value a, Value b)
+{return a.Int == b.Int}
+Where an operator is one of a logical pair, both operators should be overwritten if any one is. These pairs are the following: 
+
+== and !=
+< and >
+<= and >=

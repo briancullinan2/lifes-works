@@ -1,0 +1,79 @@
+experimenter -> adc 12
+ours stick = sigma delta
+adc 10 the set of 3's
+
+adc10 -> 10 bits -> 1024
+0-3v / 1024 = 3 mv of change per bit. precision/resolution
+
+quantization is not ideal
++- 2 LSB typical.
++- 5 lsb max.
+
+Shannon Sampling Theorem
+Signal can be reproduced perfectly from discrete samples if 
+	Fs >= Fn = 2Fmax
+	BW <= (1/2) ADC Fs
+
+
+==================================
+Successive Approximation Technique
+SAR
+
+0) midpoint = 1/2 Vfs
+1) Vin is compared w/ midpoint
+2) if Vin < midpoint current bit is = 0
+	else current bit = 1
+3) Choose left side or right side based on cb and calculate new midpoint
+advance current bit, stop if no more bits.
+
+Each bit is one cycle
+"Binary Chopping"
+ADC10 -> must not have cap on ref high volt
+ADC12 -> must not have cap on ref high volt
+
+
+
+CODE
+ADC10on - enables the core
+ADC10busy - high when busy
+ADCMEM 
+ADC10DF - it sets output format
+0 - 0x3ff
+0=middle
+
+ADC10SSEL
+ADC10OSC 3.7 - 6.2 mhz nom = 5
+adc10divx divide clock before used by ADC (1, 2, 3, ... 8) 
+INCH 0 A0 ... 111 A7
+Whats the diff between channels?
+
+================================
+ADC10CTL0 = SREF_0 | ADC10SHT_2  AD10on;
+ADC10ctl1 = INCH_1 | SHS_0 | ADC10DIV_0 | ADC10ssel0; // select A1 | set clock source for sample & hold | Divider for clock | CLK SOurce 
+
+ADC10AE0 = Bit1;
+ADC10CTL0 |= ENC_1;
+for (;;) 
+{
+  adc10ctl0 |= adc10sc_1; // start conversion
+  while(adc10ctl1_bit.adc10busy ==1) {}
+  if (adc10mem >= bit 9) {
+
+  }
+
+}
+
+
+=================================
+Delta - Sigma Modulation
+voltage controlled oscillator
+output stream of pulse 
+	low V -> long pulse
+	high v -> short pulse
+
+
+analog input signal -> 
+
+
+ALIASING ARTIFACTS
+

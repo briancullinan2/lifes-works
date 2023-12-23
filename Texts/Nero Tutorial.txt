@@ -1,0 +1,26 @@
+Installing Nero:
+Open click "My Computer"
+Open your CD drive
+Open "Nero"
+Open "Nero-6.3.1.20"
+Double click and install "nero63120.exe"
+Use the Serial in the file named "6.3 ultra serial.txt"
+After the install has finished go back to the "Nero" folder on the CD
+Update to the latest version by double clicking and installing "Nero-6.6.0.12.exe"
+Use the Serial from the "Keygen.exe" in the same folder as the install
+
+Installing dbpowerAmp:
+Open the CD drive
+Double click and install "dMC-r11-Registered.exe"
+
+Copying CDs:
+Open "dbpowerAmp Music Converter => Audio Input" on the "Start Menu => All Programs"
+Wait for it to retrieve the track listings from the internet
+Select which tracks to copy by checking or unchecking the boxes next to the name
+Open "My Computer" from the desktop
+Open "Local Disk (C:)"
+Open "Converted Music"
+Open "Nero => Nero 6 Ultra Edition => Nero Express" on the "Start Menu => All Programs"
+Select "Music => Audio CD"
+Drag the songs to be burned into the white space
+Click Next

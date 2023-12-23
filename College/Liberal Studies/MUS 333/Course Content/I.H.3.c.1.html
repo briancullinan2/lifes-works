@@ -1,0 +1,265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="I.H.3.c.1_files/styles.css" type="text/css">
+
+<script language="javascript" src="I.H.3.c.1_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Keyboard Instruments</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="I.H.3.c.1_files/moduleI.css" rel="stylesheet" 
+type="text/css">
+<script language="JavaScript">
+<!-- Hide from non-Javascript browsers
+function windowOpen(url)
+{
+open(url, "remote", "directories=no,location=no,menubar=no,resizable=yes,scrollbars=no,status=yes,toolbar=no,width=315,height=315"); 
+}
+// -->
+</script>
+</head><body>
+<p><img src="I.H.3.c.1_files/moduleI.gif" alt="module banner" 
+height="126" width="600"> 
+</p>
+<h3>Keyboard Instruments</h3>
+ <strong><img src="I.H.3.c.1_files/acoustic_piano.gif" alt="Acoustic 
+piano (aka Piano) " align="right" height="175" width="175">Acoustic 
+piano (aka Piano)
+ </strong>
+ <p> The piano has eighty-eight keys which, through an elaborate 
+mechanism, strikes 
+  strings that sound particular <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113949071"
+ class="glossarylink" target="_blank">pitches</a> in the body of the 
+instrument. It uses 
+  no electronic amplification, although it does have some acoustic 
+features that 
+  are unique. The piano has a pedal that can be depressed by the 
+performer that 
+  allows a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113989071"
+ class="glossarylink" target="_blank">pitch</a> to sustain beyond the 
+immediate length of time that the performer's 
+  finger is on the key.</p>
+<p>The piano also has the ability to play both <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a> and <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a> simultaneously
+   and nearly ten notes can be sounded at one time. The pianist 
+accompanies other
+  
+  performers by sounding chords called '<a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113932071"
+ class="glossarylink" target="_blank">comping</a>' that accompanies 
+  a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> instrument</p>
+<p>Watch and listen to pianist Thelonious Monk perform his "Blue Monk."<strong>
+ <a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/%7Emus333-c/video/monk_bluemonk.html')">Watch
+
+    and listen to the example.</a></strong></p>
+<strong>Electric piano</strong>
+<p> The electric piano is a hybrid instrument that combines aspects of 
+the acoustic 
+  piano (its mechanism) and electronic instruments. It is really a 
+bridge between 
+  acoustic and electronic instruments that, nevertheless, has its own 
+distinct 
+  sound characteristics. </p>
+<p><strong>Synthesizers</strong></p>
+<p> The synthesizer, while having a keyboard like the acoustic and 
+electric pianos,
+  is actually a totally electronic instrument. All sounds are generated 
+electronically
+  in a synthesizer. It also has the ability to 'sample' any sound 
+  and reproduce it accurately, or with modifications by the performer.</p>
+<p><strong><img src="I.H.3.c.1_files/vibraphone.gif" alt="Vibraphone 
+(aka Vibraharp)" align="right" height="175" width="175">Vibraphone
+    (aka Vibraharp)</strong></p>
+<p>The vibraphone is played flat, like a piano keyboard, and also has a 
+sustain 
+  pedal. Unlike the piano, it has metal bars that are struck with 
+mallets to sound 
+  various pitches. Four mallets (two per hand) are used for 
+accompanying, while 
+  just two mallets (one per hand) are used to play solos.</p>
+<p>The vibraphone is an acoustic instrument that has resonator tubes 
+beneath
+  the  metal bars that amplify the sound. The resonator tubes are also 
+equipped
+  with 
+  motorized flaps that can alter the sound, by imitating the waivering 
+'vibrato'
+  of a woodwind or brass instrument.</p>
+<p>Watch and listen to Mike Mainieri perform on the vibraphone. <strong><a
+ 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/%7Emus333-c/video/mainieri.html')">Watch
+
+  and listen to the example.</a></strong></p>
+<strong>Organ</strong>
+<p> The organ is traditionally a very large, wind-powered instrument 
+that is literally 
+  constructed into the building in which it resides (think of a large 
+church organ). 
+  However during the 1960s, organs became smaller and portable. Portable
+ models 
+  such as the Hammond B3 Organ were popular with some jazz musicians.</p>
+<p>&nbsp;</p>
+</body></html>

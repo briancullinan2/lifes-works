@@ -1,0 +1,277 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="VIII.D.2_files/styles.css" type="text/css">
+
+<script language="javascript" src="VIII.D.2_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=LYt9LjGYyQ9YtkC2QgpTppT1W3h8Fw1tnLdwqwCzJcvhJy2ld6mQ!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273185368864";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=LYt9LjGYyQ9YtkC2QgpTppT1W3h8Fw1tnLdwqwCzJcvhJy2ld6mQ!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273185368864";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<title>The Cotton Club’s ‘Jungle Music’ </title>
+<style type="text/css">
+<!--
+.style1 {font-weight: bold}
+-->
+</style>
+<link href="VIII.D.2_files/moduleVIII.css" rel="stylesheet" 
+type="text/css">
+</head><body>
+<p><img src="VIII.D.2_files/moduleVIII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h2>Duke Ellington</h2>
+<h3><strong>The Cotton Club’s ‘Jungle Music’ </strong></h3>
+<p>From 1927 to 1931 Ellington and his group were featured at the Cotton
+ Club in Harlem where they played so-called ‘jungle music’ numbers that 
+featured many faux African musical stereotypes: deep sounding drums, 
+‘growling’ brass effects (a specialty of trumpeter Bubber Miley), 
+exotic-sounding harmonies, and melodies based on pentatonic (five <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113989071"
+ class="glossarylink" target="_blank">pitch</a>) and whole tone scales. 
+Duke Ellington and his Famous Orchestra’s 1927 recording of “East St. 
+Louis Toddle-Oo” exemplifies this then-popular style.</p>
+<p>“East St. Louis Toddle-Oo” is roughly in A A B A <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a> with new material added 
+in a C <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a>. This C section would 
+be moved around by Ellington in recordings of other arrangements of this
+ tune throughout the 1920s and it even disappears in recordings after 
+1937.</p>
+<p>Listen especially for Bubber Miley’s ‘growl’ as you follow the chart 
+below and listen to <strong> Duke Ellington and His Orchestra’s “East 
+St. Louis Toddle-Oo” (1927).</strong></p>
+<p><span class="style1">
+  <object id="ellingtond_eaststlouis" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" align="middle" 
+height="100" width="550">
+    <param name="allowScriptAccess" value="sameDomain">
+    <param name="movie" 
+value="../audio/moduleVIII/ellingtond_eaststlouis.swf">
+    <param name="quality" value="high">
+    <param name="bgcolor" value="#ffffff">
+    <embed src="VIII.D.2_files/ellingtond_eaststlouis.swf" 
+quality="high" bgcolor="#ffffff" name="ellingtond_eaststlouis" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVIII/ellingtond_eaststlouis.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVIII/ellingtond_eaststlouis.swf"></a>
+  
+  </object>
+</span> </p>
+<p>0:00-0:15 <strong>Introduction</strong> 8mm Low sax</p>
+<p>&nbsp;</p>
+<p>0:15-0:29 <strong>A </strong>8mm trumpet ‘growl’ by Bubber Miley </p>
+<p>0:29-0:43 <strong>A </strong>8mm </p>
+<p>0:43-0:58 <strong>B</strong> 8mm </p>
+<p>0:58-1:12 <strong>A</strong> 8mm </p>
+<p>&nbsp; </p>
+<p>1:12-1:27 <strong>C</strong> 8mm bari sax <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> by Harry Carney</p>
+<p> 1:27-1:45 <strong>C</strong> 8+2mm</p>
+<p><strong> &nbsp;</strong></p>
+<p> 1:45-1:59 <strong>C</strong> 8mm trombone ‘growl’ by Joe ‘Tricky 
+Sam’ Nanton</p>
+<p> 1:59-2:18 <strong>C</strong> 8+2mm</p>
+<p><strong> &nbsp;</strong></p>
+<p>2:18-2:32 <strong>A</strong> 8mm Rudy Jackson, clarinet </p>
+<p> 2:32-2:46 <strong>A</strong> 8mm </p>
+<p><strong> &nbsp;</strong></p>
+<p> 2:46-3:00 <strong>C</strong> 8mm full band in a ‘Dixieland’ sounding
+ style</p>
+<p> 3:00-3:18 <strong>C</strong> 8+2mm</p>
+<p><strong> &nbsp;</strong></p>
+<p> 3:18 to end <strong>A </strong>8mm trumpet ‘growl’ by Bubber Miley 
+returns </p>
+<p><strong> &nbsp;</strong></p>
+<p>Compare the 1927 recording of “East St. Louis Toddle-Oo” to a later 
+version recorded as “The New East St. Louis Toodle-O” in 1937. </p>
+<p>How are the two recordings different? </p>
+<p>What has changed in the arrangement’s style in a decade? </p>
+<p>Is the newer recording played more smoothly or more roughly than the 
+earlier recording? Can you tell if Ellington changed the form compared 
+to the 1927 recording?</p>
+<p>Listen to <strong> Duke Ellington and His Famous Orchestra’s “The New
+ </strong><strong> East St. Louis</strong><strong> Toodle-O” (1937)</strong>.
+ </p>
+<p><strong>
+  <object id="ellingtond_eaststlouis" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" align="middle" 
+height="100" width="550">
+    <param name="allowScriptAccess" value="sameDomain">
+    <param name="movie" 
+value="../audio/moduleVIII/ellingtond_neweaststlouis.swf">
+    <param name="quality" value="high">
+    <param name="bgcolor" value="#ffffff">
+    <embed src="VIII.D.2_files/ellingtond_neweaststlouis.swf" 
+quality="high" bgcolor="#ffffff" name="ellingtond_eaststlouis" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVIII/ellingtond_neweaststlouis.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVIII/ellingtond_neweaststlouis.swf"></a>
+  
+</object>
+</strong></p>
+<h3>&nbsp; </h3>
+</body></html>

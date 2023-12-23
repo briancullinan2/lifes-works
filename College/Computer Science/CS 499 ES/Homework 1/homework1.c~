@@ -1,0 +1,64 @@
+/* homework 1 for embedded systems */
+#include <stdio.h> /* TEMPORARY FOR DEBUG printf, stderr, fprintf */
+
+int fmt_long(char* s, long d)
+{
+	int rtvalue = 0;
+	int significant_zeros = 0;
+	long divider = 1000000000;
+	long temp = d;
+
+	if(d < 0)
+	{
+		if(s != NULL) s[0] = '-';
+		divider = -divider;
+		rtvalue++;
+	}
+
+	int i;
+	for(i = 10; i > 0; i--)
+	{
+		if(temp / divider != 0 || significant_zeros == 1)
+		{
+			if(s != NULL) s[rtvalue] = '0' + temp / divider;
+			significant_zeros = 1;
+			rtvalue++;
+		}
+		temp = d % divider;
+		divider = divider / 10;
+	}
+
+	if(s != NULL) s[rtvalue] = '\0';
+
+	return rtvalue;
+}
+
+int fmt_double(char *s, double d)
+{
+
+
+	unsigned long long bits = *(unsigned long long *)&d;
+	int negative = (bits) >> 63;
+	int exponent = (bits << 1) >> 53;
+	unsigned long long mantissa = ((bits << 12) >> 12) | ((uint64_t)1 << 52);
+
+	int rtvalue = fmt_long(s, mantissa >> (52 - (exponent - 1023)));
+
+	return rtvalue;
+}
+
+
+int main(void)
+{
+	char numbers[10];
+
+	fmt_long(numbers, 21474836);
+
+	fmt_double(numbers, 123456789.125);
+
+	printf("%s", numbers);
+
+	return 0;
+}
+
+

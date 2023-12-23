@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Login to Survey System</title>
+	<script type="text/javascript" src="js/login.js"></script>
+	<link href="{SITE_TEMPLATE}css/global.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+		function loginError()
+		{
+			return "{LOGIN_ERROR}";
+		}
+		// Returns 1 if the password from the submitted
+		// form was correct for that user email.
+		// Returns 0 if it's incorrect.
+		// Returns 2 if it appears this is the
+		// first time loading.
+		function isValidLogin() {
+			//{LOGIN_VERDICT}
+		}
+		
+		// Run this when the body loads.
+    function firstRun() {
+		var error = loginError();
+		if(error != "")
+		{
+			alert(error);
+		}
+		return;
+        if (isValidLogin() == 1) {
+
+            // Password correct, allow them into the page
+            window.location.href = SUCCESS_URL;
+        }
+        
+        if (isValidLogin() == 0) {
+            alert('The login information you provided is incorrect. Please try again.');
+        }
+    }
+            
+	</script>
+</head>
+
+<body onLoad="firstRun()">
+	<div id="header">
+	</div>
+	<div id="survey">
+		<div id="heading">
+		</div>
+		
+		<div id="content">
+  				 <h1>Administrator Login</h1>
+		<form action="login.php" method="post" name="mainForm">
+           Login: <input type="text" name="username" /><br />
+           Password: <input type="password" name="password" /><br />
+           <br /><br />
+           <input type="submit" name="ok" value="OK" />
+           <br /><br />
+           Don't already have an account? <a href="registration.php">Signup</a>
+        </form>
+   		</div>
+		
+		<div id="footing">
+		</div>
+	</div>
+
+</body>
+</html>

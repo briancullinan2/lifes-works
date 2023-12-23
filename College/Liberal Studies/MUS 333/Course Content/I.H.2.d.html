@@ -1,0 +1,236 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="I.H.2.d_files/styles.css" type="text/css">
+
+<script language="javascript" src="I.H.2.d_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Aerophones</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="I.H.2.d_files/moduleI.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="I.H.2.d_files/moduleI.gif" alt="module banner" height="126"
+ width="600"> 
+</p>
+<h3>Aerophones</h3>
+<p> Aerophones use the human body's air or 'wind' to set some 
+  part of the musical instrument in motion to create a vibration. With a
+ saxophone, 
+  there is a very thin slip of cane (called a 'reed') that is placed 
+  over an opening in the instrument, which in turn, is held in the 
+musician's 
+  mouth. Through a combination of the reed, the air, and the musculature
+ action 
+  of the lips and mouth area of a trained musician, a vibration is 
+created that 
+  is amplified by the musical instrument. A similar thing occurs when a 
+trumpet 
+  or trombone player makes a 'buzzing' sound that is focused into 
+  the instrument, amplified, and creates a musical sound.</p>
+<p>Aerophones are basically long tubes. Some tubes have parallel sides 
+along the 
+  length of the instrument, while others gradually get wider like a very
+ long 
+  ice cream cone (the difference affects the 'color' of the musical 
+  sound). One group of aerophones called 'woodwind instruments,' because
+ 
+  many of them were once made of wood, have a series of holes down the 
+length 
+  of the tube or the body of the instrument. The tube with all of its 
+holes open 
+  functions acoustically as a very short tube (one that amplifies the 
+vibration 
+  to just the first open hole). As the holes are progressively covered, 
+either 
+  by the musician's fingers or the fingers activating a mechanical 
+system, 
+  the tube effectively gets longer and plays lower <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113949071"
+ class="glossarylink" target="_blank">pitches</a>. Simply put, as more 
+  holes are covered the tube progressively sounds lower pitches, while 
+uncovering 
+  holes progressively sounds higher pitches.</p>
+<p>Another group of aerophones called 'brass instruments,' because 
+  they are made of various alloys of brass, use a different strategy to 
+lengthen 
+  and shorten the tube of the instrument. Rather than having holes 
+pierce one 
+  long tube, brass instruments like the trumpet, cornet, fluegel horn, 
+and the 
+  tuba add extra lengths of tubing to the main instrument to create 
+lower pitches. 
+  Extra tubing is added by depressing a 'valve' that literally opens 
+  the extra piece of tubing to the vibration, thus adding to the overall
+ length 
+  of the instrument and sounding a lower <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113989071"
+ class="glossarylink" target="_blank">pitch</a>. Different valves add 
+progressively 
+  longer bits of tubing that create progressively lower pitches. </p>
+<p>The trombone takes the same principle and does it more simply by 
+coupling a 
+  single tube with a long, moveable 'slide' that can lengthen the 
+  instrument in one motion and allow it to play lower pitches. For all 
+brass instruments, 
+  no matter how additional tubing is added or subtracted, a longer 
+overall length 
+  of the tube or instrument will sound a lower pitch than a shorter one 
+(which 
+  will sound a higher pitch).</p>
+<p>&nbsp; </p>
+</body></html>

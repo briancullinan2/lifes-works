@@ -1,0 +1,44 @@
+;; Simple class that roughly models a point on the cartesian plane. Can display 
+;; it's coordinates, or convert them to polar. Demonstrates basic functionality of 
+;; our class model. 
+
+(class point (parent:) (constructor_args: x y) 
+	(ivars: (xval x) (yval y)) 
+	(methods: 
+		(getx () xval) 
+		(gety () yval) 
+		(display () (begin 
+			(display "Coords: x=") (display xval) 
+			(display ", y=") (display yval) (newline))) 
+		(setx (newx) (set! xval newx)) 
+
+	;; Converts the points coords to polar 
+		(polar () 
+			(let (
+			   (radius (sqrt (+ (* xval xval) (* yval yval))))
+ 			   (angle (/ (truncate (* (atan (/ yval xval)) 
+						  (/ 36000 (* 2 3.1415)))) 100))) 
+			(list radius angle))) 
+		(dist (p2) 
+			(let ((x2 (p2 'getx)) 
+			      (y2 (p2 'gety))) 
+			  (sqrt (+ (expt (- x2 xval) 2) (expt (- y2 yval) 2))))))) 
+
+;; Another class that models a drunk person. The central methods merely reverse the 
+;; list input by the user and echo it back. Demonstrates the use of the *this* 
+;; construct as well as recursion, as well as method overloading. 
+
+(class drunkard (parent:) (constructor_args: n) 
+	(ivars: (name n)) 
+	(methods: (say (who string) 
+			(begin (display "Hey ") (display who) 
+			(display "! ") (*this* 'say string) )) 
+
+		  (say (string) 
+			(begin (display name) 
+			    (display " blubbers: Did you say ") 
+			    (display (*this* 'reverse string)))) 
+		  (reverse (string) 
+			(if (null? string) () (append (*this* 'reverse (cdr string)) 
+						      (list (car string))))))) 
+

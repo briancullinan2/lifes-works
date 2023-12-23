@@ -1,0 +1,285 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="I.H.3.b_files/styles.css" type="text/css">
+
+<script language="javascript" src="I.H.3.b_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Rhythm and harmony instruments</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="I.H.3.b_files/moduleI.css" rel="stylesheet" type="text/css">
+<script language="JavaScript">
+<!-- Hide from non-Javascript browsers
+function windowOpen(url)
+{
+open(url, "remote", "directories=no,location=no,menubar=no,resizable=yes,scrollbars=no,status=yes,toolbar=no,width=315,height=315"); 
+}
+// -->
+</script>
+</head><body>
+<p><img src="I.H.3.b_files/moduleI.gif" alt="module banner" height="126"
+ width="600"> 
+</p>
+<h3><a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">Rhythm</a> and <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113968071"
+ class="glossarylink" target="_blank">harmony</a> instruments</h3>
+<p> Rhythm and harmony instruments in jazz usually play the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113964071"
+ class="glossarylink" target="_blank">roots</a> of <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a> that 
+  <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113974071"
+ class="glossarylink" target="_blank">harmonize</a> melodies and the 
+melodic <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113976071"
+ class="glossarylink" target="_blank">improvisation</a> of others. They 
+function as 
+  a bridge or the glue connecting the pure rhythm instruments with the 
+harmony 
+  and <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a> instruments.</p>
+<strong><img src="I.H.3.b_files/tuba.gif" alt="Tuba" align="right" 
+height="175" width="175">Tuba</strong>
+<p> The tuba is the lowest-sounding instrument in brass family of 
+aerophones. 
+  The tuba is constructed much like a trumpet, in that sections of 
+additional 
+  tubing are added as the performer depresses the valves. Like the 
+trumpet, the 
+  tuba uses a mouthpiece to focus the buzzing of the lips (vibration) 
+into the 
+  body of the instrument.</p>
+<p>The tuba can be pitched either in C or Bb (meaning that the root <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113989071"
+ class="glossarylink" target="_blank">pitch</a> or fundamental 
+  of the main tube without the addition of any valves and their extra 
+tubing), 
+  with Bb being the more common horn historically found in jazz. Tubas, 
+like trombones, 
+  read music that is not transposed, unlike saxophones and trumpets 
+which we will 
+  discuss in more detail later.</p>
+<p>Marching versions of the tuba, called sousaphones, wrap themselves 
+around the 
+  performer and sit on the shoulder. Sousaphones (invented by the early 
+twentieth-century 
+  U.S. Marine Band leader John Philip Sousa) were used in early jazz 
+like New 
+  Orleans Dixieland. Other models that are more compactly coiled sit in 
+the performer's 
+  lap and are used for stage performances.</p>
+<p>The tuba served as the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113995071"
+ class="glossarylink" target="_blank">bass line</a> instrument in jazz 
+through the early 1930s 
+  (Ragtime, Dixieland, through early Swing) and was replaced over time 
+by the 
+  acoustic bass.</p>
+<p>Watch and listen to 1950s studio musician, Bill Barber, performing on
+ tuba. 
+  <strong><a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/%7Emus333-c/video/barber.html')">Watch
+ and listen to the example.</a> </strong></p>
+<strong><img src="I.H.3.b_files/acoustic_bass.gif" alt="Acoustic bass 
+(aka Bass, String Bass, Double Bass, Bass Violin, Stand Up Bass, Dog 
+House) " align="right" height="175" width="175">Acoustic bass (aka Bass,
+ String Bass, Double Bass, Bass Violin, Stand 
+Up Bass, Dog House)</strong>
+<p> The bass is the lowest-pitched member of the violin family. In the 
+video example 
+  below, we see a good example of how chordophones work. In this 
+acoustic bass 
+  duo, each bass player shortens strings with the fingers of the left 
+hand to 
+  play higher <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113949071"
+ class="glossarylink" target="_blank">pitches</a> by moving closer to 
+the plucking fingers of the right hand 
+  (and the reverse to play lower pitches). The string's vibration is 
+transferred 
+  into the large acoustic resonator of the bass's body, which amplifies 
+  the sound. </p>
+<p>The acoustic bass does not use frets like those found on a guitar, 
+which allows 
+  the acoustic bass player to easily slide on the string between 
+pitches. Also 
+  notice how the bass is both bowed and plucked.</p>
+<p>Watch and listen to the bass duo of Rufus Reid and Michael Moore 
+performing
+  "Tea for Two." <strong><a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/%7Emus333-c/video/reid_moore.html')">Watch
+ and listen to the example.</a></strong></p>
+ <strong><img src="I.H.3.b_files/electric_bass.gif" alt="Electric bass "
+ align="right" height="175" width="175">Electric bass</strong>
+ <p> The electric bass needs an amplifier to be heard. It has frets like
+ a guitar 
+  that allows the performer to always play a pitch in the same place on 
+the fingerboard. 
+  The electric bass in jazz is exactly the same the instrument that is 
+played 
+  in pop music, only it is performed in a jazz style.</p>
+<p>Watch and listen to electric bassist Daryl Jones perform "Charlayne."
+ <strong><a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/%7Emus333-c/video/jonesd_charlayne.html')">Watch
+
+  and listen to the example.</a></strong></p>
+</body></html>

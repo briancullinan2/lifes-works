@@ -1,0 +1,272 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="II.D.3_files/styles.css" type="text/css">
+
+<script language="javascript" src="II.D.3_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Blue Note remix projects (1996 onward)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="II.D.3_files/moduleII.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="II.D.3_files/moduleII.gif" alt="module banner" height="125"
+ width="600"> </p>
+<h3> <strong> Blue Note <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113942071"
+ class="glossarylink" target="_blank">remix</a> projects (1996 onward) </strong></h3>
+<p><strong> Introduction </strong></p>
+<p> Blue Note has been involved in jazz remixes since working with Us3 
+on their classic Hand on the Torch (1994) album. They also sought out 
+DJs and producers to do remixes of new recordings by the likes of Bob 
+Belden, Greg Osby, Cassandra Wilson, and Medeski Martin &amp; Wood that 
+resulted in the two Blue Note CDs compiled by <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113957071"
+ class="glossarylink" target="_blank">DJ</a> Smash entitled Phonography 
+(2001) and Phonography 2 (2003) <strong>(<a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod2/Biblio.html"
+ target="_blank">Murph 2003, 56</a>)</strong>.</p>
+<p><strong> </strong>Blue Note's A&amp;R director Eli Wolf said that "I 
+almost equate the DJs and remixers, who are truly gifted and doing 
+innovative things, with the renegade jazz musicians—from bebop to 
+hard-bop to free jazz to <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113972071"
+ class="glossarylink" target="_blank">fusion</a>" <strong>(<a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod2/Biblio.html"
+ target="_blank">Murph 2003, 56</a>)</strong>.</p>
+<p><strong> Large Professor </strong></p>
+<p> Large Professor is the former emcee with Main Source, a popular rap 
+group. He soon began to produce work for A Tribe Called Quest, among 
+others <strong>(<a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod2/Biblio.html"
+ target="_blank">Kurutz [n.d.]</a>).</strong></p>
+<p>Albums by Large Professor include 1st Class (2002) which feature 
+performances by rappers Nas, Q-Tip, and Busta Rhymes , The LP (2002), 
+and nearly ten CD singles.<strong></strong></p>
+<p>Large Professor puts strongly kicked percussion accents on beats two 
+and four over a bubbling <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113995071"
+ class="glossarylink" target="_blank">bass line</a> that supports 
+trumpeter Nat Adderly's statement of the tune and <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> improv on "Hummin'." We 
+hear the remixed keyboard of Joe Zawinul from the original 1969 <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113955071"
+ class="glossarylink" target="_blank">live performance</a>, but not any 
+of the alto sax work of bandleader Cannonball Adderly.</p>
+<p>Listen to <strong> Large Professor's remix of Nat Adderly, "Hummin'" 
+(1996). </strong></p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="digableplanets_rebirth" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleII/largeprof_hummin.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="II.D.3_files/largeprof_hummin.swf" quality="high" 
+bgcolor="#ffffff" name="digableplanets_rebirth" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleII/largeprof_hummin.swf"></a>
+</object></p>
+<p><strong> Madlib </strong></p>
+<p> Underground hip-hop master Madlib radically remixed classic 1960s 
+and 1970s Blue Note recordings on his 2003 release, Shades of Blue: 
+Madlib Invades Blue Note , that is characterized by Madlib's "rugged 
+beats, blunted melodies, and surreal production" to great acclaim. "He 
+has so much respect for the Blue Note catalog," says Blue Note's A&amp;R<strong></strong>
+ director Eli Wolf, "he crafted this love letter to Blue Note" <strong>(<a
+ 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod2/Biblio.html"
+ target="_blank">Murph 2003, 56</a>)</strong>. Madlib has become both an
+ important rapper and DJ, and, since the late 1990s, one of the most 
+sought-after producers in the business.</p>
+<p>Madlib's remix of singer and flutist Bobbi Humphrey's "Young Warrior"
+ (1974) actually opens with a sample from Humphrey's "Please Set Me at 
+Ease." Once the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113967071"
+ class="glossarylink" target="_blank">Intro</a> fades out and the groove
+ kicks in—when the remix of "Young Warrior" begins—you can still hear 
+elements of the synthesizer tracks done on the original recording by 
+Larry Mizell and Don Preston, as well as busy Latin percussion work by 
+Harvey Mason (drums), King Errison (congas), and Stephanie Spruill and 
+Roger Sainte (percussion). The tempos are cranked and there is a 
+persistent bass line that moves tongue-in-cheek toward the end of the 
+piece. </p>
+<p><img src="II.D.3_files/madlib.gif" alt="PHOTO of Madlib in (Murph 
+2003)" align="left" height="225" width="185">Listen to <strong> Madlib's
+ remix of Bobbi Humphrey, "Young Warrior" (2004). </strong></p>
+<p>
+  <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="digableplanets_rebirth" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleII/madlib_youngwarrior.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="II.D.3_files/madlib_youngwarrior.swf" quality="high" 
+bgcolor="#ffffff" name="digableplanets_rebirth" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleII/madlib_youngwarrior.swf"></a>
+</object></p>
+<p>We will return to the Topic of jazz remixes later in the course and 
+look at both original source recordings and the remixes in much greater 
+detail later in the course. </p>
+</body></html>

@@ -1,0 +1,378 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="VII.B.1.a_files/styles.css" type="text/css">
+
+<script language="javascript" src="VII.B.1.a_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=3JcQLjfRvCGgSSRFLzhzLghVgvwWzzNdGDvL2T6THQnTgdBpCJbD!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273176049675";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=3JcQLjfRvCGgSSRFLzhzLghVgvwWzzNdGDvL2T6THQnTgdBpCJbD!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273176049675";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Coleman Hawkins</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="VII.B.1.a_files/moduleVII.css" rel="stylesheet" 
+type="text/css">
+</head><body>
+<p><img src="VII.B.1.a_files/moduleVII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h3><strong>Coleman Hawkins</strong></h3>
+<p> Coleman Hawkins was an enormously influential tenor sax player and 
+an important figure that help transform swing into bebop. One recording 
+that helps cast into sharp relief the differences between swing and 
+bebop <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113976071"
+ class="glossarylink" target="_blank">improvisation</a> is Coleman 
+Hawkins' landmark 1939 recording of Johnny Green's popular song "Body 
+and Soul."</p>
+<p>First, though, read the article on <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.194400.1"
+ target="_blank">Coleman Hawkins</a>.
+</p>
+<p> Let's start off with a classic swing version of "Body and Soul," 
+recorded in 1935 by swing clarinet great Benny Goodman backed by Teddy 
+Wilson on piano and drummer Gene Krupa. We will discuss Benny Goodman's 
+career later in the Swing <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> of the course.</p>
+<p> In Goodman's recording of "Body and Soul," he presents a notable 
+example of the common swing manner of improvising in a popular song 
+ballad (a moderately-paced love song). Goodman keeps the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a> audible virtually 
+throughout his improvisation. The melody is decorated or merely 
+ornamented. He adds turning figures as decoration and modifies the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a> of the original only 
+enough that a listener (or dancer) would never loose the sense of the 
+original tune. In effect, the melody is stylized rather than recomposed.</p>
+<p> The <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a> of "Body and Soul" is 
+32-bar A A B A form (<a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113935071"
+ class="glossarylink" target="_blank">song form</a>). Please listen 
+closely to just the first <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113953071"
+ class="glossarylink" target="_blank">chorus</a> performed by Goodman in
+ the first two A sections, then Wilson on piano in the bridge (B), with 
+Goodman returning for the final A section. </p>
+Follow the chart below to listen to just the first chorus of the <strong>Benny
+Goodman
+ Trio's "Body and Soul" (1935)</strong>.
+<p><strong><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="goodmanb3_bodysoul" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleVII/goodmanb3_bodysoul.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="VII.B.1.a_files/goodmanb3_bodysoul.swf" quality="high" 
+bgcolor="#ffffff" name="goodmanb3_bodysoul" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVII/goodmanb3_bodysoul.swf"></a>
+</object></strong></p>
+<p><strong><a 
+href="http://jan.ucc.nau.edu/%7Emus333-c/scores/body_and_soul.html" 
+target="_blank">Click to see transcription of Hawkins' "Body and Soul."</a></strong></p>
+<table border="0">
+  <caption>
+  Listening Chart
+  </caption>
+  <tbody><tr>
+    <td colspan="3"><strong>1st chorus </strong></td>
+  </tr>
+  <tr>
+    <td width="15%">0:00-0:21</td>
+    <td width="7%"><div align="center">A</div></td>
+    <td width="78%">Goodman (clarinet) stylizes melody </td>
+  </tr>
+  <tr>
+    <td>0:21-0:40</td>
+    <td><div align="center">A</div></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>0:40-1:00</td>
+    <td><div align="center">B</div></td>
+    <td>Wilson , piano </td>
+  </tr>
+  <tr>
+    <td>1:00-1:20</td>
+    <td><div align="center">A</div></td>
+    <td>Goodman. clarinet </td>
+  </tr>
+  <tr>
+    <td colspan="3">[etc.] 
+    <div align="center"></div></td>
+  </tr>
+</tbody></table>
+<p>Coleman Hawkins, after leaving swing great Fletcher Henderson's <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113954071"
+ class="glossarylink" target="_blank">big band</a> in 1934, he worked 
+with a number of European groups (and American musicians working in 
+Europe like saxophonist Benny Carter) for five years. In 1939, Hawkins 
+was back in the US and back in the recording studio as a bandleader of a
+ newly-formed nonet (nine piece) band. </p>
+<p>Hawkins' 1939 recording of "Body and Soul" could not be more 
+different than Benny Goodman's recording made just four years earlier. 
+Rather than focusing on the tune like Goodman, Hawkins soon casts off 
+much of the tune and creates a wholly new composed (improvised) line in 
+an even eighth note rhythm. He uses melodically or linearly spread out <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a> tones (called an 
+arpeggio) that <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113974071"
+ class="glossarylink" target="_blank">harmonize</a> the tune. Hawkins' 
+improvisation is generated whole cloth from the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113922071"
+ class="glossarylink" target="_blank">chord</a> changes and completely 
+turns away from swing's signature thematic or decoratively melodic 
+focus. By the second chorus, Hawkins has left the melody and never turns
+ back. </p>
+<p>Follow the chart below and listen to <strong>Coleman Hawkins
+and His Orchestra's "Body and Soul" (1939)</strong>.</p>
+<p><strong> <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+ 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="goodmanb3_bodysoul" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleVII/hawkinsc_bodysoul.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="VII.B.1.a_files/hawkinsc_bodysoul.swf" quality="high" 
+bgcolor="#ffffff" name="goodmanb3_bodysoul" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVII/hawkinsc_bodysoul.swf"></a>
+</object> </strong></p>
+
+<table border="0">
+  <caption>
+  Listening Chart
+  </caption>
+    <tbody><tr>
+    <td>0:00-0:10</td>
+    <td><div align="center">4mm</div></td>
+    <td><div align="center"><a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113967071"
+ class="glossarylink" target="_blank">Intro</a></div></td>
+    <td> piano <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a></td>
+  </tr>
+  <tr>
+    <td colspan="4"><strong>1st chorus </strong></td>
+  </tr>
+  <tr>
+    <td width="14%">0:10-0:31</td>
+    <td width="8%"><div align="center">8mm</div></td>
+    <td width="7%"><div align="center">A</div></td>
+    <td width="71%">Hawkins, tenor sax solo, accompanied only by <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113991071"
+ class="glossarylink" target="_blank">rhythm section</a></td>
+  </tr>
+  <tr>
+    <td>0:31-0:51</td>
+    <td><div align="center">8mm</div></td>
+    <td><div align="center">A</div></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>0:51-1:11</td>
+    <td><div align="center">8mm</div></td>
+    <td><div align="center">B</div></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>1:11-1:31</td>
+    <td><div align="center">8mm</div></td>
+    <td><div align="center">A</div></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="4"><strong>2nd chorus</strong></td>
+  </tr>
+  <tr>
+    <td>1:31-1:51</td>
+    <td><div align="center">8mm</div></td>
+    <td><div align="center">A</div></td>
+    <td>Hawkins, tenor sax solo, long tones in ensemble</td>
+  </tr>
+  <tr>
+    <td>1:51-2:11</td>
+    <td><div align="center">8mm</div></td>
+    <td><div align="center">A</div></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>2:11-2:32</td>
+    <td><div align="center">8mm</div></td>
+    <td><div align="center">B</div></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>2:32 to end</td>
+    <td><div align="center">8mm</div></td>
+    <td><div align="center">A</div></td>
+    <td>&nbsp;</td>
+  </tr>
+</tbody></table>
+
+<p>&nbsp;</p>
+</body></html>

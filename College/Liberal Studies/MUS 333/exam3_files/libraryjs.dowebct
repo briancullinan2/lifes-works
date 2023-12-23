@@ -1,0 +1,1413 @@
+
+
+
+var now = new Date()
+var mm=""
+var dd=""
+var yy=""
+
+function todayDate(){
+mm=now.getMonth()+1
+dd=now.getDate()
+yy=now.getFullYear()
+}
+var detectableWithVB = false;
+var pluginFound = false;
+var popupFlag=false;
+function closeDo(flag)
+{
+popupFlag = flag;
+}
+function getMacOS(){
+var plat_NotMac=false;
+var platform=navigator.platform;
+if(platform.indexOf('Mac') == -1)
+plat_NotMac=true;
+else
+plat_NotMac=false;
+return plat_NotMac;
+}
+function detectJava()
+{
+if(!getMacOS())
+return true;
+var appletObj;
+if ( getApplicationFrame() )
+appletObj=getApplicationFrame().APPLET_FRAME;
+if(!appletObj)
+appletObj=top.APPLET_FRAME;
+if(appletObj)
+return appletObj.detectJava();
+var w = window;
+var wString = "window";
+while (w != null)
+{
+var frame = getApplicationFrameEx(wString);
+if (frame != null && frame.APPLET_FRAME)
+return frame.APPLET_FRAME.detectJava();
+w = w.opener;
+wString = wString + ".opener";
+}
+
+
+return false;
+}
+
+function setDates(form, dateorder, daysahead){
+if (daysahead==0) todayDate();
+else futureDates(daysahead);
+var dayfield=("date_day_" + dateorder);
+var monthfield="date_month_" + dateorder;
+var yearfield="date_year_" + dateorder;
+form.elements[monthfield].selectedIndex=mm-1
+form.elements[dayfield].selectedIndex=dd-1
+form.elements[yearfield].selectedIndex=yy-2000
+}
+
+function futureDates(days) {
+var later = new Date(now.getTime() + days*24*60*60*1000);
+mm=later.getMonth()+1
+dd=later.getDate()
+yy=later.getFullYear()
+}
+
+function openCalendar(form, dateseq) {
+dateForm=form;
+datelist=dateseq;
+openBox('minicalendar.html','Calendar',600,440);
+}
+
+function popDates(popmonth, popday, popyear){
+datenumber=datelist;
+form=dateForm;
+mm=popmonth;
+dd=popday;
+yy=popyear;
+var dayfield=("date_day_" + datenumber);
+var monthfield="date_month_" + datenumber;
+var yearfield="date_year_" + datenumber;
+form.elements[monthfield].selectedIndex=mm-1
+form.elements[dayfield].selectedIndex=dd-1
+form.elements[yearfield].selectedIndex=yy-2000
+}
+
+function padout(number) { return (number < 10) ? '0' + number : number; }
+function y2k(number) { return (number < 1000) ? number + 1900 : number; }
+function compareDates(form, startdateseq, enddateseq, timecheck) {
+var start_day_field="date_day_" + startdateseq;
+var start_month_field="date_month_" + startdateseq;
+var start_year_field="date_year_" + startdateseq;
+var start_hour_field="date_hour_" + startdateseq;
+var start_minute_field="date_minute_" + startdateseq;
+var end_day_field="date_day_" + enddateseq;
+var end_month_field="date_month_" + enddateseq;
+var end_year_field="date_year_" + enddateseq;
+var end_hour_field="date_hour_" + enddateseq;
+var end_minute_field="date_minute_" + enddateseq;
+var startday = form.elements[start_day_field].options[form.elements[start_day_field].selectedIndex].value;
+var startmonth = form.elements[start_month_field].options[form.elements[start_month_field].selectedIndex].value;
+var startyear = form.elements[start_year_field].options[form.elements[start_year_field].selectedIndex].text;
+var starthour = form.elements[start_hour_field].options[form.elements[start_hour_field].selectedIndex].text;
+var startminute = form.elements[start_minute_field].options[form.elements[start_minute_field].selectedIndex].text;
+var endday = form.elements[end_day_field].options[form.elements[end_day_field].selectedIndex].value;
+var endmonth = form.elements[end_month_field].options[form.elements[end_month_field].selectedIndex].value;
+var endyear = form.elements[end_year_field].options[form.elements[end_year_field].selectedIndex].text;
+var endhour = form.elements[end_hour_field].options[form.elements[end_hour_field].selectedIndex].text;
+var endminute = form.elements[end_minute_field].options[form.elements[end_minute_field].selectedIndex].text;
+var startdate = new Date(startyear-0,startmonth-1,startday-0);
+var enddate = new Date(endyear-0,endmonth-1,endday-0);
+if (!isDate(form, startdateseq)){
+alert("Start date is not a valid date");
+form.elements[start_day_field].focus();
+return false
+}
+if (!isDate(form, enddateseq)) {
+alert("End date is not a valid date");
+document.location="#date_" + startdateseq;
+form.elements[end_day_field].focus();
+return false
+}
+starttime = Date.UTC(y2k(startdate.getYear()),startdate.getMonth(),startdate.getDate(),0,0,0);
+endtime = Date.UTC(y2k(enddate.getYear()),enddate.getMonth(),enddate.getDate(),0,0,0);
+if (starttime <= endtime) {
+
+} else {
+alert("Start Date is not before than End Date");
+form.elements[start_month_field].focus();
+return false
+}
+if (timecheck==true && starttime==endtime){
+if((endhour+endminute)<=(starthour+startminute)){
+alert("Please select an end time later than your start time.");
+form.elements[end_hour_field].focus();
+return false
+}
+}
+currentdate = new Date();
+currenttime = Date.UTC(y2k(currentdate.getYear()),currentdate.getMonth(),currentdate.getDate(),0,0,0);
+if (endtime > currenttime) {
+
+} else {
+alert("End Date is before today\'s date");
+form.elements[end_day_field].focus();
+return false
+}
+return true
+}
+
+function allDayEvent(form, startdateseq, enddateseq){
+var sthourfield="date_hour_" + startdateseq;
+var stminutefield="date_minute_" + startdateseq;
+var edhourfield="date_hour_" + enddateseq;
+var edminutefield="date_minute_" + enddateseq;
+var starthour = form.elements[sthourfield].selectedIndex=0;
+var startminute = form.elements[stminutefield].selectedIndex=0;
+var endhour = form.elements[edhourfield].selectedIndex=23;
+var endminute = form.elements[edminutefield].selectedIndex=3;
+}
+
+function isDate (form, dateseq) {
+var day_field="date_day_" + dateseq;
+var month_field="date_month_" + dateseq;
+var year_field="date_year_" + dateseq;
+var dayval = form.elements[day_field].options[form.elements[day_field].selectedIndex].value;
+var monthval = form.elements[month_field].options[form.elements[month_field].selectedIndex].value;
+var yearval = form.elements[year_field].options[form.elements[year_field].selectedIndex].text;
+var today = new Date();
+yearval = ((!yearval) ? y2k(today.getYear()):yearval);
+monthval = ((!monthval) ? today.getMonth():monthval-1);
+if (!dayval) return false
+var test = new Date(yearval,monthval,dayval);
+if ( (y2k(test.getYear()) == yearval) &&
+(monthval == test.getMonth()) &&
+(dayval == test.getDate()) )
+return true;
+else
+alert("You are using an invalid date in a date form");
+form.elements[day_field].focus();
+return false
+}
+
+function rebuildDate(elname, form, currentControl) {
+var monthField = elname + "Month";
+var dayField = elname + "Day";
+var yearField = elname + "Year";
+var hourField = elname + "Hour";
+var minuteField = elname + "Minute";
+var am_pmField = elname + "AM_PM";
+var allowBlankSelectionField = elname + "AllowBlankSelection";
+eval("var allowBlankSelection = form." + allowBlankSelectionField + ".value");
+var allowBlankTimeSelectionField = elname + "AllowBlankTimeSelection";
+eval("var allowBlankTimeSelection = form." + allowBlankTimeSelectionField + ".value");
+var now = new Date();
+var hideDayField = elname + "HideDay";
+var bLoadDay = "true";
+eval ( "if (form." + hideDayField + " != null) bLoadDay = false;");
+if (bLoadDay == "true") {
+eval ( "rbLoadDay(form." + yearField + ", form." + monthField + ", form." + dayField + ", form." + allowBlankSelectionField + ".value );");
+}
+eval ( "var month = (form." + monthField + " != null) ? (form." + monthField + ".options[form." + monthField + ".selectedIndex].value) : now.getMonth();" );
+eval ( "var year = (form." + yearField + " != null) ? (form." + yearField + ".options[form." + yearField + ".selectedIndex].value) : now.getFullYear();" );
+if (bLoadDay == "true") {
+eval ( "var day  = (form." + dayField   + " != null) ? (form." + dayField   + ".options[form." + dayField + ".selectedIndex].value) : now.getDate();" );
+eval ( "var hour = (form." + hourField + " != null) ? (form." + hourField + ".options[form." + hourField + ".selectedIndex].value) : now.getHours();" );
+eval ( "var minute = (form." + minuteField + " != null) ? (form." + minuteField + ".options[form." + minuteField + ".selectedIndex].value) : now.getMinutes();" );
+eval ( "var am_pm = (form." + am_pmField + " != null) ? (form." + am_pmField + ".options[form." + am_pmField + ".selectedIndex].value) :  null;" );
+} else {
+var day = 1;
+var hour =0;
+var minute = 0;
+var am_pm = null;
+}
+if((month != "-1") && (day != "-1") && (year != "-1")) {
+if ((hour != "-1") && (minute != "-1") && am_pm != "-1") {
+if ((am_pm != null) && (am_pm == "PM")) {
+hour = parseInt(hour) + 12;
+}
+} else {
+hour = 0;
+minute = 0;
+}
+eval("form." + elname + ".value = '" + year + "/" + (parseFloat(month) + 1) + "/" + day + " " + hour + ":" + minute + "';");
+}
+if (currentControl != null) {
+var currentValue = currentControl.options[currentControl.selectedIndex].value;
+if (currentValue == -1) {
+var currentName = currentControl.name;
+if (currentName == monthField || currentName == dayField || currentName == yearField) {
+if (allowBlankSelection == "true" ||
+allowBlankSelection == "false" && allowBlankTimeSelection == "false") {
+eval ( "if (form." + monthField + " != null) form." + monthField + ".selectedIndex = 0;");
+eval ( "if (form." + dayField + " != null) form." + dayField + ".selectedIndex = 0;");
+eval ( "if (form." + yearField + " != null) form." + yearField + ".selectedIndex = 0;");
+eval ( "if (form." + hourField + " != null) form." + hourField + ".selectedIndex = 0;");
+eval ( "if (form." + minuteField + " != null) form." + minuteField + ".selectedIndex = 0;");
+eval ( "if (form." + am_pmField + " != null) form." + am_pmField + ".selectedIndex = 0;");
+eval( "form." + elname + ".value = \"\";");
+} else {
+eval ( "if (form." + monthField + " != null) form." + monthField + ".selectedIndex = 0;");
+eval ( "if (form." + dayField + " != null) form." + dayField + ".selectedIndex = 0;");
+eval ( "if (form." + yearField + " != null) form." + yearField + ".selectedIndex = 0;");
+}
+} else if (currentName == hourField || currentName == minuteField || currentName == am_pmField) {
+if (allowBlankSelection == "true") {
+eval ( "if (form." + monthField + " != null) form." + monthField + ".selectedIndex = 0;");
+eval ( "if (form." + dayField + " != null) form." + dayField + ".selectedIndex = 0;");
+eval ( "if (form." + yearField + " != null) form." + yearField + ".selectedIndex = 0;");
+eval ( "if (form." + hourField + " != null) form." + hourField + ".selectedIndex = 0;");
+eval ( "if (form." + minuteField + " != null) form." + minuteField + ".selectedIndex = 0;");
+eval ( "if (form." + am_pmField + " != null) form." + am_pmField + ".selectedIndex = 0;");
+eval( "form." + elname + ".value = \"\";");
+} else if (allowBlankTimeSelection == "true") {
+eval ( "if (form." + hourField + " != null) form." + hourField + ".selectedIndex = 0;");
+eval ( "if (form." + minuteField + " != null) form." + minuteField + ".selectedIndex = 0;");
+eval ( "if (form." + am_pmField + " != null) form." + am_pmField + ".selectedIndex = 0;");
+}
+}
+}
+}
+}
+
+function rbLoadDay(yearSel,monthSel,daySel,allowBlankSelection)
+{
+
+var month = parseInt( monthSel.options[monthSel.selectedIndex].value ) + 1;
+if (( month == 13 )||(month == -1)) {
+month = 0;
+}
+var year = parseInt( yearSel.options[yearSel.selectedIndex].value );
+if(year == -1) {
+year = 2010;
+}
+timeA = new Date( year, month, 1 );
+timeDifference = timeA - 86400000;
+timeB = new Date(timeDifference);
+var daysInMonth = timeB.getDate();
+var selectedIndex = daySel.selectedIndex;
+var dayValue = daySel[selectedIndex].value;
+var dayText= daySel[selectedIndex].text;
+var IndexV = dayValue.length;
+var IndexT = dayText.length;
+var addText =dayText.substring(IndexV,IndexT);
+
+while( daySel.length > 0 ) {
+daySel.options[0] = null;
+}
+
+if( allowBlankSelection == "true" ) {
+daySel.options[0] = new Option( " ", "-1" );
+}
+for (var i = 1; i <= daysInMonth; i++) {
+daySel.options[daySel.length] = new Option(i+addText,i);
+}
+
+if ( (selectedIndex) <= daySel.length - 1) {
+for( var i = 0; i < daySel.options.length; i++ ) {
+if( daySel[i].value == dayValue ) {
+daySel.options[i].selected = true;
+break;
+}
+}
+} else {
+daySel.options[0].selected = true;
+}
+}
+
+
+
+function requiredCheck(form){
+var ttypes="";
+var error=0;
+for (i =0; i < form.elements.length; i++){
+ttypes= ttypes + form.elements[i].type + "\t";
+if ((form.elements[i].name.indexOf('req_')>-1)){
+
+if (form.elements[i].type=="text"){
+if(form.elements[i].value==""){
+alert("You have left a required field blank, please fill it in")
+form.elements[i].focus();
+form.elements[i].select;
+
+document.location="#" + form.elements[i].name;
+error="1";
+break;
+}
+}
+
+if (form.elements[i].type=="textarea"){
+if(form.elements[i].value==""){
+alert("You have left a required field blank, please fill it in")
+form.elements[i].focus();
+form.elements[i].select;
+
+document.location="#" + form.elements[i].name;
+error="1";
+break;
+}
+}
+
+if (form.elements[i].type=="select-one"){
+if((form.elements[i].selectedIndex<0||form.elements[i].options[form.elements[i].selectedIndex].text.indexOf('--')>-1)){
+alert("You have not selected from a required drop-down list, please select now")
+form.elements[i].focus();
+form.elements[i].select;
+error="1";
+break;
+}
+}
+
+if (form.elements[i].type=="select-multiple"){
+if(form.elements[i].selectedIndex<0){
+alert("You have not selected from a required drop-down list, please select now")
+form.elements[i].focus();
+form.elements[i].select;
+error="1";
+break;
+}
+}
+
+if (form.elements[i].type=="checkbox"){
+checknum=(form.elements[i].name.substring(0,2)-0);
+checkstart=i;
+checkend=checkstart+checknum;
+selected="false";
+for (j =checkstart; j < checkend; j++){
+if (form.elements[j].checked)
+selected="true"
+}
+if(selected!="true"){
+alert("You have not checked a box in a group of required checkboxes")
+form.elements[checkstart].focus();
+error="1";
+break;
+}
+i=i+checknum-1;
+}
+}
+if ((form.elements[i].name.indexOf('subrq_')>-1)){
+var suberror=0;
+if (((form.elements[i].type=="text") && (form.elements[i].value!="")) || ((form.elements[i].type=="textarea")&&(form.elements[i].value!=""))||((form.elements[i].type=="radio")&&(form.elements[i].checked))){
+checknum=((form.elements[i].name.charAt(1)+form.elements[i].name.charAt(2)));
+for (j =0; j < form.elements.length; j++){
+if((form.elements[j].name.substring(0,2))==checknum){
+if ((form.elements[j].type=="select-one"&&form.elements[j].options[form.elements[j].selectedIndex].text.indexOf('--')>-1)||(form.elements[j].type=="text" && form.elements[j].value=="")||(form.elements[j].type=="textarea"&&form.elements[j].value=="")||(form.elements[j].type=="radio"&&form.elements[j].checked!="true")){
+alert("You have chosen an option that requires you to fill in another field");
+form.elements[j].focus();
+suberror="1";
+break;
+}
+}
+}
+}
+}
+if (suberror==1)break;
+}
+if (error==0 && suberror==0) return true;
+else return false;
+}
+
+
+
+
+function isSelectedAny(form, boxid) {
+for (var i = 0; i < form.elements.length; i++) {
+if (form.elements[i].type=="checkbox" && (form.elements[i].name.indexOf(boxid)!=-1)){
+if (form.elements[i].checked == true) {
+return true;
+}
+}
+}
+alert("You did not select anything to perform this action on.");
+return false;
+}
+
+function isSelectedOne(form, boxid) {
+if (isSelectedAny(form, boxid)){
+var numSelected = 0;
+for (var i = 0; i < form.elements.length; i++) {
+if (form.elements[i].type=="checkbox" && (form.elements[i].name.indexOf(boxid)!=-1)){
+if (form.elements[i].checked == true) {
+numSelected++;
+}
+if (numSelected > 1) {
+alert("You can only select one item at a time.");
+return false;
+}
+}
+}
+}
+else return false;
+return true;
+}
+
+function toggleSelectAll(form, master, boxid, boxid2) {
+if (form.elements[master].checked==false) {
+for (var i = 0; i < form.elements.length; i++) {
+if (form.elements[i].type=="checkbox" && ((form.elements[i].name.indexOf(boxid)!=-1) || form.elements[i].name.indexOf(boxid2)!=-1)){
+therow=form.elements[i].parentNode
+for(x=0; x<=10; x++){
+if (therow.nodeName!="TR"){
+therow=therow.parentNode;
+}
+else {
+therow.bgColor="#ffffff";
+break
+}
+}
+form.elements[i].checked = false;
+}
+}
+}
+else {
+for (var i = 0; i < form.elements.length; i++) {
+if (form.elements[i].type=="checkbox" && ((form.elements[i].name.indexOf(boxid)!=-1) || form.elements[i].name.indexOf(boxid2)!=-1)){
+therow=form.elements[i].parentNode
+for(x=0; x<=10; x++){
+if (therow.nodeName!="TR"){
+therow=therow.parentNode;
+}
+else {
+therow.bgColor="#efefef";
+break
+}
+}
+form.elements[i].checked = true;
+}
+}
+}
+}
+
+function toggleSelect(form, master, boxid, boxid2) {
+if (form.elements[master].checked == false) {
+for (var i = 0; i < form.elements.length; i++) {
+if (form.elements[i].type=="checkbox" && ((form.elements[i].name.indexOf(boxid)!=-1) || form.elements[i].name.indexOf(boxid2)!=-1)){
+if (form.elements[i].checked == false) {
+return;
+}
+}
+}
+form.elements[master].checked = true;
+}
+else {
+for (var i = 0; i < form.elements.length; i++) {
+if (form.elements[i].type=="checkbox" && ((form.elements[i].name.indexOf(boxid)!=-1) || form.elements[i].name.indexOf(boxid2)!=-1)){
+if (form.elements[i].checked == false) {
+form.elements[master].checked = false;
+return;
+}
+}
+}
+}
+}
+
+
+function numSeqValidate(num1, num2){
+if (num1>=num2)return true;
+else return false;
+}
+
+function validateNumber (form, inField)
+{
+var strCurAmt = form.elements[inField].value;
+alert(strCurAmt);
+if (isNotNumber(strCurAmt, "FLOAT", false))  {
+alert("You have entered an invalid number");
+form.elements[inField].focus();
+form.elements[inField].select;
+return false;
+}
+return true;
+}
+
+
+function writetext(txt, txtlength){
+if(!txtlength)txtlength=24
+if (txt.length>txtlength)
+document.write(txt.substring(0,txtlength)+"&#133;");
+else document.write(txt);
+}
+//validate a URL by making sure there is an http:// present
+
+function scriptCheck(str){
+str=str.toUpperCase();
+if((str.indexOf("<SCRIPT")!=-1)||(str.indexOf("&LT;SCRIPT")!=-1)||(str.indexOf("60;SCRIPT")!=-1)){
+alert("You may not use Javascript in the textfield, please remove it before continuing");
+return false
+}
+else return true
+}
+
+function js_fix_string_writeln(str) {
+var newstring = '';
+var i = 0;
+for (i = 0; i < str.length; i++) {
+var c = str.charAt(i);
+var newc = c;
+if (newc == '\\') {
+newc = '\\\\';
+}
+if (newc == '"') {
+newc = '&quot;';
+}
+if (newc == '\'') {
+newc = '\\\'';
+}
+newstring = newstring + newc;
+}
+return newstring;
+}
+
+function js_is_valid(str) {
+var len = str.length - 2;
+var valid_string = 1;
+var i,test;
+for(i=0; i<len && valid_string; i++) {
+test=str.substring(i, i+3);
+if((test == ':_:') || (test == '_:_') || (test == ':::')){
+return false
+}
+}
+return true;
+}
+
+function validString(form, inField, minval, maxval){
+var str = "";
+str = form.elements[inField].value;
+if (str.length < minval){
+alert(messageFormat('Field length cannot be less than |0| characters.', [minval]));
+form.elements[inField].focus();
+form.elements[inField].select;
+return false;
+}
+else if (str.length > maxval){
+alert(messageFormat('Field length must be less than or equal to |0| characters.', [maxval]));
+form.elements[inField].focus();
+form.elements[inField].select();
+return false;
+}
+for (var i=0; i < str.length; i++){
+temp=str.substring(i,i+1);
+switch(temp){
+case ' ':{
+alert("Input should not contain blank spaces");
+form.elements[inField].focus();
+form.elements[inField].select();
+return false;
+}
+break;
+}
+}
+return true;
+}
+
+function emailCheck(form,inField)
+{
+var emailStr=form.elements[inField].value;
+if(!emailCheck(emailStr))
+{
+form.elements[inField].focus();
+form.elements[inField].select();
+return false;
+}
+return true;
+}
+function emailCheck(emailStr)
+{
+var emailPat=/^(.+)@(.+)$/
+var specialChars="\\(\\)<>@,;:\\\\\\\"\\.\\[\\]"
+var validChars="\[^\\s" + specialChars + "\]"
+var quotedUser="(\"[^\"]*\")"
+var ipDomainPat=/^\[(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})\]$/
+var atom=validChars + '+'
+var word="(" + atom + "|" + quotedUser + ")"
+var userPat=new RegExp("^" + word + "(\\." + word + ")*$")
+var domainPat=new RegExp("^" + atom + "(\\." + atom +")*$")
+var matchArray=emailStr.match(emailPat)
+if (matchArray==null){
+alert("Email address seems incorrect (check @ and .\'s)")
+return false
+}
+var user=matchArray[1]
+var domain=matchArray[2]
+if (user.match(userPat)==null){
+alert("The username doesn\'t seem to be valid.")
+return false
+}
+var IPArray=domain.match(ipDomainPat)
+if (IPArray!=null){
+for (var i=1;i<=4;i++){
+if (IPArray[i]>255){
+alert("Destination IP address is invalid!")
+return false
+}
+}
+return true
+}
+var domainArray=domain.match(domainPat)
+if (domainArray==null){
+alert("The domain name doesn\'t seem to be valid.")
+return false
+}
+var atomPat=new RegExp(atom,"g")
+var domArr=domain.match(atomPat)
+var len=domArr.length
+if (domArr[domArr.length-1].length<2 || domArr[domArr.length-1].length>3){
+alert("The address must end in a three-letter domain, or two letter country.")
+return false
+}
+if (len<2){
+var errStr="This address is missing a hostname!"
+alert(errStr)
+return false
+}
+return true;
+}
+
+function splitString(string,separator)
+{
+var splitIndex = 0;
+var splitArray = new Array();
+while ((string.length > 0) && (separator.length > 0))
+{
+var i = string.indexOf(separator);
+if ((!i) && (separator != string.substring(0,separator.length))) break;
+if (i == -1) {
+splitArray[splitIndex++] = string;
+break;
+}
+splitArray[splitIndex++] = string.substring(0,i);
+string = string.substring(i+separator.length,string.length);
+}
+return splitArray;
+}
+
+function compareStrings(str1,str2){
+if (str1 != str2){
+alert ("The 2 strings must match")
+return false;
+}
+else return true;
+}
+
+function registerPopupWindow(popup)
+{
+var frameset = getApplicationFrame();
+if (frameset == null)
+return;
+var popups = frameset.vista_popups;
+if (popups == null)
+{
+popups = new Array();
+frameset.vista_popups = popups;
+}
+popups[popups.length] = popup;
+}
+function openWindow(url,title,width,height,retval)
+{
+var plugin=detectJava();
+var useros = navigator.platform;
+var newURL;
+if(plugin==true)
+{
+newURL=url+"&applet=true&userOs="+useros;
+}
+else
+{
+if(popupFlag==false){
+
+newURL =url+"&applet=false&NOTIFY_PARENT=true&userOs="+useros;
+
+}
+else
+{
+newURL=url+"&applet=false";
+}
+}
+return browseBox(newURL,title,width,height,retval);
+}
+
+var undefined;
+function browseBox(url,title,width,height,retval)  {
+title = title + getUniquePopupId();
+var features="'"+'toolbar=no, scrollbars=yes, status=yes, resizable=yes';
+if (width != undefined && width != '' && height != undefined && height != '') {
+var screenX=Math.floor((screen.width)/2)-Math.floor(width/2);
+var screenY=Math.floor((screen.height)/2)-Math.floor(height/2)-20;
+var top=screenY;
+var left=screenX;
+features += ', height='+ height+', width='+ width+', top='+ top+', left='+ left+', screenX='+ screenX+', screenY='+ screenY;
+}
+features += "'";
+newWindow=window.open(url,title,features);
+newWindow.focus();
+if (retval != undefined && retval == "ret")
+return newWindow;
+}
+
+function openBox(url,title,width,height,retval)  {
+var j=url.indexOf("browseFrameset.jsp");
+var i=url.indexOf("displayFileBrowser.dowebct");
+var k=url.indexOf("ContentBrowserAction.dowebct");
+if (i > 0 || j > 0 || k > 0) {
+return openWindow(url,title,width,height,retval);
+}
+title = title + getUniquePopupId();
+var features="'"+'toolbar=no, scrollbars=yes, status=yes, resizable=yes';
+if (width != undefined && width != '' && height != undefined && height != '') {
+var screenX=Math.floor((screen.width)/2)-Math.floor(width/2);
+var screenY=Math.floor((screen.height)/2)-Math.floor(height/2)-20;
+if(retval=="tl"){screenY=0; screenX=0;}
+var top=screenY;
+var left=screenX;
+features += ', height='+ height+', width='+ width+', top='+ top+', left='+ left+', screenX='+ screenX+', screenY='+ screenY;
+}
+features += "'";
+newWindow=window.open(url,title,features);
+if(newWindow != null){
+newWindow.focus();
+if (retval != undefined && retval == "ret")
+return newWindow;
+}
+}
+function openPopupBox(url,title,showFeature) {
+title = title + getUniquePopupId();
+var features;
+if (showFeature=="true") {
+features="toolbar=no,scrollbars=yes,status=yes,resizable=yes";
+newWindow=window.open(url,title,features);
+} else {
+newWindow=window.open(url,title);
+}
+newWindow.focus();
+}
+
+
+
+function getUniquePopupId() {
+var uid = getCookie("JSESSIONIDVISTA");
+if (uid != null) {
+return uid.substring(0, 13);
+}
+return "";
+}
+
+function confirmDelete(){
+if (confirm("Are you sure you want to delete this item?"))return true;
+else return false;
+}
+
+function MM_reloadPage(init) {  
+if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+
+var allview=0;
+function iconLegend(){
+var url='/webct/urw/lc4130011.tp0/viewLegend.dowebct';
+openBox(url, 'legend',340,360);
+}
+
+function openHelp(screenID,tool)  {
+var url='/webct/help.dowebct';
+if ((screenID>0) && (tool!="")) url+="?screenid="+screenID+"&tool="+tool;
+openBox(url,"HelpWin",650,450);
+}
+
+function openHelpWithInsId(screenID,tool,insId)  {
+var url='/webct/help.dowebct';
+if ((screenID>0) && (tool!="")) url+="?screenid="+screenID+"&tool="+tool +"&insId="+insId;
+openBox(url,"HelpWin",650,450);
+}
+
+function messageFormat(message, params)  {
+var tempStr1 = message, tempStr2;
+for (var i = 0; i < params.length; i++)  {
+tempStr2 = tempStr1;
+var markerString = "|" + i + "|";
+var leftIndex = tempStr2.indexOf(markerString);
+var rightIndex = leftIndex + markerString.length;
+tempStr1 = tempStr2.substring(0, leftIndex) + params[i] + tempStr2.substring(rightIndex, tempStr2.length);
+}
+return tempStr1;
+}
+function getValidFileName(message) {
+
+
+var illegalFileNameCharactersRE = /^\.|\.$|[\/\\:\*\?<>\|;"@&=\+$\^,']/;
+var fileName = prompt(message, "" );
+if (fileName == "") {
+getValidFileName(message);
+}
+if (fileName != null && fileName != "") {
+var invalidName = illegalFileNameCharactersRE.test(fileName);
+if (invalidName) {
+alert("The file name cannot start or end with a . (dot) or contain any of the following characters: /:*?<>|;@&=+$^, or a single or double quote.")
+return null;
+} else {
+return fileName;
+}
+} else {
+return null;
+}
+}
+function bandIt()
+{
+
+
+
+if (document.getElementById('data'))
+{
+var cc,rr;
+var nr=document.getElementById('data').tBodies[0].rows.length;
+if (nr>0)
+for (i=0;i < nr;i++)
+{
+rr=document.getElementById('data').tBodies[0].rows[i];
+cc=rr.className;
+if ((i % 2) && (cc.indexOf('shade')==-1))
+rr.className=cc+" shade"
+}
+}
+}
+
+function highlightOnit(){highlightOn(this)}
+function highlightOffit(){highlightOff(this)}
+function highlightOn(row) {
+if(row.bgColor!="#efefef") row.bgColor="#ffffcc";
+else row.bgColor="#ffffcd";
+}
+function highlightOn2(row, chkbox) {
+if(chkbox.checked==true){
+therow=chkbox.parentNode
+for(x=0; x<=10; x++){
+if (therow.nodeName!="TR"){
+therow=therow.parentNode;
+}
+else {
+therow.bgColor="#efefef";
+break
+}
+}
+}
+else {
+therow=chkbox.parentNode
+for(x=0; x<=10; x++){
+if (therow.nodeName!="TR"){
+therow=therow.parentNode;
+}
+else {
+therow.bgColor="#ffffff";
+break
+}
+}
+}
+}
+function highlightOff(row) {
+if (row.bgColor=="#ffffcd") row.bgColor="#efefef";
+else if(row.bgColor!="#efefef") row.bgColor="#ffffff";
+}
+function bandme(){
+tableray = document.getElementsByTagName("table")
+tablenum = tableray.length;
+for (var i = 0; i < tablenum; i++) {
+if(tableray[i].id.indexOf("datatable")!=-1){
+rownum=tableray[i].rows.length;
+for (var j = 0; j < rownum; j++) {
+rowvar="row" + i;
+tableray[i].rows[j].id=rowvar;
+tableray[i].rows[j].onmouseover=highlightOnit;
+tableray[i].rows[j].onmouseout=highlightOffit;
+}
+}
+}
+}
+function hideAdvance(msg,state){
+var msgspan=msg
+var msgimg=msg+"img";
+if (is_nav6up){
+if((document.getElementById(msgspan).style.display=="none" || document.getElementById(msgspan).style.display=="") || (state!=null && state!="open")){
+document.getElementById(msgspan).style.display="block";
+document.images[msgimg].src="/webct/images/arrow_collapse.gif";
+}else{
+document.getElementById(msgspan).style.display="none";
+document.images[msgimg].src="/webct/images/arrow_expand.gif";
+}
+}
+if (is_ie && is_ie5up){
+if((document.all[msgspan].style.display=="none" || document.all[msgspan].style.display=="") || (state!=null && state!="open")){
+document.all[msgspan].style.display="block";
+document.all[msgimg].src="/webct/images/arrow_collapse.gif";
+}else{
+document.all[msgspan].style.display="none";
+document.all[msgimg].src="/webct/images/arrow_expand.gif";
+}
+}
+}
+function hideAdvance2(msg){
+var msgspan=msg;
+var msgimg=msg+"img";
+if (is_nav6up){
+if(document.getElementById(msgspan).style.display==""){
+document.getElementById(msgspan).style.display="block";
+document.images[msgimg].src="/webct/images/small_collapse.gif";
+}else{
+document.getElementById(msgspan).style.display="none";
+document.images[msgimg].src="/webct/images/small_expand.gif";
+}
+}
+if (is_ie && is_ie5up){
+if(document.all[msgspan].style.display==""){
+document.all[msgspan].style.display="block";
+document.all[msgimg].src="/webct/images/small_collapse.gif";
+}else{
+document.all[msgspan].style.display="none";
+document.all[msgimg].src="/webct/images/small_expand.gif";
+}
+}
+}
+
+function getCookie(name) {
+
+var crumbs = document.cookie.split("; ");
+for (var i=0; i < crumbs.length; i++) {
+
+var crumb = crumbs[i].split("=");
+if (name == crumb[0]) {
+if (crumb[1]) {
+return unescape(crumb[1]);
+} else {
+return "";
+}
+}
+}
+
+return null;
+}
+function highlightct(ctitem){
+
+}
+function unhighlightct(ctitem){
+
+}
+function resetClientSettingObject() {
+if (getCourseMenuCommFrame() != null) {
+getCourseMenuCommFrame().CLIENT_SETTING_OBJ = new Object();
+}
+}
+function getClientSettingsObject() {
+var clientSettingObj = null;
+if (getCourseMenuCommFrame() != null) {
+clientSettingObj = getCourseMenuCommFrame().CLIENT_SETTING_OBJ;
+if (clientSettingObj == null) {
+getCourseMenuCommFrame().CLIENT_SETTING_OBJ = new Object();
+clientSettingObj = getCourseMenuCommFrame().CLIENT_SETTING_OBJ;
+}
+}
+return clientSettingObj;
+}
+function storeClientSideSetting(key, value) {
+var clientSettingObj = getClientSettingsObject();
+if (clientSettingObj != null) {
+eval("clientSettingObj."+key+ " = value");
+}
+}
+function getClientSideSetting(key) {
+var clientSettingObj = getClientSettingsObject();
+var setting = null;
+if (clientSettingObj != null) {
+setting = eval("clientSettingObj."+key);
+}
+return setting;
+}
+function collapseCourseMenu() {
+callCourseMenuFunction(-1, "colCourseMenu");
+}
+function expandCourseMenu() {
+callCourseMenuFunction(-1, "expCourseMenu");
+}
+function callCourseMenuFunction(retries, functionName, parameter1, parameter2){
+if (retries < 0) {
+retries = 25;
+}
+var functionWithParams = functionName+"("+parameter1+","+parameter2+")";
+var courseMenuFrame = _getCourseMenuFrameReference();
+if (courseMenuFrame != null) {
+var func = eval( "courseMenuFrame."+functionName );
+if (func) {
+func(parameter1, parameter2);
+return;
+}
+}
+if (retries > 0) {
+var retryFuncName = "callCourseMenuFunction("+(retries-1)+", \""+functionName+"\", \""+parameter1+"\", \""+parameter2+"\")";
+setTimeout(retryFuncName, 200);
+} else {
+}
+}
+function _getCourseMenuFrameReference() {
+if(parent.LEFTTOOLFRAME && parent.LEFTTOOLFRAME.COURSE_MENU_SYNCHRONIZER){
+var courseMenuReady = parent.LEFTTOOLFRAME.COURSE_MENU_SYNCHRONIZER.isDoneLoading();
+if (courseMenuReady) {
+return parent.LEFTTOOLFRAME;
+}
+}
+return null;
+}
+function hideDesc(msg){
+var msgspan=msg
+var msgimg=msg+"img";
+if(document.getElementById(msgspan).style.display=="" || document.getElementById(msgspan).style.display=="block"){
+document.getElementById(msgspan).style.display="none";
+document.images[msgimg].src="/webct/images/arrow_expand.gif";
+}else{
+document.getElementById(msgspan).style.display="block";
+document.images[msgimg].src="/webct/images/arrow_collapse.gif";
+}
+}
+
+function Trim(TRIM_VALUE){
+if(TRIM_VALUE.length < 1){
+return"";
+}
+TRIM_VALUE = RTrim(TRIM_VALUE);
+TRIM_VALUE = LTrim(TRIM_VALUE);
+if(TRIM_VALUE==""){
+return "";
+}else{
+return TRIM_VALUE;
+}
+} 
+function RTrim(VALUE){
+var w_space = String.fromCharCode(32);
+var v_length = VALUE.length;
+var strTemp = "";
+if(v_length < 0){
+return"";
+}
+var iTemp = v_length -1;
+while(iTemp > -1){
+if(VALUE.charAt(iTemp) == w_space){
+}else{
+strTemp = VALUE.substring(0,iTemp +1);
+break;
+}
+iTemp = iTemp-1;
+} 
+return strTemp;
+} 
+function LTrim(VALUE){
+var w_space = String.fromCharCode(32);
+if(v_length < 1){
+return"";
+}
+var v_length = VALUE.length;
+var strTemp = "";
+var iTemp = 0;
+while(iTemp < v_length){
+if(VALUE.charAt(iTemp) == w_space){
+}else{
+strTemp = VALUE.substring(iTemp,v_length);
+break;
+}
+iTemp = iTemp + 1;
+} 
+return strTemp;
+} 
+function isInRightToolFrame(frame, triesleft) {
+try {
+if (frame == null) {
+return false;
+}
+if (triesleft < 1) {
+return false;
+}
+if (triesleft == null || triesleft == '') {
+triesleft = 6;
+}
+if (frame != null && (frame.name == 'RIGHTTOOLFRAME' || frame.name == 'TOOLFRAME')) {
+return true;
+} else {
+return isInRightToolFrame(frame.parent, triesleft -1);
+}
+} catch (e) {
+return false;
+}
+}
+function onWinForcedClose(){
+if (( unread || deleteAction)&& !(isInRightToolFrame(this.window))){
+if ( document.viewMessageForm.checkClose.value == "true" ) {
+var url = "/webct/urw/lc4130011.tp0/mail_ViewMessage.dowebct?direction=close";
+setContentToolFrameLocation(url);
+}
+}
+}
+
+
+var errors = new Array();
+
+function Error(title, message) {
+this.title = title;
+this.message = message;
+}
+
+function addError(title, message) {
+errors.push(new Error(title, message));
+}
+
+function displayErrors() {
+if (errors.length > 0) {
+var errorDiv = document.getElementById('validationErrors');
+var ulElement = document.getElementById('errorList');
+var errorSummary = document.getElementById('errorSummary');
+var summaryLink = document.createElement("a");
+if (errorSummary == null) {
+errorSummary = document.createElement("h2");
+errorSummary.id = "errorSummary";
+errorDiv.appendChild(errorSummary);
+summaryLink.id = "errorTop";
+summaryLink.href = "#error";
+summaryLink.className = "errordiv2title";
+summaryLink.innerHTML = 'Number of errors found: <span id=\"errorNum\"></span>';
+}
+errorSummary.appendChild(summaryLink);
+var errorNum = document.getElementById("errorNum");
+errorNum.innerHTML = errors.length;
+if (ulElement != null) {
+errorDiv.removeChild(ulElement);
+}
+ulElement = document.createElement("ul");
+ulElement.id = 'errorList';
+errorDiv.appendChild(ulElement);
+for (var i = 0; i < errors.length; i++) {
+var liElement = document.createElement("li");
+var aElement = document.createElement("a");
+if (i == 0) {
+aElement.id = "error";
+aElement.name = "error";
+}
+aElement.href = "javascript:setFocus('" + errors[i].title + "');";
+var aText = document.createTextNode(errors[i].message);
+aElement.appendChild(aText);
+liElement.appendChild(aElement);
+ulElement.appendChild(liElement);
+}
+errors = new Array();
+setErrorFocus();
+return false;
+}
+return true;
+}
+function setFocus(objectId) {
+var a = document.getElementsByTagName("*");
+
+agt=navigator.userAgent.toLowerCase();
+if (agt.indexOf("safari") != -1){
+for (i=0;i < a.length; i++){
+if (a[i].id == objectId){
+a[i].focus();
+}
+}
+}else {
+if (a.namedItem(objectId).length > 1) {
+a.namedItem(objectId).item(0).focus();
+} else {
+a.namedItem(objectId).focus();
+}
+}
+}
+function setErrorFocus() {
+if (hasErrors()) {
+var errorDiv = document.getElementById('validationErrors');
+errorDiv.style.display = 'block';
+var is_gecko = (navigator.userAgent.indexOf('gecko') > -1);
+var is_ns=(navigator.userAgent.indexOf("Netscape")>-1);
+var is_moz=((navigator.userAgent.indexOf("Mozilla")>-1)&&(navigator.userAgent.indexOf('compatible')==-1)&&(navigator.userAgent.indexOf("Netscape")==-1));
+if (is_ns || is_gecko || is_moz ) {
+document.hash='validationErrors';
+document.getElementById('errorTop').focus();
+} else {
+document.location='#validationErrors';
+document.getElementById('errorTop').focus();
+}
+}
+}
+function hasErrors() {
+return (document.getElementById('errorList') != null);
+}
+function trimMenu(){
+var actionButtons = document.getElementById('actionButtons');
+var tfoot =  document.getElementsByTagName('tfoot')[0];
+var cselect = document.getElementById('cselect')             	// this is the Select Category drop down in admin
+var tabsetdiv = document.getElementById('tabsetdiv');					// the tabset for assign/assess drop boxes
+var viewsortLabel = document.getElementById('viewsortLabel'); // the menu label for assign/assess drop boxes
+if (actionButtons != null) {
+if (is_ie){
+var divWidth=actionButtons.scrollWidth;
+} else {
+var divWidth= actionButtons.offsetWidth;
+}
+if (tfoot!=null){  									// the tfoot may not appear if there are no items in the list
+var label = tfoot.getElementsByTagName('label');
+var select = tfoot.getElementsByTagName('select');
+if (select!=null){                // check to see if a menu exists. in admin, menus only appear at the course and section levels
+for(s=0; s < select.length; s++){  // sometimes, as in Mail, there are multiple select menus in a footer, so a loop is required
+var selectMenu = select[s];
+var selectID = select[s].id;
+var options = selectMenu.getElementsByTagName('option');
+var labelWidth = "0";
+if (is_ie){
+var labelFor = label[s].getAttribute('htmlFor');
+if(labelFor==selectID){
+var selectLabel = label[s];
+labelWidth = selectLabel.scrollWidth;
+}
+var selectWidth= selectMenu.scrollWidth;
+} else {
+var labelFor = label[s].getAttribute('for');
+var labelClass = label[s].getAttribute('class');
+if(labelFor==selectID){
+var selectLabel = label[s];
+labelWidth=selectLabel.offsetWidth;
+}
+var selectWidth=selectMenu.offsetWidth;
+}
+trimOptions(selectID, labelWidth, divWidth);
+}
+} // end if select
+if (cselect!=null){                // this is for the Course LC level only. it has a category drop-down for horizontal navigation
+var subtitlediv = document.getElementById('subtitlediv');
+var filterLabel = document.getElementById('cselectLabel');
+if (is_ie){
+var subtitledivWidth= Math.round((subtitlediv.scrollWidth)/3.5);
+var filterLabelWidth = filterLabel.scrollWidth
+} else {
+var subtitledivWidth= Math.round((subtitlediv.offsetWidth)/1.75);
+var filterLabelWidth = filterLabel.offsetWidth
+}
+trimOptions('cselect', filterLabelWidth, subtitledivWidth);
+} // end if cselect
+} // end if tfoot
+} // end if actionButtons
+else if(tabsetdiv!=null && viewsortLabel!=null){   // for assig/assess dropboxes
+var h1 = document.getElementsByTagName('h1')[0]; // use the header as the measuring stick
+var tabList = tabsetdiv.getElementsByTagName('li');
+var total=0;
+for(m=0; m < tabList.length; m++){
+if(is_ie){
+listWidth=tabList[m].scrollWidth;
+}else{
+listWidth=tabList[m].offsetWidth;
+}
+total = total + listWidth; // add up the width of all the tabs
+}
+if (is_ie){
+var h1Width= h1.scrollWidth;
+var labelWidth= viewsortLabel.scrollWidth;
+} else {
+var h1Width= h1.offsetWidth;
+var labelWidth= viewsortLabel.offsetWidth;
+}
+var netWidth = h1Width - total; // figure out how much space there is for the menu and label
+trimOptions('viewsort', labelWidth, netWidth);
+}
+}
+function trimOptions(selectID, labelWidth, endWidth){
+var selectMenu = document.getElementById(selectID);
+var optionName = selectMenu.getElementsByTagName('option');
+var padding=120;					// added padding to account for go button and shims
+for(j=0; j < optionName.length; j++){
+var optionHTML = optionName[j].innerHTML;
+var stringText=getWidth(optionHTML);
+if(stringText > endWidth){
+for(x=optionHTML.length; x>0; x--){
+var sub=optionHTML.substring(0,x)+'...';
+var newWidth =getWidth(sub);
+var combinedWidth = newWidth + labelWidth + padding;
+if(combinedWidth < endWidth){
+optionName[j].innerHTML=sub;
+selectMenu.style.width="auto";
+break
+}
+}
+} // end if stringText > divWidth
+}
+}
+function getWidth(text) {
+var ea = document.createElement("span");
+if (!is_ie){ea.setAttribute("style","white-space:nowrap;");} else {ea.style.whiteSpace='nowrap';}
+ea.innerHTML = text;
+document.body.appendChild(ea);
+if (!is_ie){var len = ea.offsetWidth;} else {var len = ea.scrollWidth;}
+document.body.removeChild(ea);
+return len;
+}
+function integratedWebctFrameExists() {
+return integratedWebctFrameExistsEx("window");
+}
+function integratedWebctFrameExistsEx(theWindow) {
+try {
+var webctFrameName = "top.content";
+var tokens = webctFrameName.split('.');
+var currentFramePath = theWindow + "." + tokens[0] + "." + tokens[1];
+if(eval(currentFramePath) != null) {
+for(var i = 2; i < tokens.length; i++) {
+currentFramePath = currentFramePath + "." + tokens[i];
+if(eval(currentFramePath) == null) {
+return false;
+}
+}
+return true;
+} else {
+return false;
+}
+} catch (e) {
+return false;
+}
+}
+function getHiddenChatFrame() {
+if(integratedWebctFrameExists()) {
+return window.top.content.CHAT_HIDDEN;
+} else {
+return window.top.CHAT_HIDDEN;
+}
+}
+function getHiddenWioFrame() {
+if(integratedWebctFrameExists()) {
+return window.top.content.WIO_HIDDEN;
+} else {
+return window.top.WIO_HIDDEN;
+}
+}
+function getCourseMenuCommFrame() {
+if(integratedWebctFrameExists()) {
+return window.top.content.COURSE_MENU_COMM;
+} else {
+return window.top.COURSE_MENU_COMM;
+}
+}
+function getApplicationFrame() {
+return getApplicationFrameEx("window");
+}
+function getApplicationFrameEx(theWindow) {
+if(integratedWebctFrameExistsEx(theWindow)) {
+return eval(theWindow).top.content.APPLICATION_FRAME;
+} else {
+return eval(theWindow).top.APPLICATION_FRAME;
+}
+}
+function getApplicationFrameName() {
+if(integratedWebctFrameExists()) {
+return "window.top.content.APPLICATION_FRAME";
+} else {
+return "window.top.APPLICATION_FRAME";
+}
+}
+function isBBEnabled() {
+if(integratedWebctFrameExists()) {
+return true;
+} else {
+return false;
+}
+}

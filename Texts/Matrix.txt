@@ -1,0 +1,82 @@
+    Private Sub Lines_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Dim J, I As Integer
+        Dim MyLabel As Windows.Forms.Label, MyList As Windows.Forms.ListBox
+        Dim MyRnd As Integer
+        MyMain = New Main()
+        A = Int(Me.Height / 24)
+        B = Int(Me.Width / 24)
+        For J = 0 To B
+            MyList = New Windows.Forms.ListBox()
+            Me.Controls.Add(MyList)
+            MyList.Visible = False
+        Next
+        For J = 0 To B
+            For I = 0 To A
+                MyLabel = New Windows.Forms.Label()
+                Me.Controls.Add(MyLabel)
+                MyLabel.Font = New Drawing.Font("Lucida Sans Unicode", 14, Drawing.FontStyle.Bold)
+                MyLabel.Height = 24
+                MyLabel.Width = 24
+                MyLabel.Top = I * 24
+                MyLabel.Left = J * 24
+                MyLabel.Tag = Text
+                MyLabel.BackColor = Drawing.Color.Black
+            Next
+        Next
+        Randomize()
+        MyRnd = CInt(Int(((A * 2) * Rnd()) + 1))
+        Ticker.Interval = MyRnd * 10
+        Ticker.Enabled = True
+    End Sub
+
+    Private Sub ColorChanger1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ColorChanger1.Tick
+        Dim I
+        For I = B To Me.Controls.Count - 1
+            If Me.Controls.Item(I).ForeColor.R = 255 Then
+                Me.Controls.Item(I).ForeColor = Drawing.Color.FromArgb(0, 255, 0)
+            ElseIf Me.Controls.Item(I).ForeColor.G = 5 Or Me.Controls.Item(I).ForeColor.G = 0 Then
+                Me.Controls.Item(I).ForeColor = Drawing.Color.FromArgb(0, 0, 0)
+                GoTo A
+            Else
+                Me.Controls.Item(I).ForeColor = Drawing.Color.FromArgb(0, Me.Controls.Item(I).ForeColor.G - 10, 0)
+            End If
+A:
+        Next
+        Exit Sub
+    End Sub
+
+    Private Sub Ticker_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Ticker.Tick
+        Dim MyRnd As Integer
+        Dim MyList As Windows.Forms.ListBox
+        ColorChanger1.Enabled = True
+        WhiteSetter.Enabled = True
+        Randomize()
+        MyRnd = CInt(Int((B - 1) * Rnd()))
+        MyList = Me.Controls.Item(MyRnd)
+        MyList.Items.Add(A * (MyRnd) + (MyRnd + B))
+        MyRnd = CInt(Int(((A * 2) * Rnd()) + 1))
+        Ticker.Interval = MyRnd * 10
+    End Sub
+
+    Private Sub WhiteSetter_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles WhiteSetter.Tick
+        Dim I, I2
+        Dim MyList As Windows.Forms.ListBox
+        Dim MyRnd As Integer
+        Randomize()
+        For I = 0 To B - 1
+            MyList = Me.Controls.Item(I)
+            If MyList.Items.Count > 0 Then
+                For I2 = 0 To MyList.Items.Count - 1
+                    MyList.Items.Item(I2) = MyList.Items.Item(I2) + 1
+                    'MyVal = Values.Items.Item(I)
+                    Me.Controls.Item(MyList.Items.Item(I2)).ForeColor = Drawing.Color.FromArgb(255, 255, 255)
+                    'MyVal = Me.Controls.Item(Values.Items.Item(I) + 1).ForeColor.R
+                    MyRnd = CInt(Int((MyMain.Codes.Items.Count - 1) * Rnd()))
+                    Me.Controls.Item(MyList.Items.Item(I2)).Text = MyMain.Codes.Items.Item(MyRnd)
+                Next
+                If MyList.Items.Item(0) = A * (I + 1) + (I + B) Then
+                    MyList.Items.RemoveAt(0)
+                End If
+            End If
+        Next
+    End Sub

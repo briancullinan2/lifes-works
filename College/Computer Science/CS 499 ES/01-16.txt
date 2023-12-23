@@ -1,0 +1,80 @@
+1-16-08
+
+Things don't cast the way we want.
+
+double d = 1.733
+unsigned long long e;
+
+e = d;
+e = (unsigned long long) d;
+// e will be equal to 1
+// it does a cast
+
+so we could do
+
+e = *(unsigned long long*) (&d)
+
+our first assignment is about this.
+
+signed is arithmatic
+unsigned is logical
+
+logical vs arithmatic bit shifting
+
+t = 010010111;
+all of these could represent flags
+
+mask = 1;
+to set a mask
+t | mask <-- sets
+t & !mask
+t ^ mask <- toogles the bit
+
+#define CHARGE_FLAG 1
+
+
+Structs
+
+struct NAME {
+ int i ;
+ int y ;
+} MYSTRUCT_INSTANCE_NAME;
+
+(must include keyword struct in name)
+
+typedef struct NAME_T {
+  struct NAME_T wow; 
+
+} NAME;
+
+crazy
+
+// all uses same stuff in memory
+union {
+ double d;
+ unsigned long long e;
+}
+
+if we say d=1.73, then e contains it now as well
+
+point x
+x.d=5.3;
+x.e=17;
+
+point* x;
+x = (point *) malloc(sizeof(point));
+
+x->d = s.3;
+or 
+(*x).d = 5.3;
+
+const int x = 7;
+
+// always reads from memory, not from a register
+volatile int y;
+
+
+had to navigate to the drivers/windowsxp to find the driver for the stick
+
+
+project, options, device, f2013, debugger, simulator (on computer), fet debugger (on chip)

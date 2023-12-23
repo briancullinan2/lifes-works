@@ -1,0 +1,62 @@
+<!-- BEGIN SURVEY -->
+	<!-- BEGIN CHECKBOX -->
+	<div class="input" oncreate="createSurveyElement('checkbox', null, this); this.id=nextId(); elLoop([this])">
+		<div class="input_heading" oncreate="this.xml=this.parentNode.xml">
+			<h3>Checkbox</h3>
+			<!-- BEGIN QUESTION -->
+			Question: 
+			<input type="text" name="element" value="{QUESTION_DATA}" oncreate="createSurveyElement('question', this.parentNode.xml, this); this.onchange();" onchange="setSurveyElementValue(this.xml, this.value);" />
+			<!-- END QUESTION -->
+		</div>
+		<div class="input_content" oncreate="this.xml=this.parentNode.xml">
+			<!-- BEGIN LOCATION -->
+			<input type="hidden" name="element" value="{LOCATION_DATA}" oncreate="createSurveyElement('location', this.parentNode.xml, this); this.id=nextId(); addLocationListner(this.parentNode.parentNode, this); this.onchange();" onchange="setSurveyElementValue(this.xml, this.value);" />
+			<!-- END LOCATION -->
+			Responses:<br />
+			<div class="responses" oncreate="this.xml=this.parentNode.xml; this.id=nextId();">
+				<img src="{SITE_TEMPLATE}graphics/add_response.jpg" class="button" onclick="addClone('checkbox_response', this.parentNode);" />
+				<!-- BEGIN RESPONSE -->
+				<div oncreate="this.xml=this.parentNode.xml; this.id=nextId();">
+					<input type="text" name="element" value="{RESPONSE_DATA}" oncreate="createSurveyElement('response', this.parentNode.parentNode.xml, this); this.parentNode.xml=this.xml; this.onchange();" onchange="setSurveyElementValue(this.xml, this.value);" />
+					<img src="{SITE_TEMPLATE}graphics/remove.jpg" class="button" onclick="this.parentNode.parentNode.xml.removeChild(this.parentNode.xml); this.parentNode.parentNode.removeChild(this.parentNode);" />
+				</div>
+				<!-- END RESPONSE -->
+			</div>
+		</div>
+		<div class="input_footing" oncreate="this.xml=this.parentNode.xml">
+			<input type="button" value="Remove" onclick="mainXML.removeChild(this.parentNode.xml); main.removeChild(this.parentNode.parentNode);" />
+		</div>
+	</div>
+	
+	<!-- END CHECKBOX -->
+	<!-- BEGIN RADIO -->
+	<div class="input" oncreate="createSurveyElement('radio', null, this); this.id=nextId(); elLoop([this])">
+		<div class="input_heading" oncreate="this.xml=this.parentNode.xml">
+			<h3>Radio</h3>
+			<!-- BEGIN QUESTION -->
+			Question: 
+			<input type="text" name="element" value="{QUESTION_DATA}" oncreate="createSurveyElement('question', this.parentNode.xml, this); this.onchange();" onchange="setSurveyElementValue(this.xml, this.value);" />
+			<!-- END QUESTION -->
+		</div>
+		<div class="input_content" oncreate="this.xml=this.parentNode.xml">
+			<!-- BEGIN LOCATION -->
+			<input type="hidden" name="element" value="{LOCATION_DATA}" oncreate="createSurveyElement('location', this.parentNode.xml, this); this.id=nextId(); addLocationListner(this.parentNode.parentNode, this); this.onchange();" onchange="setSurveyElementValue(this.xml, this.value);" />
+			<!-- END LOCATION -->
+			Responses:<br />
+			<div class="responses" oncreate="this.xml=this.parentNode.xml; this.id=nextId();">
+				<img src="{SITE_TEMPLATE}graphics/add_response.jpg" class="button" onclick="addClone('checkbox_response', this.parentNode);" />
+				<!-- BEGIN RESPONSE -->
+				<div oncreate="this.xml=this.parentNode.xml; this.id=nextId();">
+					<input type="text" name="element" value="{RESPONSE_DATA}" oncreate="createSurveyElement('response', this.parentNode.parentNode.xml, this); this.parentNode.xml=this.xml; this.onchange();" onchange="setSurveyElementValue(this.xml, this.value);" />
+					<img src="{SITE_TEMPLATE}graphics/remove.jpg" class="button" onclick="this.parentNode.parentNode.xml.removeChild(this.parentNode.xml); this.parentNode.parentNode.removeChild(this.parentNode);" />
+				</div>
+				<!-- END RESPONSE -->
+			</div>
+		</div>
+		<div class="input_footing" oncreate="this.xml=this.parentNode.xml">
+			<input type="button" value="Remove" onclick="mainXML.removeChild(this.parentNode.xml); main.removeChild(this.parentNode.parentNode);" />
+		</div>
+	</div>
+	<!-- END RADIO -->
+	{INPUT_LIST}
+<!-- END SURVEY -->

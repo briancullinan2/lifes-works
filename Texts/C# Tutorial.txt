@@ -1,0 +1,256 @@
+Lesson 1: Introducing the Microsoft .NET Framework
+
+.NET (dot-net) is the name Microsoft gives to its general vision of the future of computing, the view being of a world in which many applications run in a distributed manner across the Internet. We can identify a number of different motivations driving this vision.
+
+Firstly, distributed computing is rather like object oriented programming, in that it encourages specialised code to be collected in one place, rather than copied redundantly in lots of places. There are thus potential efficiency gains to be made in moving to the distributed model.
+
+Secondly, by collecting specialised code in one place and opening up a generally accessible interface to it, different types of machines (phones, handhelds, desktops, etc.) can all be supported with the same code. Hence Microsoft's 'run-anywhere' aspiration.
+
+Thirdly, by controlling real-time access to some of the distributed nodes (especially those concerning authentication), companies like Microsoft can control more easily the running of its applications. It moves applications further into the area of 'services provided' rather than 'objects owned'.
+
+Interestingly, in taking on the .NET vision, Microsoft seems to have given up some of its proprietary tendencies (whereby all the technology it touched was warped towards its Windows operating system). Because it sees its future as providing software services in distributed applications, the .NET framework has been written so that applications on other platforms will be able to access these services. For example, .NET has been built upon open standard technologies like XML and SOAP.
+
+At the development end of the .NET vision is the .NET Framework. This contains the Common Language Runtime, the .NET Framework Classes, and higher-level features like ASP.NET (the next generation of Active Server Pages technologies) and WinForms (for developing desktop applications).
+
+The Common Language Runtime (CLR) manages the execution of code compiled for the .NET platform. The CLR has two interesting features. Firstly, its specification has been opened up so that it can be ported to non-Windows platforms. Secondly, any number of different languages can be used to manipulate the .NET framework classes, and the CLR will support them. This has led one commentator to claim that under .NET the language one uses is a 'lifestyle choice'.
+
+Not all of the supported languages fit entirely neatly into the .NET framework, however (in some cases the fit has been somewhat Procrustean). But the one language that is guaranteed to fit in perfectly is C#. This new language, a successor to C++, has been released in conjunction with the .NET framework, and is likely to be the language of choice for many developers working on .NET applications.
+
+Lesson 2: Comparing C# to C++ and Java
+
+This lesson gives a brief overview of the differences between C# and the two languages that are its closest relatives. References are given in each cases to more comprehensive works currently to be found on the web.
+
+
+C# versus Java
+
+C# and Java are both new-generation languages descended from a line including C and C++. Each includes advanced features, like garbage collection, which remove some of the low level maintenance tasks from the programmer. In a lot of areas they are syntactically similar.
+
+Both C# and Java compile initially to an intermediate language: C# to Microsoft Intermediate Language (MSIL), and Java to Java bytecode. In each case the intermediate language can be run - by interpretation or just-in-time compilation - on an appropriate 'virtual machine'. In C#, however, more support is given for the further compilation of the intermediate language code into native code.
+
+C# contains more primitive data types than Java (lesson 4), and also allows more extension to the value types. For example, C# supports 'enumerators', types which are limited to a defined set of constant variables (lesson 7), and 'structs', which are user-defined value types (lesson 11).
+
+Unlike Java, C# has the useful feature that we can overload various operators.
+
+Like Java, C# gives up on multiple class inheritance in favour of a single inheritance model extended by the multiple inheritance of interfaces (lesson 11). However, polymorphism (lesson 14) is handled in a more complicated fashion, with base class methods either 'overriding' or 'hiding' super class methods
+
+C# also uses 'delegates' - type-safe method pointers (see lesson 16). These are used to implement event-handling.
+
+In Java, multi-dimensional arrays are implemented solely with single-dimensional arrays (where arrays can be members of other arrays. In addition to jagged arrays, however, C# also implements genuine rectangular arrays (lesson 6).
+
+For more comparison of C# and Java see:
+
+A Comparative Overview of C# 
+
+Microsoft .NET vs J2EE: How do they stack up? 
+
+
+C# versus C++
+
+Although it has some elements derived from Visual Basic and Java, C++ is C#'s closest relative.
+
+In an important change from C++, C# code does not require header files. All code is written inline.
+
+As touched on above, the .NET runtime in which C# runs performs memory management, taking care of tasks like garbage collection. Because of this, the use of pointers in C# is much less important than in C++. Pointers can be used in C#, where the code is marked as 'unsafe' (lesson 5), but they are only really useful in situations where performance gains are at an absolute premium.
+
+Speaking generally, the 'plumbing' of C# types is different from that of C++ types, with all C# types being ultimately derived from the 'object' type (lesson 4). There are also specific differences in the way that certain common types can be used. For instance, C# arrays are bounds checked unlike in C++, and it is therefore not possible to write past the end of a C# array.
+
+C# statements are quite similar to C++ statements. To note just one example of a difference: the 'switch' statements has been changed so that 'fall-through' behaviour is disallowed (lesson 10).
+
+As mentioned above, C# gives up on the idea of multiple class inheritance. Other differences relating to the use of classes are: there is support for class 'properties' of the kind found in Visual Basic, and class methods are called using the . operator rather than the :: operator.
+
+Lesson 3: Getting Started
+
+In order to use C# and the .NET framework classes, you first need to install either the .NET framework SDK, or else Visual Studio .NET. Some useful advice about getting hold of and installing the former can be found at: 
+
+http://www.mastercsharp.com/article.aspx?ArticleID=17&TopicID=10 
+
+In the next section we run through a standard 'hello world' example, with links to lessons covering the different parts of the program.
+
+A First C# Program: 'Hello World'
+
+Let's begin in the traditional way, by looking at the code of a Hello World program (note that the tabulation and line numbers are included just for the sake of readability).
+
+1.
+ using System;
+ 
+2.
+ public class HelloWorld
+ 
+3.
+ {
+ 
+4.
+     public static void Main()
+ 
+5.
+     {
+ 
+6.
+         // This is a single line comment
+ 
+7.
+         /* This is a 
+ 
+8.
+         multiple 
+ 
+9.
+         line comment */
+ 
+10.
+         Console.WriteLine("Hello World! From Softsteel Solutions");
+ 
+11.
+     }
+ 
+12.
+ }
+ 
+ 
+ 
+
+
+
+The first thing to note about C# is that it is case-sensitive. You will therefore get compiler errors if, for instance, you write 'console' rather than 'Console'. 
+
+The second thing to note is that every statement finishes with a semicolon (;) or else takes a code block within curly braces.
+
+As C# is an object-oriented language, C# programs must be placed in classes (classes are discussed in chaper 11, but if you are new to object orientation we suggest that you first read some introductory material). Line 2 above declares the class to be named 'Hello World'.
+
+Line 1 of the code declares we are using the System namespace (namespaces are also covered in chapter 11). The point of this declaration is mostly to save ourselves time typing. Because the 'Console' object used in line 10 of the code actually belongs to the 'System' namespace, its fully qualified name is 'System.Console'. However, because in line 1 we declare that the code is using the System namespace, we can then leave off the 'System.' part of its name within the code.
+
+When compiled and run, the program above will automatically run the 'Main' method declared and begun in line 4. Note again C#'s case-sensitivity - the method is 'Main' rather than 'main'.
+
+Lines 6-9 of the program are ignored by the compiler, being comments entered by the programmer for his own benefit. Line 6 shows a single line comment, in which everything on the line after the two forward slashes is ignored by the compiler. Lines 7-9 demonstrate a multi-line comment, in which everything between the opening /* and closing */ is ignored, even when it spans multiple lines.
+
+The statement on line 10 calls the 'WriteLine' method of the Console class in the System namespace. It should be obvious how this works in the given example - it just prints out the given string to the 'Console' (on PC machines this will be a DOS prompt). For a more complicated use of the WriteLine method, see lesson 7. 
+
+In order to run it, the program above must first be saved in a file. Unlike in Java, the name of the class and the name of the file in which it is saved do not need to match up, although it does make things easier if you use this convention. In addition, you are free to choose any extension for the file, but it is usual to use the extension '.cs'.
+
+Suppose that you have saved the file as 'HelloWorld.cs'. Then to compile the program from a command line, you would use the command
+
+csc HelloWorld.cs
+(for Visual Studio .NET users: compile by pressing Ctrl-Shift-B)
+
+This command would generate the executable HelloWorld.exe, which could be run in the usual way, by entering its name: 
+
+HelloWorld
+(for Visual Studio .NET users: run by pressing Ctrl-F5)
+
+Fairly obviously, this program would produce the output:
+
+Hello World! From Softsteel Solutions.
+
+Lesson 4: Variable Types (1): Reference Types and Value Types
+
+C# is a type-safe language. Variables are declared as being of a particular type, and each variable is constrained to hold only values of its declared type.
+
+Variables can hold either value types or reference types, or they can be pointers. This lesson covers the first two options; pointers are discussed in lesson 5.
+
+Here's a quick recap of the difference between value types and reference types.
+
+- where a variable v contains a value type, it directly contains an object with some value. No other variable v' can directly contain the object contained by v (although v' might contain an object with the same value).
+
+- where a variable v contains a reference type, what it directly contains is something which refers to an object. Another variable v' can contain a reference to the same object refered to by v.
+
+
+Value Types
+
+It is possible in C# to define your own value types by declaring enumerators (lesson 7) or structs (lesson 11). These user-defined types are mostly treated in exactly the same way as C#'s predefined value types, although compilers are optimised for the latter. The following table lists, and gives information about, the predefined value types. Because in C# all of the apparently fundamental value types are in fact built up from the (actually fundamental) object type, the list also indicates which System types in the .Net framework correspond to these pre-defined types.
+
+C# Type .Net Framework (System) type Signed? Bytes Occupied Possible Values 
+sbyte System.Sbyte Yes 1 -128 to 127 
+short System.Int16 Yes 2 -32768 to 32767 
+int System.Int32 Yes 4 -2147483648 to 2147483647 
+long System.Int64 Yes 8 -9223372036854775808 to 9223372036854775807 
+byte System.Byte No 1 0 to 255 
+ushort System.Uint16 No 2 0 to 65535 
+uint System.UInt32 No 4 0 to 4294967295 
+ulong System.Uint64 No 8 0 to 18446744073709551615 
+float System.Single Yes 4 Approximately ±1.5 x 10-45 to ±3.4 x 1038 with 7 significant figures 
+double System.Double Yes 8 Approximately ±5.0 x 10-324 to ±1.7 x 10308 with 15 or 16 significant figures 
+decimal System.Decimal Yes 12 Approximately ±1.0 x 10-28 to ±7.9 x 1028 with 28 or 29 significant figures 
+char System.Char N/A 2 Any Unicode character (16 bit) 
+bool System.Boolean N/A 1 / 2 true or false 
+
+
+In the following lines of code, two variables are declared and set with integer values. 
+
+int x = 10;
+int y = x;
+y = 20; // after this statement x holds value 10 and y holds value 20
+
+Reference Types
+
+The pre-defined reference types are object and string, where object - as we have mentioned above - is the ultimate base class of all other types. New reference types can be defined using 'class', 'interface', and 'delegate' declarations (covered in lesson 12).
+
+Reference types actually hold the value of a memory address occupied by the object they reference. Consider the following piece of code, in which two variables are given a reference to the same object (for the sake of the example, this object is taken to contain the numeric property 'myValue').
+
+object x = new object();
+x.myValue = 10;
+object y = x;
+y.myValue = 20; // after this statement both x.myValue and y.myValue equal 20
+This code illustrates how changing a property of an object using a particular reference to it is reflected in all other references to it. Note, however, that although strings are reference types, they work rather more like value types. When one string is set to the value of another, eg
+
+string s1 = "hello";
+string s2 = s1;
+Then s2 does at this point reference the same string object as s1. However, when the value of s1 is changed, for instance with
+
+s1 = "goodbye"; 
+what happens is that a new string object is created for s1 to point to. Hence, following this piece of code, s1 equals "goodbye", whereas s2 still equals "hello".
+
+The reason for this behaviour is that string objects are 'immutable'. That is, the properties of these objects can't themselves change. So in order to change what a string variable references, a new string object must be created.
+
+
+Escape Sequences and Verbatim Strings
+
+When declaring a string variable, certain characters can't, for various reasons, be included in the usual way. C# supports two different solutions to this problem.
+
+The first approach is to use 'escape sequences'. For example, suppose that we want to set variable a to the value:
+
+"Hello World
+How are you"
+We could declare this using the following command, which contains escape sequences for the quotation marks and the line break.
+
+string a = "\"Hello World\nHow are you\"";
+The following table gives a list of the escape sequences for the characters that can be escaped in this way:
+
+Character Escape Sequence 
+' \' 
+" \" 
+\ \\ 
+Alert \a 
+Backspace \b 
+Form feed \f 
+New Line \n 
+Carriage Return \r 
+Horizontal Tab \t 
+Vertical Tab \v 
+A unicode character specified by its number e.g. \u200  \u 
+A unicode character specified by its hexidecimal code e.g. \xc8 \x 
+null \0 (zero) 
+
+The second approach is to use 'verbatim string' literals. These are defined by enclosing the required string in the characters @" and ". To illustrate this, to set the variable 'path' to the following value:
+
+C:\My Documents\
+we could either escape the back-slash characters
+
+string path = "C:\\My Documents\\"
+or use a verbatim string thus:
+
+string path = @"C:\MyDocuments\"
+Usefully, strings written using the verbatim string syntax can span multiple lines, and whitespace is preserved. The only character that needs escaping is the double-quote character, the escape sequence for which is two double-quotes together. For instance, suppose that you want to set the variable 'text' to the following value:
+
+the word "big" contains three letters.
+Using the verbatim string syntax, the command would look like this:
+
+string text = @"the word ""big"" contains three letters."
+
+Boxing
+
+C# allows you convert any value type to a corresponding reference type, and to convert the resultant 'boxed' type back again. The following piece of code demonstrates boxing. When the second line executes, an object is initiated as the value of 'box', and the value held by i is copied across to this object. It is interesting to note that the runtime type of box is returned as the boxed value type; the 'is' operator thus returns the type of box below as 'int'.
+
+int i = 123;
+object box = i;
+if (box is int) 
+{Console.Write("Box contains an int");} // this line is printed

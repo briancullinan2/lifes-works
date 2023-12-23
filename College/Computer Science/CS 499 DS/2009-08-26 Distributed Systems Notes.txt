@@ -1,0 +1,59 @@
+distributed system
+no common plugs, dock
+no shared memory
+geographic 
+
+motivation for DS
+load distribution
+performance boost
+bridge distance
+Resource access
+Reliability
+Scalability
+
+Parallel systems
+multiprocessor - uniform memory access
+	Direct access to shared memory, interconnected by a bus
+	UMA - uniform memory access
+multicomputer - no direct access to shared memory
+	work on own private memory
+	NUMA - non-uniform memory access
+Array processors
+	tightly coupled machines
+
+Syncornous
+Asyncronous
+
+Blocking
+Non-blocking
+
+Challenges
+hide policies, mechanisms
+transparency
+	access, location - network transparency
+		implement mechanism that allow access to different kinds of resources with the same kind of primitives and mechanisms
+		don't care where resources are
+	migration
+		move things around for the user nothing changes
+	replication
+		duplicating and synchronizing
+	concurring
+		keeping data synchronized without user noticing
+	failure
+		when something fails something else takes over with not noticing it
+	performance
+		load changes without affecting the user
+	mobility
+		computers like mobile laptops reporting to different stations
+	scaling
+		add more resources
+
+
+Fault tolerance
+
+A distrubuted system
+	does not share global memory
+	does not share global clock but can query a global clock server
+
+
+	

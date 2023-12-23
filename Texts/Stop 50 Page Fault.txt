@@ -1,0 +1,12 @@
+Start Windows in Safe mode. To do so: 
+Restart the computer, and then press F8 while the computer starts. 
+On the Windows Advanced Options Menu that appears, use the ARROW keys to select Safe Mode, and then press ENTER. 
+Use the ARROW keys to select the operating system to start, and then press ENTER to start Windows XP in Safe mode.
+In the message that states that Windows is running in Safe mode, click Yes. Click Start, click Run, type msinfo32 in the Open box, and then click OK. Under System Summary, expand Components, and then click Display. In the right pane, note the information that corresponds to the INF File item, for example, Nv4.inf, Oem0.inf, or Atim128.inf. Quit the System Information utility. Click Start, right-click My Computer, and then click Properties. Click the Hardware tab, and then click Device Manager. Expand Display adapters, right-click the display adapter, and then click Uninstall. Click OK. Click Start, click Run, type cmd, and then click OK. In the Command Prompt window, type the following commands, and then press ENTER after each line: 
+ren %systemroot%\inf\INF file name from Step 5.inf *inf.old
+ren %systemroot%\inf\INF file name from Step 5.pnf *pnf.old
+Close all open windows, and then restart the computer in the typical manner. Log on to Windows by using an account that has administrative privileges, and then wait for Windows to detect new hardware. When the Found New Hardware Wizard starts, click Cancel.
+
+If you receive a stop error after you remove the updated display drivers, restart the computer and use the Last Known Good Configuration option. To do this, restart the computer, and then press the F8 key while the computer starts. On the Windows Advanced Options Menu that appears, use the ARROW keys to select Last Known Good Configuration, and then press ENTER.
+
+If you receive a "System Has Recovered from a Serious Error" message when Windows starts, restart the computer again. This error message does not recur. Obtain and install the latest drivers for your display adapter.For information about how to contact computer hardware manufacturers, click the appropriate article number in the following list to view the article in the Microsoft Knowledge Base:

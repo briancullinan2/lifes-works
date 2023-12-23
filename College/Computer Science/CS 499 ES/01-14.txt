@@ -1,0 +1,50 @@
+1-14-08
+
+C Features
+=============
+* type -unsafe
+* memory -unsafe, casting, pointer arithmetic
+* no garbage collection
+* undefined behavior
+	overflowing integers
+	outside array access
+	not returning a value from a non-void function
+
+* allows goto + jumps
+
+* undefined lib behavior fflush();
+
+libc -> 
+std library ->
+word size of the architecture
+
+Types:
+int8_t signed char
+-128 --- 127
+int16_t short
+int32_t long 
+int64_t long long
+
+
+uint8_t signed char
+-128 --- 127
+uint16_t short
+uint32_t long 
+uint64_t long long
+
+
+Pointers;
+char s = "a";
+long * t = &s;
+long s[2] = {42, 100}
+s[0] <- 42
+*s
+*s 
+t = s;
+* ( t + sizeOf(long)) <-- doesnt quite work.
+
+t = t << 1
+t <- 
+
+
+arithmetic shift vs logical shift, have to cast to unsigned longs & the like

@@ -1,0 +1,28 @@
+push 1
+push 1
+gsave 0
+gsave 1
+loop1:
+call jle
+jumpif 3 endloop1
+gload 0
+print
+push 32
+printc
+gload 1
+print
+push 32
+printc
+gload 0
+gload 1
+add
+gsave 0
+gload 1
+gload 0
+add
+gsave 1
+jump loop1
+endloop1:
+return
+jle:
+return

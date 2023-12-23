@@ -1,0 +1,8354 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html dir="ltr"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<!-- assessment/submission/GradeAttempt.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<title>View Attempt</title>
+<!-- applicationframework/HeaderCSS.jspi -->
+
+
+<script language="javascript" type="text/javascript" src="exam2_files/libraryjs.dowebct"></script>
+<script type="text/javascript">
+function navJump(){
+var appFrame = getApplicationFrame();
+if(appFrame){
+if(appFrame.TOOLFRAME.LEFTTOOLFRAME){
+if(appFrame.TOOLFRAME.LEFTTOOLFRAME.document.getElementById("cthomepage")) appFrame.TOOLFRAME.LEFTTOOLFRAME.focus();
+else appFrame.TOOLFRAME.focus();
+}else if(appFrame.TOOLFRAME.EXPLORER_LEFT){
+appFrame.TOOLFRAME.EXPLORER_LEFT.focus();
+}else appFrame.TOPAPPFRAME.focus();
+}
+}
+function contentJump(){
+var appFrame = getApplicationFrame();
+if(appFrame){
+if(appFrame.TOOLFRAME.RIGHTTOOLFRAME) appFrame.TOOLFRAME.RIGHTTOOLFRAME.focus();
+else if(appFrame.TOOLFRAME.EXPLORER_RIGHT) appFrame.TOOLFRAME.EXPLORER_RIGHT.focus();
+else appFrame.TOOLFRAME.focus();
+}
+}
+function hideLinks(){
+var appFrame = getApplicationFrame();
+if(appFrame){
+if(window.name=="LEFTTOOLFRAME" || window.name=="EXPLORER_LEFT")document.getElementById("jumpLinks").removeChild(document.getElementById("navijump"));
+if(window.name=="RIGHTTOOLFRAME" || window.name=="EXPLORER_RIGHT")document.getElementById("jumpLinks").removeChild(document.getElementById("contjump"));
+}
+else{
+document.getElementById("jumpLinks").removeChild(document.getElementById("navijump"))
+document.getElementById("jumpLinks").removeChild(document.getElementById("contjump"))
+}
+}
+</script>
+<link rel="stylesheet" href="exam2_files/styles.css" type="text/css">
+</head><body onunload="unhighlightct('ctassessment');" 
+onload="javascript:refreshOpener(); highlightct('ctassessment');" 
+class="taskpage"><div id="jumpLinks">
+<a href="javascript:navJump()" id="navijump" accesskey="1" title="Jump 
+to Navigation Frame" class="hideoff">Jump to Navigation Frame</a>
+
+</div>
+<script type="text/javascript">hideLinks()</script>
+
+<script language="javascript" type="text/javascript" src="exam2_files/libraryjs.dowebct"></script>
+<script language="JavaScript" type="text/javascript">
+function openNewWindow(mypage, myname, w, h)
+{
+win = openBox( mypage, myname, w, h);
+}
+</script>
+
+
+
+
+
+<script language="JavaScript" type="text/javascript">
+function refreshOpener() {
+
+}
+</script>
+<!-- tool=assessment screenId=548 -->
+
+
+
+<!-- action/breadcrumbs.jspi -->
+
+<script language="javascript">
+function isTargetValid(frame, triesleft, target) {
+
+try {
+if (frame == null) {
+return false;
+}
+if (triesleft < 1) {
+return false;
+}
+if (triesleft == null || triesleft == '') {
+triesleft = 6;
+}
+if (frame != null && frame.name == target ) {
+return true;
+} else {
+return isTargetValid(frame.parent, triesleft -1, target);
+}
+} catch (err) {
+return false;
+}
+}
+</script>
+
+<div name="breadcrumbDiv" id="breadcrumbDiv" class="breadcrumbs" 
+style="display: block;">
+<iframe id="breadcrumb" src="exam2_files/breadcrumbIFrame.htm" 
+style="position: absolute; top: 0px; left: 0px; display: none;" 
+name="breadcrumb" marginwidth="0" frameborder="0" height="0" width="0"></iframe>
+
+
+
+
+
+
+<a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/viewScoreStudent.dowebct"
+ id="backId" title="Back" class="inline" target="RIGHTTOOLFRAME"><img 
+src="exam2_files/small_back.gif" alt="Back" height="16" width="16"></a> <img
+ id="divider" src="exam2_files/dot_divide2.gif" alt="">
+<script language="javascript">
+var backLink = document.getElementById('backId');
+if (isTargetValid(this.window,6,backLink.target) == false) {
+backLink.target = this.window.name;
+}
+</script>
+
+
+<span>Your location: </span>
+
+
+<a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/studentAssessmentManagerView.dowebct"
+ id="breadcrumb0" target="RIGHTTOOLFRAME">Assessments</a> ›
+<script language="javascript">
+var bcLink = document.getElementById('breadcrumb0');
+if (isTargetValid(this.window,6,bcLink.target) == false) {
+bcLink.target = this.window.name;
+}
+</script>
+
+
+
+
+<a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/viewScoreStudent.dowebct"
+ id="breadcrumb1" target="RIGHTTOOLFRAME">View All Submissions</a> ›
+<script language="javascript">
+var bcLink = document.getElementById('breadcrumb1');
+if (isTargetValid(this.window,6,bcLink.target) == false) {
+bcLink.target = this.window.name;
+}
+</script>
+
+
+
+
+View Attempt
+
+</div>
+
+
+<script language="javascript">
+var br = document.getElementById('breadcrumb');
+var brDiv = document.getElementById('breadcrumbDiv');
+// HIDE the breadcrumbs if in a pop up (i.e.  No parent is RIGHTTOOLFRAME or TOOLFRAME)
+if (isInRightToolFrame(this.window)) {
+br.height=0;
+br.src="/webct/urw/lc31076991628041.tp34387814934071/breadcrumbIFrame.dowebct?popup=false";
+brDiv.style.display = "block";
+}else{
+br.height=0;
+br.src="/webct/urw/lc31076991628041.tp34387814934071/breadcrumbIFrame.dowebct?popup=true";
+brDiv.height=0;
+brDiv.style.display = "none";
+}
+</script>
+
+
+
+<div class="taskpagetitlediv">
+<h1>
+View Attempt 1 of 1
+</h1>
+</div>
+<div class="controlset">
+<table class="simpletable" summary="" cellspacing="0">
+<tbody><tr>
+<td nowrap="nowrap">Title:</td>
+<td class="boldme">Exam 2</td>
+</tr>
+
+<tr>
+<td nowrap="nowrap">Started:</td>
+<td>May 2, 2010 4:31 PM</td>
+</tr>
+<tr>
+<td nowrap="nowrap">Submitted:</td>
+<td>May 2, 2010 5:18 PM</td>
+</tr>
+<tr>
+<td nowrap="nowrap">Time spent:</td>
+<td>
+
+<a 
+href="javascript:openNewWindow('viewAttemptEventsLog.dowebct?assmtAttemptId=41311215557051','ViewAccessLog','500','500')"
+ title="View Access Log in a new window">
+00:46:27
+</a>
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td nowrap="nowrap" width="10%"><b>Total score:</b></td>
+<td>
+<b>165/200 = 82.5%</b>
+
+
+
+<img alt="" src="exam2_files/dot_divide.gif" align="absmiddle" 
+border="0">
+Total score adjusted by 0.0
+<img alt="" src="exam2_files/dot_divide.gif" align="absmiddle" 
+border="0">
+Maximum possible score: 200
+
+</td>
+</tr>
+
+
+
+
+</tbody></table>
+</div>
+ 
+
+
+
+<div class="taskbuttondiv">
+<input class="task" 
+onclick="document.location='/webct/urw/lc31076991628041.tp34387814934071/displayAssessmentScore.dowebct?assessment=34388113616071'"
+ value="Done" type="button">
+
+</div>
+
+
+<table summary="" style="margin-top: 12px;" cellspacing="0" width="100%">
+
+
+
+<tbody><tr class="questionrow">
+<td><h2>1.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+What does the word "polyrhythms" mean?
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>a sequence of beats repeated over and over</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>a change in the rhythmic pattern of the song</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>different rhythms being played simultaneously</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>2.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+Group improvisation is featured prominently in free jazz.
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>True</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>False</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>3.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+The form of the song "My Favorite Things" is:
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>A – A – A – B</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>A – A – B</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>none of the above</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>4.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+Jazz funk is almost exclusively:
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>vocal</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>chordal</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>instrumental</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>5.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+Which saxophone is used in Fusion music more than any other?
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>the soprano sax</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>the alto sax</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>the baritone sax</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>6.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+Which mode (scale) does this series of whole and half steps (interval 
+pattern) represent: W H W W H W W
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>Major</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>Dorian</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>Aeolian</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>7.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+This is a famous example of what style of jazz? <a 
+href="http://jan.ucc.nau.edu/%7Emus333-c/quizzes/q2_q48_bs.html" 
+target="_blank">Listen to the musical 
+example.</a>
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>modal</td>
+
+<td nowrap="nowrap" width="10%">
+
+0%
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">Ornette Coleman Double Quartet’s “Free Jazz” (1960) is a
+ famous example of free jazz.&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>remix</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>cut 'n' mix</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans4">D.</label>
+</td>
+<td>fusion</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans5">E.</label>
+</td>
+<td>none of the above</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+0/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>8.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+Fusion is:
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>a new source of energy</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>the mixing together of various styles of music</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>a band from Germany</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>9.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+In this recording, one hears only a single mode or scale used throughout
+ the 
+performance. <a 
+href="http://jan.ucc.nau.edu/%7Emus333-c/quizzes/q2_q45_bs.html" 
+target="_blank">Listen to the musical example.</a>
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>True</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>False</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>10.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+John McLaughlin, John Coltrane, and Herbie Hancock all played at one 
+time or another with what influential musician?
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>Easy Mo Bee</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>McCoy Tyner</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>Art Blakey</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans4">D.</label>
+</td>
+<td>none of the above</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>11.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+The recording is an example of: <a 
+href="http://jan.ucc.nau.edu/%7Emus333-c/video/davis_sowhat.html" 
+target="_blank">Watch the musical example.</a>
+
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>Fusion</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>Modal Jazz</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>Free jazz</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>12.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+John Coltrane wrote the song "Alabama" after:
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>learning that a church had been bombed</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>a tour of the Southern states</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>to honor the state in which he was born.</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>13.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+Which mode (scale) does this series of whole and half steps (interval 
+pattern) represent  H W W W H W W
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>Dorian</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>Major</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>none of the above</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>14.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+This recording featured little, if any, editing and remixing by the 
+producer and 
+artist. <a 
+href="http://jan.ucc.nau.edu/%7Emus333-c/quizzes/q2_q41_bs.html" 
+target="_blank">Listen to the musical example.</a>
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>True</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>False</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>15.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+Select the true statement about this recording. <a 
+href="http://jan.ucc.nau.edu/%7Emus333-c/quizzes/q2_q35_bs.html" 
+target="_blank">Listen to the musical 
+example.</a>
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>this was sampled by Us3</td>
+
+<td nowrap="nowrap" width="10%">
+
+0%
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">Herbie Hancock’s “Call It ‘95” (1994) is classic 1990s 
+acid jazz.&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>this is a classic early 1980s hip hop jazz fusion recording</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>this is classic 1990s acid jazz</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+0/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>16.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+Which member of the saxophone family do you hear in this audio clip? <a 
+href="http://jan.ucc.nau.edu/%7Emus333-c/quizzes/q2_q005_jd.html" 
+target="_blank">Listen to the musical example.</a>
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>the alto sax</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>the soprano sax</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>the tenor sax</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>17.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+Jazz funk and rock fusion uses primarily acoustic instruments.
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>True</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>False</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>18.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+The Dorian mode is the basis for which song:
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>"Blue Monk"</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>"So What"</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>"Orange Was the Color of Her Dress."</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>19.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+DJs are jazz instrumentalists and not voice over artists.
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>True</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>False</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>20.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+Two men responsible for the development of Modal Jazz are:
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>Paul Chambers and "Cannonball" Adderley</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>James Cobb and John Coltrane</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>Miles Davis and Bill Evans</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>21.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+Who was an innovative and influential trumpet player and band leader?
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>John Coltrane</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>Herbie Hancock</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>John McLaughlin</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans4">D.</label>
+</td>
+<td>all of the above</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans5">E.</label>
+</td>
+<td>none of the above</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>22.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+This is a classic mid-1960s modal performance by John Coltrane. <a 
+href="http://jan.ucc.nau.edu/%7Emus333-c/quizzes/q2_q42_bs.html" 
+target="_blank">Listen to 
+the musical example.</a>
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>True</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>False</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>23.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+How was this recording constructed? <a 
+href="http://jan.ucc.nau.edu/%7Emus333-c/quizzes/q2_q32_bs.html" 
+target="_blank">Listen to the musical example.</a>
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>soloist's improv is highly integrated into the the groove</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>solo line layered onto a later recorded groove</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>solo sections alternated with a sung chorus and DJ voice overs</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans4">D.</label>
+</td>
+<td>all of the above</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans5">E.</label>
+</td>
+<td>answers 2 and 3</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>24.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+In jazz, remix is the digital creation of a new recording by a prominent
+ DJ or producer who may or may not be a known jazz musician-frequently 
+using a preexisting jazz recording as source material.
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>True</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>False</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>25.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+This recording moves even further than earlier examples in integrating 
+jazz into a 
+hip hop mix. <a 
+href="http://jan.ucc.nau.edu/%7Emus333-c/quizzes/q2_q34_bs.html" 
+target="_blank">Listen to the musical example.</a>
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>True</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>False</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>26.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+Improvisation over rapidly changing chords is a hallmark of modal jazz.
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>True</td>
+
+<td nowrap="nowrap" width="10%">
+
+0%
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">With modal jazz, the fact that rapid harmonic changes 
+were radically slowed became striking and influential.&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>False</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+0/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>27.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+In Jazz fusion music, standard jazz musical forms are
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>strictly adhered to</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>abandoned</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>none of the above</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>28.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+Moving from one section of a modal jazz song to another could be 
+dictated by:
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>a change in the rhythm of the song</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>changing the mode</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>all of the above</td>
+
+<td nowrap="nowrap" width="10%">
+
+0%
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">Changing the mode could dictate the movement from one 
+section of a modal jazz song to another section.&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+0/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>29.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+The two modes used in "My Favorite Things" are:
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>Dorian and Phrygian</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>Major and Phrygian</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>Dorian and Major</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>30.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+Miles Davis' album Doo Bop is a classic example of his early 1970s funk 
+fusion work.
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>True</td>
+
+<td nowrap="nowrap" width="10%">
+
+0%
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">Doo Bop is a hip hop fusion work.&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>False</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+0/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>31.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+This is an example of what style of jazz? <a 
+href="http://jan.ucc.nau.edu/%7Emus333-c/quizzes/q2_q49_bs.html" 
+target="_blank">Listen to the musical 
+example.</a>
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>modal</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>remix</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>free jazz</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans4">D.</label>
+</td>
+<td>fusion</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans5">E.</label>
+</td>
+<td>none of the above</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>32.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+Fusion was widely accepted as the new style of jazz performance by 
+everyone.
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>Yes</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>No</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>none of the above</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>33.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+A rhythmically repeated section of melody and chords, or rhythmically 
+repeated chords is known as
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>a vamp</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>fusion</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>double time</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>34.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+The label Free Jazz came from:
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>a jazz radio announcer</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>a recording</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>a newspaper article</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>35.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+Teo Macero was Miles Davis' influential tenor sax player in the early 
+1970s.
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>True</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>False</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>36.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+The form of "So What" is:
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>A - B - A - C</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>A - A - A - B</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>A - A - B - A</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>37.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+In Bitches Brew, virtuosic improvisation was at the heart of this 
+influential recording.
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>True</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>False</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>38.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+Free jazz rejected:
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>rapid chord changes</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>the conventions of Bop</td>
+
+<td nowrap="nowrap" width="10%">
+
+0%
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">Free jazz rejected both rapid chord changes and the 
+conventions of Bop&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>all of the above</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+0/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>39.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+Herbie Hancock performed what styles of jazz?
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>modal</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>funk fusion</td>
+
+<td nowrap="nowrap" width="10%">
+
+0%
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">Herbie Hancock performed modal, funk fusion, and early 
+DJ jazz fusion among others.&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>early DJ jazz fusion</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans4">D.</label>
+</td>
+<td>all of the above</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans5">E.</label>
+</td>
+<td>none of the above</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+0/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+
+
+<tr class="questionrow">
+<td><h2>40.</h2></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+<table summary="" cellpadding="3" cellspacing="0" width="98%">
+
+
+
+<!-- assessment/questiondb/GradedInclude_mc.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="top">
+<td colspan="2">
+
+Scratches mixed in by a DJ are characteristic of what jazz style?
+
+</td>
+</tr>
+
+
+
+<tr>
+<td colspan="2"><!-- assessment/questiondb/GradedInclude_Image.jspi -->
+
+
+
+</td>
+</tr>
+
+<tr valign="top">
+<td colspan="2">
+<table class="tablebody">
+
+<thead>
+<tr>
+
+<td width="3%">&nbsp;</td>
+<th scope="col">Student Response</th>
+
+
+
+<th scope="col" width="10%">Value</th>
+
+
+<th scope="col" width="20%">Correct Answer</th>
+
+
+<th scope="col" width="55%">Feedback</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans1">A.</label>
+</td>
+<td>funk fusion</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+
+
+<label for="ans2">B.</label>
+</td>
+<td>1960s modal</td>
+
+<td nowrap="nowrap" width="10%">
+
+</td>
+
+
+<td>
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+
+<tr valign="top">
+<td scope="row" align="right" nowrap="nowrap">
+
+
+<img src="exam2_files/small_answered.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+
+
+
+<label for="ans3">C.</label>
+</td>
+<td>remix</td>
+
+<td nowrap="nowrap" width="10%">
+
+100%
+
+</td>
+
+
+<td>
+
+<img src="exam2_files/small_success.gif" alt="Student Response" 
+title="Student Response" align="absmiddle" border="0">
+&nbsp;
+</td>
+
+
+<td width="55%">&nbsp;</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%">Score:</td>
+<td>
+
+5/5
+
+
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+
+
+
+
+
+<div class="taskbuttondiv">
+<input class="task" 
+onclick="document.location='/webct/urw/lc31076991628041.tp34387814934071/displayAssessmentScore.dowebct?assessment=34388113616071'"
+ value="Done" type="button">&nbsp;
+
+</div>
+
+
+</body></html>

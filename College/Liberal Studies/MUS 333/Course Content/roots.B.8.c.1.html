@@ -1,0 +1,544 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="roots.B.8.c.1_files/styles.css" 
+type="text/css">
+
+<script language="javascript" src="roots.B.8.c.1_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Adzogbo </title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="roots.B.8.c.1_files/roots.css" rel="stylesheet" 
+type="text/css">
+<script language="JavaScript">
+<!-- Hide from non-Javascript browsers
+function windowOpen(url)
+{
+open(url, "remote", "directories=no,location=no,menubar=no,resizable=no,scrollbars=no,status=yes,toolbar=no,width=710,height=305"); 
+}
+// -->
+</script>
+</head><body>
+<p><img src="roots.B.8.c.1_files/roots.gif" alt="module banner" 
+height="126" width="600"> </p>
+<h3>Adzogbo</h3>
+<p>Let's listen to some examples to try to make this discussion a bit 
+more
+concrete. We will start by listening to some music from the Republic of 
+Benin.</p>
+<p><img src="roots.B.8.c.1_files/map_Benin.gif" alt="map of Replublic of
+ Benin" height="411" width="551"></p>
+<p>We will start off by talking about a dance called <em>Adzogbo</em>. 
+Adzogbo belongs
+  to the <em>Fon</em> people, who live in the coastal region with rich 
+vegetation and
+  cooling sea breezes. On this recording you will hear four musical 
+instruments
+  in an ensemble playing Adzogbo, of which we will track only three of 
+the instruments
+  in this discussion. In addition to the musicians, those who are 
+dancing Adzogbo
+  are also wearing bells and rattles that create their own <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113963071"
+ class="glossarylink" target="_blank">rhythmic</a> patters as
+  the dancers move.</p>
+<table border="0" cellspacing="2" width="60%">
+  <tbody><tr>
+    <td><div align="center"><img src="roots.B.8.c.1_files/gankogui.gif" 
+alt="Gankogui bell" height="321" width="181"></div></td>
+    <td>The Gankogui is a wrought iron double bell that is played with a
+ stick.
+      The lower bell can be struck and then dampened against the thigh 
+of a seated
+    performer.</td>
+  </tr>
+  <tr>
+    <td><p>The Kagan is a slim, higher pitched barrel-shaped drum. It is
+ usually
+        painted in a striped pattern of red, blue, and green (or 
+sometime just
+        green and white). </p>
+    <p>&nbsp;</p></td>
+    <td><div align="center"><img 
+src="roots.B.8.c.1_files/kagan_drum.gif" alt="Kagan drum" height="367" 
+width="132"></div></td>
+  </tr>
+</tbody></table>
+<p>The head of a Kagan is made of the hide of a small bush antelope.</p>
+<p><img src="roots.B.8.c.1_files/fixing_kroboto.jpg" alt="fixing a 
+kroboto" height="205" width="300"></p>
+<p>The head on the Kagan is struck with a stick, sometimes so that the 
+stick
+  bounces up giving a resonant and stressed beat, or sometimes a stick 
+is sharply
+  pressed into the head giving a muted sound that is higher in <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113989071"
+ class="glossarylink" target="_blank">pitch</a>.</p>
+<p><img src="roots.B.8.c.1_files/ewe_drums.jpg" alt="Ewe playing drums" 
+height="205" width="300"></p>
+<table border="0" cellspacing="2" width="60%">
+  <tbody><tr>
+    <td><div align="center"><img src="roots.B.8.c.1_files/kidi_drum.gif"
+ alt="Kidi drum" height="350" width="169"></div></td>
+    <td>The Kidi belongs to the same drum family as the Kagan, but it is
+ slightly
+    larger and lower in pitch.</td>
+  </tr>
+  <tr>
+    <td><p>There is also a gourd rattle on this recording, called an 
+Axatse,
+        that has its shakers knitted into a web of netting that strikes 
+the outside
+        of the rattle, rather than being placed in the inside of the 
+gourd. We
+        will not worry about how the Axatse functions in Adzogbo for the
+ moment.</p>
+        <p>&nbsp;</p></td>
+    <td><div align="center"><img src="roots.B.8.c.1_files/axatse.gif" 
+alt="Axatse gourd rattles" height="222" width="250"></div></td>
+  </tr>
+</tbody></table>
+<p>All of these musical instruments are thought to be part of a family. 
+The Gankogui,
+  the bell, is like the heart beat which keeps things steady. The Kagan 
+is the
+  baby brother and the Kidi is the mother. There are other drums that 
+function
+  as an older brother, twin brothers, and father that are not heard on 
+this recording
+  of Adzogbo.</p>
+<p>Listen to the three instruments discussed above (and ignoring the 
+Axatse or
+  gourd rattle in this example). We will be listening for the various 
+rhythmic
+  patterns played by each instrument and the meter that animates the 
+pattern.
+  The answers appear below, but the important thing is for you to try 
+and figure
+  it out—not just to see the answer.</p>
+<p>What is the rhythmic pattern that you hear played by the Gankogui 
+(bell)?</p>
+<ul>
+  <li> long, long, short, short?</li>
+  <li> short, short, long, long?</li>
+  <li> short, long, long, long, short?</li>
+  <li> short, long, short, long, long?</li>
+</ul>
+<p>Try out each pattern above as you listen to the bell on the 
+recording. Listen
+  to the <strong>Adzogbo (Kadodo <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a>).</strong></p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="adzogbo" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/roots/adzogbo.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="roots.B.8.c.1_files/adzogbo.swf" quality="high" 
+bgcolor="#ffffff" name="adzogbo" allowscriptaccess="sameDomain" 
+type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/adzogbo.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/adzogbo.swf"></a>
+</object></p>
+<p>Listen to the excerpt as many
+  times as needed.</p>
+<p>KAGAN PATTERN:	short-short-silence	short-short-silence	silence</p>
+<p><a href="javascript:windowOpen('gankogui_1.html')">Click for the 
+rhythmic pattern
+    played by the Gankogui (bell).</a> If you
+  did not get the correct answer, listen to the excerpt again and try to
+ hear
+  the correct rhythmic pattern.</p>
+<p>Once you can easily hear the rhythmic pattern of the Gankogui (bell),
+ count
+  the number of beats to determine the meter. In what meter is the 
+rhythmic pattern
+  of the Gankogui (bell)? Listen to the <strong>Adzogbo (Kadodo 
+section).</strong></p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="adzogbo" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/roots/adzogbo.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="roots.B.8.c.1_files/adzogbo.swf" quality="high" 
+bgcolor="#ffffff" name="adzogbo" allowscriptaccess="sameDomain" 
+type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/adzogbo.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/adzogbo.swf"></a>
+</object></p>
+<p> Again, listen to the excerpt as many times
+  as needed.</p>
+<p><a href="javascript:windowOpen('gankogui_2.html')">Click for the 
+meter of the Gankogui's (bell) rhythmic pattern.</a> If you did
+  not get the correct answer, listen to the excerpt again and try to 
+hear the
+  correct meter of the bell's rhythmic pattern.</p>
+<p>The Kagan's part is more difficult to hear because the instrument's
+  timbre is so similar to the Kidi that it may be hard for you to 
+untangle the
+  two different drum lines. The Kagan is in triple meter of three beats 
+(unlike
+  the four-beat duple meter of the bell) and plays a pattern of </p>
+<p>BEATS: 1 2	3</p>
+<p>KAGAN PATTERN:	short-short-silence	short-short-silence	silence</p>
+<p><a href="javascript:windowOpen('adzogbo.html')">Click here if you can
+ read musical notation to see a transcription of the
+  Gankogui and Kagan parts.</a></p>
+<p>Listen to the Adzogbo (Kadodo section) for the Kagan part. </p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="adzogbo" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/roots/adzogbo.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="roots.B.8.c.1_files/adzogbo.swf" quality="high" 
+bgcolor="#ffffff" name="adzogbo" allowscriptaccess="sameDomain" 
+type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/adzogbo.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/adzogbo.swf"></a>
+</object></p>
+<p> Listen to the excerpt as many times as needed.</p>
+<p><br>
+  The Kidi part is still more difficult to hear independently than even 
+the Kagan
+    part. The Kidi plays in compound duple meter (two main beats, each 
+subdivided
+    into groups of threes) in a pattern of three open strokes and three 
+closed
+    strokes. The open strokes have the stick bounce on the drum head 
+giving a
+    full resonant sound, while the closed strokes are played by pointing
+ the
+    stick's end into the drum head (rather than letting the edge of it
+    rebound off the head). The result is a muffled-sounding stroke. The 
+Kidi
+    plays a pattern of</p>
+<p>MAIN BEATS: 1	2</p>
+<p>SUBDIVIDED BEATS: 1-2-3	4-5-6</p>
+<p>KIDI PATTERN:	(open:) ba-ba-ba	(closed:) pup-pup-pup</p>
+<p><a href="javascript:windowOpen('adzogbo.html')">Click here if you can
+ read musical notation to see a transcription of the
+  Gankogui, Kagan, and Kidi parts.</a></p>
+<p><br>
+  Listen to the Adzogbo (Kadodo section) for the Kidi part. </p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="adzogbo" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/roots/adzogbo.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="roots.B.8.c.1_files/adzogbo.swf" quality="high" 
+bgcolor="#ffffff" name="adzogbo" allowscriptaccess="sameDomain" 
+type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/adzogbo.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/adzogbo.swf"></a>
+</object></p>
+<p> Listen to the excerpt as many times as needed.</p>
+<p>One important observation to take from this discussion is that, while
+ the
+  <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a> played by each 
+instrument is relatively simple, in combination they
+  create an extreme complex fabric of sound.</p>
+<p>Further, there is no unified or single beat ONE into which everyone 
+cues.
+  For example, the three different meters have beat ONE in common only 
+every
+  twenty-four beats. To begin to understand how complex the metrical 
+structure
+  is in this example, count out the meters below and emphasize beat ONE 
+very
+  loudly. If you have any friends around, have them count another line. 
+It can
+  be very confusing hearing the ONES pop at different times.</p>
+<table border="0" cellspacing="2" width="60%">
+  <tbody><tr>
+    <td>BELL:</td>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4...</td>
+  </tr>
+  <tr>
+    <td>KAGAN:</td>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>1</td>
+    <td>2...</td>
+  </tr>
+  <tr>
+    <td>KIDI:</td>
+    <td>1</td>
+    <td colspan="2"><div align="center">2</div></td>
+    <td>1</td>
+    <td colspan="2"><div align="center">2</div></td>
+    <td>1</td>
+    <td><div align="center">2...</div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="8">1 - 2 - 3 -4 - 5 - 6 . . .</td>
+  </tr>
+</tbody></table>
+<p>Listen to the Adzogbo (Kadodo section) for the various meters. </p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="adzogbo" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/roots/adzogbo.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="roots.B.8.c.1_files/adzogbo.swf" quality="high" 
+bgcolor="#ffffff" name="adzogbo" allowscriptaccess="sameDomain" 
+type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/adzogbo.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/adzogbo.swf"></a>
+</object></p>
+<p> Listen to the excerpt as many times as needed.</p>
+<p>Now, the only problem is that the three parts do not start all 
+together (as
+  written above) on beat ONE. The entrances are staggered. One 
+ethnomusicologist
+  has characterized this as 'apart-playing.' </p>
+<p>They actually begin this way (<a 
+href="javascript:windowOpen('adzogbo.html')">click here for a 
+transcription
+  if you can read musical notation</a>) </p>
+<p>When musicians are first learning to play Adzogbo, they concentrate 
+and focus
+  exclusively on their own part. As they become more accomplished, they 
+then
+  begin to listen to their part within the evolving nexus of meters and 
+rhythms
+  that move around and connect to their part. The musician must be able 
+to manage
+  and be engaged with a very different rhythm (and/or meter) than the 
+one that
+  they play themselves. The result is that the 'beat' (in a Western
+  sense of a single pulse) is not carried by the ensemble, but it is 
+provided
+  by others. The beat is provided by the aggregate of all instruments 
+and rhythms
+  and is actually generated through these rhythmic relationships. A 
+performer
+  or a listener must be truly engaged in listening to the music, because
+ the
+  beat is supplied outside of the ensemble.</p>
+<p>To sum up this discussion of Adzogbo, we find that</p>
+<ul>
+  <li> the individual rhythms are simple, but when combined the result
+    is quite complex</li>
+  <li> individual lines are usually in duple or triple meter</li>
+  <li> the various lines are not coordinated on beat ONE</li>
+  <li> entrances are 'staggered'</li>
+  <li> musicians and listeners must be able to manage at least two 
+different
+      rhythms (and/or meters)</li>
+  <li> the 'beat' is not obviously carried by or supplied by the 
+ensemble,
+              rather it is perceived through rhythmic relationships</li>
+</ul>
+<p>West Africa contains many rich and varied musical traditions. We have
+ barely
+  begun to scratch the surface even with our discussion of Adzogbo. 
+However,
+  we have covered a number of ideas and concepts that West African 
+musicians
+  employ to create music. The differences between traditional West 
+African music
+  making and even late nineteenth or early twentieth-century jazz are 
+great.
+  Yet there are resonances that are retained between the two traditions.
+ We will
+  follow up on these issues as we encounter examples throughout the 
+balance of
+  the course. We will also return again to this discussion as late 
+twentieth-century
+jazz musicians turn to West Africa and its musical traditions to enrich 
+jazz.</p>
+</body></html>

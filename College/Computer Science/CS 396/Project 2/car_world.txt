@@ -1,0 +1,70 @@
+;; test class for neato passing of objects/functions as arguments to the constructor or to methods. No sweat!
+
+;; define a basic car class.  You pass in the brand(string), top_speed(integer), driver(instance of PERSON), and formula (a lambda that calcs insurance)
+(class xcar (parent:) (constructor_args: abrand  atop_speed adriver aformula)
+  (ivars: (brand abrand) (top_speed atop_speed) (driver adriver) (insurance aformula) (fuel 0))
+  (methods:
+   ; adds gas
+   (fillup (gals) (set! fuel gals))
+   ; just makes the car overview its status
+   (status () (begin (display "CAR STATUS") (newline)
+                     (display "Car type: ") (display brand) (newline)
+                     (display "Driver: ") (if (procedure? driver) (driver 'stats) (display "no driver")) (newline)
+                     (display "Fuel: ") (if (< fuel 1) (display "Empty! Aint goin nowhere...") (display fuel)) (newline)))
+   ; Drives the car.  Driver spouts some text. Fuel goes down by amount based on driver...
+   (drive () (cond ((< fuel 1) (begin (display "Dude!  You are SO outta gas. This buggy ain't going nowhere!") (newline)))
+                   ((not (procedure? driver)) (begin (display "Cant drive without a driver, you moron!") (newline)))
+                   (else
+                    (begin
+                      (set! fuel (- fuel (driver 'zoom top_speed)))
+                      (if (< fuel 0) (begin (display "...putt...putt...paaaaa.....You're outta gas!") (newline) (set! fuel 0)))
+                      ))))
+   ; sets a new PERSON object as the cars driver
+   (new_driver (aperson) (set! driver aperson))
+   ;calculates the insurance cost based on the drivers age, and the formula passed into the constructor
+   (insurance () (let ((mult (cond ((eq? brand 'jaguar) 200)
+                                   ((eq? brand 'mercedes) 120)
+                                   ((eq? brand 'toyota) 35)
+                                   (else 20))))
+                   (if (procedure? driver) (floor (insurance (driver 'get-age) brand))
+                       (begin (display "No driver registered for car, can't calc insurance cost") (newline)))))
+                   
+                       
+   ))
+
+;; Basic class definition for a person class
+(class person (parent:) (constructor_args: myage myname)
+  (ivars: (name myname) (age myage))
+  (methods: 
+   ;; just makes the person say their basic stats
+   (stats () (begin (display name) (display " , ") (display age) (display " years old. ") (cond ((> age 70) (display "What a geezer!"))
+                                                                                               ((< age 19) (display "Crazy punk kid!"))
+                                                                                               (else (display "A nice fella..."))) (newline)))
+   ;; zoom method takes in a topspeed, calcs actual speed based on driver, outputs some text, and returns fuel used.
+   (zoom (tspeed) (let* ((myspeed (cond ((< age 21) tspeed)
+                                       ((< age 50) (floor (/ tspeed 2)))
+                                       (else (max 20 (/ tspeed 5)))))
+                         (fuelcost (floor (/ myspeed 20))))
+                    (begin (display "Woohoo! Rippin along at a breezy ") (display myspeed) (display " miles per hour!") (newline) fuelcost)))
+   ; simple accessor for age
+   (get-age () age)
+   ))
+
+;; a simple formula for calculating the insurance rate for a car.  The higher lower the age the higher, and the spendier the car the higher.
+;; Idea is that we could install a different formula in each car, ie, they have different insurance companies!
+(define form1 
+  (lambda (age brand)
+    (let ((mult-factor (cond ((eq? brand 'jaguar) 100)
+                             ((eq? brand 'mercedes) 120)
+                             ((eq? brand 'toyota) 35)
+                             (else 20)))
+          )
+      (/ mult-factor (/ age 100)))))
+
+
+
+
+
+
+
+                                                                                               

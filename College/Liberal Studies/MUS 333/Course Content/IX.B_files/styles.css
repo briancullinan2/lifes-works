@@ -1,0 +1,108 @@
+
+
+/* colors: a1-a6, b1. 1=light, 6=dark  */
+/* Color scheme: CUSTOM */
+
+
+
+@import "/webct/css/styles.css?version=18.0.3.74";
+
+body {font-family: Verdana,Arial,Helvetica,sans-serif; font-size: .8em;}
+/* tables in online help must use body font style (SCR105005) */
+.notetable TR TD,
+.exampletable TR TD,
+.warningtable TR TD,
+.tiptable TR TD,
+.importanttable TR TD,
+.helpgrid thead TR TH,
+.helpgrid tbody TR TD
+{font-family: Verdana,Arial,Helvetica,sans-serif; font-size: .8em;}
+/* CONTEXTUAL MENUS CONTEXTUAL MENUS CONTEXTUAL MENUS CONTEXTUAL MENUS */
+.contextlink {display:block;}
+a.contextlink:hover {display:block;}
+a.contextlinkover {display:block;}
+.contextmenubar {display:block;}
+body {background-color:#FFFFFF; color:#000000;}
+.helptext {font-style: normal; font-weight:normal !important; color:#000000;}
+.helptextsm {font-size:85%; font-style: normal; font-weight:normal !important; color:#000000;}
+H1 {color:#000000; margin:0px;}
+H2 {color:#000000; margin:0px; }
+H3 {color:#000000; margin:0px; }
+A, h2 a {color:#AB2E1A;}
+A.global:link,A.global:visited, A.global:active {color:#0099CC;}
+A.global:hover {color:#FFFFFF;}
+.global {color:#FFFFFF;}
+th.move2, td.move2 {color:;}
+.tablebody thead td, .tablebody thead th {color:#394859; background-color:#cad7ee !important;}
+.tablebody thead td a, .tablebody thead th a {color:#394859; background-color:#cad7ee !important;}
+.tablebody thead th.sorted {}
+.tablebody tfoot td {background-color:#ededed; color:#394859;}
+.tablebody thead td.lighten, .tablebody thead th.lighten {background-color:#ededed !important;}
+.tablebody3 thead th {background-color:#cad7ee;}
+.tablebody3 tfoot td {background-color:#ededed;}
+.headerblock {background-color:#cad7ee;}
+/* STYLES FOR LEFT FRAME COURSE TOOLBAR*/
+.flylinkct {background-color:#40A1B5;color:#000000;}
+a.flylinkct:hover, a.flylinkct:focus, .flylinkctmo, .flylinkcta:hover {background-color:#F8FAFD; color:#000099;}
+.flylinkctover {background-color:#990000; color:#FFFFFF;}
+.flylinkctleg {color:#000099;}
+.flylinkcthigh {background-color:#F8FAFD; color:#000099;}
+/* Quiz- related styles color: a1 */
+.unanswered {border: solid #999999 1px; background-color:;}
+/*_______________________________________________________________________*/
+/**** Journal Index Style ****************************/
+.breadcrumbs2 {
+position:fixed;
+height:auto;
+z-index:100;
+text-align:left;
+top:0px;
+left:0px;
+width:100%;
+padding:4px 12px 4px 8px !important;
+font-weight:bold;
+background:url(/webct/images/dot_back_4.gif);
+background-position:bottom;
+background-repeat:repeat-x;
+background-color:#fff;
+color:#000;
+}
+.breadcrumbs2 span {color:#696969 !important; font-weight:normal;}
+.breadcrumbs2 a:link, .breadcrumbs2 a:active, .breadcrumbs2 a:visited, .breadcrumbs2 a  {color:#696969 !important; font-weight:normal !important;}
+.breadcrumbs2 a:hover{color:#000 !important;}
+.breadcrumbs2 img, .breadcrumbs2 a img {vertical-align:middle; border:none;margin-right:3px;}
+.breadcrumbs2 img#divider {vertical-align:middle;border:none;margin-right:0px;}
+.breadcrumbs2 a.back, .breadcrumbs2 a.back:link, .breadcrumbs2 a.back:visited, .breadcrumbs2 a.back:active {
+text-decoration:none;
+background:#eaeaea url(../images/button2_fade.jpg);
+font-weight:bold !important;
+padding:0px 5px 0px 5px;
+margin-right:4px;
+border: 1px solid #f1f1f1;
+}
+.breadcrumbs2 a.back:hover {background:#f1f1f1 url(../images/button_over.jpg);color:#000000 !important;}
+.journalentries{
+display:block;
+padding:0px 8px;
+}
+.journallist{
+position:fixed;
+left:10px;
+width: 240px;
+_width: 236px;
+height:90%;
+margin-top:6px;
+_margin-top:30px;
+background-color:#ededed;
+padding:8px;
+overflow:auto;
+display:block;
+font-size:85%;
+}
+.titledetaildiv {
+margin-top:30px !important;
+_padding_top:23px !important;
+background:white;
+padding-left:10px;
+}
+/*** Jurnol Index End ****/

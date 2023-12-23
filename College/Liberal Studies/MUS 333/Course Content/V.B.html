@@ -1,0 +1,404 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="V.B_files/styles.css" type="text/css">
+
+<script language="javascript" src="V.B_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=5WcwLjGRLNNWgHmnQT21sn7ZZqhCQkvNDwKVc72nQfZrYLYd8gpb!258805519!prd2.vista.nau.edu!80!443!1006298310!prd3.vista.nau.edu!80!443!1273168913820";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=5WcwLjGRLNNWgHmnQT21sn7ZZqhCQkvNDwKVc72nQfZrYLYd8gpb!258805519!prd2.vista.nau.edu!80!443!1006298310!prd3.vista.nau.edu!80!443!1273168913820";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Miles Davis</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="V.B_files/moduleV.css" rel="stylesheet" type="text/css">
+<script language="JavaScript">
+<!-- Hide from non-Javascript browsers
+function windowOpen(url)
+{
+open(url, "remote", "directories=no,location=no,menubar=no,resizable=yes,scrollbars=no,status=yes,toolbar=no,width=315,height=315"); 
+}
+// -->
+</script>
+</head><body>
+<p><img src="V.B_files/moduleV.gif" alt="module banner" height="125" 
+width="600"> </p>
+<h3><strong> Miles Davis </strong></h3>
+<p>Miles Davis, who has been discussed in the Cut 'n' <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113994071"
+ class="glossarylink" target="_blank">Mix</a>, <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113972071"
+ class="glossarylink" target="_blank">Fusion</a> and Modal &amp; Free 
+Jazz sections of this course, was also one of the most important 
+contributors to the cool jazz style. During the mid '40's, he played and
+ recorded with bop saxophonist Charlie Parker. While still playing and 
+recording with Parker and feeling the need for a change of direction in 
+his music, Miles put a 9-piece band (a nonet) together in the late '40's
+ with another of cool jazz's important contributors, composer/arranger <a
+ 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.142600&amp;subview=article_text"
+ target="_blank">Gil Evans</a>. Their idea was to come up with music 
+that embraced more refined, cerebral sensibilities that were not present
+ in the freewheeling, highly charged bop style. </p>
+<p>Evans, baritone saxophonist Gerry Mulligan, pianist John Lewis and 
+John Carisi wrote the arrangements. The often lush harmonies, orchestral
+ colors and contrapuntal lines (two or more melodies being played at the
+ same time) found in the arrangements gave the impression of a small <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113954071"
+ class="glossarylink" target="_blank">big band</a> rather than that of a
+ big small band or <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113921071"
+ class="glossarylink" target="_blank">combo</a>. The arrangements 
+themselves took on as much importance as the solos creating almost 
+seamless transitions from ensemble sections where all of the horns were 
+playing to a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> and back again to the 
+ensemble.</p>
+<p>The nonet played its only live engagement for two weeks at the Roost 
+in 1948. In 1949-50 the group recorded 11 songs at the Capitol Records 
+Studio in New York . First released in the early '50's on 78 rpm records
+ (which may account for the short length of the performances – 78's 
+could only handle 3-4 minute of music per side), all 11 of the songs 
+were released in 1957 on a 12" LP entitled <cite>The Birth of the Cool.</cite>
+ The live engagement and the recording constituted the entire output of 
+the band! </p>
+<p> While not a big seller at the time, its effect on jazz musicians was
+ profound. Cool jazz had matured into a viable style that others, 
+especially on the West Coast, began to explore and are still exploring 
+today.</p>
+<p>Let's listen to a cut from <cite>The Birth of the Cool.</cite> 
+"Boplicity", written by Miles Davis and arranged by Gil Evans. Evans was
+ a master of combining advanced harmonies with a splendid ear for 
+orchestration. The addition of a french horn and a tuba, instruments not
+ usually found modern jazz bands, to the lineup of players and Evans' 
+arrangement with its flowing lines creates a peaceful, relaxed feeling 
+—i.e. Cool. The solos are low-keyed and devoid of fast, technical 
+passages. The song is in an A-A-B-A <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a>, each <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> 8 <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113941071"
+ class="glossarylink" target="_blank">measures</a> long.</p>
+<p><strong><img src="V.B_files/Boplicity.gif" alt="Boplicity" 
+height="642" width="600"></strong></p>
+<p>By the way, do you remember what an A-A-B-A <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113935071"
+ class="glossarylink" target="_blank">song form</a> is? If not follow 
+this breadcrumb trail starting from the <strong>MUS333 Homepage : Course
+ Content &gt; Introduction &gt; How are people listening? &gt; Basic 
+Materials of Music &gt; Song Form</strong>. The form of "Boplicity" fits
+ perfectly into the A-A-B-A scheme both rhythmically and harmonically. 
+Melodically, however, a couple of notes have been changed in the 2<sup>nd</sup>
+ and 3<sup>rd</sup> A sections. While you are listening to the 
+recording, have the music to "Boplicity" up on your screen. Compare 
+measures 1 and 2 with measures 9 and 10. Now listen again and compare 
+measures 7 and 8 with measures 31 and 32. You'll hear slight differences
+ in the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a>. If you aren't able to 
+hear the differences, look at the music one more time and see that in 
+measure 9 the notes go higher up on the staff and have a new <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a> pattern compared to 
+measure 1. In measure 10 the 2<sup>nd</sup> note goes up rather than 
+down as in measure 2. Measures 31 and 32 have a totally different rhythm
+ pattern than measures 7 and 8. While the differences in the melody are 
+slight, we want to be sure that you notice them.</p>
+<p> Another thing to be aware of is that during the melody up until the 
+baritone sax solo starts and the last eight measures of the recording 
+the horns are in <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113963071"
+ class="glossarylink" target="_blank">rhythmic</a> unison. The notes 
+each horn might be playing are not the same but the rhythm used in 
+playing them is—rhythmic unison.</p>
+<p><strong><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="countbasie_kc7_lester" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleV/davism_boplicity.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="V.B_files/davism_boplicity.swf" quality="high" 
+bgcolor="#ffffff" name="countbasie_kc7_lester" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="admzuzlqbptshelkhibi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleV/davism_boplicity.swf"></a><a
+ class="admzuzlqbptshelkhibi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleV/davism_boplicity.swf"></a>
+</object></strong></p>
+<p>Lee Konitz (alto, sax); Gerry Mulligan (baritone sax); Miles Davis 
+(trumpet); J.J. Johnson (trombone); Sandy Siegelstein (french horn); 
+Bill Barber (tuba); John Lewis (piano); Nelson Boyd (bass); Kenny Clarke
+ (drums) </p>
+<p>0:00 melody – 1<sup>st</sup> "A" section</p>
+<p>0:14 2<sup>nd</sup> "A" section</p>
+<p>0:27 "B" section</p>
+<p>0:42 last "A" section</p>
+<p>0:56 2<sup>nd</sup> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113953071"
+ class="glossarylink" target="_blank">chorus</a>: baritone sax solo on 1<sup>st</sup>
+ two "A" sections</p>
+<p> 1:24 instrumental interlude – 1<sup>st</sup> 6 measures of "B" 
+section</p>
+<p> 1:35 trumpet solo – last 4 measures of "B" section </p>
+<p> (The "B" section was extended by 2 measures to 10 measures rather 
+than 8.)</p>
+<p> 1:42 instrumental interlude on last "A" section</p>
+<p> 1:58 3<sup>rd</sup> chorus: trumpet solos on 1<sup>st</sup> two "A" 
+sections, horns play background</p>
+<p> 2:25 piano solos on "B" section, horns play background</p>
+<p> 2:40 last "A" section of melody to end</p>
+<p>Before leaving "Boplicity" let's take another look at the printed 
+music. You are probably wondering why punctuation marks and mathematical
+ symbols appear in the music. What do dashes, dots and commas have to do
+ with music making? Why do musicians pay attention to "greater than" 
+(&gt;) symbols and to "is greater than or equal to" (≥) symbols? To 
+musicians playing any style of music, these punctuation marks and math 
+symbols have nothing to do with either English or Mathematics. These 
+dashes, dots, and commas, are called "articulation marks" and tell the 
+player how to play the note that one of them or a combination of them is
+ attached to.</p>
+<p> In measure 1 you'll se a dash above the third note. It's commonly 
+called a "long mark" and it tells the player to play the note full 
+value, in this case a quarter note (two eighth notes tied together). 
+There is no audible space between it and the note that follows every 
+time you see a dash – the notes are connected to one another.</p>
+<p> The note that follows has a dot underneath it. The dot or "staccato 
+mark" means that the note is played shorter than is printed – often half
+ of its value. Here the quarter note sounds like an eighth note – half 
+of a quarter is an eighth. Listen for a short but audible space between 
+it and the next note every time you see a dot.</p>
+<p> Take a look at measure 4 and find the comma above the staff before 
+the last note. The comma is called a "breath mark." For every one in the
+ band it means that the note just before the breath mark (comma) is to 
+be played a bit shorter so that there is an audible space between it and
+ the next note. (Probably for the wind instrument players (saxes, 
+trumpets and trombones) it's a good place to take a breath, too!) The 
+breath mark differs from the dot in that the note it follows is note 
+played half of its value but just a tad shorter. As you listen to the 
+recording listen for the space between the notes separated by a breath 
+mark.</p>
+<p> Measure 6 has the first of the math symbols in it – the greater than
+ symbol (&gt;). To the musician this symbol is called an "accent mark." A
+ note with an accent mark placed above or below it is given a little 
+more emphasis, a slight increase in volume.</p>
+<p> The math symbol over the last note in measure 17 (≥) is the "is 
+greater than or equal to" symbol. To the musician it's a combination of 
+two articulation marks – in this case an accent mark we just discussed 
+along with a long mark talked about earlier. So we have a note that is 
+emphasized and played full value.</p>
+<p> Now go back and listen to the track one more time and pay particular
+ attention to the articulation marks.</p>
+<p>The Miles Davis and Gil Evans collaborations continued on well into 
+the '50's with the 1957 release <cite>of Miles Ahead</cite>, 1958 
+release of <cite>Porgy and Bess</cite> and the 1959 release of <cite>Sketches
+ of Spain. </cite></p>
+<p>Evans arranged the music from George Gershwin's Broadway show <cite>Porgy
+ and Bess</cite> for Miles and big band. The arrangement of the song 
+"Summertime" continues the cool feeling established with <cite>The Birth
+ of the Cool</cite> recordings. Again you'll hear lush harmonies and 
+orchestral colors heard in the earlier recording this time on a larger 
+scale as the band playing behind Miles is much larger – twenty players 
+compared to nine. Evans added French horns, a tuba and alto flutes to 
+the saxes, trumpets and trombones normally found in a big band creating 
+unusual, yet engaging sonorities. </p>
+<p>After a straightforward, unadorned performance of the familiar 
+melody, Davis plays three solo choruses accompanied by a light, 
+unobtrusive band background. Miles is playing with a harmon mute 
+throughout the recording. </p>
+<p><strong><img src="V.B_files/Summertime.gif" alt="Summertime" 
+height="540" width="600"> </strong></p>
+<p>The top line of the music is the melody – what Miles played. The 
+bottom line is the accompanying (or counter) melody the band played 
+throughout the recording. </p>
+<p><strong><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="countbasie_kc7_lester" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleV/davism_evansg_summer.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="V.B_files/davism_evansg_summer.swf" quality="high" 
+bgcolor="#ffffff" name="countbasie_kc7_lester" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="admzuzlqbptshelkhibi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleV/davism_evansg_summer.swf"></a><a
+ class="admzuzlqbptshelkhibi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleV/davism_evansg_summer.swf"></a>
+</object></strong></p>
+<p>0:00 Miles plays the 16 measure long melody with counter melody</p>
+<p>0:35 1<sup>st</sup> trumpet solo chorus – counter melody continues</p>
+<p> 1:10 2<sup>nd</sup> trumpet solo chorus – counter melody continues –
+ flutes louder than the other horns</p>
+<p> 1:46 3<sup>rd</sup> trumpet solo chorus – counter melody continues –
+ played as in the beginning</p>
+<p> 2:22 Miles plays the melody this time taking great liberties – 
+counter melody continues</p>
+<p> 3:03 Band slows down</p>
+<p> 3:16 Summertime ends</p>
+<p>Here's a short clip of Miles Davis and Gil Evans working together on a
+ 1959 television show. They are playing a Dave Brubeck composition 
+called "The Duke." Gil is the one waving his arms as he is about to take
+ off! Believe it or not there was live jazz performed on television in 
+the 1950's. Now that's cool!</p>
+<p><a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/~mus333-c/video/davis_evans.html')">Watch
+the
+ video.</a></p>
+<p>&nbsp;</p>
+</body></html>

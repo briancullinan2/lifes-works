@@ -1,0 +1,17 @@
+[
+v fib1 = 0 + 1
+v fib2 = 1
+
+fo(i = 0, i < i1000, i = 1 + i)
+[
+	fprint fib1
+	fprint fib2
+	fib1 = fib1 + fib2
+	l newfib = fib2 + fib1
+	fib2 = newfib
+]
+
+f fprint(pvar)[
+	p pvar   #prints out 5.08
+	pc 32
+]

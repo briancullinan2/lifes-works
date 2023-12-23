@@ -1,0 +1,22 @@
+You ask "I was told that the drives with 16MB of cache were only
+supplied to OEMs at the time and would be available through retail channels in
+March. Is this still the case or are there delays?Â  "
+
+We apologize, the news ins not good. We are still shipping to EOM's,
+will be until June/July period.
+
+The model numbers are :
+
+ST3250623AS - 250 GB capacity - 16 Megabyte buffer with NCQ enabled
+(Barracuda 7200.8 model)
+ST3300631AS - 300 GB capacity - 16 Megabyte buffer with NCQ enabled
+(Barracuda 7200.8 model)
+ST3400632AS - 400 GB capacity - 16 Megabyte buffer with NCQ enabled
+(Barracuda 7200.8 model)
+
+Thank you for your inquiry. We appreciate your consideration of
+Seagate products for your storage solutions.
+
+
+Richard D.
+Disc Presales

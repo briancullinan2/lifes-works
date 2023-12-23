@@ -1,0 +1,2652 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="III.A_files/styles.css" type="text/css">
+
+<script language="javascript" src="III.A_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Fusion (late 1960s to the 1990s)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="III.A_files/moduleIII.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="III.A_files/moduleIII.gif" alt="module banner" height="125"
+ width="600"> </p>
+<h3><strong>Introduction</strong></h3>
+<p>In the late 1960s, experiments by Miles Davis and others in fusing 
+jazz—or mixing it together with African-American and pop traditions like
+ <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113966071"
+ class="glossarylink" target="_blank">funk</a> and rock—became 
+increasingly popular with audiences. Part of a larger trend in popular 
+music which fused funk and <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113964071"
+ class="glossarylink" target="_blank">roots</a> reggae, rock and <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113977071"
+ class="glossarylink" target="_blank">art music</a>, and folk with 
+everything, jazz <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113972071"
+ class="glossarylink" target="_blank">fusion</a> began to again attract 
+larger listening audiences to jazz.</p>
+<p>The last time that jazz had a mass consumer audience was during the 
+1940s, when swing was the popular music of the day. While fusion never 
+reached swing's height of popularity, it still was the best thing to 
+come along for jazz musicians' bank accounts in a long time.</p>
+<p>Fusion was not embraced by everyone and there was open hostility in 
+the jazz press, in particular, towards innovators like Miles Davis. In 
+some instances, it has taken nearly thirty years for some of the early 
+fusion work to gain influence in jazz.</p>
+As is always the case, too, that while we may be focusing on the latest 
+innovations and innovators in jazz, others jazz styles carried on doing 
+interesting things. While fusion became popular, other jazz styles like 
+bebop, modal, and even dixieland catered to their own audiences who 
+patronized jazz artists that continued to perform and record in that 
+style.
+</body></html><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="III.B_files/styles.css" type="text/css">
+
+<script language="javascript" src="III.B_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Fusion (late 1960s to the 1990s)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="III.B_files/moduleIII.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="III.B_files/moduleIII.gif" alt="module banner" height="125"
+ width="600"> </p>
+<h3><strong><a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113972071"
+ class="glossarylink" target="_blank">Fusion</a> (late 1960s to the 
+1990s)</strong></h3>
+<p>From the late 1960s through the 1990s, jazz has been fused with a 
+variety of <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113962071"
+ class="glossarylink" target="_blank">musical styles</a>. 
+In this <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> of the course, we will
+ focus on those <strong> fusion</strong> styles&amp;
+mdash;<a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113966071"
+ class="glossarylink" target="_blank">funk</a>, rock, and club 
+sound—that were both dominant and most influential at the 
+time. </p>
+<p>Jazz-funk fusion is a mixing of jazz with <strong> funk</strong> to 
+create a more electric 
+and popularly-infused style of jazz. Jazz funk fusion is generally in 
+duple meter and is 
+characterized by highly <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113936071"
+ class="glossarylink" target="_blank">syncopated</a> and complex 
+instrumental <strong> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113991071"
+ class="glossarylink" target="_blank">rhythm section</a></strong> 
+work that frequently creates <strong> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113934071"
+ class="glossarylink" target="_blank">polyrhythms</a></strong>.</p>
+<p>Read the article on<strong> <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.226300#jazz.226300"
+ target="_blank">jazz-rock</a> </strong>fusion. We will discuss club 
+sounds in more detail later in this 
+section of the course. </p>
+<p>Most instruments used in jazz funk and rock fusion are electric 
+(electric guitar, electric bass, 
+electric piano, and synthesizer). The soprano sax—which can cut through 
+the dense 
+electronics more easily—is used much more than alto or tenor.<strong></strong>Both
+ 
+styles frequently use <strong> vamps</strong>, like in funk and rock, 
+while jazz<strong> 
+standards</strong> and <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113933071"
+ class="glossarylink" target="_blank">standard</a> jazz musical forms 
+are not used.<strong> </strong>The 
+emphasis is no longer on improvised solos and the texture in both styles
+ can be quite dense at 
+times. Drummers frequently accent every beat, rather than the beats two 
+and four as in other 
+styles of jazz. Neither jazz funk or rock swings and both styles are 
+played in a straight-ahead 
+manner. While funk, itself, is frequently vocal music backed by a hot 
+instrumental <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a> 
+section, jazz funk (and rock) is almost exclusively instrumental. Listen
+ for these style 
+characteristics when you hear different pieces in this section of the 
+course.</p>
+</body></html><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="III.C.1_files/styles.css" type="text/css">
+
+<script language="javascript" src="III.C.1_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Miles and his bands (late 1960s to early 1970s) </title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="III.C.1_files/moduleIII.css" rel="stylesheet" 
+type="text/css">
+</head><body>
+<p><img src="III.C.1_files/moduleIII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h3><strong>Miles and his bands (late 1960s to early 1970s) </strong></h3>
+<p><strong> </strong><strong> Introduction </strong></p>
+<p>If you need to review the article on <strong> <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.114100#jazz.114100"
+ target="_blank">Miles Davis</a></strong>, please click on link.</p>
+Miles Davis, so characteristically, was not the first to fuse jazz with 
+rock or <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113966071"
+ class="glossarylink" target="_blank">funk</a>. Experiments by 
+Gary Burton, Soft Machine, and Miles' own late 1960s drummer Tony 
+Williams' group Lifetime 
+were recording jazz <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113972071"
+ class="glossarylink" target="_blank">fusion</a> before Miles, but Miles
+ certainly took the new trend and did 
+remarkable things with it.
+</body></html><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="III.C.2_files/styles.css" type="text/css">
+
+<script language="javascript" src="III.C.2_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Bitches Brew (1969-70)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="III.C.2_files/moduleIII.css" rel="stylesheet" 
+type="text/css">
+</head><body>
+<p><img src="III.C.2_files/moduleIII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h3><strong>Bitches Brew (1969-70) </strong></h3>
+<p>Miles' landmark double-LP recording, Bitches Brew, really brought 
+jazz <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113972071"
+ class="glossarylink" target="_blank">fusion</a> experiments to 
+the forefront. The name of the album was said to be from a desert on a 
+menu at Serendipity, a 
+then-famous New York retaurant.</p>
+<p>Teo Macero, Miles' <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113981071"
+ class="glossarylink" target="_blank">producer</a> and head recording 
+engineer in the late 1960s, helped Miles <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113994071"
+ class="glossarylink" target="_blank">mix</a> 
+down albums from long studio jams and live concert tapes. Bitches Brew, 
+alone, was edited down 
+from nine hours of studio tapes. Read about <strong> <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.279800#jazz.279800"
+ target="_blank">Teo Macero</a></strong>. </p>
+<p>Even though two three-minute 45s were issued from the ten to 
+twenty-minute pieces on 
+Bitches Brew, this album—and In a Silent Way (1969) that preceded—it 
+were much 
+different than jazz recordings that came before them.</p>
+<p>In Bitches Brew, listeners had to adjust to the fact that <strong> <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113976071"
+ class="glossarylink" target="_blank">improvisation</a></strong> was not
+ at the heart of these fusion works and could no
+longer be considered the measure of quality for a jazz performance. The 
+album
+featured a great deal of repetition, like that found in <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113966071"
+ class="glossarylink" target="_blank">funk</a> grooves and in pop
+music, and the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113933071"
+ class="glossarylink" target="_blank">standard</a> musical forms used in
+ jazz up to this time were discarded
+and the influence of art or classical music can be heard on the many <strong>through
+composed</strong> forms on the album.</p>
+<p>While Bitches Brew was created as a collaborative effort by Miles' 
+musicians
+  performing  together in the studio, the mix created by Teo Macero 
+created a
+  remarkably new soundscape. "Sometimes you subtract, take away the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a> and
+  leave just the high sound," said 
+Miles, "or take what you know belongs to somebody else and keep the 
+feeling" (<a 
+href="javascript:showPage(-1,%20-1,%20-1,%20'/mod3/Biblio.html',%20'WEBCT_NO_ANCHOR_VALUE',%20'3');">Szwed
+2002,
+ 289-90</a>). Electronica pioneer 
+Brian Eno said that Macero in Bitches Brew "did something that was 
+extremely
+modern,  something that you can only do on records, which is, he took 
+the performance
+to pieces,  spatially. Now, those things were done by a group of 
+musicians in
+a room, all sitting close to one  another . . . but they were all 
+close-miked,
+which meant that their sounds were quite separate  from one another. And
+ when
+Teo Macero mixed the record, he put them miles apart. So this is  very 
+interesting
+to listen to a music, where you have the conga player three streets down
+ the
+ road here, you have the trumpet player on a mountain over there, the 
+guitar
+player—you 
+have to look through binoculars to see him, you know! Everybody is far 
+away,
+and so the  impression that you have immediately is not that you are in a
+ little
+place with a group of people  playing, but that you're on a huge plateau
+ and
+all of these things are going on sort of almost on  the horizon, I 
+think. And
+there's no attempt made by Teo Macero to make them connect with one  
+another.
+In fact, he deliberately disconnects them from one another" <strong>(<a 
+href="javascript:showPage(-1,%20-1,%20-1,%20'/mod3/Biblio.html',%20'WEBCT_NO_ANCHOR_VALUE',%20'3');">Szwed
+ 2002, 298</a>)</strong>.</p>
+<p>In particular, listen to the opening of the title track of Bitches 
+Brew. It
+  starts with bass vamps  that lead to electronic piano 'explosions.' 
+Overtop
+  of this Miles enters and plays with extended  and heavy use of an 
+Echoplex
+  that creates reverberation to the point that he virtually plays duets 
+ with
+  his own echoed sound. Miles even works in an allusion to the Columbia 
+Record's
+  hit 
+"Spinning Wheel" by Blood, Sweat, and Tears (Columbia was his long-time
+record label  and the one that released Bitches Brew). At 2:51 in 
+"Bitches
+Brew," another <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113973071"
+ class="glossarylink" target="_blank">vamp</a> 
+kicks in and so on throughout the piece.</p>
+<p>Listen to <strong> Miles Davis' "Bitches Brew" (1969)</strong>.</p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://
+fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="davism_bitchesbrew" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleIII/davism_bitchesbrew.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="III.C.2_files/davism_bitchesbrew.swf" quality="high" 
+bgcolor="#ffffff" name="davism_bitchesbrew" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://
+www.macromedia.com/go/getflashplayer" align="middle" height="100" 
+width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_bitchesbrew.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_bitchesbrew.swf"></a>
+</object></p>
+<p>The album Bitches Brew was constructed with the help of Miles' 
+regular Quintet that he 
+performed with live and with whom he worked things out for the 
+recording. However, for the 
+album's sessions he doubled things up so that he had basically had a 
+double Quintet (and 
+sometimes more):</p>
+<blockquote>
+  <p>Miles Davis, trumpet </p>
+  <p>Wayne Shorter, soprano sax and Benny Maupin, bass clarinet </p>
+  <p>Chick Corea and Joe Zawinul, electric pianos; with Larry Young, 
+electric piano </p>
+  <p>John McLaughlin, electric guitar </p>
+  <p>Dave Holland and Harvey Brooks, electric and acoustic bass </p>
+  <p>Jack DeJohnette and Lenny White, drums; with Jumma Santos (Jim 
+Riley) and Airto Moreira, 
+percussion; and Charlie Alias, drums</p>
+</blockquote>
+<p>This is a remarkably talented group of younger jazz musicians. Miles 
+was always able to spot 
+and attract the best of quickly-rising talent. Chick Corea, who played 
+keyboards with Miles from 
+1968-70, was using an electronic piano on the Bitches Brew sessions and 
+live with Miles' Quintet, 
+rather than an acoustic piano. Corea further modified the sound with an 
+Echoplex (echo 
+generator) and a ring modulator (an early <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a> of analog synthesizing). 
+Chick, incidentally, 
+thought that Bitchs Brew was merely a slower, more conservative version 
+of the material that 
+they performed regularly live with Miles' Quintet <strong>(<a 
+href="javascript:showPage(-1,%20-1,%20-1,%20'/mod3/Biblio.html',%20'WEBCT_NO_ANCHOR_VALUE',%20'3');">Szwed
+ 
+2002, 296</a>)</strong>. We will discuss Chick Corea, as well as 
+guitarist John McLaughlin, in 
+more detail later in this <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> of the course.</p>
+<p>Austrian jazz composer and keyboardist Joe Zawinul, who played with 
+Miles from the late 
+1960s into the early 1970s, provided several compositions for the 
+Bitches Brew sessions including 
+"Pharaoh's Dance." </p>
+<p>Zawinul's "Pharaoh's Dance" is a programmatic work, in that it was 
+written to tell 
+a story in music. "Pharaoh's Dance" refers to the building of the 
+pyramids. "It 
+begins in a busy, animated spirit, with separate instrumental lines 
+staggering in one after 
+another, overlapping, piling waves of sound on top of quietly bustling 
+percussion," writes 
+John Szwed, "while Benny Maupin's bass clarinet bubbles up from below" <strong>(<a
+ 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod3/Biblio.html"
+ target="_blank">Szwed 2002, 298</a>)</strong>. You can also clearly 
+hear the influence of rock on this track.</p>
+<p>Listen to <strong> Miles Davis' "Pharaoh's Dance</strong>" (1969).</p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://
+fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="davism_bitchesbrew" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleIII/davism_pharaohsdance.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="III.C.2_files/davism_pharaohsdance.swf" quality="high" 
+bgcolor="#ffffff" name="davism_bitchesbrew" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://
+www.macromedia.com/go/getflashplayer" align="middle" height="100" 
+width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_pharaohsdance.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_pharaohsdance.swf"></a>
+</object></p>
+<p>Bassist Dave Holland played with Miles from 1968-70 and, on Bitches 
+Brew, plays <strong> 
+vamps</strong> relentlessly. "A lot of people went into shock when they 
+heard the group,&amp;
+quot; said Dave Holland, "because what we were doing with electronics 
+just wasn't a 
+familiar sound. It was like having someone talk to you in a foreign 
+language" <strong>(<a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod3/Biblio.html"
+ target="_blank">Szwed 2002, 289</a>)</strong>. Read about<strong> <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=music.45689#music.45689"
+ target="_blank">Dave Holland</a>.</strong>
+</p><p>Miles' Quintet drummer, Jack DeJohnette who was with Miles from 
+1969-72, anchored the 
+various drummers and percussionists on the Bitches Brew session. Miles 
+said that he was in 
+charge of the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113991071"
+ class="glossarylink" target="_blank">rhythm section</a> because he was 
+wearing sunglasses. Along with hard rock drummer 
+Lenny White, DeJohnette was striking on every beat, rather than a more 
+standard swinging style 
+of drumming which even more evoked pop music in the sessions. Read about<strong>
+ <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.117400#jazz.117400"
+ target="_blank">Jack DeJohnette</a>.</strong></p>
+<p>Not only were the Bitches Brew sessions remarkable in their results, 
+but the instruments that 
+Miles' band members used was also setting a trend. Gone was the acoustic
+ piano and it was 
+replaced by two electronic pianos with early analog synthesizer 
+modifications. Dave Holland's 
+acoustic bass was supplemented by Harvey Brooks' Fender electric bass. 
+(Brooks was a CBS 
+record producer who also played on sessions for Bob Dylan and recorded 
+with Electric Flag.) 
+Wayne Shorter played soprano sax which could cut through the dense 
+fabric of the ensemble or 
+the electronics better than the lower-pitched alto or tenor sax. The use
+ of two or more 
+drummers, plus assorted percussionists, was also ahead of the curve.</p>
+<p>Most of the pieces on Bitches Brew (1969-70) and its artistic 
+predecessor, In a Silent Way 
+(1969), were very focused on texture, or the 'weave' of sound. While 
+Miles clearly directed and 
+led things by his trumpet playing, the texture was generated more by the
+ ensemble as a whole. 
+So, the focus was on the ebb and flow of texture rather than the more 
+standard focus of a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113970071"
+ class="glossarylink" target="_blank">soloist</a> 
+improvising with subsidiary accompaniment.</p>
+<p>Listen to Miles' wonderful track <strong>"Shhh/Peaceful" from In a </strong><strong>
+ Silent Way</strong><strong> (1969)</strong> that paved the way for 
+Bitches Brew.
+</p><p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://
+fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleIII/davism_shhhpeaceful.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="III.C.2_files/davism_shhhpeaceful.swf" quality="high" 
+bgcolor="#ffffff" allowscriptaccess="sameDomain" type="application/x-
+shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_shhhpeaceful.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_shhhpeaceful.swf"></a>
+</object></p>
+<p>As discussed earlier, many of the pieces on Bitches Brew were 
+generated over vamps. Some 
+were also no more than sketches by Miles of a few <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a> that he wanted to hear 
+voiced by the 
+various members of his band. While there is the flavor of funk or rock 
+fused into In a Silent Way 
+or Bitches Brew, they are really much more complex than any contemporary
+ funk or rock 
+recording. Also, Miles disregarded the funk and rock radio friendly 
+three minute format by 
+recording pieces that lasted from ten to twenty some minutes each.</p>
+<p>In the Bitches Brew sessions, usually one of the pair (or more) of 
+the drummers,
+  pianists, or  bassists would lay down a groove and the other(s) would 
+add to
+  it or play in and around it. In "Bitches Brew," which you listened
+  to earlier, there are also some fifteen edits in the  final mix. Some 
+are tape
+  loops created by Miles and Teo Macero that were used to extend and  
+create
+  vamps from small gestures that were recorded in the session, but then 
+were
+  extended in  the mixdown.</p>
+<p>Miles performed "Miles Runs the Voodoo Down" often live with his 
+Quintet, so it 
+was fairly well formed when they took it into the studio. The title was 
+added to the song by 
+Columbia (and it is a title that Miles always hated).</p>
+<p>Listen to <strong> Miles Davis, "Miles Runs the Voodoo Down"</strong>
+ (1969).
+</p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://
+fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="davism_bitchesbrew" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" 
+value="../audio/moduleIII/davism_milesrunsvoodoo.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="III.C.2_files/davism_milesrunsvoodoo.swf" quality="high" 
+bgcolor="#ffffff" name="davism_bitchesbrew" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://
+www.macromedia.com/go/getflashplayer" align="middle" height="100" 
+width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_milesrunsvoodoo.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_milesrunsvoodoo.swf"></a>
+</object></p>
+<p>&nbsp;</p>
+</body></html><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="III.C.3_files/styles.css" type="text/css">
+
+<script language="javascript" src="III.C.3_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>On the Corner (1972)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="III.C.3_files/moduleIII.css" rel="stylesheet" 
+type="text/css">
+</head><body>
+<p><img src="III.C.3_files/moduleIII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h3><strong>On the Corner (1972) </strong></h3>
+<p>In his 1972 album On the Corner, named after the corner that a young 
+Miles could see from his home behind his father's dentist office in East
+ St. Louis, Miles said that "I was trying to play the music that I grew 
+up on now, that roadhouse, honky-tonk, funky thing that people used to 
+dance to on Friday and Saturday nights" <strong>(<a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod3/Biblio.html"
+ target="_blank">Szwed 2002, 325</a>)</strong>. John Szwed comments that
+ Miles wanted to "thicken the groove by filling in the space where <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113931071"
+ class="glossarylink" target="_blank">harmonic</a> variation would have 
+been in conventional jazz" <strong>(<a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod3/Biblio.html"
+ target="_blank">Szwed 2002, 326</a>)</strong>.</p>
+<p>The album was panned by critics and even fellow musicians. Stan Getz 
+ripped the album by saying that the "music is worthless. It means 
+nothing. There is no <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a>, no content, and it 
+barely swings. The soloists are playing a half tone above and a half 
+tone below so it'll sound modern, but there's nothing to build on or 
+anything logical—nothing" <strong>(<a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod3/Biblio.html"
+ target="_blank">Milkowski 1993, 6</a>)</strong>. <strong> </strong>Getz
+ and other critics were behind the curve and it took almost a generation
+ for jazz musicians to catch up with what Miles was doing on this album.</p>
+<p>In On the Corner, Miles was pushing things even further than on 
+Bitches Brew. The <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113966071"
+ class="glossarylink" target="_blank">funk</a> grooves are more 
+pronounced and Miles is starting to use a wah-wah pedal (usually found 
+in a guitarist's set up) on his amplified trumpet. The <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113994071"
+ class="glossarylink" target="_blank">mix</a> can be quite dense and he 
+used a large number of musicians on the two days of recording sessions. 
+At this time, Miles was obsessively listening to Sly and the Family 
+Stone's "In Time" and the album was heavily influenced by it and the 
+music of James Brown (funk)—of whom Miles was a great fan—rock guitarist
+ Jimi Hendrix, and avant-garde <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113977071"
+ class="glossarylink" target="_blank">art music</a> composer Karlheinz 
+Stockhausen.</p>
+<p>We are going to listen to two cuts from On the Corner: "Black Satin" 
+and the title track "On the Corner." On June 1, 1972 Miles used the 
+following musicians to record, among other works, "On the Corner." A 
+number of the musicians were either regular or former members of Miles 
+bands (*appears before their names).</p>
+<p>Miles Davis, amplified trumpet with wah-wah pedal </p>
+<p>*Dave Liebman, soprano sax </p>
+<p>*Chick Corea, synthesizer </p>
+<p>*Herbie Hancock, organ </p>
+<p>Harold I. Williams, electric piano </p>
+<p>*John McLaughlin, electric guitar </p>
+<p>*Michael Henderson, electric bass </p>
+<p>*Jack DeJohnette, drums </p>
+<p>Billy Hart, drums and percussion </p>
+<p>*Don Alias, conga and percussion </p>
+<p>James 'Mtume' Forman, hand drums and percussion</p>
+<p>Electric bassist Michael Henderson was a former member of Stevie 
+Wonder and Aretha Franklin's bands and specialized in a Motown groove 
+bass style.</p>
+<p>Several non-<a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113933071"
+ class="glossarylink" target="_blank">standard</a> jazz instruments were
+ also used on the session, including eelctric cello (played by Paul 
+Buckmaster), sitar (Collin Walcott), and tabla (Badal Roy). Sitar and 
+tabla are both classical north Indian instruments and were popular 
+sounds in late 1960s-70s recordings due to the use of them by the 
+Beatles. Sitarist Walcott was also a member of the jazz-world music <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113972071"
+ class="glossarylink" target="_blank">fusion</a> group Oregon that 
+featured oboe player Paul McCandless as the group's leader.</p>
+<p>On June 2, 1972 Miles used many of the same musicians, but 
+substituted the following for some from the June 1 session. This is the 
+session where "Black Satin" was recorded.</p>
+<p>*Carlos Garnette, alto and tenor sax (replaces Liebman) </p>
+<p>*Bennie Maupin, bass clarinet </p>
+<p>Lonnie Liston Smith, organ (Hancock moves over to electric piano and 
+synthesizer) </p>
+<p>David Cramer, guitar (replaces McLaughlin) </p>
+<p>other musicians are the same</p>
+<p>Additionally, there were more musicians on one or more of the 
+sessions, although it cannot be determined which, including the 
+following.</p>
+<p>Khalil Balakrishna, acoustic or electric sitar </p>
+<p>*Al Foster, drums </p>
+<p>*Reggie Lucas, guitar </p>
+<p>*Cedric Lawson, synthesizer </p>
+<p><strong>(<a 
+href="javascript:showPage(-1,%20-1,%20-1,%20'/mod3/Biblio.html',%20'WEBCT_NO_ANCHOR_VALUE',%20'3');">Szwed
+ 2002, 322, 325-26, 466</a>)</strong>.</p>
+<p>In "Black Satin," after an <strong> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113967071"
+ class="glossarylink" target="_blank">Intro</a></strong> by tabla, 
+sitar, and synthesizer (they also close the piece with an <strong> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113951071"
+ class="glossarylink" target="_blank">Outro</a></strong>), the groove 
+kicks in and you can hear both a bass <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113973071"
+ class="glossarylink" target="_blank">vamp</a> and a strong James Brown 
+influence on the recording since Miles' drummer lifted his lick from 
+James Brown's recording of "Cold Sweat" <strong>(<a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod3/Biblio.html"
+ target="_blank">Milkowski 1993, 7</a>)</strong>.<strong></strong>Miles'
+ trumpet—which plays the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a> once the groove kicks 
+in—is both amplified and run through a wah-wah pedal—which greatly 
+alters the characteristic sound of the trumpet.</p>
+<p>Listen to <strong> Miles Davis' "Black Satin" (1972)</strong>.</p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="davism_blacksatin" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleIII/davism_blacksatin.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="III.C.3_files/davism_blacksatin.swf" quality="high" 
+bgcolor="#ffffff" name="davism_blacksatin" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_blacksatin.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_blacksatin.swf"></a>
+</object></p>
+<p>The title track of "On the Corner" features a dense groove that is 
+very much like a James Brown groove in its complexity, even though the 
+sound and detail of the "On the Corner" groove is not exactly 
+straight-ahead funk. About 2:30 into the piece, the drummers shift to a 
+more rock-based beat. "On the Corner" features an extended soprano sax <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> by Dave Lieberman who was
+ brought into the session after it had begun and could barely hear what 
+the other musicians in the session were doing! The piece ends abruptly, 
+since it <strong> segues</strong> into the next piece on the album, "New
+ York Girl," which we will not listen to here. <strong></strong></p>
+<p>Listen to <strong> Miles Davis' "On the Corner" (1972)</strong>. </p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="davism_blacksatin" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleIII/davism_onthecorner.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="III.C.3_files/davism_onthecorner.swf" quality="high" 
+bgcolor="#ffffff" name="davism_blacksatin" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_onthecorner.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_onthecorner.swf"></a>
+</object></p>
+<p>&nbsp;</p>
+</body></html><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="III.D.1_files/styles.css" type="text/css">
+
+<script language="javascript" src="III.D.1_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>John McLaughlin</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="III.D.1_files/moduleIII.css" rel="stylesheet" 
+type="text/css">
+</head><body>
+<p><img src="III.D.1_files/moduleIII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h3><strong>John McLaughlin </strong></h3>
+<p> Collaborator with Miles Davis on In a Silent Way and Bitches Brew, 
+guitar virtuoso John 
+McLaughlin posses a remarkable technique. Read about <strong> <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.282500#jazz.282500"
+ target="_blank">John McLaughlin</a></strong>.</p>
+<p><strong>Mahavishnu Orchestra (1971-75) </strong></p>
+<p> In 1970, McLaughlin became a disciple of Indian guru Sri Chinmoy. At
+ this time he also 
+started the Mahavishnu Orchestra (1971), a name suggested by Chinmoy, 
+that featured a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113972071"
+ class="glossarylink" target="_blank">fusion</a> 
+of jazz, rock, and Indian music.</p>
+<p>McLaughlin's jazz <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113976071"
+ class="glossarylink" target="_blank">improvisation</a> with the 
+Mahavishnu Orchestra was very rock-oriented and 
+featured his blistering, rapid-fire, and many-notes-per-second guitar 
+virtuosity. He also 
+frequently altered his amplified sound along similar lines as other 
+contemporary rock guitarists.&lt;
+/p&gt;
+</p><p> There have been three incarnations of the Mahavishnu Orchestra, 
+the last in the mid-1980s, 
+the second which featured the electric violinist John Luc Ponty, and the
+ first and most talented 
+version of the band which featured McLaughlin on electric guitar, </p>
+<p> Jerry Goodman on violin, Rick Laird on electric bass, Billy Cobham 
+on drums, and Jan 
+Hammer on piano and synthesizer. Read about <strong> <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.186000#jazz.186000"
+ target="_blank">Jan Hammer</a></strong>.  Billy Cobham, who 
+also played with McLaughlin in Miles' bands from 1969-71, was a strong 
+influence in the 
+Mahavishnu Orchestra. Read about <strong> <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.092800#jazz.092800"
+ target="_blank">Billy Cobham</a></strong>.</p>
+<p> The three pieces of "The Sunlit Path," "La Mere de la Mer" [The Sea 
+of the Sea], and "Tomorrow's Story Not the Same" are played as a single,
+ three-part 
+work in a live, 1972 performance released the next year as Between 
+Nothingness &amp; Eternity 
+(1973).</p>
+<p> Follow the listening chart, below, as you listen to all three 
+sections of
+  the <strong> Mahavishnu Orchestra's "Trilogy: The Sunlit Path;
+La Mere de la Mer; Tomorrow's Story Not the Same" (1973)</strong>. </p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://
+fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="mahavishnu_orch_trilogy" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" 
+value="../audio/moduleIII/mahavishnu_orch_trilogy.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="III.D.1_files/mahavishnu_orch_trilogy.swf" quality="high" 
+bgcolor="#ffffff" name="mahavishnu_orch_trilogy" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://
+www.macromedia.com/go/getflashplayer" align="middle" height="100" 
+width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/mahavishnu_orch_trilogy.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/mahavishnu_orch_trilogy.swf"></a>
+</object></p>
+<p>0:00-1:02
+  Opening strokes on the gong </p>
+<p> 1:02-3:52 "The Sunlit Path" Opens much as a rock performance, with a
+ <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113973071"
+ class="glossarylink" target="_blank">vamp</a> 
+that bubbles up to McLaughlin's <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> lead guitar trading back 
+and forth every two bars with Jan 
+Hammer to start things off. </p>
+<p> 3:52-6:11 "La Mer de la Mer" </p>
+<p> 6:11-10:55 "Tomorrow's Story Not the Same" </p>
+<p> 10:55 -end Return of "The Sunlit Path" vamp to end</p>
+</body></html><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="III.E.1_files/styles.css" type="text/css">
+
+<script language="javascript" src="III.E.1_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Herbie Hancock</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="III.E.1_files/moduleIII.css" rel="stylesheet" 
+type="text/css">
+<script language="JavaScript">
+<!-- Hide from non-Javascript browsers
+function windowOpen(url)
+{
+open(url, "remote", "directories=no,location=no,menubar=no,resizable=yes,scrollbars=no,status=yes,toolbar=no,width=315,height=315"); 
+}
+// -->
+</script>
+</head><body>
+<p><img src="III.E.1_files/moduleIII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h3><strong>Herbie Hancock </strong></h3>
+<p> Review, if you would like to, the article on <strong> <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.186700#jazz.186700"
+ target="_blank">Herbie Hancock</a></strong>.<strong> </strong>
+</p>
+<p> Along with his groundbreaking work with drummer Tony Williams and 
+bassist Ron Carter 
+with Miles Davis, Herbie Hancock also recorded many early and important <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113972071"
+ class="glossarylink" target="_blank">fusion</a> works. For 
+example, his hit "Watermelon Man" (1962), featured a strong gospel 
+sound. 
+Throughout the 1960s, Hancock was also composing music for television 
+and radio commercials, 
+so he knew what was popular and what would sell.</p>
+<p> "Cantaloupe Island" is a classic example of his early 1960s fusion
+  work from  the album Empyrian Isles (1964) that featured Hancock 
+(keyboards),
+  Freddy Hubbard (trumpet),  Ron Carter (bass), and Tony Williams 
+(drums). </p>
+<p>Listen to <strong> Herbie Hancock's "</strong><strong> Cantaloupe</strong><strong>
+ Island</strong><strong> ."</strong></p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://
+fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="mahavishnu_orch_trilogy" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleII/hancockh_cantalope.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="III.E.1_files/hancockh_cantalope.swf" quality="high" 
+bgcolor="#ffffff" name="mahavishnu_orch_trilogy" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://
+www.macromedia.com/go/getflashplayer" align="middle" height="100" 
+width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleII/hancockh_cantalope.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleII/hancockh_cantalope.swf"></a>
+</object></p>
+Watch <a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/%7Emus333-c/video/hancock_eyehurricane.html')">
+ Herbie
+Hancock perform with Ron Carter, and Billy Cobham on "Eye of the 
+Hurricane."</a>
+</body></html><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="III.F.1_files/styles.css" type="text/css">
+
+<script language="javascript" src="III.F.1_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Chick Corea</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="III.F.1_files/moduleIII.css" rel="stylesheet" 
+type="text/css">
+</head><body>
+<p><img src="III.F.1_files/moduleIII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h3><strong>Chick Corea </strong></h3>
+<p>Another former member of Miles' bands (1968-70) is keyboard great 
+Chick Corea who, along 
+with Miles alumni Herbie Hancock and John Coltrane Quartet pianist McCoy
+ Tyner, are probably 
+the most influential post-1960s keyboard players in jazz. Read about <strong>
+ <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.102200#jazz.102200"
+ target="_blank">Chick Corea</a></strong>.</p>
+<p>Corea has created and continues to perform with some of the most 
+important <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113972071"
+ class="glossarylink" target="_blank">fusion</a> groups 
+working in jazz. Among many, including Circle (1969-72), is Return to 
+Forever (1971-72) that 
+created an interesting <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113994071"
+ class="glossarylink" target="_blank">mix</a> of jazz, Latin, and pop 
+music. From 1973 into the late 1970s, an 
+electric version of Return to Forever was fronted by Corea, now 
+performing on Fender-Rhodes 
+electric piano, Hohner Clavinet, Yamaha Organ, and Minimoog and ARP 
+Odyssey synthesizers. 
+The band also featured, in turn, on electric guitar Bill Connors, Earl 
+Klugh, and virtuoso guitarist 
+Al Di Meola, drummer Lenny White (another former Miles band member), and
+ electric bass 
+wonder Stanley Clarke. Read about <strong> <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.089700#jazz.089700"
+ target="_blank">Stanley Clarke</a></strong>.</p>
+<p>"Vulcan Worlds" is a Stanley Clark composition that features unison 
+ensemble 
+playing that was heavily synthesized and full of electronics, all set 
+over rock beats and <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113966071"
+ class="glossarylink" target="_blank">funk</a> bass 
+lines. Listen to <strong> Return to Forever's "Vulcan Worlds."</strong></p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://
+fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="returnforever_vulcan" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleIII/returnforever_vulcan.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="III.F.1_files/returnforever_vulcan.swf" quality="high" 
+bgcolor="#ffffff" name="returnforever_vulcan" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://
+www.macromedia.com/go/getflashplayer" align="middle" height="100" 
+width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/returnforever_vulcan.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/returnforever_vulcan.swf"></a>
+</object></p>
+<p>In the late 1980s, Corea put together another virtuosic fusion group 
+called the Elektric Band, 
+which consisted of</p>
+<blockquote>
+  <p>Chick Corea, midi piano and synthesizers </p>
+  <p>Eric Marienthal, sax </p>
+  <p>Frank Gamble, guitar </p>
+  <p>John Patitucci, electric bass </p>
+  <p>Dave Weckl, drums</p>
+</blockquote>
+<p>They released two very successful recordings, Elektric Band (1986) 
+and Inside Out (1990) 
+and further spawned an acoustic trio—Akoustic Band—of Corea (acoustic 
+piano), 
+John Patitucci (acoustic bass), and Dave Weckl (drums) drawn from the 
+larger, electric 
+ensemble.</p>
+<p>"Inside Out" is the title track of the 1990 Eleckric Band release.
+  It is a very commercially-appealing, fusion work. However, most of the
+ <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a>
+  used in the piece are major 7th chords and the piece also has a great 
+deal of <strong> parallel 
+motion</strong>. <strong></strong>"Inside Out" opens with an interesting
+ <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113922071"
+ class="glossarylink" target="_blank">chord</a> 
+progression whose <strong> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113964071"
+ class="glossarylink" target="_blank">roots</a></strong> ascend in an 
+alternating <strong> whole</strong> 
+and <strong> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113946071"
+ class="glossarylink" target="_blank">half step</a></strong> pattern 
+(am7/D-bm7/D-CM7/D-dm7/D-Eb = whole-half-whole-
+half steps), that is then followed by a root movement that descends by<strong></strong>half
+ 
+steps (in <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113965071"
+ class="glossarylink" target="_blank">mm</a>. 10-11, we hear 
+CM7-BM7-BbM7-A7-AbM7-Gm7).<strong></strong></p>
+<p>Listen to <strong>Chick Corea and Elektric Band's "Inside Out" (1990)</strong>.</p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://
+fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="returnforever_vulcan" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleIII/coreachick_insideout.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="III.F.1_files/coreachick_insideout.swf" quality="high" 
+bgcolor="#ffffff" name="returnforever_vulcan" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://
+www.macromedia.com/go/getflashplayer" align="middle" height="100" 
+width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/coreachick_insideout.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/coreachick_insideout.swf"></a>
+</object></p>
+<p>&nbsp;</p>
+</body></html><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="III.G.1_files/styles.css" type="text/css">
+
+<script language="javascript" src="III.G.1_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Miles in the 1980s</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="III.G.1_files/moduleIII.css" rel="stylesheet" 
+type="text/css">
+<script language="JavaScript">
+<!-- Hide from non-Javascript browsers
+function windowOpen(url)
+{
+open(url, "remote", "directories=no,location=no,menubar=no,resizable=yes,scrollbars=no,status=yes,toolbar=no,width=315,height=315"); 
+}
+// -->
+</script></head><body>
+<p><img src="III.G.1_files/moduleIII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h3><strong>Miles in the 1980s </strong></h3>
+<p>Miles returned to performing after a stroke in 1982 and moved into a 
+much more aggressive club <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113972071"
+ class="glossarylink" target="_blank">fusion</a> style. True to <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a>, he was able to identify 
+and hire many young and innovative musicians into his band, including 
+Branford Marsalis (tenor and soprano sax), John Scofield (electric 
+guitar), Bob Berg (tenor sax), and Bill Evans (tenor and soprano sax). 
+He often used multiple guitarist, many of whom were very rock-oriented.</p>
+<p>Miles also continue to exploit African imagery and contemporary 
+sounds in his late 1980s albums. His 1986 release, Tutu, features 
+dominant synthesizer work by Marcus Miller (with whom he had worked 
+previously in 1983). Miller played most of the instruments on the album 
+as the songs were built up in the studio, much like a pop 
+recording—instrument by instrument—creating a heavy, club beat for many 
+of the cuts.</p>
+<p>"When I talked to [Miles] about the forties and the fifties," said 
+Marcus Miller, "I got the impression that there was a direct link 
+between the way people walked down the street and the popular music and 
+the bebop that these guys played. The bebop was just an extension of the
+ dance music of the time. So the music was connected with everything in 
+Miles' life, and when you realize that, you begin to see that for a guy 
+like him, music is just a reinterpretation of what's going on. And 
+that's all it is. So for him it didn't make any sense to play in 1983 
+the same music he'd played in 1963. I learned that you should connect 
+your music with your times. The downside being that the music might not 
+last, because there's been plenty of music that was connected to its 
+time and just stayed there. You can only hope that at a certain point it
+ will transcend its time. But you can't think about that: you have to 
+concentrate on making your music relevant to what's going on" <strong>(<a
+ 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod3/Biblio.html"
+ target="_blank">Szwed 2002, 384</a>)</strong>.</p>
+<p>Jazz critics initially attacked Tutu, much like they had earlier with
+ Bitches Brew and for many of the same reasons. However, Warner Bros. 
+promoted the album heavily, created a music video for it by the young, 
+unknown, film director Spike Lee, and Tutu eventually won a Grammy.</p>
+<p>In "Splatch," Miles improvs over a heavy club beat. The piece 
+features Miles on trumpet backed by Marcus Miller's synthesizer work. 
+Adam Holzman is also featured on a synthesizer <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> and Paulhino da Costa and
+ Steve Reid add extra percussion.</p>
+<p>Listen to <strong> Miles Davis' "Splatch" (1986). </strong></p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="mahavishnu_orch_trilogy" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleIII/davism_splatch.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="III.G.1_files/davism_splatch.swf" quality="high" 
+bgcolor="#ffffff" name="mahavishnu_orch_trilogy" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_splatch.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_splatch.swf"></a>
+</object></p>
+<p>"Perfect Way" from Tutu features an even more commercial groove
+  by Marcus Miller that closely duplicates the original by Scritti 
+Politti over
+  which Miles improvises <strong>(<a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod3/Biblio.html"
+ target="_blank">Szwed
+  2002, 383</a>)</strong>.</p>
+<p>Listen to <strong> Miles Davis' "</strong><strong>Perfect Way</strong><strong>"
+ (1986).</strong></p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="mahavishnu_orch_trilogy" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleIII/davism_perfectway.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="III.G.1_files/davism_perfectway.swf" quality="high" 
+bgcolor="#ffffff" name="mahavishnu_orch_trilogy" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_perfectway.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_perfectway.swf"></a>
+</object></p>
+<p>Marcus Miller considered that the title cut of the Tutu album to be 
+in a New Orleans style <strong>(<a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod3/Biblio.html"
+ target="_blank">Szwed 2002, 383</a>)</strong>. Miles and his band 
+performed "Tutu" on Novemebr 3, 1989 at the Tenth Paris Jazz festival. 
+His band featured the following musicians.</p>
+<blockquote>
+  <p>Miles Davis, trumpet </p>
+  <p>Kenny Garrett, sax and flute </p>
+  <p>Kei Akagi, keyboards </p>
+  <p>Joseph 'Foley' McCreary, lead bass </p>
+  <p>Benjamin Rietveld, bass </p>
+  <p>Ricky Welmlan, drums </p>
+  <p>John Bingham, electric percussion</p>
+</blockquote>
+<p>Watch the video of <strong> <a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/%7Emus333-c/video/davism_tutu.html')">Miles
+Davis'
+ "Tutu" (1989). </a></strong></p>
+</body></html><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="III.H.1_files/styles.css" type="text/css">
+
+<script language="javascript" src="III.H.1_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Conclusion</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="III.H.1_files/moduleIII.css" rel="stylesheet" 
+type="text/css">
+</head><body>
+<p><img src="III.H.1_files/moduleIII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h3><strong>Conclusion</strong></h3>
+<p> In this <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113972071"
+ class="glossarylink" target="_blank">Fusion</a> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> of the course, we have
+ listened to and viewed a number of historically important performances.
+ We have discussed important fusion innovators and jazz styles from the 
+early1960s through the 1990s that resulted from fusions with <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113966071"
+ class="glossarylink" target="_blank">funk</a>, rock, and club sounds. </p>
+</body></html>

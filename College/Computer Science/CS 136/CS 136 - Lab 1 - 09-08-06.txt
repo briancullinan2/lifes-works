@@ -1,0 +1,65 @@
+1.
+java.net - for notifying employees
+java.lang.Math - for calculating charges
+java.sql - for storing the information in an sql database
+
+2.
+StringTokenizer depends on String
+PrintStream depends on String
+
+3.
+Accessors:
+countTokens
+hasMoreElements
+hasMoreTokens
+
+Mutators:
+nextElements
+nextToken
+
+4.
+The side effect is because of private being declared double.  Doubles are not presice.  It should be defined as integer.  If coins are expressed with a decimal point (eg. 1.50) then two integers should be used to store values for both sides of the decimal point.
+
+5.
+getPurchaseAmount returns purchase >= 0
+
+6.
+import java.lang.Math
+
+public class Goemetry
+{
+       public double getCircum(Circle circle)
+       {
+               return (circle.getRadius() * 2 * Math.PI);
+       }
+
+       public double getArea(Circle circle)
+       {
+               return (circle.getRadius() * circle.getRadius() * Math.PI);
+       }
+}
+
+public class Circle
+{
+       private double _Radius
+       public Circle()
+       {
+               _Radius = 0;
+       }
+
+       public Circle(double Radius)
+       {
+               _Radius = Radius;
+       }
+
+       public double getRadius()
+       {
+               return _Radius;
+       }
+}
+
+7.
+Computing the area and circumferance in a more object oriented solution could be done by making each calculating function is own class.  Then extra class could be referred to without having to change the parent class.
+
+8.
+Keyword 'this' provides access to the classes variable.

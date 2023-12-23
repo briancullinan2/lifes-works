@@ -1,0 +1,271 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="VIII.C.1.c_files/styles.css" 
+type="text/css">
+
+<script language="javascript" src="VIII.C.1.c_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=LYt9LjGYyQ9YtkC2QgpTppT1W3h8Fw1tnLdwqwCzJcvhJy2ld6mQ!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273185368864";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=LYt9LjGYyQ9YtkC2QgpTppT1W3h8Fw1tnLdwqwCzJcvhJy2ld6mQ!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273185368864";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<title>“The Stampede” </title>
+<link href="VIII.C.1.c_files/moduleVIII.css" rel="stylesheet" 
+type="text/css">
+</head><body>
+<p><img src="VIII.C.1.c_files/moduleVIII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h2>New York Swing</h2>
+<h3>“The Stampede” </h3>
+<p>“The Stampede,” recorded by the Henderson Orchestra in 1926, is a 
+transitional work that contains elements of both Dixieland and Swing 
+styles. The song was composed by Henderson and arranged by Redman. The <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a>, with the inclusion of
+ the tuba and banjo, is pure Dixieland. The tuba is playing on beats 1 
+and 3 of each bar throughout the entire performance, while the banjo 
+accents beats 2 and 4. The resulting two-beat feel is <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113933071"
+ class="glossarylink" target="_blank">standard</a> for Dixieland. The 
+horn background heard during the tenor saxophone <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> is played on beat 2 of 
+each bar, further establishing the two-beat feel.</p>
+<p>Aside from the tenor solo background, the treatment of the horns is 
+quite different from that of a Dixieland band horn section. The 
+evolution toward Swing is clear in a number of ways.</p>
+<ul>
+  <li>There is no group <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113976071"
+ class="glossarylink" target="_blank">improvisation</a>. Only one 
+instrument is featured in the solo sections.</li>
+  <li>The solos themselves are more lyrical. The improvised lines are 
+much longer and are more melodic in character.</li>
+  <li>The horns not playing a solo are used strictly as accompaniment</li>
+  <li>There are distinct divisions between the band ensemble sections 
+and the solos. An ensemble section ends and a solo section begins—a solo
+ section ends and an ensemble section begins.</li>
+  <li>Both Don Redman as the arranger and his written arrangement have 
+taken on greater importance. The arrangement is not improvised. 
+Individual parts are provided for and are read by every player.</li>
+</ul>
+<p>“The Stampede” is an ABAC <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a> and features solos by 
+trumpet players Rex Stuart and Joe Smith. Coleman Hawkins, one of the 
+few players who made the transition from Dixieland through Swing to Bop,
+ plays the tenor saxophone solo.</p>
+<p>Follow the chart below as you listen to <strong> The Fletcher </strong><strong>
+ Henderson</strong><strong> Orchestra’s “The Stampede” (1926).</strong></p>
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="hendersonf_stampede" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleVIII/hendersonf_stampede.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="VIII.C.1.c_files/hendersonf_stampede.swf" quality="high" 
+bgcolor="#ffffff" name="hendersonf_stampede" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVIII/hendersonf_stampede.swf"></a>
+</object>
+<p><strong>Introduction</strong></p>
+<p>0:00-0:17 16mm</p>
+<p> 4mm horn ensemble</p>
+<p> 4mm Stuart trumpet solo</p>
+<p> 4mm horn ensemble</p>
+<p> 4mm Stuart trumpet solo</p>
+<p><strong>1st <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113953071"
+ class="glossarylink" target="_blank">chorus</a></strong></p>
+<p>0:17-0:25 <strong>A</strong> </p>
+<p>0:25-0:33 <strong>B</strong> </p>
+<p>0:33-0:42 <strong>A</strong></p>
+<p>0:42-0:50 <strong>C</strong> </p>
+<p><strong>2nd chorus</strong></p>
+<p>0:50-1:24 Tenor saxophone solo begins. Solo lasts for one chorus with
+ a solo break the last 2 bars of letter <strong>B</strong>. Horns play 
+accompaniment on beat 2.</p>
+<p>1:24-1:29 4 bar ensemble interlude</p>
+<p><strong>3rd chorus</strong></p>
+<p> 1:29-2:01 Trumpet solo (Smith) begins. Solo lasts for one chorus 
+with a solo break the last 2 bars of <strong>B</strong>. Other horns 
+play smooth, sustained notes as a background. </p>
+<p> 2:01 4 bar ensemble interlude (C of trumpet solo is shortened by 2 
+bars.)</p>
+<p><strong>4th chorus</strong></p>
+<p> 2:05-2:39 Written ensemble chorus featuring a wailing clarinet trio 
+(three clarinets playing together), a feature used by Don Redman in this
+ and other arrangements.</p>
+<p><strong>5th chorus</strong></p>
+<p> 2:39-2:52 Trumpet solo (Stuart) begins and lasts for 12 bars </p>
+<p> 2:52 to end Ensemble enters and plays <strong>A </strong>and <strong>C</strong>
+ to end.</p>
+<p> This wonderful arrangement and the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113943071"
+ class="glossarylink" target="_blank">fine</a> playing point out the 
+stylistic tug of war that was going on the time. The <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113991071"
+ class="glossarylink" target="_blank">rhythm section</a> was pulling 
+back to Dixieland, while the arranged horns and individual solos were 
+moving forward into Swing. </p>
+<p><strong> </strong> </p>
+</body></html>

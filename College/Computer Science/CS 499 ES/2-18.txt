@@ -1,0 +1,40 @@
+Lookup what these clocks are for.
+
+ACLK -> 2, supposed to be 32 KHZ (but ours is a VLO, 2KHZ-16KHZ) 12ish
+SMCLK -> 6,  subsystem master clock, 1.1 MHZ
+TClk -> 8
+SCLK -> 7
+
+P1DIR = BIT3; (Bin 1000);
+P1SEL = BIT3; (Bin 1000);
+
+cant be done with smclk, we cant send a byte every clock signal
+
+could use the aclk
+
+P1DIR =1;
+P1SEL = 1;
+
+setup a timer (with 1) or interrupt on the clock itself, 
+
+
+What is the BEST WAY TO DRIVE IT.
+
+flip whenever we want the clock to tick.
+
+Have to look up how fast on the datasheet the shift register can go.
+
+Serial out from our processor
+serial to parallel CHIP
+sn54hc595
+
+need another clock to run the LCD.
+
+lcd
+adm1602k
+
+
+KEYPAD
+
+
+

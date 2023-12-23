@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* CSS Document */
+
+LI {
+	MARGIN-BOTTOM: 10px
+}
+OL {
+	MARGIN-TOP: 5px
+}
+#Main {
+	FLOAT: left;
+	WIDTH: 800px;
+	height:600px;
+	border: #669999 2px solid;
+	padding:5px;
+}
+#ToolBox {
+	FLOAT: left;
+	WIDTH: 100px;
+	height:400px;
+	border: #669999 2px solid;
+	padding:5px;
+}
+#ToolBox .DragBox *, #ToolBox .OverDragBox * {
+	display:none;
+}
+
+#ToolBox .DragBox, #ToolBox .OverDragBox {
+	height:40px;
+	border:1px solid #000000;
+	cursor:move;
+}
+
+.OverDragContainer {
+	FLOAT: left;
+	border: #669999 2px solid;
+	padding:5px;
+}
+.DragBox {
+	float:left;
+	BACKGROUND-COLOR: #eee;
+	clear:both;
+	cursor:move;
+}
+.OverDragBox {
+	float:left;
+	BACKGROUND-COLOR: #ffff99;
+	clear:both;
+	cursor:move;
+}
+.DragDragBox {
+	float:left;
+	FILTER: alpha(opacity=50);
+	BACKGROUND-COLOR: #ff99cc;
+	clear:both;
+	cursor:move;
+}

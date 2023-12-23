@@ -1,0 +1,26 @@
+Harper P Johnson - Internet security manager
+We have special access
+CIA - Information security - confedentiality integrity availibility
+Secure productivity - most important
+Security - a negative deliverable you don't know when you have it until you've lost it.
+Attacks on universities are raising concern.
+Berkeley admissions laptop stolen
+New windows worm on the way?
+UCLA says laptop with blood donor data stolen
+
+It would be cool to make an NAU specific spyware to steal logins from students and teacher and eventually access server.
+
+University owned systems
+- no expectation of privacy, even presidents are no exception
+Sensitive Info
+- laptops especially vulnerable
+So more secure with professional help; then without it
+
+secURITy
+Almost 10 percent of all e-mail messages carry a malicious virus of some type
+IMAP
+NAUs recommended configuration
+inbox resides on server, backed up, no synchro worries, can create other folders or save on individual system
+Phishing = good idea
+
+Most this stuff we already know because we work in an office fixing other peoples problems

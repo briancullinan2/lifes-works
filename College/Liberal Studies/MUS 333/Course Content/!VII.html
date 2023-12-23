@@ -1,0 +1,1392 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="VII.A_files/styles.css" type="text/css">
+
+<script language="javascript" src="VII.A_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=3JcQLjfRvCGgSSRFLzhzLghVgvwWzzNdGDvL2T6THQnTgdBpCJbD!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273176049675";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=3JcQLjfRvCGgSSRFLzhzLghVgvwWzzNdGDvL2T6THQnTgdBpCJbD!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273176049675";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Introduction</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="VII.A_files/moduleVII.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="VII.A_files/moduleVII.gif" alt="module banner" height="125"
+ width="600"> </p>
+<h3><strong>Introduction</strong></h3>
+<p> There were several swing performers that laid the foundation for 
+later developments in bebop and cool. Tenor saxophonists Coleman 
+Hawkins, Ben Webster, and Benny Carter and trumpeter Roy Eldridge 
+changed the way swing musicians improvised. Pianist Art Tatum brought an
+ incredible virtuosity to the table that bebop would seize upon and 
+continue to develop. Tenor saxophonist Lester Young would lay the 
+groundwork for a new, cooler style of expression.</p>
+</body></html><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="VII.B.1.a_files/styles.css" type="text/css">
+
+<script language="javascript" src="VII.B.1.a_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=3JcQLjfRvCGgSSRFLzhzLghVgvwWzzNdGDvL2T6THQnTgdBpCJbD!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273176049675";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=3JcQLjfRvCGgSSRFLzhzLghVgvwWzzNdGDvL2T6THQnTgdBpCJbD!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273176049675";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Coleman Hawkins</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="VII.B.1.a_files/moduleVII.css" rel="stylesheet" 
+type="text/css">
+</head><body>
+<p><img src="VII.B.1.a_files/moduleVII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h3><strong>Coleman Hawkins</strong></h3>
+<p> Coleman Hawkins was an enormously influential tenor sax player and 
+an important figure that help transform swing into bebop. One recording 
+that helps cast into sharp relief the differences between swing and 
+bebop <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113976071"
+ class="glossarylink" target="_blank">improvisation</a> is Coleman 
+Hawkins' landmark 1939 recording of Johnny Green's popular song "Body 
+and Soul."</p>
+<p>First, though, read the article on <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.194400.1"
+ target="_blank">Coleman Hawkins</a>.
+</p>
+<p> Let's start off with a classic swing version of "Body and Soul," 
+recorded in 1935 by swing clarinet great Benny Goodman backed by Teddy 
+Wilson on piano and drummer Gene Krupa. We will discuss Benny Goodman's 
+career later in the Swing <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> of the course.</p>
+<p> In Goodman's recording of "Body and Soul," he presents a notable 
+example of the common swing manner of improvising in a popular song 
+ballad (a moderately-paced love song). Goodman keeps the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a> audible virtually 
+throughout his improvisation. The melody is decorated or merely 
+ornamented. He adds turning figures as decoration and modifies the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a> of the original only 
+enough that a listener (or dancer) would never loose the sense of the 
+original tune. In effect, the melody is stylized rather than recomposed.</p>
+<p> The <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a> of "Body and Soul" is 
+32-bar A A B A form (<a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113935071"
+ class="glossarylink" target="_blank">song form</a>). Please listen 
+closely to just the first <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113953071"
+ class="glossarylink" target="_blank">chorus</a> performed by Goodman in
+ the first two A sections, then Wilson on piano in the bridge (B), with 
+Goodman returning for the final A section. </p>
+Follow the chart below to listen to just the first chorus of the <strong>Benny
+Goodman
+ Trio's "Body and Soul" (1935)</strong>.
+<p><strong><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="goodmanb3_bodysoul" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleVII/goodmanb3_bodysoul.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="VII.B.1.a_files/goodmanb3_bodysoul.swf" quality="high" 
+bgcolor="#ffffff" name="goodmanb3_bodysoul" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVII/goodmanb3_bodysoul.swf"></a>
+</object></strong></p>
+<p><strong><a 
+href="http://jan.ucc.nau.edu/%7Emus333-c/scores/body_and_soul.html" 
+target="_blank">Click to see transcription of Hawkins' "Body and Soul."</a></strong></p>
+<table border="0">
+  <caption>
+  Listening Chart
+  </caption>
+  <tbody><tr>
+    <td colspan="3"><strong>1st chorus </strong></td>
+  </tr>
+  <tr>
+    <td width="15%">0:00-0:21</td>
+    <td width="7%"><div align="center">A</div></td>
+    <td width="78%">Goodman (clarinet) stylizes melody </td>
+  </tr>
+  <tr>
+    <td>0:21-0:40</td>
+    <td><div align="center">A</div></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>0:40-1:00</td>
+    <td><div align="center">B</div></td>
+    <td>Wilson , piano </td>
+  </tr>
+  <tr>
+    <td>1:00-1:20</td>
+    <td><div align="center">A</div></td>
+    <td>Goodman. clarinet </td>
+  </tr>
+  <tr>
+    <td colspan="3">[etc.] 
+    <div align="center"></div></td>
+  </tr>
+</tbody></table>
+<p>Coleman Hawkins, after leaving swing great Fletcher Henderson's <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113954071"
+ class="glossarylink" target="_blank">big band</a> in 1934, he worked 
+with a number of European groups (and American musicians working in 
+Europe like saxophonist Benny Carter) for five years. In 1939, Hawkins 
+was back in the US and back in the recording studio as a bandleader of a
+ newly-formed nonet (nine piece) band. </p>
+<p>Hawkins' 1939 recording of "Body and Soul" could not be more 
+different than Benny Goodman's recording made just four years earlier. 
+Rather than focusing on the tune like Goodman, Hawkins soon casts off 
+much of the tune and creates a wholly new composed (improvised) line in 
+an even eighth note rhythm. He uses melodically or linearly spread out <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a> tones (called an 
+arpeggio) that <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113974071"
+ class="glossarylink" target="_blank">harmonize</a> the tune. Hawkins' 
+improvisation is generated whole cloth from the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113922071"
+ class="glossarylink" target="_blank">chord</a> changes and completely 
+turns away from swing's signature thematic or decoratively melodic 
+focus. By the second chorus, Hawkins has left the melody and never turns
+ back. </p>
+<p>Follow the chart below and listen to <strong>Coleman Hawkins
+and His Orchestra's "Body and Soul" (1939)</strong>.</p>
+<p><strong> <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+ 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="goodmanb3_bodysoul" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleVII/hawkinsc_bodysoul.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="VII.B.1.a_files/hawkinsc_bodysoul.swf" quality="high" 
+bgcolor="#ffffff" name="goodmanb3_bodysoul" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVII/hawkinsc_bodysoul.swf"></a>
+</object> </strong></p>
+
+<table border="0">
+  <caption>
+  Listening Chart
+  </caption>
+    <tbody><tr>
+    <td>0:00-0:10</td>
+    <td><div align="center">4mm</div></td>
+    <td><div align="center"><a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113967071"
+ class="glossarylink" target="_blank">Intro</a></div></td>
+    <td> piano <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a></td>
+  </tr>
+  <tr>
+    <td colspan="4"><strong>1st chorus </strong></td>
+  </tr>
+  <tr>
+    <td width="14%">0:10-0:31</td>
+    <td width="8%"><div align="center">8mm</div></td>
+    <td width="7%"><div align="center">A</div></td>
+    <td width="71%">Hawkins, tenor sax solo, accompanied only by <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113991071"
+ class="glossarylink" target="_blank">rhythm section</a></td>
+  </tr>
+  <tr>
+    <td>0:31-0:51</td>
+    <td><div align="center">8mm</div></td>
+    <td><div align="center">A</div></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>0:51-1:11</td>
+    <td><div align="center">8mm</div></td>
+    <td><div align="center">B</div></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>1:11-1:31</td>
+    <td><div align="center">8mm</div></td>
+    <td><div align="center">A</div></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="4"><strong>2nd chorus</strong></td>
+  </tr>
+  <tr>
+    <td>1:31-1:51</td>
+    <td><div align="center">8mm</div></td>
+    <td><div align="center">A</div></td>
+    <td>Hawkins, tenor sax solo, long tones in ensemble</td>
+  </tr>
+  <tr>
+    <td>1:51-2:11</td>
+    <td><div align="center">8mm</div></td>
+    <td><div align="center">A</div></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>2:11-2:32</td>
+    <td><div align="center">8mm</div></td>
+    <td><div align="center">B</div></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>2:32 to end</td>
+    <td><div align="center">8mm</div></td>
+    <td><div align="center">A</div></td>
+    <td>&nbsp;</td>
+  </tr>
+</tbody></table>
+
+<p>&nbsp;</p>
+</body></html><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="VII.B.1.b_files/styles.css" type="text/css">
+
+<script language="javascript" src="VII.B.1.b_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=3JcQLjfRvCGgSSRFLzhzLghVgvwWzzNdGDvL2T6THQnTgdBpCJbD!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273176049675";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=3JcQLjfRvCGgSSRFLzhzLghVgvwWzzNdGDvL2T6THQnTgdBpCJbD!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273176049675";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Ben Webster</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="VII.B.1.b_files/moduleVII.css" rel="stylesheet" 
+type="text/css">
+<script language="JavaScript">
+<!-- Hide from non-Javascript browsers
+function windowOpen(url)
+{
+open(url, "remote", "directories=no,location=no,menubar=no,resizable=yes,scrollbars=no,status=yes,toolbar=no,width=315,height=315"); 
+}
+// -->
+</script>
+</head><body>
+<p><img src="VII.B.1.b_files/moduleVII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h3><strong>Ben Webster </strong></h3>
+<p> Ben Webster, along with Coleman Hawkins and Lester Young, are 
+probably the most influential of all tenor sax performers. As an 
+improviser, Webster was always very tuneful in his approach so that his <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113976071"
+ class="glossarylink" target="_blank">improvisation</a> sounds nearly 
+like a complete thought.</p>
+<p>Read the article on <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.477400#jazz.477400"
+ target="_blank">Ben Webster</a>. </p>
+<p>In 1940, Duke Ellington arranged for his <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113954071"
+ class="glossarylink" target="_blank">big band</a> a new tune, "Cotton 
+Tail," composed by Webster to the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113922071"
+ class="glossarylink" target="_blank">chord</a> changes of George 
+Gershwin's popular song "I Got <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">Rhythm</a>." The Gershwin song and
+ its <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113968071"
+ class="glossarylink" target="_blank">harmony</a> dictate the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a> of the new piece: 32-bar A
+ A B A <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113935071"
+ class="glossarylink" target="_blank">song form</a>. Note that Ellington
+ drops the final A <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> of the first <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113953071"
+ class="glossarylink" target="_blank">chorus</a> and substitutes a four 
+bar transition to the second chorus.</p>
+<p>Listen, especially, to the second and third chorus which features 
+Webster. Composer Gunther Schuller comments that Webster often liked to 
+enter and exit a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> section "unobtrusively, 
+flowing in, as it were, on the prevailing tide of the music. His 
+stealthy entrance on <em><cite>Cotton Tail</cite> </em>is in its 
+subtleness and surprising understatedness one of the all-time 
+hair-raising moments in jazz" <strong><a 
+href="javascript:showPage(-1,%20-1,%20-1,%20'/mod7/Biblio.html',%20'WEBCT_NO_ANCHOR_VALUE',%20'3');">(Schuller
+ 1989,528)</a>.</strong>  "And Ben! Oh that Ben!" said Ellington big 
+band guitarist Fred Guy, "You could feel the tension rise the moment he 
+began to solo" <strong><a 
+href="javascript:showPage(-1,%20-1,%20-1,%20'/mod7/Biblio.html',%20'WEBCT_NO_ANCHOR_VALUE',%20'3');">(Lawrence
+ 2001,291)</a>.</strong></p>
+<p>Note, too, Ellington's very forward-looking arrangement in the fifth 
+chorus going into the first half of the sixth chorus which anticipates 
+more modern styles of improvisation, here written out for the full sax 
+section of his big band.</p>
+Follow the chart and listen to Ben Webster perform in <strong>Duke
+Ellington and His Famous Orchestra's "Cotton Tail" (1940)</strong>.
+<p class="style2">
+  <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="goodmanb3_bodysoul" align="middle" height="100" width="550">
+    <param name="allowScriptAccess" value="sameDomain">
+    <param name="movie" 
+value="../audio/moduleVII/ellingtond_cottontail.swf">
+    <param name="quality" value="high">
+    <param name="bgcolor" value="#ffffff">
+    <embed src="VII.B.1.b_files/ellingtond_cottontail.swf" 
+quality="high" bgcolor="#ffffff" name="goodmanb3_bodysoul" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a style="left: 526px ! important; top: 
+463.2px ! important;" title="Click here to block this object with 
+Adblock Plus" class="lbmypuufeyqkkttocprv rbeuzmkqpjjuofuakxvi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVII/ellingtond_cottontail.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVII/ellingtond_cottontail.swf"></a>
+  
+</object>
+</p>
+<p><strong><a 
+href="http://jan.ucc.nau.edu/%7Emus333-c/scores/cotton_tail.html" 
+target="_blank">Click to see a transcription of Webster's solo in 
+"Cotton Tail."</a> </strong></p>
+<p><strong>1st chorus (<a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">Melody</a>) </strong></p>
+<p>0:00-0:09 A 8mm saxes and trumpets play tune </p>
+<p>0:09-0:16 A 8mm </p>
+<p>0:16-0:25 B 8mm sax and trumpets in call-and-response pattern </p>
+<p>0:25-0:29 transition 4mm no final A</p>
+<p><strong>2nd chorus </strong></p>
+<p>0:29-0:37 A 8mm Ben Webster, tenor sax solo backed by </p>
+<p><a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113991071"
+ class="glossarylink" target="_blank">rhythm section</a> </p>
+<p>0:37-0:45 A 8mm </p>
+<p>0:45-0:54 B 8mm add brass </p>
+<p>0:54-1:01 A 8mm Webster backed by rhythm section </p>
+<p><strong>3rd chorus </strong></p>
+<p> 1:01-1:09 A 8mm Webster continues backed by rhythm section </p>
+<p> 1:09-1:17 A 8mm </p>
+<p>1:17-1:25 B 8mm add brass </p>
+<p> 1:25-1:33 A 8mm Webster backed by rhythm section</p>
+<p><strong>4th chorus </strong></p>
+<p> 1:33-1:41 A 8mm brass with rhythm section </p>
+<p> 1:41-1:48 A 8mm </p>
+<p> 1:48-1:56 B 8mm Harry Carney, baritone sax solo </p>
+<p> 1:56-2:04 A 8mm Duke Ellington, piano solo</p>
+<p><strong>5th chorus </strong></p>
+<p>2:04-2:12 A 8mm sax section, scored like modern jazz improv, </p>
+<p>backed by rhythm section </p>
+<p> 2:12-2:20 A 8mm </p>
+<p>2:20-2:28 B 8mm </p>
+<p> 2:28-2:35 A 8mm </p>
+<p><strong>6th chorus </strong></p>
+<p> 2:35-2:43 A 8mm sax section continues with brass shout </p>
+<p> 2:43-2:52 A 8mm </p>
+<p> 2:52-2:59 B 8mm brass </p>
+2:59 to end A 8mm <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113967071"
+ class="glossarylink" target="_blank">Intro</a> returns: saxes and 
+trumpet play tune
+<p>&nbsp; </p>
+</body></html><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="VII.B.2_files/styles.css" type="text/css">
+
+<script language="javascript" src="VII.B.2_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=3JcQLjfRvCGgSSRFLzhzLghVgvwWzzNdGDvL2T6THQnTgdBpCJbD!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273176049675";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=3JcQLjfRvCGgSSRFLzhzLghVgvwWzzNdGDvL2T6THQnTgdBpCJbD!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273176049675";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Trends that would influence bebop</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="VII.B.2_files/moduleVII.css" rel="stylesheet" 
+type="text/css">
+<style type="text/css">
+<!--
+.style1 {font-weight: bold}
+-->
+</style>
+<script language="JavaScript">
+<!-- Hide from non-Javascript browsers
+function windowOpen(url)
+{
+open(url, "remote", "directories=no,location=no,menubar=no,resizable=yes,scrollbars=no,status=yes,toolbar=no,width=315,height=315"); 
+}
+// -->
+</script>
+</head><body>
+<p><img src="VII.B.2_files/moduleVII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h3>&nbsp;</h3>
+<h3><strong>Virtuosity </strong></h3>
+<p> Read the article on <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.441700.1"
+ target="_blank">Art Tatum.</a></p>
+<p> Art Tatum possessed one of the most remarkable virtuosic talents in 
+jazz. Classical (<a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113977071"
+ class="glossarylink" target="_blank">art music</a>) pianists regularly 
+attended his concerts. Watch a performance of <strong><a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/~mus333-c/video/tatum_art.html')">Art
+ Tatum.</a></strong></p>
+<p>Tatum’s 1949 recorded version of Ann Ronnell’s popular song, “Willow 
+Weep for Me,” is a breathtaking show piece. He takes repetitive sections
+ of the song as a license for further reworking, yet helping create an 
+almost hypnotic effect. The piece opens with a 4 bar <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113973071"
+ class="glossarylink" target="_blank">vamp</a>, whose time is pushed and
+ pulled (an expressive technique called ‘rubato’ by musicians). Tatum 
+also alters the character of each <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113953071"
+ class="glossarylink" target="_blank">chorus</a> which allows him to 
+continue to vary the piece, yet still retain a larger sense of formal 
+coherence. In “ Willow, Weep for Me” the first chorus has a very George 
+Gershwin sound, composer of many poplar songs, American in Paris, and 
+Rhapsody in Blue. The second chorus, in contrast, emphasizes the blues 
+underpinning of the original song. Tatum’s performance follows the 32 
+bar <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=29145413712071"
+ class="glossarylink" target="_blank">song </a><a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a> of the original, with the
+ final A <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> of the second chorus 
+also serving as a double-time coda.</p>
+<p>Follow the chart below as you listen to  <strong>Art Tatum’s “ Willow
+ Weep for Me” (1949). </strong></p>
+<p><strong>
+  <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="goodmanb3_bodysoul" align="middle" height="100" width="550">
+    <param name="allowScriptAccess" value="sameDomain">
+    <param name="movie" value="../audio/moduleVII/tatuma_willowweep.swf">
+    <param name="quality" value="high">
+    <param name="bgcolor" value="#ffffff">
+    <embed src="VII.B.2_files/tatuma_willowweep.swf" quality="high" 
+bgcolor="#ffffff" name="goodmanb3_bodysoul" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a style="left: 526px ! important; top: 
+388.4px ! important;" title="Click here to block this object with 
+Adblock Plus" class="lbmypuufeyqkkttocprv rbeuzmkqpjjuofuakxvi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVII/tatuma_willowweep.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVII/tatuma_willowweep.swf"></a>
+  
+</object>
+</strong></p>
+<p>0:00-0:10 4 <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113967071"
+ class="glossarylink" target="_blank">Intro</a> vamp</p>
+<p><strong> 1st chorus </strong></p>
+<p> 0:10-0:28 6+2 A original <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a> is paraphrased by 
+Tatum, all played over the Intro’s vamp </p>
+<p> 0:28-0:46 6+2 A modulation at end of section leading to the bridge </p>
+<p> 0:46-1:07 2+2+2+2 B virtuosic runs </p>
+<p> 1:07-1:27 6+2 A return of paraphrased them over vamp</p>
+<p><strong> 2nd chorus </strong></p>
+<p> 1:27-1:49 2+2+2+2 A blues harmonies emphasized; alternates between 
+single and double time </p>
+<p> 1:49-2:11 2+2+2+2 A single-double time alternation continues </p>
+<p> 2:11-2:32 2+2+2+2 B complex rhythms and virtuosic passagework </p>
+<p> 2:32 to end 4+2+2+2 A coda: <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113985071"
+ class="glossarylink" target="_blank">tempo</a> quickens, adds 2 bars; 
+this almost becomes a separate piece</p>
+<p>&nbsp;</p>
+<p>Listen for similar virtuosic treatment of the song in <strong>Art
+Tatum’s “Too Marvelous for Words” (1955). </strong></p>
+<strong><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="goodmanb3_bodysoul" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleVII/tatuma_toomarv.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="VII.B.2_files/tatuma_toomarv.swf" quality="high" 
+bgcolor="#ffffff" name="goodmanb3_bodysoul" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVII/tatuma_toomarv.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVII/tatuma_toomarv.swf"></a>
+</object></strong>
+<p class="style1">&nbsp; </p>
+</body></html><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="VII.C_files/styles.css" type="text/css">
+
+<script language="javascript" src="VII.C_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=3JcQLjfRvCGgSSRFLzhzLghVgvwWzzNdGDvL2T6THQnTgdBpCJbD!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273176049675";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=3JcQLjfRvCGgSSRFLzhzLghVgvwWzzNdGDvL2T6THQnTgdBpCJbD!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273176049675";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Trends that would influence cool</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="VII.C_files/moduleVII.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="VII.C_files/moduleVII.gif" alt="module banner" height="125"
+ width="600"> </p>
+<h3><strong>Trends that would influence cool</strong></h3>
+<p>There were other musicians working in swing that would profoundly 
+shape the development of cool. Probably the single most influential 
+swing musician for cool has to be tenor sax great, Lester Young. </p>
+<h3><strong>Lester Young </strong></h3>
+<p> Read the article on <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.494500.1"
+ target="_blank">Lester Young.</a></p>
+<p>Amid the screaming energy of Count Basie’s Kansas City style swing <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113954071"
+ class="glossarylink" target="_blank">big band</a>, Lester Young sat in 
+the middle and barely broke a sweat. He put the ‘c’ in cool. </p>
+<p>Follow the chart below and listen to <strong>Count Basie’s Kansas 
+City Seven’s “Lester Leaps In” (1939).</strong></p>
+<p><strong> <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+ 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="countbasie_kc7_lester" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleVII/countbasie_kc7_lester.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="VII.C_files/countbasie_kc7_lester.swf" quality="high" 
+bgcolor="#ffffff" name="countbasie_kc7_lester" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a style="left: 526px ! important; top: 
+351.8px ! important;" title="Click here to block this object with 
+Adblock Plus" class="lbmypuufeyqkkttocprv rbeuzmkqpjjuofuakxvi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVII/countbasie_kc7_lester.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVII/countbasie_kc7_lester.swf"></a>
+</object></strong></p>
+<p><strong><a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113967071"
+ class="glossarylink" target="_blank">Intro</a></strong></p>
+<p>0:00-0:04 4 Count Basie, piano</p>
+<p><strong>1st <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113953071"
+ class="glossarylink" target="_blank">chorus</a></strong></p>
+<p>0:04-0:12 8 A<strong></strong>muted trumpet, trombone, and tenor sax <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a> with <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a></p>
+<p>0:12-0:20 8 A repeat</p>
+<p>0:20-0:27 8 B Basie piano <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a>, very spare</p>
+<p>0:27-0:35 8 A repeat of A</p>
+<p><strong>2nd chorus</strong></p>
+<p>0:35-0:43 8 A Lester Young solo, tenor sax</p>
+<p>0:43-0:51 8 A</p>
+<p>0:51-0:58 8 B</p>
+<p>0:58-1:06 8 A</p>
+<p><strong>3rd chorus </strong></p>
+<p>1:06-1:14 8 A Young &amp; Basie</p>
+<p>1:14-1:22 8 A Young, solo with <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113991071"
+ class="glossarylink" target="_blank">rhythm section</a> stop-time</p>
+<p> 1:22-1:29 8 B Young, solo with rhythm section</p>
+<p> 1:29-1:37 8 A Young, solo with rhythm section stop-time</p>
+<p><strong>4th chorus </strong></p>
+<p> 1:37-1:45 4+4<strong></strong> A Basie, solo (4) + Young, solo (4) 
+(called ‘trading fours’)</p>
+<p> 1:45-1:53 4+4<strong></strong> A</p>
+<p> 1:53-2:01 4+4<strong></strong> B</p>
+<p>2:01-2:09 4+4<strong></strong> A</p>
+<p><strong>5th chorus </strong></p>
+<p> 2:09-2:16 4+4<strong></strong> A ensemble plays riffs with Young, 
+solo</p>
+<p> 2:16-2:24 4+4<strong></strong> A ensemble plays riffs with Basie, 
+solo</p>
+<p> 2:24-2:32 8 B Basie, solo</p>
+<p>2:32-2:40 4+4<strong></strong> A ensemble plays riffs with Young, 
+solo</p>
+<p><strong>6th chorus</strong></p>
+<p> 2:40-2:48 4+4<strong></strong> A ensemble plays riffs with Basie, 
+solo</p>
+<p> 2:48-2:56 4+4<strong></strong> A</p>
+<p> 2:56-3:03 8 B Basie, solo</p>
+<p> 3:03 to end 4+4<strong></strong> A ensemble plays riffs with 
+dixieland-style ending (where there are multiple melody lines played 
+together)</p>
+<p>&nbsp; </p>
+<p>&nbsp; </p>
+<p>&nbsp; </p>
+</body></html>

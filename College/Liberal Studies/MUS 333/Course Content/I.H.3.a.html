@@ -1,0 +1,262 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="I.H.3.a_files/styles.css" type="text/css">
+
+<script language="javascript" src="I.H.3.a_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Pure Rhythm Instruments</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="I.H.3.a_files/moduleI.css" rel="stylesheet" type="text/css">
+<script language="JavaScript">
+<!-- Hide from non-Javascript browsers
+function windowOpen(url)
+{
+open(url, "remote", 
+"directories=no,location=no,menubar=no,resizable=no,scrollbars=no,status=yes,toolbar=no,width=315,height=315"); 
+}
+// -->
+</script>
+</head><body>
+<p><img src="I.H.3.a_files/moduleI.gif" alt="module banner" height="126"
+ width="600"> 
+</p>
+<h3>Pure <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">Rhythm</a> Instruments</h3>
+<p> Pure rhythm instruments articulate <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113963071"
+ class="glossarylink" target="_blank">rhythmic</a> patterns, keep time 
+and <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113985071"
+ class="glossarylink" target="_blank">tempo</a>, 
+  and define the style of jazz being performed. While jazz drummers or 
+percussionists 
+  do play solos, most of the time they perform the functions just 
+mentioned</p>
+<img src="I.H.3.a_files/drum_set.gif" alt="Drum Set (aka Trap Set, 
+Traps, Kit, Drum Kit) " align="right" height="175" width="175"><strong>Drum
+ Set (aka Trap Set, Traps, Kit, Drum Kit)
+</strong>
+<p> The jazz drum set probably developed from the percussion instruments
+ used
+  in a marching or military band, but set up so that one player could 
+perform
+  on them all at once. The drum set is played with sticks, brushes, or 
+mallets. 
+</p>
+<p>The drum set includes families of drums and cymbals. A typical drum 
+set features 
+  a large, low-pitched bass drum (that is played with a mechanical pedal
+ that 
+  is activated by the drummer's foot), tom-toms (medium-pitched drums), 
+  and a snare drum that features the sizzling sound of the 'snares' 
+  from military drums. The 'snares' are now metal wires strung across 
+  the bottom head of the drum that vibrate sympathetically when the top 
+head of 
+  the drum is struck, creating a sizzling sound.</p>
+<p> The are quite a wide range of cymbals used by jazz drummers. The 
+most common 
+  are the</p>
+
+    <ul class="discList">
+      <li> ride cymbal (which the drummer uses to keep or mark time)</li>
+      <li> crash cymbal (which is used for accents)</li>
+      <li> high hat cymbal (that also uses a mechanism operated by 
+another of 
+        the drummer's feet that closes two cymbals together and is 
+usually 
+        played on beats 2 and 4).</li>
+    </ul>
+    
+<p> The drum set is a relatively new instrument that came together in 
+the early 
+  part of the twentieth century. The drum set has rhythmic, tempo, and 
+'time 
+  keeping' roles in jazz. It is an especially important instrument that 
+  keeps the pace of the music steady in a metronomic fashion, since 
+dance music 
+  remains an important legacy in jazz.</p>
+<p>Watch and listen to drummer Jack DeJohnette. <strong><a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/~mus333-c/video/dejohnette.html')">Watch
+ and listen to 
+the 
+  example.</a> </strong></p>
+<h4><img src="I.H.3.a_files/aux_percussion.gif" alt="Auxiliary 
+percussion" align="right" height="175" width="175">Auxiliary percussion</h4>
+<p> There is a huge range of additional percussion instruments that 
+maybe found 
+  in jazz besides the drum set. Later in the course, when we consider 
+jazz <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113972071"
+ class="glossarylink" target="_blank">fusion</a> 
+  styles that connect with African, Caribbean, and South American <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113962071"
+ class="glossarylink" target="_blank">musical styles</a>, 
+  we will discuss the many auxiliary percussion instruments used in jazz
+ as we 
+  encounter them.</p>
+<p>For now, watch and listen to Airto Morera perform on a variety of 
+Latin percussion 
+  instruments. <strong><a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/~mus333-c/video/morera_purim.html')">Watch
+ and listen to the example.</a> </strong><br>
+</p>
+<p><br>
+</p>
+</body></html>

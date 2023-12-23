@@ -1,0 +1,222 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="II.C.6_files/styles.css" type="text/css">
+
+<script language="javascript" src="II.C.6_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Herbie Hancock (2)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="II.C.6_files/moduleII.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="II.C.6_files/moduleII.gif" alt="module banner" height="125"
+ width="600"> </p>
+<h3><strong> </strong><strong>Herbie Hancock (2)</strong></h3>
+<p><img src="II.C.6_files/hancock_herbie_2.gif" align="left" 
+height="225" width="185">The mid-1990s was a time when a number of jazz 
+musicians, like saxophonist Branford Marsalis, drummer Max Roach, and 
+Greg Osby, were working on projects that mixed jazz with hip-hop. Herbie
+ Hancock spent three years putting together his jazz/r&amp;b /hip-hop 
+album Dis Is Da Drum (1994). As we have heard, many hip-bop efforts are 
+long on the hip-hop and short on the jazz, but Dis Is Da Drum is a 
+remarkable blending of hip-hop and jazz. The musical tracks are layered 
+with samples, <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113963071"
+ class="glossarylink" target="_blank">rhythmic</a>, and <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113931071"
+ class="glossarylink" target="_blank">harmonic</a> structures.</p>
+<p>Follow the chart below and listen to <strong> <a 
+href="javascript:showPage(-1,%20-1,%20-1,%20'/audio/moduleII/hancockh_callit95.html',%20'WEBCT_NO_ANCHOR_VALUE',%20'3');">Herbie
+
+      Hancock's "Call
+It '95" (1994). </a></strong></p>
+<p>"Call It '95" features a crowd of talented younger jazz performers. 
+We hear Herbie Hancock, interestingly, on acoustic piano—not on anything
+ electronic—with</p>
+<p>trumpeter Wallace Roney and Bennie Maupin (from Miles' bands) on 
+tenor sax. They are backed by</p>
+<p>Wah Wah Watson and Darrell 'Bob Dog' Watson, guitar</p>
+<p>Frank Thibeaux, bass</p>
+<p>Ken Strong and Will Kennedy, drums</p>
+<p>Will 'Roc' Griffin, sequencing, sampling, drum loops</p>
+<p>Bill Summers and Niayi Asiedu, djembe, jun jun, bell (African 
+percussion)</p>
+<p>Mars Lasar, sound designer and, with Darrell Smith, keyboards</p>
+<p>"Call It '95" features a good hip-hop groove and an opening 
+instrumental arrangement that is big-band like in its sound and scope.</p>
+<p>0:00-0:02 Herbie's voice sample</p>
+<p>0:02-0:11 groove</p>
+<p>0:11-0:21 instrumental arrangement</p>
+<p>0:21-0:56 piano lead with groove</p>
+<p>0:56-0:58 break</p>
+<p>0:58-1:17 groove</p>
+<p> 1:17-1:35 piano lead with groove</p>
+<p>1:35-1:38 Herbie's voice sample</p>
+<p> 1:38-1:43 groove</p>
+<p> 1:43- 1:52 instrumental arrangement</p>
+<p> 1:52-2:11 Wallace Roney, trumpet <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> </p>
+<p> 2:11-2:29 piano lead with groove </p>
+<p> 2:29-2:38 break and groove </p>
+<p> 2:38-2:48 Wallace Roney, trumpet solo </p>
+<p> 2:48-3:07 instrumental arrangement</p>
+<p> 3:07-3:31 break</p>
+<p>3:31-end piano solo to end</p>
+<p>&nbsp;</p>
+</body></html>

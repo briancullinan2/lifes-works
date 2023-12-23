@@ -1,0 +1,494 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="III.C.2_files/styles.css" type="text/css">
+
+<script language="javascript" src="III.C.2_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Bitches Brew (1969-70)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="III.C.2_files/moduleIII.css" rel="stylesheet" 
+type="text/css">
+</head><body>
+<p><img src="III.C.2_files/moduleIII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h3><strong>Bitches Brew (1969-70) </strong></h3>
+<p>Miles' landmark double-LP recording, Bitches Brew, really brought 
+jazz <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113972071"
+ class="glossarylink" target="_blank">fusion</a> experiments to 
+the forefront. The name of the album was said to be from a desert on a 
+menu at Serendipity, a 
+then-famous New York retaurant.</p>
+<p>Teo Macero, Miles' <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113981071"
+ class="glossarylink" target="_blank">producer</a> and head recording 
+engineer in the late 1960s, helped Miles <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113994071"
+ class="glossarylink" target="_blank">mix</a> 
+down albums from long studio jams and live concert tapes. Bitches Brew, 
+alone, was edited down 
+from nine hours of studio tapes. Read about <strong> <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.279800#jazz.279800"
+ target="_blank">Teo Macero</a></strong>. </p>
+<p>Even though two three-minute 45s were issued from the ten to 
+twenty-minute pieces on 
+Bitches Brew, this album—and In a Silent Way (1969) that preceded—it 
+were much 
+different than jazz recordings that came before them.</p>
+<p>In Bitches Brew, listeners had to adjust to the fact that <strong> <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113976071"
+ class="glossarylink" target="_blank">improvisation</a></strong> was not
+ at the heart of these fusion works and could no
+longer be considered the measure of quality for a jazz performance. The 
+album
+featured a great deal of repetition, like that found in <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113966071"
+ class="glossarylink" target="_blank">funk</a> grooves and in pop
+music, and the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113933071"
+ class="glossarylink" target="_blank">standard</a> musical forms used in
+ jazz up to this time were discarded
+and the influence of art or classical music can be heard on the many <strong>through
+composed</strong> forms on the album.</p>
+<p>While Bitches Brew was created as a collaborative effort by Miles' 
+musicians
+  performing  together in the studio, the mix created by Teo Macero 
+created a
+  remarkably new soundscape. "Sometimes you subtract, take away the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a> and
+  leave just the high sound," said 
+Miles, "or take what you know belongs to somebody else and keep the 
+feeling" (<a 
+href="javascript:showPage(-1,%20-1,%20-1,%20'/mod3/Biblio.html',%20'WEBCT_NO_ANCHOR_VALUE',%20'3');">Szwed
+2002,
+ 289-90</a>). Electronica pioneer 
+Brian Eno said that Macero in Bitches Brew "did something that was 
+extremely
+modern,  something that you can only do on records, which is, he took 
+the performance
+to pieces,  spatially. Now, those things were done by a group of 
+musicians in
+a room, all sitting close to one  another . . . but they were all 
+close-miked,
+which meant that their sounds were quite separate  from one another. And
+ when
+Teo Macero mixed the record, he put them miles apart. So this is  very 
+interesting
+to listen to a music, where you have the conga player three streets down
+ the
+ road here, you have the trumpet player on a mountain over there, the 
+guitar
+player—you 
+have to look through binoculars to see him, you know! Everybody is far 
+away,
+and so the  impression that you have immediately is not that you are in a
+ little
+place with a group of people  playing, but that you're on a huge plateau
+ and
+all of these things are going on sort of almost on  the horizon, I 
+think. And
+there's no attempt made by Teo Macero to make them connect with one  
+another.
+In fact, he deliberately disconnects them from one another" <strong>(<a 
+href="javascript:showPage(-1,%20-1,%20-1,%20'/mod3/Biblio.html',%20'WEBCT_NO_ANCHOR_VALUE',%20'3');">Szwed
+ 2002, 298</a>)</strong>.</p>
+<p>In particular, listen to the opening of the title track of Bitches 
+Brew. It
+  starts with bass vamps  that lead to electronic piano 'explosions.' 
+Overtop
+  of this Miles enters and plays with extended  and heavy use of an 
+Echoplex
+  that creates reverberation to the point that he virtually plays duets 
+ with
+  his own echoed sound. Miles even works in an allusion to the Columbia 
+Record's
+  hit 
+"Spinning Wheel" by Blood, Sweat, and Tears (Columbia was his long-time
+record label  and the one that released Bitches Brew). At 2:51 in 
+"Bitches
+Brew," another <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113973071"
+ class="glossarylink" target="_blank">vamp</a> 
+kicks in and so on throughout the piece.</p>
+<p>Listen to <strong> Miles Davis' "Bitches Brew" (1969)</strong>.</p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://
+fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="davism_bitchesbrew" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleIII/davism_bitchesbrew.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="III.C.2_files/davism_bitchesbrew.swf" quality="high" 
+bgcolor="#ffffff" name="davism_bitchesbrew" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://
+www.macromedia.com/go/getflashplayer" align="middle" height="100" 
+width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_bitchesbrew.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_bitchesbrew.swf"></a>
+</object></p>
+<p>The album Bitches Brew was constructed with the help of Miles' 
+regular Quintet that he 
+performed with live and with whom he worked things out for the 
+recording. However, for the 
+album's sessions he doubled things up so that he had basically had a 
+double Quintet (and 
+sometimes more):</p>
+<blockquote>
+  <p>Miles Davis, trumpet </p>
+  <p>Wayne Shorter, soprano sax and Benny Maupin, bass clarinet </p>
+  <p>Chick Corea and Joe Zawinul, electric pianos; with Larry Young, 
+electric piano </p>
+  <p>John McLaughlin, electric guitar </p>
+  <p>Dave Holland and Harvey Brooks, electric and acoustic bass </p>
+  <p>Jack DeJohnette and Lenny White, drums; with Jumma Santos (Jim 
+Riley) and Airto Moreira, 
+percussion; and Charlie Alias, drums</p>
+</blockquote>
+<p>This is a remarkably talented group of younger jazz musicians. Miles 
+was always able to spot 
+and attract the best of quickly-rising talent. Chick Corea, who played 
+keyboards with Miles from 
+1968-70, was using an electronic piano on the Bitches Brew sessions and 
+live with Miles' Quintet, 
+rather than an acoustic piano. Corea further modified the sound with an 
+Echoplex (echo 
+generator) and a ring modulator (an early <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a> of analog synthesizing). 
+Chick, incidentally, 
+thought that Bitchs Brew was merely a slower, more conservative version 
+of the material that 
+they performed regularly live with Miles' Quintet <strong>(<a 
+href="javascript:showPage(-1,%20-1,%20-1,%20'/mod3/Biblio.html',%20'WEBCT_NO_ANCHOR_VALUE',%20'3');">Szwed
+ 
+2002, 296</a>)</strong>. We will discuss Chick Corea, as well as 
+guitarist John McLaughlin, in 
+more detail later in this <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> of the course.</p>
+<p>Austrian jazz composer and keyboardist Joe Zawinul, who played with 
+Miles from the late 
+1960s into the early 1970s, provided several compositions for the 
+Bitches Brew sessions including 
+"Pharaoh's Dance." </p>
+<p>Zawinul's "Pharaoh's Dance" is a programmatic work, in that it was 
+written to tell 
+a story in music. "Pharaoh's Dance" refers to the building of the 
+pyramids. "It 
+begins in a busy, animated spirit, with separate instrumental lines 
+staggering in one after 
+another, overlapping, piling waves of sound on top of quietly bustling 
+percussion," writes 
+John Szwed, "while Benny Maupin's bass clarinet bubbles up from below" <strong>(<a
+ 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod3/Biblio.html"
+ target="_blank">Szwed 2002, 298</a>)</strong>. You can also clearly 
+hear the influence of rock on this track.</p>
+<p>Listen to <strong> Miles Davis' "Pharaoh's Dance</strong>" (1969).</p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://
+fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="davism_bitchesbrew" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleIII/davism_pharaohsdance.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="III.C.2_files/davism_pharaohsdance.swf" quality="high" 
+bgcolor="#ffffff" name="davism_bitchesbrew" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://
+www.macromedia.com/go/getflashplayer" align="middle" height="100" 
+width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_pharaohsdance.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_pharaohsdance.swf"></a>
+</object></p>
+<p>Bassist Dave Holland played with Miles from 1968-70 and, on Bitches 
+Brew, plays <strong> 
+vamps</strong> relentlessly. "A lot of people went into shock when they 
+heard the group,&amp;
+quot; said Dave Holland, "because what we were doing with electronics 
+just wasn't a 
+familiar sound. It was like having someone talk to you in a foreign 
+language" <strong>(<a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod3/Biblio.html"
+ target="_blank">Szwed 2002, 289</a>)</strong>. Read about<strong> <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=music.45689#music.45689"
+ target="_blank">Dave Holland</a>.</strong>
+</p><p>Miles' Quintet drummer, Jack DeJohnette who was with Miles from 
+1969-72, anchored the 
+various drummers and percussionists on the Bitches Brew session. Miles 
+said that he was in 
+charge of the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113991071"
+ class="glossarylink" target="_blank">rhythm section</a> because he was 
+wearing sunglasses. Along with hard rock drummer 
+Lenny White, DeJohnette was striking on every beat, rather than a more 
+standard swinging style 
+of drumming which even more evoked pop music in the sessions. Read about<strong>
+ <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.117400#jazz.117400"
+ target="_blank">Jack DeJohnette</a>.</strong></p>
+<p>Not only were the Bitches Brew sessions remarkable in their results, 
+but the instruments that 
+Miles' band members used was also setting a trend. Gone was the acoustic
+ piano and it was 
+replaced by two electronic pianos with early analog synthesizer 
+modifications. Dave Holland's 
+acoustic bass was supplemented by Harvey Brooks' Fender electric bass. 
+(Brooks was a CBS 
+record producer who also played on sessions for Bob Dylan and recorded 
+with Electric Flag.) 
+Wayne Shorter played soprano sax which could cut through the dense 
+fabric of the ensemble or 
+the electronics better than the lower-pitched alto or tenor sax. The use
+ of two or more 
+drummers, plus assorted percussionists, was also ahead of the curve.</p>
+<p>Most of the pieces on Bitches Brew (1969-70) and its artistic 
+predecessor, In a Silent Way 
+(1969), were very focused on texture, or the 'weave' of sound. While 
+Miles clearly directed and 
+led things by his trumpet playing, the texture was generated more by the
+ ensemble as a whole. 
+So, the focus was on the ebb and flow of texture rather than the more 
+standard focus of a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113970071"
+ class="glossarylink" target="_blank">soloist</a> 
+improvising with subsidiary accompaniment.</p>
+<p>Listen to Miles' wonderful track <strong>"Shhh/Peaceful" from In a </strong><strong>
+ Silent Way</strong><strong> (1969)</strong> that paved the way for 
+Bitches Brew.
+</p><p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://
+fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleIII/davism_shhhpeaceful.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="III.C.2_files/davism_shhhpeaceful.swf" quality="high" 
+bgcolor="#ffffff" allowscriptaccess="sameDomain" type="application/x-
+shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_shhhpeaceful.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_shhhpeaceful.swf"></a>
+</object></p>
+<p>As discussed earlier, many of the pieces on Bitches Brew were 
+generated over vamps. Some 
+were also no more than sketches by Miles of a few <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a> that he wanted to hear 
+voiced by the 
+various members of his band. While there is the flavor of funk or rock 
+fused into In a Silent Way 
+or Bitches Brew, they are really much more complex than any contemporary
+ funk or rock 
+recording. Also, Miles disregarded the funk and rock radio friendly 
+three minute format by 
+recording pieces that lasted from ten to twenty some minutes each.</p>
+<p>In the Bitches Brew sessions, usually one of the pair (or more) of 
+the drummers,
+  pianists, or  bassists would lay down a groove and the other(s) would 
+add to
+  it or play in and around it. In "Bitches Brew," which you listened
+  to earlier, there are also some fifteen edits in the  final mix. Some 
+are tape
+  loops created by Miles and Teo Macero that were used to extend and  
+create
+  vamps from small gestures that were recorded in the session, but then 
+were
+  extended in  the mixdown.</p>
+<p>Miles performed "Miles Runs the Voodoo Down" often live with his 
+Quintet, so it 
+was fairly well formed when they took it into the studio. The title was 
+added to the song by 
+Columbia (and it is a title that Miles always hated).</p>
+<p>Listen to <strong> Miles Davis, "Miles Runs the Voodoo Down"</strong>
+ (1969).
+</p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://
+fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="davism_bitchesbrew" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" 
+value="../audio/moduleIII/davism_milesrunsvoodoo.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="III.C.2_files/davism_milesrunsvoodoo.swf" quality="high" 
+bgcolor="#ffffff" name="davism_bitchesbrew" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://
+www.macromedia.com/go/getflashplayer" align="middle" height="100" 
+width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_milesrunsvoodoo.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_milesrunsvoodoo.swf"></a>
+</object></p>
+<p>&nbsp;</p>
+</body></html>

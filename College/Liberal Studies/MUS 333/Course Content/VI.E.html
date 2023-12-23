@@ -1,0 +1,369 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="VI.E_files/styles.css" type="text/css">
+
+<script language="javascript" src="VI.E_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=G6KhLjSN2hgCqdpnDmWsJqclLYDLw33N21lp062TVm8p1s1xll31!-17407148!prd4.vista.nau.edu!80!443!1458923980!prd5.vista.nau.edu!80!443!1273172685143";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=G6KhLjSN2hgCqdpnDmWsJqclLYDLw33N21lp062TVm8p1s1xll31!-17407148!prd4.vista.nau.edu!80!443!1458923980!prd5.vista.nau.edu!80!443!1273172685143";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Charlie Parker</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="VI.E_files/moduleVI.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="VI.E_files/moduleVI.gif" alt="module banner" height="125" 
+width="600"> </p>
+<h3><strong> </strong><strong> </strong><strong> </strong><strong>Charlie
+ Parker </strong></h3>
+<p> Charlie Parker was one of the most important and influential 
+musicians in the history of jazz. His approach and characteristics of 
+his style of <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113976071"
+ class="glossarylink" target="_blank">improvisation</a> became the basic
+ language of bebop and was adopted by his fellow musicians. Parker was 
+revered by his contemporaries and still casts a long shadow among jazz 
+musicians.</p>
+<p> We will return to Charlie Parker in Topic 4 later in the course and 
+discuss some of the more technical sections of an article that you are 
+about to read. For now, make sure that you have a general grasp of 
+Parker's career and his relationship to the foundation of bebop. Read 
+the article on <strong> <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.345700.1&amp;subview=article_text"
+ target="_blank">Charlie Parker</a>. </strong></p>
+<p> The year 1945 was important for Parker. He returned to the recording
+ studio, after the long American Federation of Musicians strike, this 
+time as a bandleader. Parker also began to work regularly with bebop 
+trumpet great Dizzy Gillespie. It is a time when bebop in full bloom. 
+Fast and furious! Lots of <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a>!</p>
+<p>Parker's 1945 classic recording of "Koko" features Parker on alto 
+sax, Dizzy Gillespie on trumpet and piano, bassist Curly Russell, and 
+Max Roach on drums. "Koko" is based on the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113922071"
+ class="glossarylink" target="_blank">chord</a> progression from the 
+1938 Ray Noble song "Cherokee," a favorite vehicle for bebop 
+improvisers. The <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a> is <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113935071"
+ class="glossarylink" target="_blank">song form</a> in a pattern of A A B
+ A. The <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113985071"
+ class="glossarylink" target="_blank">tempo</a> is as fast as you could 
+want it, with the quarter notes moving at 308 beats per minute. As a 
+result of this blistering pace, Parker and Gillespie double the time 
+usually spent in each of the form's sections so that each A A B A <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> is sixteen bars long, 
+rather than the more conventional eight.</p>
+<p>The song is played in Bb major and the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113997071"
+ class="glossarylink" target="_blank">chord progression</a> is rather 
+difficult to negotiate, especially with four key changes in the B or 
+middle section (called the bridge). </p>
+<p><strong> B section or Bridge </strong></p>
+<p><a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113941071"
+ class="glossarylink" target="_blank">Measures</a> 1-4 of the bridge is a
+ 2-5-1 progression in B major (moving from chords built on the second 
+(2) to the fifth (5) to the first (1) scale degrees in B major) </p>
+<p>Measures 5-8 is a 2-5-1 progression in A major </p>
+<p>Measures 9-12 is a 2-5-1 progression in G major </p>
+<p>Measures 13-16 is a 2-5-1 progression in F major</p>
+<p>While all of these modulations may seem easy to improvise over, bear 
+in mind that the song is usually played at an unbelievably fast tempo, 
+as mentioned above. The true test of a bebop improviser at a jam or 
+cutting session was to see who could play through the progression the 
+fastest and in any number of keys! Parker and Gillespie romp through the
+ song with complete ease, both men having a thorough knowledge of <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113968071"
+ class="glossarylink" target="_blank">harmony</a> and a virtuosic 
+technique on their instruments.</p>
+<p>As mentioned, "Cherokee" ("Koko") is normally played in the key of 
+Bb. Many bebop musicians, wanting to display their prowess, would call 
+the song in F# or some other key that jazz players rarely use. Many a <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113970071"
+ class="glossarylink" target="_blank">soloist</a> left the bandstand 
+with their tail between their legs!</p>
+<p>&nbsp; </p>
+<p>Follow the chart below as you listen to <strong> Charlie Parker's 
+Re-Boppers' "Koko" (1945).</strong></p>
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="parkerc_rebop_koko" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleVI/parkerc_rebop_koko.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="VI.E_files/parkerc_rebop_koko.swf" quality="high" 
+bgcolor="#ffffff" name="parkerc_rebop_koko" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="zcnrswldrwsalszjqpyr" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVI/parkerc_rebop_koko.swf"></a><a
+ class="zcnrswldrwsalszjqpyr" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVI/parkerc_rebop_koko.swf"></a>
+</object>
+<p>0:00-0:25 <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">Melody</a> (in a 32 bar A A B A 
+pattern, while the balance of the piece is in 64 bar A A B A form)</p>
+<p><strong>1st <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113953071"
+ class="glossarylink" target="_blank">chorus</a> </strong></p>
+<p>0:25-0:38 A (16 <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113965071"
+ class="glossarylink" target="_blank">mm</a>)</p>
+<p>0:38-0:50 A (16 mm)</p>
+<p>0:50-1:03 B or bridge (16 mm)</p>
+<p> 1:03-1:15 A (16 mm)</p>
+<p>&nbsp; </p>
+<p><strong>2nd chorus </strong></p>
+<p> 1:15-1:28 A (16 mm)</p>
+<p> 1:28-1:41 A (16 mm)</p>
+<p> 1:41-1:53 B or bridge (16 mm)</p>
+<p> 1:53-2:06 A (16 mm)</p>
+<p> 2:06-2:30 drum <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> </p>
+<p> 2:30 to end melody </p>
+<p>&nbsp;</p>
+<p> Like "Koko," "Shaw 'Nuff" was another tune composed by Charlie 
+Parker and trumpeter Dizzy Gillespie played over a pre-existing set of 
+chord changes. This recording, which also dates from 1945 and is one of 
+the earliest of all bebop records, again features Parker on alto sax and
+ Gillespie on trumpet, this time backed by Al Haig on piano, bassist 
+Curly Russell, and Sidney Catlett on drums.</p>
+<p>This track demonstrates the magical way Gillespie and Parker played 
+difficult and complex phrases together. These two inventors of bebop 
+seem to breath as one. Their solos, too, are filled with aggressive, 
+fiery lines played at an even faster tempo than "Koko."</p>
+<p> "Shaw 'Nuff" is also uses AABA song form, with each section being 8 
+measures long. The chord progression comes from George Gershwin's 
+popular Broadway song,"I've Got <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">Rhythm</a>." 'Rhythm Changes' as 
+the progression became known, is still played often today. The A 
+sections are made up of a 1-6-2-5 progression (from chords built on the 
+first (1), sixth (6), second (2), and fifth (5) scale degrees). The 
+bridge (B section) is a 2-5-1 progression for four measures in the key 
+of the relative minor (a minor 3rd below the first scale degree; also 
+can be thought of as a new minor key established on the sixth scale 
+degree of the original major scale), which then moves for the last four 
+measures to a 2-5-1 progression in the key of the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113983071"
+ class="glossarylink" target="_blank">dominant chord</a> (a 2-5-1 
+progression in a new key established on the fifth scale degree of the 
+original key). Complicated? You bet it is! If it were easy, anyone could
+ do it.</p>
+<p>Follow the chart below and listen to <strong> Dizzy Gillespie All 
+Star Quintet's "Shaw 'Nuff" (1945)</strong>.</p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="parkerc_rebop_koko" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" 
+value="../audio/moduleVI/gillespie_allstar_shawnuff.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="VI.E_files/gillespie_allstar_shawnuff.swf" quality="high" 
+bgcolor="#ffffff" name="parkerc_rebop_koko" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="zcnrswldrwsalszjqpyr" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVI/gillespie_allstar_shawnuff.swf"></a><a
+ class="zcnrswldrwsalszjqpyr" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVI/gillespie_allstar_shawnuff.swf"></a>
+</object></p>
+<p>0:00-0:20 8mm <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113967071"
+ class="glossarylink" target="_blank">Intro</a>: drums and piano </p>
+<p>16mm Intro: sax and trumpet</p>
+<p>0:20-0:27 8mm Melody (A): sax and trumpet </p>
+<p>0:27-0:34 8mm Melody (A) </p>
+<p>0:34-0:41 8mm Melody (B) </p>
+<p>0:41-0:48 8mm Melody (A) </p>
+<p>0:48-1:15 sax solos over entire form (A A B A) </p>
+<p> 1:15-1:44 trumpet solos over entire form </p>
+<p> 1:44-2:12 piano solos over entire form </p>
+<p> 2:12-2:39 return of entire Melody </p>
+<p> 2:39 to end 8mm return of Intro: drums and piano </p>
+<p>16mm return of Intro: sax and trumpet</p>
+<p> Near the end of his life, Parker performed and recorded 'pop' 
+arrangements of his bebop improvisations backed by strings. One of the 
+most interesting of these recordings, "Just Friends" recorded in 1949, 
+was Parker's favorite recorded improvisation.</p>
+<p> Listen to <strong> Charlie Parker and Orchestra's "Just Friends" 
+(1949)</strong>. </p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="parkerc_rebop_koko" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleVI/parkerc_justfriends.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="VI.E_files/parkerc_justfriends.swf" quality="high" 
+bgcolor="#ffffff" name="parkerc_rebop_koko" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="zcnrswldrwsalszjqpyr" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVI/parkerc_justfriends.swf"></a><a
+ class="zcnrswldrwsalszjqpyr" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleVI/parkerc_justfriends.swf"></a>
+</object></p>
+</body></html>

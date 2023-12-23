@@ -1,0 +1,4 @@
+Create a data warehouse
+other servers contribute to data warehouse on my server
+table includes title, url, tags, popularity
+tags table needs a relevance count when contributed to the datawarehouse

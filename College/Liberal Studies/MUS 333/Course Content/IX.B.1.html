@@ -1,0 +1,286 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="IX.B.1_files/styles.css" type="text/css">
+
+<script language="javascript" src="IX.B.1_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=LYt9LjGYyQ9YtkC2QgpTppT1W3h8Fw1tnLdwqwCzJcvhJy2ld6mQ!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273185368864";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=LYt9LjGYyQ9YtkC2QgpTppT1W3h8Fw1tnLdwqwCzJcvhJy2ld6mQ!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273185368864";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>"West End Blues"</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="IX.B.1_files/moduleIX.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style1 {font-weight: bold}
+-->
+</style>
+</head><body>
+<p><img src="IX.B.1_files/moduleIX.gif" alt="module banner" height="125"
+ width="600"> </p>
+<h3><strong> “</strong><strong>West End</strong><strong> Blues”</strong></h3>
+<p><strong><a 
+href="http://jan.ucc.nau.edu/%7Emus333-c/scores/westendblues.html" 
+target="_blank">Click for a transcription of Louise Armstrong's solos in
+ “ West End Blues.” </a></strong></p>
+<p> Follow the chart below and listen to <strong> Louis Armstrong and 
+His Hot
+    Five’s “</strong><strong>West End</strong><strong> Blues” (1928).</strong></p>
+<p class="style1">  <object 
+classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" 
+value="../audio/moduleIX/armstrongl_hot5_westend.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="IX.B.1_files/armstrongl_hot5_westend.swf" quality="high" 
+bgcolor="#ffffff" allowscriptaccess="sameDomain" 
+type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a style="left: 526px ! important; top: 
+234.6px ! important;" title="Click here to block this object with 
+Adblock Plus" class="lbmypuufeyqkkttocprv rbeuzmkqpjjuofuakxvi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIX/armstrongl_hot5_westend.swf"></a>
+</object></p>
+
+<p><strong>Introduction </strong></p>
+<p>0:00-0:13 Armstrong plays an unaccompanied <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> filled with <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113963071"
+ class="glossarylink" target="_blank">rhythmic</a> twists and turns. 
+Armstrong explores the entire range of the instrument.</p>
+<p>0:13-0:16 A full band <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113922071"
+ class="glossarylink" target="_blank">chord</a> sets up the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a></p>
+<p><strong>1st <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113953071"
+ class="glossarylink" target="_blank">Chorus</a> </strong></p>
+<p>0:16-0:50 Armstrong states the melody in a dominant manner 
+accompanied by
+  (1) the clarinet playing a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113968071"
+ class="glossarylink" target="_blank">harmony</a> part a third below the
+ melody for most of
+  the chorus with a fast vibrato, (2) the trombone playing sustained 
+notes with
+  a slide up from one note to the next, and (3) the piano and banjo 
+playing heavy
+  four-to-the bar <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a>. No percussion yet.</p>
+<p><strong>2nd Chorus </strong></p>
+<p>0:50-1:24 Trombone solo (Robinson). The solo characterized by the 
+many slides
+  (aka glissandi). The piano and banjo continue playing heavy, 
+four-to-the bar
+  chords. The drummer (Singleton) joins in playing rhythmic patterns on 
+what
+  sounds like milk bottles! Jazz historian Mark C. Gridley identifies 
+this unique-sounding
+  instrument as a hand-held version of the Bock-A-Da-Bock, which 
+consists of
+  two, three inch cymbals that are fixed close to one another and are 
+played
+  like the Spoons <strong>(</strong><a 
+href="javascript:showPage(-1,%20-1,%20-1,%20'/mod9/Biobliog.html',%20'WEBCT_NO_ANCHOR_VALUE',%20'3');">Gridley,2000:70</a><strong>).</strong><strong>&nbsp;</strong></p>
+<p><strong>3rd Chorus </strong></p>
+<p> 1:24-1:59 Clarinetist (Strong) and now vocalist Armstrong engage in a
+ call
+  and response chorus. The clarinet starts out playing a one bar melody 
+in the
+  low register that is repeated by Armstrong. As the call and response 
+pattern
+  continues, Armstrong’s responses become more and more rhythmically and
+  melodically complex while the clarinet calls remain rhythmically and 
+melodically
+  simple.<strong>&nbsp;</strong></p>
+<p><strong>4th Chorus </strong></p>
+<p> 1:59-2:10 Unaccompanied piano solo (Hines). For the first four bars,
+ Hines plays florid, right hand lines while keeping the four-to-the bar 
+chords going in his left hand.</p>
+<p> 2:10-2:21 In the second four bars the character of the piano solo 
+changes dramatically as Hines begins plying a more pronounced stride 
+style with his left hand and a series of hard-edged octave runs with his
+ right.</p>
+<p> 2:21-2:32 For the last four bars of the chorus Hines returns to the 
+florid
+  style heard in the first four bars.</p>
+<p><strong>5th Chorus </strong></p>
+<p> 2:32-2:44 Trumpet solo (Armstrong), along with Strong and Robinson 
+hold notes for the first four bars. Piano and banjo enter with the 
+four-to-the bar chords.</p>
+<p> 2:44-2:56 In the second four bars Armstrong plays a double-time solo
+ line while the clarinet and trombone continue with their sustained 
+slightly more <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113936071"
+ class="glossarylink" target="_blank">syncopated</a> lines.</p>
+<p><strong>Ending </strong></p>
+<p> 2:56-3:04 Unaccompanied piano plays a series of descending 
+arpeggios.</p>
+<p> 3:04 to end Armstrong plays a short melodic phrase at a slower <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113985071"
+ class="glossarylink" target="_blank">tempo</a> that leads into the 
+three chords the end the piece. The drummer has his final say with two 
+short notes at the very end.</p>
+<p>&nbsp; </p>
+<p>&nbsp; </p>
+<p>&nbsp;</p>
+</body></html>

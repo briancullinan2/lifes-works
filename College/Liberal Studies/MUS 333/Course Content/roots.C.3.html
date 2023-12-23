@@ -1,0 +1,271 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="roots.C.3_files/styles.css" type="text/css">
+
+<script language="javascript" src="roots.C.3_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Religious Folk Music: Spiritual</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="roots.C.3_files/roots.css" rel="stylesheet" type="text/css">
+<script language="JavaScript">
+<!-- Hide from non-Javascript browsers
+function windowOpen(url)
+{
+open(url, "remote", "directories=no,location=no,menubar=no,resizable=yes,scrollbars=no,status=yes,toolbar=no,width=315,height=315"); 
+}
+// -->
+</script>
+</head><body>
+<p><img src="roots.C.3_files/roots.gif" alt="roots of jazz banner" 
+height="126" width="600"> 
+</p>
+<h3>Religious Folk Music: Spiritual </h3>
+ <p> Spirituals are African American religious folk songs whose lyrics 
+animate many of the 
+stories and messages of the Christian Bible. Spirituals are an oral 
+collection of religious teachings 
+and beliefs.</p>
+ <p> Spirituals changed in the later nineteenth century and entered the 
+popular musical 
+mainstream as arrangements were sold by major musical publishing houses 
+and were further 
+popularized by African American choirs touring to raise funds for black 
+colleges. Popular and 
+operatic singers began to program spirituals as the music widened out 
+into a distinctive type of 
+African American religious song.</p>
+ <p><strong>Music of the spirituals</strong></p>
+ <p>The lyrics of spirituals are driven through with biblical language, 
+symbols, and imagery. 
+Many of the song lyrics are taken directly from the Bible and from 
+eighteenth-century Protestant 
+religious poetry of the likes of Isaac Watts and Charles Wesley.</p>
+ <p>Even those images that are not religious in spiritual song lyrics 
+are often cast through the 
+prism of the religious narrative of the song. Many spirituals dealt with
+ the issues of slavery and 
+freedom by transferring these explosive political yearnings to biblical 
+stories of the bondage of 
+Israelites in Egypt and elsewhere.</p>
+ <p>Spirituals, at root, are folk music and a musical transcription 
+changes it into something 
+different. One can often hear melodic slides and a heterophonic texture 
+(where people sing or 
+add different musical material, yet consider it all part of the same 
+song). This is community 
+music, where a group performance creates the song and is rarely 
+accompanied by any musical 
+instruments other than those of the human body (clapping, stomping of 
+feet, and so on). Often 
+one hears call and response patterns, where a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113970071"
+ class="glossarylink" target="_blank">soloist</a> or small group 'calls 
+out' a music phrase 
+that is then repeated or 'responded to' by the larger group.</p>
+Read the article "<strong><a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=music.26433.2#music.26433.2"
+ target="_blank">Spiritual: II. African-American spiritual</a></strong>"
+ to expand these brief 
+comments on spirituals. Pay particular attention to <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> 3 "<a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113928071"
+ class="glossarylink" target="_blank">Textual</a> and musical 
+characteristics."
+<p>Listen for a call and response pattern and many of the above 
+mentioned characteristics in 
+"<strong>We Are Climbing Jacob's Ladder</strong>."</p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://
+fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="weareclimb_jacobs" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/roots/weareclimb_jacobs.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="roots.C.3_files/weareclimb_jacobs.swf" quality="high" 
+bgcolor="#ffffff" name="weareclimb_jacobs" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/
+getflashplayer" align="middle" height="100" width="550"><a 
+class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/weareclimb_jacobs.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/weareclimb_jacobs.swf"></a>
+</object></p>
+<p><strong> Gospel music </strong></p>
+ <p>Gospel music is the music of many contemporary African American 
+Christian congregations. 
+It developed from the earlier spirituals, but became the province of 
+professional church 
+musicians as it was refined, sung increasingly by a trained choir, and 
+backed by musical 
+instruments.</p>
+ Read the article <strong> "<a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.579700#jazz.579700"
+ target="_blank">Gospel</a>," </strong> paying particular attention to 
+sections 1 "History&amp;
+quot; and 3 "Major intersections with jazz."
+ <p> Listen to the <strong> <a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/~mus333-c/video/michaux_happy.html')">Elder
+
+       Lightfoot Solomon Michaux and Happy Am I Congregation's "Happy Am
+ I."</a></strong></p>
+ <p>&nbsp;</p>
+</body></html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A test of a stored survey file -->
+<survey>
+    <!-- For results, all in checkbox is replaced with the result -->
+	<checkbox>
+		<location>0, 0, 300, 200</location>
+		<question>What is your favorite color?</question>
+		<response order="0">Blue</response>
+		<response order="1">Red</response>
+		<!-- The text associated with that answer -->
+		<response order="{ORDER}">{RESPONSE}</response>
+	</checkbox>
+	<checkbox>
+		<location>0, 0, 300, 200</location>
+		<question>What is your favorite animal?</question>
+		<response order="0">Cat</response>
+	</checkbox>
+	<radio>
+		<location>0, 0, 300, 200</location>
+		<question>What is your favorite class?</question>
+		<response order="0">CS 386</response>
+		<response order="1">CS 301</response>
+		<dropdown>false</dropdown>
+	</radio>
+	<text>
+		<question>Here is a text question:</question>
+	</text>
+</survey>

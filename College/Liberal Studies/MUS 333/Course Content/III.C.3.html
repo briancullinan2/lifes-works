@@ -1,0 +1,326 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="III.C.3_files/styles.css" type="text/css">
+
+<script language="javascript" src="III.C.3_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>On the Corner (1972)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="III.C.3_files/moduleIII.css" rel="stylesheet" 
+type="text/css">
+</head><body>
+<p><img src="III.C.3_files/moduleIII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h3><strong>On the Corner (1972) </strong></h3>
+<p>In his 1972 album On the Corner, named after the corner that a young 
+Miles could see from his home behind his father's dentist office in East
+ St. Louis, Miles said that "I was trying to play the music that I grew 
+up on now, that roadhouse, honky-tonk, funky thing that people used to 
+dance to on Friday and Saturday nights" <strong>(<a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod3/Biblio.html"
+ target="_blank">Szwed 2002, 325</a>)</strong>. John Szwed comments that
+ Miles wanted to "thicken the groove by filling in the space where <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113931071"
+ class="glossarylink" target="_blank">harmonic</a> variation would have 
+been in conventional jazz" <strong>(<a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod3/Biblio.html"
+ target="_blank">Szwed 2002, 326</a>)</strong>.</p>
+<p>The album was panned by critics and even fellow musicians. Stan Getz 
+ripped the album by saying that the "music is worthless. It means 
+nothing. There is no <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a>, no content, and it 
+barely swings. The soloists are playing a half tone above and a half 
+tone below so it'll sound modern, but there's nothing to build on or 
+anything logical—nothing" <strong>(<a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod3/Biblio.html"
+ target="_blank">Milkowski 1993, 6</a>)</strong>. <strong> </strong>Getz
+ and other critics were behind the curve and it took almost a generation
+ for jazz musicians to catch up with what Miles was doing on this album.</p>
+<p>In On the Corner, Miles was pushing things even further than on 
+Bitches Brew. The <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113966071"
+ class="glossarylink" target="_blank">funk</a> grooves are more 
+pronounced and Miles is starting to use a wah-wah pedal (usually found 
+in a guitarist's set up) on his amplified trumpet. The <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113994071"
+ class="glossarylink" target="_blank">mix</a> can be quite dense and he 
+used a large number of musicians on the two days of recording sessions. 
+At this time, Miles was obsessively listening to Sly and the Family 
+Stone's "In Time" and the album was heavily influenced by it and the 
+music of James Brown (funk)—of whom Miles was a great fan—rock guitarist
+ Jimi Hendrix, and avant-garde <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113977071"
+ class="glossarylink" target="_blank">art music</a> composer Karlheinz 
+Stockhausen.</p>
+<p>We are going to listen to two cuts from On the Corner: "Black Satin" 
+and the title track "On the Corner." On June 1, 1972 Miles used the 
+following musicians to record, among other works, "On the Corner." A 
+number of the musicians were either regular or former members of Miles 
+bands (*appears before their names).</p>
+<p>Miles Davis, amplified trumpet with wah-wah pedal </p>
+<p>*Dave Liebman, soprano sax </p>
+<p>*Chick Corea, synthesizer </p>
+<p>*Herbie Hancock, organ </p>
+<p>Harold I. Williams, electric piano </p>
+<p>*John McLaughlin, electric guitar </p>
+<p>*Michael Henderson, electric bass </p>
+<p>*Jack DeJohnette, drums </p>
+<p>Billy Hart, drums and percussion </p>
+<p>*Don Alias, conga and percussion </p>
+<p>James 'Mtume' Forman, hand drums and percussion</p>
+<p>Electric bassist Michael Henderson was a former member of Stevie 
+Wonder and Aretha Franklin's bands and specialized in a Motown groove 
+bass style.</p>
+<p>Several non-<a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113933071"
+ class="glossarylink" target="_blank">standard</a> jazz instruments were
+ also used on the session, including eelctric cello (played by Paul 
+Buckmaster), sitar (Collin Walcott), and tabla (Badal Roy). Sitar and 
+tabla are both classical north Indian instruments and were popular 
+sounds in late 1960s-70s recordings due to the use of them by the 
+Beatles. Sitarist Walcott was also a member of the jazz-world music <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113972071"
+ class="glossarylink" target="_blank">fusion</a> group Oregon that 
+featured oboe player Paul McCandless as the group's leader.</p>
+<p>On June 2, 1972 Miles used many of the same musicians, but 
+substituted the following for some from the June 1 session. This is the 
+session where "Black Satin" was recorded.</p>
+<p>*Carlos Garnette, alto and tenor sax (replaces Liebman) </p>
+<p>*Bennie Maupin, bass clarinet </p>
+<p>Lonnie Liston Smith, organ (Hancock moves over to electric piano and 
+synthesizer) </p>
+<p>David Cramer, guitar (replaces McLaughlin) </p>
+<p>other musicians are the same</p>
+<p>Additionally, there were more musicians on one or more of the 
+sessions, although it cannot be determined which, including the 
+following.</p>
+<p>Khalil Balakrishna, acoustic or electric sitar </p>
+<p>*Al Foster, drums </p>
+<p>*Reggie Lucas, guitar </p>
+<p>*Cedric Lawson, synthesizer </p>
+<p><strong>(<a 
+href="javascript:showPage(-1,%20-1,%20-1,%20'/mod3/Biblio.html',%20'WEBCT_NO_ANCHOR_VALUE',%20'3');">Szwed
+ 2002, 322, 325-26, 466</a>)</strong>.</p>
+<p>In "Black Satin," after an <strong> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113967071"
+ class="glossarylink" target="_blank">Intro</a></strong> by tabla, 
+sitar, and synthesizer (they also close the piece with an <strong> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113951071"
+ class="glossarylink" target="_blank">Outro</a></strong>), the groove 
+kicks in and you can hear both a bass <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113973071"
+ class="glossarylink" target="_blank">vamp</a> and a strong James Brown 
+influence on the recording since Miles' drummer lifted his lick from 
+James Brown's recording of "Cold Sweat" <strong>(<a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod3/Biblio.html"
+ target="_blank">Milkowski 1993, 7</a>)</strong>.<strong></strong>Miles'
+ trumpet—which plays the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a> once the groove kicks 
+in—is both amplified and run through a wah-wah pedal—which greatly 
+alters the characteristic sound of the trumpet.</p>
+<p>Listen to <strong> Miles Davis' "Black Satin" (1972)</strong>.</p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="davism_blacksatin" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleIII/davism_blacksatin.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="III.C.3_files/davism_blacksatin.swf" quality="high" 
+bgcolor="#ffffff" name="davism_blacksatin" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_blacksatin.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_blacksatin.swf"></a>
+</object></p>
+<p>The title track of "On the Corner" features a dense groove that is 
+very much like a James Brown groove in its complexity, even though the 
+sound and detail of the "On the Corner" groove is not exactly 
+straight-ahead funk. About 2:30 into the piece, the drummers shift to a 
+more rock-based beat. "On the Corner" features an extended soprano sax <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> by Dave Lieberman who was
+ brought into the session after it had begun and could barely hear what 
+the other musicians in the session were doing! The piece ends abruptly, 
+since it <strong> segues</strong> into the next piece on the album, "New
+ York Girl," which we will not listen to here. <strong></strong></p>
+<p>Listen to <strong> Miles Davis' "On the Corner" (1972)</strong>. </p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="davism_blacksatin" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleIII/davism_onthecorner.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="III.C.3_files/davism_onthecorner.swf" quality="high" 
+bgcolor="#ffffff" name="davism_blacksatin" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_onthecorner.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/davism_onthecorner.swf"></a>
+</object></p>
+<p>&nbsp;</p>
+</body></html>

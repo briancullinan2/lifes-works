@@ -1,0 +1,28 @@
+Phase 1
+Get LCD working
+
+Phase 2
+Integrate the shift register  - Monday
+
+Phase 3
+Final Calculator with keyboard
+
+
+rs = 0 for commands, rs = 1
+(3ms between commands) (datasheet has timings), 20 cycles between writes.
+wait before you start
+shift register can go as fast as you want
+
+P1	p2	p3	p4		p5	p6	p7	p14
+Vcc	db4	db5	db6		db7	rs	e	grnd	
+
+c	e	cp	data(a,b)/rs	keyr1	keyr2	keyr3	g
+
+
+1) set to 4 bit mode as "8 bits", so wire low numbers to 0 ground.
+2) set to 4 bit mode with 1-2 lines, + 5x7 or 5x10, send in 2 chunks of 4
+3) turn display on, cursor, blink
+4) does it move, rtl or ltr 
+5) clear display, then set cursor
+
+

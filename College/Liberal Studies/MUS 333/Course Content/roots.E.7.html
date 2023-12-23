@@ -1,0 +1,283 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="roots.E.7_files/styles.css" type="text/css">
+
+<script language="javascript" src="roots.E.7_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Classic Blues Singers</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="roots.E.7_files/roots.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="roots.E.7_files/roots.gif" alt="roots of jazz banner" 
+height="126" width="600"> 
+</p>
+<h3>Classic Blues Singers</h3>
+<p>  Like Bessie Smith, who recorded W.C. Handy's great "St. Louis 
+Blues," other
+  1920s female stage singers working in large urban theaters in New York
+ (on
+  Broadway) and Chicago as a group were given the name "classic blues 
+singers"
+  in the following decade. Many classic blues singers were low-voiced 
+female
+  singers
+  (called altos) who could project a large volume of sound to fill these
+ big
+theaters, much like opera singers who performed different material. </p>
+<p>Like songsters, classic blues singers performed a wide range of 
+material.
+  Many, however, featured blues-based material in their acts and used 
+blues stylings
+  in the way they delivered a song. Bessie Smith, Fae Barnes, Ethel 
+Waters, Alberta
+  Hunter, and Gertrude Saunders were all renowned classic blues singers.</p>
+<p><img src="roots.E.7_files/smith_bessie.gif" alt="Bessie Smith" 
+align="left" height="225" width="185"></p>
+<p><strong><a 
+href="javascript:doWindowOpen('http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.414300#jazz.414300','new_frame','width=600,height=420,menubar=1,toolbar=1,scrollbars=1,status=1,location=1,resizable=1',0)">Bessie
+
+      Smith</a> </strong>was
+  the most prominent of all classic blues singers. She recorded 
+important hits,
+  such
+  as "Jailhouse Blues" (1923), "Mama's Got the Blues" (1923),
+  and "Lost Your Head Blues" (1926) among many others.</p>
+<p>Listen to <strong>Bessie Smith's "Lost Your Head Blues"</strong> 
+(1926).</p>
+  <p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://
+fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="weareclimb_jacobs" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/roots/smithb_lostyourhead.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="roots.E.7_files/smithb_lostyourhead.swf" quality="high" 
+bgcolor="#ffffff" name="weareclimb_jacobs" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/
+getflashplayer" align="middle" height="100" width="550"><a style="left: 
+714px ! important; top: 366.4px ! important;" title="Click here to block
+ this object with Adblock Plus" class="lbmypuufeyqkkttocprv 
+rbeuzmkqpjjuofuakxvi" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/smithb_lostyourhead.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/smithb_lostyourhead.swf"></a>
+</object></p>
+<p>    Gertrude (Pridgett) 'Ma' Rainey, along with Bessie Smith, was one
+ of the
+    best of the classic blues singers. Rainey was born in Columbus, 
+Georgia in
+    1886 and first heard blues sung in 1902. Unlike most classic blues 
+singers
+    who were born and worked in the North, she was the closest of all to
+ an African
+    American folk tradition.</p>
+<p><img src="roots.E.7_files/rainey_ma.gif" alt="Ma Rainey" align="left"
+ height="225" width="185">Ma Rainey toured continually throughout the 
+South and even into Mexico in
+  the 1920s performing before huge audiences. By 1923, when she began to
+ record
+  for Paramount Records, she was already famous as a singer and would go
+ on to
+  make over ninety records for Paramount in just five years.</p>
+<p> "Shave 'Em Dry" was possibly written by songster Papa Charlie
+  Jackson with further changes by Ma Rainey. However the song was around
+ before
+  her Paramount recording date in 1924, so it may have been an existing 
+folk
+  song. The meaning of the song is not exactly clear, although the 
+expression
+  'shave 'em dry' at the time referred to cutting someone's throat.</p>
+<p> "Shave 'Em Dry" was recorded in Chicago and features Ma
+  Rainey backed by Miles Pruitt on twelve-string guitar and another 
+unknown guitarist.
+  This is a classic Ma Rainey performance where she sings forcefully in 
+an unornamented
+  style.</p>
+<p>The <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a> of "Shave 'Em Dry" is 8 
+bar blues, which is thought
+  to be older than the more <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113933071"
+ class="glossarylink" target="_blank">standard</a> 12 bar blues (and 
+which is thought to have
+  been developed from 8 bar blues by adding an extra 4 bars).</p>
+<p>Listen to <strong>Ma Rainey's "Shave 'Em Dry"</strong> (1924).</p>
+  <p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://
+fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="weareclimb_jacobs" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/roots/raineym_shaveem.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="roots.E.7_files/raineym_shaveem.swf" quality="high" 
+bgcolor="#ffffff" name="weareclimb_jacobs" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/
+getflashplayer" align="middle" height="100" width="550"><a 
+class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/raineym_shaveem.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/raineym_shaveem.swf"></a>
+</object></p>
+  <p>&nbsp;</p>
+</body></html>

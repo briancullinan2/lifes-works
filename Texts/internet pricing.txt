@@ -1,0 +1,12 @@
+* Required
+
+Cox							Brian
+* Customer ........................ 39.95    per month | * Customer
+* Installation .................... 99.95     one time | * Installation ....... 70 one time
+* Equipment, Installation ......... 249.90   time only | * New Equipment
+Service and Support ............... 6.95     per month |    - Router .......... 40.00-80.00
+Additional PC ..................... 99.90 x 3 one time |    - Adapter ......... 25.00-40.00 x 4
+-						       | Old Equipment
+-						       |    - Adapter ......... 5.00 x 4
+----------------------------------------------------------------------------------------------------------
+Subtotal .............................. 39.95 + 549.60 | Subtotal...............39.95 + (210.00 to 310.00)

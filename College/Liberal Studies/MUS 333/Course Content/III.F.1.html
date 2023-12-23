@@ -1,0 +1,287 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="III.F.1_files/styles.css" type="text/css">
+
+<script language="javascript" src="III.F.1_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=plrQLczLvbWRnpg25y69Qk6rLnHDgT3p1FZ6CdNgYtdq2ZphFsth!1698792703!prd3.vista.nau.edu!80!443!187691304!prd4.vista.nau.edu!80!443!1272771403179";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Chick Corea</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="III.F.1_files/moduleIII.css" rel="stylesheet" 
+type="text/css">
+</head><body>
+<p><img src="III.F.1_files/moduleIII.gif" alt="module banner" 
+height="125" width="600"> </p>
+<h3><strong>Chick Corea </strong></h3>
+<p>Another former member of Miles' bands (1968-70) is keyboard great 
+Chick Corea who, along 
+with Miles alumni Herbie Hancock and John Coltrane Quartet pianist McCoy
+ Tyner, are probably 
+the most influential post-1960s keyboard players in jazz. Read about <strong>
+ <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.102200#jazz.102200"
+ target="_blank">Chick Corea</a></strong>.</p>
+<p>Corea has created and continues to perform with some of the most 
+important <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113972071"
+ class="glossarylink" target="_blank">fusion</a> groups 
+working in jazz. Among many, including Circle (1969-72), is Return to 
+Forever (1971-72) that 
+created an interesting <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113994071"
+ class="glossarylink" target="_blank">mix</a> of jazz, Latin, and pop 
+music. From 1973 into the late 1970s, an 
+electric version of Return to Forever was fronted by Corea, now 
+performing on Fender-Rhodes 
+electric piano, Hohner Clavinet, Yamaha Organ, and Minimoog and ARP 
+Odyssey synthesizers. 
+The band also featured, in turn, on electric guitar Bill Connors, Earl 
+Klugh, and virtuoso guitarist 
+Al Di Meola, drummer Lenny White (another former Miles band member), and
+ electric bass 
+wonder Stanley Clarke. Read about <strong> <a 
+href="http://libproxy.nau.edu:2048/login?url=http://www.oxfordmusiconline.com/shared/views/article.html?section=jazz.089700#jazz.089700"
+ target="_blank">Stanley Clarke</a></strong>.</p>
+<p>"Vulcan Worlds" is a Stanley Clark composition that features unison 
+ensemble 
+playing that was heavily synthesized and full of electronics, all set 
+over rock beats and <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113966071"
+ class="glossarylink" target="_blank">funk</a> bass 
+lines. Listen to <strong> Return to Forever's "Vulcan Worlds."</strong></p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://
+fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="returnforever_vulcan" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleIII/returnforever_vulcan.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="III.F.1_files/returnforever_vulcan.swf" quality="high" 
+bgcolor="#ffffff" name="returnforever_vulcan" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://
+www.macromedia.com/go/getflashplayer" align="middle" height="100" 
+width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/returnforever_vulcan.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/returnforever_vulcan.swf"></a>
+</object></p>
+<p>In the late 1980s, Corea put together another virtuosic fusion group 
+called the Elektric Band, 
+which consisted of</p>
+<blockquote>
+  <p>Chick Corea, midi piano and synthesizers </p>
+  <p>Eric Marienthal, sax </p>
+  <p>Frank Gamble, guitar </p>
+  <p>John Patitucci, electric bass </p>
+  <p>Dave Weckl, drums</p>
+</blockquote>
+<p>They released two very successful recordings, Elektric Band (1986) 
+and Inside Out (1990) 
+and further spawned an acoustic trio—Akoustic Band—of Corea (acoustic 
+piano), 
+John Patitucci (acoustic bass), and Dave Weckl (drums) drawn from the 
+larger, electric 
+ensemble.</p>
+<p>"Inside Out" is the title track of the 1990 Eleckric Band release.
+  It is a very commercially-appealing, fusion work. However, most of the
+ <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a>
+  used in the piece are major 7th chords and the piece also has a great 
+deal of <strong> parallel 
+motion</strong>. <strong></strong>"Inside Out" opens with an interesting
+ <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113922071"
+ class="glossarylink" target="_blank">chord</a> 
+progression whose <strong> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113964071"
+ class="glossarylink" target="_blank">roots</a></strong> ascend in an 
+alternating <strong> whole</strong> 
+and <strong> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113946071"
+ class="glossarylink" target="_blank">half step</a></strong> pattern 
+(am7/D-bm7/D-CM7/D-dm7/D-Eb = whole-half-whole-
+half steps), that is then followed by a root movement that descends by<strong></strong>half
+ 
+steps (in <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113965071"
+ class="glossarylink" target="_blank">mm</a>. 10-11, we hear 
+CM7-BM7-BbM7-A7-AbM7-Gm7).<strong></strong></p>
+<p>Listen to <strong>Chick Corea and Elektric Band's "Inside Out" (1990)</strong>.</p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://
+fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="returnforever_vulcan" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleIII/coreachick_insideout.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="III.F.1_files/coreachick_insideout.swf" quality="high" 
+bgcolor="#ffffff" name="returnforever_vulcan" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://
+www.macromedia.com/go/getflashplayer" align="middle" height="100" 
+width="550"><a class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/coreachick_insideout.swf"></a><a
+ class="yhabwzdvtiougawfyaqp" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleIII/coreachick_insideout.swf"></a>
+</object></p>
+<p>&nbsp;</p>
+</body></html>

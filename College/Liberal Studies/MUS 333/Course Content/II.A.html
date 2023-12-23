@@ -1,0 +1,361 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="II.A_files/styles.css" type="text/css">
+
+<script language="javascript" src="II.A_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Cut 'n' Mix to Remix</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="II.A_files/moduleII.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="II.A_files/moduleII.gif" alt="module banner" height="125" 
+width="600"> </p>
+<h3>Cut 'n' <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113994071"
+ class="glossarylink" target="_blank">Mix</a> to <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113942071"
+ class="glossarylink" target="_blank">Remix</a> </h3>
+<h4>Introduction</h4>
+<p> Fusing, or mixing jazz with other <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113962071"
+ class="glossarylink" target="_blank">musical styles</a> is nothing new.
+ Trumpet great Dizzy Gillespie mingled bebop and Cuban musical styles to
+ create a potent mix in the 1950s. Miles Davis, one of jazz's greatest 
+innovators, began fusing jazz with <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113966071"
+ class="glossarylink" target="_blank">funk</a>, popular music, and world
+ traditions starting in the late 1960s. Hyperkinetic jazz guitar 
+virtuoso John McLaughlin mixed rock into his 1970s Mahavishnu 
+Orchestra's performances. </p>
+<p>Jazz was not alone in this sort of experimentation. Jamaican artist 
+Bob Marley fused <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113964071"
+ class="glossarylink" target="_blank">roots</a> reggae with funk in his 
+classic 1977 <em>Exodus</em> release. Others before him had mixed 
+Jamaican music with soul. Prog rock groups like Yes, Tangerine Dream, 
+Emerson, Lake &amp; Palmer mixed pop music with classical or <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113977071"
+ class="glossarylink" target="_blank">art music</a>. Even country 
+music's rockabilly, which mixed country, electric <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a> and blues, and 
+boogie-woogie, became better known as 1950s rock 'n' roll. </p>
+<p>However, recent <strong> remix</strong> efforts in jazz, which 
+evolved from earlier Jamaican and American hip-hop <strong> cut 'n' mix</strong>,
+ have brought some startling changes to jazz. (Please click on the 
+hyperlinked terms whenever you see them for definitions, links to 
+articles that you must read, or recorded performances).</p>
+<p><img src="II.A_files/djcam.gif" alt="Photo of DJ Cam" align="left" 
+height="225" width="185">Let's start things out with a 2004 remix 
+release by <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113957071"
+ class="glossarylink" target="_blank">DJ</a> Cam of a classic Donald 
+Byrd recording of "The Emperor." Listen and just take things in. While 
+doing so, note the groove or beat that DJ cam uses. Try also to track 
+changes in the piece; when different sections appear to begin and when 
+melodies return. </p>
+<p>Listen to <strong> DJ Cam's remix of Donald Byrd, "The Emperor" 
+featuring Erik Truffaz (2004). </strong></p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="djcam_emperor" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleII/djcam_emperor.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="II.A_files/djcam_emperor.swf" quality="high" 
+bgcolor="#ffffff" name="djcam_emperor" allowscriptaccess="sameDomain" 
+type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleII/djcam_emperor.swf"></a>
+</object></p>
+<p>DJ Cam is a Paris-based hip-hop and remix artist catering to 
+chill-out audiences. He has been influenced by beats 'n' samples 
+producers Rakim, DJ Premier, and Prince Paul and is stylistically close 
+to work by DJ Shadow and DJ Krush <strong>(<a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod2/Biblio.html"
+ target="_blank">Cooper [n.d.]</a>)</strong>.<strong> </strong>DJ Cam 
+first appeared on the recording scene with his 1994 release Underground 
+Vibes and has followed up with Mad Blunted Jazz (1996), Substances 
+(1997), DJ Kicks (1998), The Beat Assassinated (1998), French Connection
+ (2000), a three-CD set entitled The Loa Project (2000), and jazz 
+remixes on Honey Moon (2001), Soul Shine (2003) and most recently Liquid
+ Hip Hop (2004). DJ Cam has since placed tracks on Headz Records 
+compilations, collaborated on remixes with DJ Krush and Snooze, and has 
+remixed works by Tek 9 and la Funk Mob.<strong></strong></p>
+<p>Below is a listening chart, or diagram of the piece. First, though, 
+read through the discussion below on times cues, <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a>, and comments as found in
+ listening charts in this course. </p>
+<p><strong>TIME CUE </strong></p>
+<p> In the first column, you will see the time cues ( 1:05 , for 
+example) that will help you keep your place—use the time counter on your
+ MP3 pop-up window. </p>
+<p><strong>FORM </strong></p>
+<p> The next column lists the form (A, B, etc.), if we discuss it, which
+ is then followed by the length of that <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> in <strong> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113941071"
+ class="glossarylink" target="_blank">measures</a></strong> (<strong><a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113965071"
+ class="glossarylink" target="_blank">mm</a></strong>) or bars.  All 
+examples are four beats to the measure, unless stated otherwise. </p>
+<p>The first time we encounter a section of the piece, it will be given 
+an alphabetical designation (A, for example). If that section returns 
+unaltered, then A will be cited again. If the A material is slightly 
+modified, it will be designated A' (A prime) or A'' (A double prime in 
+the next instance) and so forth. If the material is different from any 
+other heard to that point in the piece, then it is given the next letter
+ (B, for example). </p>
+<p>We might find the following in a listening chart. </p>
+<p>A 8mm </p>
+<p> B 8 </p>
+<p> C 8 </p>
+<p> B 8 </p>
+<p> A' 8 </p>
+<p>The first section of eight measures (A) is followed by different 
+material (B) for eight measures. Different material yet again (C) 
+follows for eight measures and the B section returns for eight measures.
+ The piece closes with a modified form of the A material (A') for eight 
+measures. </p>
+<p><strong>COMMENTS </strong></p>
+<p> The final column lists observations about that section, changes of <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113939071"
+ class="glossarylink" target="_blank">instrumentation</a>, and so forth.
+ </p>
+<p>Follow the listening chart below and listen again to <strong> DJ 
+Cam's remix of Donald Byrd, "The Emperor" featuring Erik Truffaz (2004)</strong>.</p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="djcam_emperor" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleII/djcam_emperor.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="II.A_files/djcam_emperor.swf" quality="high" 
+bgcolor="#ffffff" name="djcam_emperor" allowscriptaccess="sameDomain" 
+type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleII/djcam_emperor.swf"></a>
+</object></p>
+<p><strong>TIME CUE FORM COMMENTS </strong></p>
+<p> 0:00-0:22 <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113967071"
+ class="glossarylink" target="_blank">Intro</a> 8<strong> mm</strong><strong>
+ </strong>trumpet <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> (Truffaz) </p>
+<p> 0:22-0:43 A 8 groove kicks in and a rap-over announces 'Donald </p>
+<p> Byrd' and this as DJ Cam's remix </p>
+<p> 0:43-1:03 B 8 add Erik Truffaz, trumpet </p>
+<p> 1:03-1:24 C 8 remix of main tune (Donald Byrd, trumpet) </p>
+<p> 1:24-1:45 C 8 main tune repeated </p>
+<p> 1:45-2:06 A' 8 rap over with trumpet (Truffaz) </p>
+<p> 2:06-2:27 C 8 return of main tune (Byrd) </p>
+<p> 2:27-2:48 C 8 repeat main tune with trumpet solo (Truffaz) </p>
+<p> 2:48-3:09 B' 8 trumpet solo (Truffaz) with bass-drum groove </p>
+<p> 3:09-3:29 8 transition </p>
+<p> 3:29-3:50 A'' 8 groove, rap over, trumpet </p>
+<p> 3:50-4:01 A''' 4 groove, rap over, trumpet </p>
+<p> 4:01-end <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113951071"
+ class="glossarylink" target="_blank">Outro</a> trumpet solo (Truffaz) </p>
+<p>The <strong> Intro </strong> is eight measures long, features an 
+unaccompanied trumpet solo by Erik Truffaz, and is moving at the same <strong>
+ <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113985071"
+ class="glossarylink" target="_blank">tempo</a> </strong>that we will 
+encounter in the next (A) section of the piece (although you might have 
+difficulty counting the absent beat in the Intro). Even though this is a
+ remix of a recording by trumpeter Donald Byrd, we do not yet hear him. </p>
+<p>Trumpeter Eric Truffaz has been awarded France 's prestigious jazz 
+award, the Prix Special, by the France's Jury du Concours National de la
+ Defense in 1991. He records on Blue Note in both more traditional jazz 
+and in hip-hop/remix styles <strong>(<a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod2/Biblio.html"
+ target="_blank">Seida and Campbell [n.d.]</a>)</strong>.</p>
+<p><strong> &nbsp;</strong>DJ Cam also added record <strong> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113930071"
+ class="glossarylink" target="_blank">scratches</a></strong>, Fender 
+rhodes electric piano, strings, and synthesizer tracks. Only in section C
+ do we hear a remix of the original Donald Byrd recording of "The 
+Emperor," which first appeared on his 1971 album entitled Ethiopian 
+Knights. The B sections of the piece features a new bass-drum groove or 
+rhythm on a single <strong> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113922071"
+ class="glossarylink" target="_blank">chord</a></strong> that is not 
+found on the Byrd original over which DJ Cam raps.</p>
+<p>Overall, the recording is built up of regular, eight bar sections 
+arranged in a retrograde symmetrical pattern of ABCCA'CCB'A"' (as if a 
+mirror was placed at the central A' section and the pattern reverses 
+itself: ABCC—A'—CCB'A'"). The final A''' is functionally part of the 
+ending, being only four bars long, which gives way to the brief <strong>
+ Outro</strong> that, too, mirrors the Truffaz solo trumpet of the <strong>
+ Intro</strong>.</p>
+<p>his is a very brief walk-through of this particular remix. We will 
+discuss other remixes that are much more irregular and complex that this
+ recording in a late Topics section of the course. Before diving in more
+ deeply, though, let's look at some of the roots of remix by going back 
+to explore some early jazz cut 'n' mix.</p>
+</body></html>

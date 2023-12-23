@@ -1,0 +1,20 @@
+;; An easy little point class to demo inheritance functionality
+
+(class point (parent:) (constructor_args: x y)
+  (ivars: (myx x) (myy y))
+  (methods: 
+   (getx () myx)
+   (gety () myy)
+   (show (label) (display (list label myx myy)))
+   (show () (begin (display "[") (display myx) (display ",") (display myy) (display "]")))
+   (diff (x y) (begin (display "[") (display (- x myx)) (display ",") (display (- y myy)) (display "]")))
+   ))
+
+
+;; inheritance!
+(class 3dpoint (parent: point) (constructor_args: x y z)
+  (ivars: (myz z) )
+  (methods:
+   (getz () myz)
+   (show () (begin (display "[") (display myx) (display ",") (display myy) (display ",") (display myz) (display "]")))
+   ))

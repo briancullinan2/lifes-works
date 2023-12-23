@@ -1,0 +1,64 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*-----------Toolboxes-------------*/
+#left_toolbox, #right_toolbox {
+	background-image:url("../graphics/toolbox_background.jpg");
+	background-repeat:no-repeat;
+	float:left;
+	height:300px;
+	padding:30px 0px 0px 0px;
+	text-align:center;
+	width:100px;
+}
+
+/*-----------Input Dragging-------------*/
+
+
+#resize {
+	border:1px dashed #000000;
+	position:absolute;
+	z-index:1000;
+	cursor:move;
+	background-image:url("../graphics/dragging.gif");
+	background-position:center;
+	background-repeat:no-repeat;
+	background-color:#FFFFFF;
+	filter:alpha(opacity=25);
+	-moz-opacity:.25;
+	opacity:.25;
+}
+
+#r_nw, #r_n, #r_ne, #r_w, #r_e, #r_sw, #r_s, #r_se {
+	background-image:url("../graphics/resizer.gif");
+	background-repeat:no-repeat;
+	display:block;
+	height:6px;
+	position:absolute;
+	width:6px;
+	z-index:1001;
+	font-size:1px;
+}
+
+.dragable {
+	background-color:#999999;
+	cursor:move;
+}
+
+.sizeable {
+}
+
+.editable {
+}
+
+.dragging {
+	z-index:1;
+}
+
+.selected {
+	z-index:1;
+}
+
+#placeholder {
+	background-color:#FFFFFF;
+}

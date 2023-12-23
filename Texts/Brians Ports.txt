@@ -1,0 +1,19 @@
+	Virtual Server FTP	0.0.0.0	TCP 21/21	always	editdelete
+	Virtual Server HTTP	192.168.0.106	IP (0) 80/80	always	editdelete
+	Virtual Server HTTPS	0.0.0.0	TCP 443/443	always	editdelete
+	Virtual Server DNS	192.168.0.106	IP (0) 53/53	always	editdelete
+	Virtual Server SMTP	0.0.0.0	TCP 25/25	always	editdelete
+	Virtual Server POP3	0.0.0.0	TCP 110/110	always	editdelete
+	Virtual Server Telnet	0.0.0.0	TCP 23/23	always	editdelete
+	IPSec	0.0.0.0	UDP 500/500	always	editdelete
+	PPTP	0.0.0.0	TCP 1723/1723	always	editdelete
+	NetMeeting	0.0.0.0	TCP 1720/1720	always	editdelete
+	DCS-1000	0.0.0.0	TCP 80/80	always	editdelete
+	DCS-2000	0.0.0.0	TCP 80/80	always	editdelete
+	i2eye	0.0.0.0	TCP 1720/1720	always	editdelete
+	RemoteDesktop	192.168.0.106	IP (0) 3389/3389	always	editdelete
+	QuakeServer	192.168.0.106	IP (0) 27960/27960	always	editdelete
+	HaloServer	192.168.0.103	IP (0) 2302/2302	always	editdelete
+	HaloServerConnect	192.168.0.103	IP (0) 2303/2303	always	editdelete
+	BriansTrillian	192.168.0.106	IP (0) 8000/8000	always	editdelete
+	BriansServer	192.168.0.106	IP (0) 8080/8080	always	editdelete

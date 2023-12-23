@@ -1,0 +1,611 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="syllabus_files/styles.css" type="text/css">
+
+<script language="javascript" src="syllabus_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>MUS333 Syllabus</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="syllabus_files/moduleI.css" rel="stylesheet" type="text/css">
+</head><body>
+<h2><strong>3 Jazz History &amp; Styles </strong></h2>
+<p><strong>Syllabus </strong></p>
+<h3><strong>Northern Arizona University, College of Arts and Letters, 
+School of Music</strong><br>
+  <strong>2010 Spring<br>
+  </strong><strong>MUS 333 Jazz History &amp; Styles, <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">Section</a> 801</strong><br>
+    <strong>3 credit hours</strong></h3>
+<p><strong>This course was created by Dr. Blase Scarnati and Mr. Joel 
+DiBartolo of the School of Music at Northern Arizona University.&nbsp; </strong></p>
+<p><strong>The course professor is Mr. John (Art) Lawton.</strong></p>
+<p><strong>I. Contact information </strong></p>
+<p><strong>I. A.&nbsp; The course professor is Mr. John Arthur (Art) 
+Lawton, School of Music.</strong> </p>
+<p><strong>Office hours</strong><br>
+  Contact:&nbsp; Please email Mr. Lawton by in-class email (click on 
+‘All Instructors’).Lacking access to the course or in an emergency, 
+email at <a href="mailto:alawton@indiana.edu">alawton@indiana.edu</a></p>
+<p><strong>Emai</strong>l&nbsp;&nbsp; <br>
+    <strong><u>Please use the email function in the class for all 
+communication</u></strong>.&nbsp; </p>
+<p>For additional assistance, click on ‘Getting Started’ and then again 
+on ‘HELP.’</p>
+<p>Please contact &nbsp;your TA with questions regarding the written 
+assignments, and Mr. Lawton directly concerning questions on the course 
+content, procedures, Exams, Assignments, or any other issues.&nbsp;</p>
+<p><strong>I.B.&nbsp; Vista problems</strong><br>
+  Stephanie McCarthy is the Course Administrator.&nbsp; If you are 
+experiencing difficulties with Vista, internet-related browser, or 
+computer problems, please either contact Stephanie by in-class email or 
+call the Academic Computing Helpdesk at 523-9294 (toll-free at 
+888-520-7215).&nbsp; Please email Mr. Lawton and let him know of any 
+technical problems that you experience.</p>
+<p><strong>Directions for contacting Stephanie McCarthy by in-class 
+email</strong>&nbsp;&nbsp; Click on ‘Mail’ (listed in the navigation bar
+ at the left of the screen), select ‘Create Message,’ and click on 
+‘Browse for Recipients.’&nbsp; You will find Stephanie under ‘M’ for 
+‘McCarthy, Stephanie’.&nbsp; If you click on her name and then click 
+SAVE, your email will automatically be addressed to her.&nbsp; You can 
+also type ‘sm25’ (without quotes) directly in the ‘TO’ heading of an 
+in-class email, or click on ‘All Teaching Assistants.’&nbsp; </p>
+<p>For additional assistance, click on ‘Getting Started’ and then again 
+on ‘HELP.’</p>
+<p><strong>I.C.&nbsp; Teaching Assistant</strong><br>
+  Teaching Assistants (TAs) will be both working with you in developing 
+and grading your Outline and Thesis Statement, Draft Paper, Final 
+Paper.&nbsp; Mr. Lawton will send an in-class email with the names and 
+contact information for TAs.&nbsp; You can also select ‘All Teaching 
+Assistants’ in an in-class email to contact your TA.</p>
+<p><strong><u>Please contact Mr. Lawton</u></strong> directly concerning
+ questions on the course content, procedures, Exams, Assignments, and 
+issues having to do with your TA.&nbsp;</p>
+<p><strong>II. Course information </strong></p>
+<p><strong>Course prerequisites</strong><br>
+  ENG 105.</p>
+<p><strong>Course description </strong><br>
+  This course examines the historical development of jazz through its 
+economic, political, social, and artistic (cultural) contexts. The 
+course will specifically address how and why people historically 
+construct, socially maintain, and individually create and experience 
+this music.</p>
+<p>The thematic focus of the course will be to Value the Diversity of 
+Human Experience. It is a liberal studies course in the Cultural 
+Understanding distribution block. The course will address the essential 
+skills of critical thinking and critical reading and will pay particular
+ attention to them through assessment.</p>
+<p>There will be a variety of levels of reading that students critically
+ engage throughout the course including the course text written by the 
+instructors, secondary journal and reference articles written for the 
+profession, and primary source readings. In course Exams and the Written
+ Assignments, critical thinking and critical reading will be 
+demonstrated through engagement with the above activities.</p>
+<p><strong>Student learning outcomes </strong><br>
+  Successful students in this course should be able to discuss and 
+demonstrate for assessment how and why people historically construct, 
+socially maintain, and individually create and experience jazz (valuing 
+the human experience, critical reading, critical thinking).</p>
+<p>Successful students in this course should be able to demonstrate 
+online collaboration skills, including teambuilding, online project 
+management, communication via the Internet, group decision making, 
+conflict management, and interpersonal skills. </p>
+<p><strong>Course structure </strong><br>
+    <strong>While you are free to progress through the course content, 
+discussions and Exams at your own pace, <u>you must submit Written 
+Assignments for grading based upon the following summary of DUE DATES</u></strong>.&nbsp;
+ You are always free to submit activities for grading before the due 
+date.</p>
+<p><strong><u>Thesis Statement and Outline </u></strong><br>
+  <strong>Friday, February 12, 2010, by 11:00 PM Thesis Statement and 
+Outline are due.</strong><br>
+  <strong>LATE SUBMISSIONS of the Thesis Statement and Outline will be 
+accepted after the above due date through Monday, February 15, 2010, by 
+11:00 PM and will receive a twenty percent (20%) penalty based upon the 
+total possible number points for the assignments.&nbsp; No submissions 
+will be accepted for any credit after 11:00 PM on Monday, February 15, 
+2010.</strong> </p>
+<p><strong><u>Draft Paper </u></strong><br>
+  <strong>Friday, March 26, 2010, by 11:00 PM the Draft Paper is due.</strong><br>
+  <strong>LATE SUBMISSIONS of the Draft Paper will be accepted after the
+ above due date through Monday, March 29, 2010 by 11:00 PM and will 
+receive a twenty percent (20%) penalty based upon the total possible 
+number points for the assignments. No submissions will be accepted for 
+any credit after 11:00 PM on Monday, March 29, 2010.</strong> </p>
+<p><strong><u>Final Paper 5</u></strong><br>
+  <strong>Friday, April 23, 2010, by 11:00 PM the Final Paper is due.</strong><br>
+  <strong>LATE SUBMISSIONS of the Final Paper will be accepted after the
+ above due date through Monday, April 26, 2010 and will receive a twenty
+ (20%) penalty based upon the total possible number points for the 
+assignments. No submissions will be accepted for any credit after 11:00 
+PM on Monday, April 26, 2010.</strong> </p>
+<p><strong><u>Exams, Comprehensive Exam and Discussions/Responses</u></strong><br>
+  <strong>Friday, May 7, 2010, by 11:00 PM all Exams and 
+Discussion/Responses are DUE.&nbsp; </strong><br>
+  <strong>NO late submissions will be accepted.</strong> </p>
+<p><strong>Text and materials </strong><br>
+  All readings, listening, and class assignments are available online 
+within the course. No textbook or other materials are required. </p>
+<p><strong>How to start the course</strong><br>
+  Click on ‘Getting Started’ on the course home page for instructions. </p>
+<p><strong>Software Downloads </strong><br>
+  You are required to download free versions of software to view and 
+listen to important sections of the course (click on ‘Getting Started’ 
+on the course home page for instructions). </p>
+<p><strong>Computer requirements </strong><br>
+  You must have a relatively current computer and operating system and 
+an Internet Service Provider that is reliable. &nbsp;If you have any 
+questions, please review the information on NAU's Distributed Learning 
+site. </p>
+<p><strong>Internet browser and configurations</strong><br>
+  You should also download and use the recommended internet browser and 
+check for proper configurations on the NAU Vista login page.&nbsp; </p>
+<p><strong>Word processing program requirements and file types</strong><br>
+  For the Paper Assignments, you MUST either compose your Papers using 
+Microsoft Word OR save and submit them in Rich Text Format (.rtf). If 
+you submit them in another format (Word Perfect, for example), they 
+cannot be opened and graded by your TA. It is your responsibility to 
+submit your Papers in one of these two accepted formats by the assigned 
+due dates (see schedule above, and also below). </p>
+<p><strong>Course readings </strong><br>
+  There are a number of articles used in this course from Grove Music 
+Online, a major secondary source for music history.&nbsp;At the 
+appropriate place in the course text you will be directed to the 
+article.&nbsp;Go to the library main page (nau.edu/library). There you 
+will find under (Research Resources) an option titled (Find articles and
+ Research information). Click on it, and the next page has a box (Find 
+Web Resource by Title and Keyword). Type into the drop box "Oxford 
+Music" and click on th go button. On the new page, click on (Oxford 
+Music Online (formerly Grove Music online)), and you should be there. If
+ you continue to have problems, call the Cline Library Tech Help desk. 
+Get back to me if you continue to have trouble.</p>
+<p>Unless directed otherwise, YOU ARE TO READ ALL OF THE SUBSECTIONS OF 
+THE ARTICLE, not just the opening page.&nbsp;Questions based upon these 
+assigned articles frequently appear in Exams. Contact Mr. Lawton by 
+in-class email if you have any questions.</p>
+<p>You will also read an interview from a 1985 issue of Musician 
+magazine with jazz greats Herbie Hancock and Wynton Marsalis entitled 
+“Soul, Craft, and Cultural Heirarchy.”&nbsp; BE WARNED—you will 
+encounter strong language, imagery, and ideas with which you may agree 
+or disagree.</p>
+<p><strong>Copyright protection</strong><br>
+  ALL LISTENING and VIDEO EXCERPTS, PHOTOGRAPHS, INTERVIEWS, and OTHER 
+MATERIALS used in this course are PROTECTED BY COPYRIGHT. </p>
+<p><strong>Any attempt to capture copies of the above is a violation of 
+copyright law</strong>. In accordance with the “Technology, Education 
+and Copyright Harmonization Act” (TEACH Act) of 2002, this course </p>
+<ul type="disc">
+  <li>limits      access of copyrighted works to students currently 
+enrolled in the class; </li>
+  <li>limits      access only for the time needed to complete the class 
+session or course; </li>
+  <li>prevents      further copying or redistribution of copyrighted 
+works; and </li>
+  <li>does      not interfere with copy protection mechanisms </li>
+</ul>
+<p><strong>III. Assessment </strong><br>
+Achievement of course objectives will be accomplished through graded and
+ ungraded assessments.</p>
+<p><strong><u>Examinations </u></strong><br>
+  All sections of this course will utilize graded Examinations for 
+assessment. Examinations will consist of multiple-choice, true-false, 
+and identification questions that are designed to assess students’ 
+ability to apply concepts learned in class (valuing the diversity of 
+human experience, critical thinking, and critical reading). </p>
+<p>All Examinations will be taken online within the course (see 
+Examination Schedule below). Students will receive a score immediately 
+upon the completion and submission of each Exam. Please read and 
+carefully follow ALL Examinations instructions.</p>
+<p>As you go through the course, Exam questions will increasingly focus 
+on listening and refer to audio excerpts. Audio excerpts and Exam 
+questions may deal with material discussed or listened to in the course,
+ or something that is either similar or dissimilar in important ways to 
+material discussed or listened to in the course. It will be impossible 
+to cover every item with an Exam question. Examinations are based on the
+ integration of all learning components.</p>
+<p>There will be three (3) Exams that each covers material from a 
+section of the course. There will also be one (1) Comprehensive 
+Examination that covers material from the complete course.</p>
+<p><strong>Examination schedule </strong><br>
+  Click on the COURSE CONTENT for detailed course contents.</p>
+<p><strong>Exam 1</strong> will cover material from the 'Introduction' 
+section through the end of '<a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113964071"
+ class="glossarylink" target="_blank">Roots</a> of Jazz.'<br>
+    <strong>Exam 2</strong> will cover material from the 'Cut 'n' <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113994071"
+ class="glossarylink" target="_blank">Mix</a> to Re-mix' section through
+ the end of <br>
+    <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </strong>' Modal and Free Jazz.' <br>
+    <strong>Exam 3</strong> will cover material from the 'Birth of the 
+Cool' section through the end of 'Dixieland.' <br>
+    <strong>Comprehensive Exam </strong>will cover material from the 
+complete course. </p>
+<p>All Exams are hyperlinked at the appropriate point in the course text
+ and may be found by clicking on ‘Assessments.’ </p>
+<p><strong>Examination due dates </strong><br>
+  All Exams are DUE by <strong>Friday, May 7, 2010, by 11:00 PM</strong>.<br>
+  NO late submissions will be accepted.</p>
+<p>Any Examination not completed by the due date will receive a grade of
+ ZERO (F). </p>
+<p><strong><u>Written Assignments </u></strong><br>
+Please read the instructions for completing the Outline &amp; Thesis 
+Statement, Draft Paper and Final Paper by clicking on ‘Assignment’ in 
+the course and then again on any of the three listed assignments. </p>
+<p>You will read the assigned Article and, based on the Paper Topic, 
+submit an Outline with Thesis Statement (50 points possible), a Draft 
+Paper (100 points possible), and a Final Paper (150 points possible) for
+ grading by the due dates (for a possible total of 300 points).&nbsp;You
+ will receive feedback from your Teaching Assistant (TA) for each of the
+ above activities (Outline, Draft, and Final Papers). </p>
+<p>You are expected to develop each of your graded activities from the 
+Outline through the Draft Paper to the Final Paper based on the Paper 
+Topic and feedback provided through a Grading Rubric and Comments from 
+your Teaching Assistant (TA). </p>
+<p>All articles, assignments, and supporting documents are at the bottom
+ of the page under the ‘Attachment’ heading in the appropriate 
+assignment (such as ‘Draft Paper’) by clicking on ‘Assignment.’</p>
+<p><strong>Paper topic</strong><br>
+  Please read the interview from a 1985 issue of Musician magazine with 
+jazz greats Herbie Hancock and Wynton Marsalis, titled “Soul, Craft, and
+ Cultural Heirarchy” by editor Robert Walser.</p>
+<p>As you read through the interview, you will find an increasing 
+divergence in fundamental assumptions between Hancock and Marsalis. BE 
+WARNED—you will encounter strong language, imagery, and ideas with which
+ you may agree or disagree. Please also read through the brief 
+introduction to the article written by Rob Walser, the Chair of the 
+Ethnomusicology Department at the University of California at Los 
+Angeles, which puts the article and the two musicians into context. At 
+root, the issues that Hancock and Marsalis discuss can be applied to 
+earlier jazz as well—just the particulars would change. Of the many 
+ideas discussed between Hancock and Marsalis, select one idea that you 
+find interesting on one side or the other of the argument to be used as 
+the focus of your paper. Please back up your assertions with course 
+materials and/or your own research. As you begin your paper, you may 
+want to focus on the jazz you have studied in the course to date. 
+However, you may want to enlarge you focus in a later draft to include 
+other jazz styles. That will be up to you. </p>
+<p>You must cite references to any materials drawn from beyond this 
+course (you do not need to cite course materials). Use any citation 
+system that you are familiar with (Chicago Manual, MLA, etc.).&nbsp; Be 
+consistent, though, in whatever system you do choose. Although based on 
+your reading of the assigned article, good papers usually focus on one 
+aspect of your overall interaction and thought process. You need to 
+actively shape material from the article: that is, be strong and clear 
+in your statements about and insights into the arguments presented in 
+the article, then utilize the arguments presented in the article to help
+ you develop your ideas. Focus and develop your discussion; do not just 
+recount the article. Remember that there are many ways to discuss the 
+issues raised in the article; therefore, you must be sure to explain and
+ detail how you see things and why. Do not feel as if you need to 
+discuss the entire article to write a good paper. Be careful of simply 
+summarizing issues in the article. Be explicit and explanatory.</p>
+<p>Paper Grading <br>
+  Your TA will provide feedback via a Grading Rubric in the 'Comment' 
+window and will provide a grade in the Comment box. You may be asked by 
+your TA to further develop and resubmit a revised Outline, Draft Paper, 
+or Final Paper to fulfill the requirement. In some cases you may be 
+asked to revise and resubmit more than once. If you are asked to do so, 
+do not worry. It is an opportunity to improve your work before a grade 
+is issued.</p>
+<p>Any graded activity not completed and submitted by the due dates will
+ be given a grade of ZERO (0). Failure to revise and resubmit as 
+requested by your TA will result in a grade of ZERO (0) for that 
+activity.<br>
+  To find your TA’s comments on the graded assignment, click on 
+‘Assignment’ under the course menu, then click on the ‘Graded’ button to
+ choose the appropriate assignment. If your assignment has been graded, 
+you will see your TA’s comments listed in the right side of the 
+page.&nbsp;&nbsp; </p>
+<p><strong>Paper grading rubric</strong><br>
+  Below is the rubric that will be used to assess each of your Outline, 
+Draft, and Final Papers.</p>
+<p>Clarity of purpose. topic, and theme (25% of overall grade for each 
+Draft or Final Paper)<br>
+  It should be clear to your reader (your TA) specifically what you are 
+discussing.&nbsp;Analytical writing should be explicit and 
+focused.&nbsp;Be wary of having only a general sense of what you want to
+ discuss or of developing two different themes in your paper. Some 
+sentence early in the paper should offer your major, overriding insight 
+(your Thesis Statement)—the point around which the whole paper adheres. </p>
+<p>Substantiation (25%)<br>
+  There should be a clear and definite sense of how the ideas in the 
+paper originated in and developed from your interaction with the 
+specifics of the article under consideration. This requirement helps you
+ clarify your insights and helps someone else, like your TA, see your 
+perspective more clearly. Substantiation can take the <u><a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a></u> of referring to 
+specific details, conflicts, resolutions, images, and/or using 
+quotations to verify your points.</p>
+<p>Coherence (20%)<br>
+  All sections/paragraphs of your paper should help develop the 
+topic/theme. Coherence means that there exists a unity of purpose and 
+focus throughout the paper; that you do not meander to some other 
+interest and that you do not lose track of the specific theme of your 
+paper.</p>
+<p>Cohesiveness (20%)<br>
+  There should also be a sense of connection between paragraphs, some 
+feeling of transition from one paragraph to the next—a developmental 
+progression that builds throughout the paper. Some relationship should 
+exist between the paragraphs in terms of how they forward or continue 
+the discussion of your theme/topic.</p>
+<p>Grammar/language/expression (10%)<br>
+  The way in which you form your sentences, your use of the English 
+language, and the way you express your ideas are also taken into 
+consideration.</p>
+<p><strong>Discussion Groups</strong><br>
+  Participation in the collaborative work of your Discussion Group will 
+facilitate the achievement of course objectives. </p>
+<p>You will be assigned to a Discussion Group.&nbsp; Please immediately 
+check in with your Group and begin work on Discussion 1.<br>
+  You will submit five (5) Discussion postings and ten (10) Responses 
+for grading over the semester to other student Discussion postings in 
+your Group on assigned topics in reaction to the assigned Discussion 
+Topics. You are expected develop a critical stance in reaction to the 
+Discussion Topic (critical reading and critical thinking). Please see 
+the Topic for each Discussion posting for details. <br>
+  For EACH of the five Discussions assignments, you will need to post in
+ your Discussion Group within the ‘Discussions’ area <br>
+  1. a minimum of one (1) two paragraph Discussion Posting based upon 
+the assigned topic and 2. two (2) one paragraph Responses to other 
+student’s Discussion Postings in your Discussion Group. <br>
+  Remember that, while Discussions are open only to the other students 
+assigned to your Group, it is still a public forum. </p>
+<p><strong>Discussions schedule</strong><br>
+  See Discussion due dates below.<strong></strong><br>
+  <strong>Discussion 1</strong> You will introduce yourself.<br>
+  <strong>Discussion 2</strong> Will cover material from the 
+'Introduction' through 'Roots of jazz.'<br>
+  <strong>Discussion 3</strong> Will cover material from the 'Cut 'n' 
+Mix to <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113942071"
+ class="glossarylink" target="_blank">Remix</a>' section through the end
+ of 'Birth of the Cool'<br>
+  <strong>Discussion 4</strong> Will cover all material from 'Bebop' 
+through 'Swing.'<br>
+  <strong>Discussion 5</strong> Will cover material from 'Dixieland to 
+swing' through 'Dixieland.' You might also want to go back and review 
+the 'Ragtime' section in 'Roots of jazz.' </p>
+<p><strong>Discussion due dates</strong><br>
+  ALL Discussions/Responses are <strong>DUE by Friday, May 7, 2010, 
+&nbsp;by 11:00 PM. </strong><br>
+  Any Discussions or Responses not completed by the due date will 
+receive a grade of ZERO (F). <br>
+  You will receive full credit for your Discussion and Response Postings
+ by the fact of your participation, as long as they address the assigned
+ topic. Unlike the Quizzes, you will not receive any direct feedback on 
+your Discussion and Response Postings as part of the grading process, 
+although you may hear from Mr. Lawton as he responds and interacts with 
+various Postings in your Group. <br>
+  You must insure that your Discussion Postings are successfully posted 
+into your Discussion Group by the Discussion due dates.<br>
+  <strong><u>Summary of all Graded Activities DUE DATES</u></strong></p>
+<p><strong><u>Thesis Statement and Outline </u></strong><br>
+  <strong>Friday, February 12, 2010,by 11:00 PM your Thesis Statement 
+and Outline are DUE.</strong><br>
+  <strong>LATE SUBMISSIONS of the Thesis Statement and Outline will be 
+accepted after the above due date through Monday, February 15, 2010, by 
+11:00 PM and will receive a twenty per cent (20%) penalty based upon the
+ total possible number points for the assignments. Thesis and Outline 
+submissions will not be accepted for any credit after 11:00 PM onMonday,
+ February 15, 2010.</strong></p>
+<p><strong><u>Draft Paper </u></strong><br>
+  <strong>Friday,</strong><strong> March 26, 2010, by 11:0<strong>0 PM 
+the Draft Paper is DUE.</strong></strong><br>
+  <strong>LATE SUBMISSIONS of the Draft Paper and Discussion 4 
+activities will be accepted after the above due date through Monday, 
+March 29, 2010,by 11:00 PM and will receive a twenty&nbsp; percent (20%)
+ penalty based upon the total possible number points for the 
+assignments. No submissions will be accepted for any credit after 11:00 
+PM on Monday,March 29, 2010.</strong></p>
+<p><strong><u>Final Paper</u></strong><br>
+  <strong>Friday, April 23, 2010 by 11:00 PM the Final Paper is DUE.</strong><br>
+  <strong>LATE SUBMISSIONS of the Final Paper will be accepted after the
+ above due date through Monday, April 26, 2010, by 11:00 PM and will 
+receive a twenty&nbsp; percent (20%) penalty based upon the total 
+possible number points for the assignments. No submissions will not be 
+accepted for any credit after 11:00 PM on Monday, April 26, 2010.</strong></p>
+<p><strong><u>ALL Exams and all Discussion postings</u></strong><br>
+  <strong>Friday, May 7, 2010,by 11:00 PM all Exams and discussion 
+postings are DUE.&nbsp; </strong><br>
+  <strong>NO late submissions will be accepted.</strong></p>
+<p><strong>IV. Grading system </strong></p>
+<p>As you complete the coursework, you may review your grades by 
+clicking on ‘My Grades’ in the navigation bar to the left of the screen.
+ </p>
+<p>There are a possible 1,500 points for the semester. </p>
+<p><strong>Paper Assignments</strong><br>
+The Outline with thesis statement equals <strong>50 points</strong>, the
+ Draft Paper equals <strong>100 points</strong>, and the Final Paper 
+will equal <strong>150 points</strong> for a total of <strong>300 points</strong></p>
+<p><strong>Exams</strong><br>
+  Exams 1-3 will each equal a possible 200 points for a total possible 
+600 points.<br>
+  Comprehensive Exam will equal a possible 400 points.</p>
+<p><strong>Discussions</strong><br>
+  Discussions 1-5 will equal 40 points for a total of 200 points.<br>
+  Each Discussion consists of your Discussion Posting (20 points) and 
+two (2) Responses to other student's Discussion Postings (10 points 
+each).
+
+</p><p><strong>Grading scale </strong></p>
+<p>1,350-1,500 points (90-100%) = A</p>
+<p>1,200-1,349 points (80-89%) = B</p>
+<p>1,050-1,199 points (70-79%) = C</p>
+<p>900-1,049 points (60-69%) = D</p>
+<p>899 points and below (59% or less) = F </p>
+<p>There is NO extra credit available in this course.</p>
+<p><strong>V. Course policies </strong></p>
+<p>The following University Policies also apply to this course: </p>
+<p>Safe Working and Learning Environment </p>
+<p>Students with Disabilities </p>
+<p>Institutional Review Board </p>
+<p>Academic Integrity </p>
+<p><strong>VI. Holidays </strong></p>
+<p>No interactivity with Mr. Lawton or your TAs (University closed). </p>
+<p>Martin Luther King Day, January 18, 2010, and Spring Break, Saturday,
+ March 13 to Sunday, March 20, 2010. </p>
+<p><strong>VII. COURSE CONTENT of assignments </strong></p>
+<p>Click on the ‘Course Content’ and then any of the course sections for
+ detailed listing of the course contents.</p>
+<p>&nbsp;</p>
+<p></p>
+</body></html>

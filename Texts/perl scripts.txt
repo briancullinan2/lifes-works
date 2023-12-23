@@ -1,0 +1,74 @@
+#!/usr/bin/perl
+# Program name: example.pl
+print("this is a simple\n");
+print("Perl program.\n");
+
+#!/usr/bin/perl
+# Program nameL example2pl
+$name = "Charlie";
+print ("Greetings $name\n");
+
+#!/usr/bin/perl
+# Program name: example.pl
+print ("Enter a number: ");
+$number = <STDIN>;
+print ("You entered $number\n");
+
+#!/usr/bin/perl
+# Program name: example4.pl
+print ("enter a number: ");
+$number = <STDIN>;
+if ($number == 10)
+{
+	print ("That is the number i was thinking of.\n");
+}
+else
+{
+	print ("You entered $number\n");
+}
+
+#!/usr/bin/perl
+# Program name: example5.pl
+$my_name = "Ellen";
+$your_name = "Charlie";
+if ($my_name eq $your_name)
+{
+	print ("Your name is the same as mine.\n");
+}
+else
+{
+	print ("Hello. My name is $my_name\n")
+}
+
+#!/usr/bin/perl
+# Program name: example6.pl
+$num1 = 10;
+$num2 = 50;
+$num3 = 12;
+$average = ($num1 + $num2 + $num3) / 3;
+print ("The average is $average\n");
+
+#!/usr/bin/perl
+# Program name: example7.pl
+print ("\\words\\seperated\\by\\slashes\n");
+print ("This is a \"quote\"\n");
+print ("\Uupper case\n");
+print ("\LLOWER CASE\n");
+
+#!/usr/bin/perl
+# Program name: example8.pl
+@pets = ("dog", "cat", "parrot", "hamster");
+print ("My pets are:\n");
+print ("$pets[0]\n");
+print ("$pets[1]\n");
+print ("$pets[2]\n");
+print ("$pets[3]\n");
+
+#!/usr/bin/perl
+# Program name: example9.pl
+%animals = ('Tigres', 10, 'Lions', 20, 'Bears', 30, 'Example', 'These are very bad examples');
+print ("The animal values are:\n");
+print ("$animals{'Tigres'}\n");
+print ("$animals{'Lions'}\n");
+print ("$animals{'Bears'}\n");
+print ("$animals{'Example'}\n");

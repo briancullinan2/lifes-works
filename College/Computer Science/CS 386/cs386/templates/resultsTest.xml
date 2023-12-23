@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A test of a stored survey results file -->
+<survey>
+	<checkbox>
+		blue,red
+	</checkbox>
+	<checkbox>
+		cat
+	</checkbox>
+	<radio>
+		CS 386
+	</radio>
+	<text>
+		This is text.
+	</text>
+</survey>

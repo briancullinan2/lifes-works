@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script type="text/javascript" language="javascript" src="js/edit_vars.js"></script>
+<script type="text/javascript" language="javascript" src="js/edit_drag.js"></script>
+<script type="text/javascript" language="javascript" src="js/edit_size.js"></script>
+<link href="templates/css/edit.css" rel="stylesheet" type="text/css" />
+<style>
+
+.dragable {
+	border:1px solid #000000;
+	height:100px;
+	width:100px;
+	border:1px solid #000000;
+	background-color:#999999;
+	cursor:move;
+}
+
+.sizable {
+	border:1px solid #000000;
+	height:100px;
+	width:100px;
+	border:1px solid #000000;
+	background-color:#999999;
+	cursor:move;
+}
+
+</style>
+</head>
+
+<body onload="init();">
+	
+	some text
+	<div style="margin:50px; border:1px solid #000000; padding:50px;">
+		<div class="dragable sizable" style="margin:50px;">
+		
+		</div>
+		some text
+		<div class="dragable">
+			stuff
+		</div>
+	</div>
+	some more text
+	
+	<div id="resize" style="display:none; height:1px; width:1px;">
+	</div>
+	<div id="placeholder">
+	</div>
+	<div id="r_nw" style="cursor:nw-resize;"></div>
+	<div id="r_w" style="cursor:w-resize;"></div>
+	<div id="r_sw" style="cursor:sw-resize;"></div>
+	<div id="r_n" style="cursor:n-resize;"></div>
+	<div id="r_s" style="cursor:s-resize;"></div>
+	<div id="r_ne" style="cursor:ne-resize;"></div>
+	<div id="r_e" style="cursor:e-resize;"></div>
+	<div id="r_se" style="cursor:se-resize;"></div>
+</body>
+</html>

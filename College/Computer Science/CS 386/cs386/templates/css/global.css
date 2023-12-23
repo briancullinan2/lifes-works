@@ -1,0 +1,97 @@
+body, html {
+	height:100%;
+	width:100%;
+	margin:0;
+	padding:0;
+}
+
+body {
+	background-color:#003366;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight:bold;
+}
+
+.hidden {
+	display:none;
+}
+
+.button {
+	cursor:pointer;
+}
+
+h1 {
+	text-align:center;
+	color:#33CC66;
+}
+
+h3, h2 {
+	padding:0;
+	margin:0;
+}
+
+#header {
+	background-image:url("../graphics/main_background.jpg");
+	height:60px; 
+}
+
+/*-----------Survey-------------*/
+
+#outer {
+	width:810px;
+	margin:20px auto;
+}
+
+#survey  {
+	background-color:#003366;
+	background-image:url("../graphics/survey_middle.jpg");
+	width:610px;
+	float:left;
+}
+
+#heading {
+	background-image:url("../graphics/survey_top.jpg");
+	background-repeat:no-repeat;
+	height:101px; 
+	text-align:center;
+	width:610px;
+}
+
+#content {
+	padding:10px;
+}
+
+#footing {
+	background-image:url("../graphics/survey_bottom.jpg");
+	background-repeat:no-repeat;
+	clear:both;
+	height:118px;
+	width:610px;
+}
+
+/*-----------Inputs-------------*/
+
+div.input {
+	width:590px;
+}
+
+div.input_heading {
+	background-image:url("../graphics/input_top.gif");
+	background-repeat:no-repeat;
+	height:56px;
+	padding:10px 0px 10px 0px;
+	text-align:center;
+}
+
+div.input_content {
+	background-image:url("../graphics/input_middle.gif");
+	background-repeat:repeat-y;
+	padding:20px;
+}
+
+div.input_footing {
+	background-image:url("../graphics/input_bottom.gif");
+	background-repeat:no-repeat;
+	height:93px;
+	text-align:center;
+}

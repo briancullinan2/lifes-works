@@ -1,0 +1,44 @@
+// Bout the led blinking
+PIOUT = 1
+
+P1.1 ... P1.8
+
+P7.1... P7.8
+
+2xx family supports P1...P7
+3xx P0...P7
+4xx P1...p10
+
+PxDir (directions)
+Configured for pullup or pulldown.
+
+Translation Logic L, translate voltage to 3.3 to 5.  
+
+Spy by wire.
+
+microcontroller, meant to have everything on it to run a system.
+
+1) Cpu -alu -registers (pc, sp, sr) -instruction decoder
+2) Memory for program (rom)
+3) Memory for data (ram)
+4) Input & output ports
+5) Address & data bus
+6) clk (sync)
+7) Timers (scheduling)
+8) Watchdog timer
+9) 
+SPI
+I2C
+RS232
+10) Non volitile memory
+	Masked Rom
+	eprom
+	OTP - eprom
+	Flash
+11) ADC
+
+
+MSP430 KIT
+
+
+local Name dude("Abe")

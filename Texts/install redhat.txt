@@ -1,0 +1,169 @@
+Appendix G. Configuring a Dual-Boot System
+Sharing a computer between two operating systems often requires dual booting. You can use either operating system on the computer, but not both at once. Each operating system boots from and uses its own hard drives or disk partitions. 
+
+This chapter explains how to configure your system to boot into both Red Hat Linux and another operating system. For clarity, we will assume that the other operating system is Microsoft Windows™. But the general procedures are similar for other operating systems. 
+
+
+ Note 
+  If Red Hat Linux will coexist on your system with OS/2, you must create your disk partitions with the OS/2 partitioning software — otherwise, OS/2 may not recognize the disk partitions. During the installation, do not create any new partitions, but do set the proper partition types for your Linux partitions using parted. 
+ 
+
+
+ Note 
+  If you want to be able to read from and write to a Windows NT, 2000, or XP partition from Red Hat Linux, do not set the Windows partition to file system type NTFS. If the Windows partition is of type NTFS, the partition can not be read in Red Hat Linux. If the Windows partition is of type VFAT, the partition can be read in Red Hat Linux. 
+
+If you have multiple Windows partitions, not all of them have to be of the same file system type. If you have more than one partition in Windows, you can set one to use VFAT and store any files you wish to share between Windows and Red Hat Linux on it.
+ 
+
+If you do not have any operating systems installed on your computer, install Windows first and then install Red Hat Linux. 
+
+
+If you are installing Windows 9x or Windows ME, you can not define partitions during the Windows installation. Install Windows, and then refer to Section G.3 Partitioning with parted for instructions on using parted to repartition your hard drive and create free space for Red Hat Linux. 
+
+If you are installing Windows NT or Windows 2000, you can create partitions of a specific size for Windows. Leave enough free space (space that is not partitioned or formatted) on the hard drive to install Red Hat Linux. 
+
+
+ Tip 
+  While partitioning your hard drive, keep in mind that the BIOS in some older systems cannot access more than the first 1024 cylinders on a hard drive. If this is the case, leave enough room for the /boot Linux partition on the first 1024 cylinders of your hard drive to boot Linux. The other Linux partitions can be after cylinder 1024. 
+
+In parted, 1024 cylinders equals 528MB. Refer to http://www.pcguide.com/ref/hdd/bios/sizeMB504-c.html for more information.
+ 
+
+Refer to Section 1.3 Do You Have Enough Disk Space? to determine how much disk space to leave. After installing Windows, refer to Section G.2 Installing Red Hat Linux in a Dual-Boot Environment. 
+
+If the computer you want to install Red Hat Linux on is currently running Windows (or some other operating system you have installed), you have an important decision to make. Your choices are: 
+
+
+Do you want Red Hat Linux to be the only operating system on your computer, despite the fact that you already have Windows on your computer? If yes, you do not have to configure a dual-boot system. Backup any information that you want to save and start the installation. During the installation, if you choose to have the installation program automatically partition your system on the Disk Partitioning Setup screen, choose Remove all partitions on this system. If you choose manual partitioning with Disk Druid, delete all the existing DOS (Windows) partitions and then create your Linux partitions. 
+
+Do you want to install Red Hat Linux and then have the option of booting either Red Hat Linux or your other operating system? A Red Hat Linux installation can be performed so that Red Hat Linux is installed on your system, but the other operating system is not affected. Since you already have Windows installed, you need to allocate disk space for Linux. Refer to Section G.1 Allocating Disk Space for Linux, and then refer to Section G.2 Installing Red Hat Linux in a Dual-Boot Environment. 
+
+G.1. Allocating Disk Space for Linux
+
+ Warning 
+  Remember to back up all important information before reconfiguring your hard drive. Reconfiguring your hard drive can result in the loss of data if you are not extremely careful. Additionally, be sure to create a boot diskette for both operating systems in case the boot loader fails to recognize either of them. 
+ 
+
+If you already have Windows installed on your system, you must have free hard drive space available on which to install Red Hat Linux. Your choices are as follows: 
+
+
+Add a new hard drive.
+
+Use an existing hard drive or partition.
+
+Create a new partition.
+
+For all three options, be aware that the BIOS in some older systems cannot access more than the first 1024 cylinders on a hard drive. If this is the case, the /boot Linux partition must be located on the first 1024 cylinders of your hard drive to boot Linux. 
+
+G.1.1. Add a New Hard Drive
+The simplest way to make room for Red Hat Linux is to add a new hard drive to the computer and then install Red Hat Linux on that drive. For example, if you add a second IDE hard drive to the computer, the Red Hat Linux installation program will recognize it as hdb and the existing drive (the one used by Windows) as hda. (For SCSI hard drives, the newly installed Red Hat Linux hard drive would be recognized as sdb and the other hard drive as sda.) 
+
+If you choose to install a new hard drive for Linux, all you need to do is start the Red Hat Linux installation program. After starting the Red Hat Linux installation program, just make sure you choose to install Linux on the newly installed hard drive (such as hdb or sdb) rather than the hard drive used by Windows. 
+
+G.1.2. Use an Existing Hard Drive or Partition
+Another way to make room for Linux is to use a hard drive or disk partition that is currently being used by Windows. For example, suppose that Windows Explorer shows two hard drives, C: and D:. This could indicate either that the computer has two hard drives, or a single hard drive with two partitions. In either case (assuming the hard drive has enough disk space), you can install Red Hat Linux on the hard drive or disk partition that Windows recognizes as D:. 
+
+
+ Note 
+  Windows uses letters to refer to removable drives (for example, a ZIP drive) and network storage (virtual drives) as well as for local hard drive space; you cannot install Linux on a removable or network drive. 
+ 
+
+This choice is available to you only if the computer has two or more hard drives or disk partitions. 
+
+If a local Windows partition is available in which you want to install Linux, complete the following steps: 
+
+
+Copy all data you want to save from the selected hard drive or partition (D: in this example) to another location. 
+
+Start the Red Hat Linux installation program and tell it to install in the designated drive or partition — in this example, in the hard drive or partition that Windows designates as D:. Note that Red Hat Linux distinguishes between hard drives and disk partitions. Thus: 
+
+
+If C: and D: on this computer refer to two separate hard drives, the installation program will recognize them as hda and hdb (IDE) or sda and sdb (SCSI). Tell the installation program to install on hdb or sdb. 
+
+If C: and D: refer to partitions on a single drive, the installation program will recognize them as hda1 and hda2 (or sda1 and sda2). During the partitioning phase of the Red Hat Linux installation, delete the second partition (hda2 or sda2), then partition the unallocated free space. You do not have to delete the second partition prior to starting the Red Hat Linux installation. 
+
+G.1.3. Create a New Partition
+The third way to make room for Linux is to create a new partition for Red Hat Linux on the hard drive being used by the other operating system. If Windows Explorer shows only one hard drive (C:), and you do not want to add a new hard drive, you must partition the drive. After partitioning, Windows Explorer will see a smaller C: drive; and, when you run the Red Hat Linux installation program, you can partition the remainder of the drive for Linux. 
+
+A number of non-destructive third-party partitioning programs are available for the Windows operating system. If you choose to use one of these, consult their documentation. 
+
+For instructions on how to partition with parted, a program that is included with Red Hat Linux, refer to Section G.3 Partitioning with parted. 
+
+G.2. Installing Red Hat Linux in a Dual-Boot Environment
+After Windows is installed and you have free disk space ready for Linux, you can start the Red Hat Linux installation program. Go to Chapter 1 Steps to Get You Started to begin. At this point, the only difference between a Red Hat Linux installation and configuring a dual-boot system during the Red Hat Linux installation is partitioning the hard drive and configuring the boot loader. When you are at the Disk Partitioning Setup screen as described in Section 3.17 Disk Partitioning Setup, return to this section. 
+
+G.2.1. Disk Partitioning
+At the Disk Partitioning Setup screen of the installation program, you have a few options. Depending on which option you choose, the steps for configuring a dual-boot system vary. If you do not know how many Linux partitions to create, refer to Section 3.19 Partitioning Your System for a recommended partitioning scheme. If you choose: 
+
+
+Automatic Partitioning — Choose Keep all partitions and use existing free space. This option will leave your Windows partitions on the hard drive and partition the free space or additional hard drive for Red Hat Linux. 
+
+Manual partitioning with Disk Druid — Do not delete the existing Windows partitions (they are the partitions of type vfat). Create your Linux partitions on the additional hard drive or in the free space you have reserved for Red Hat Linux. 
+
+G.2.2. Configuring the Boot Loader
+When you arrive at the Boot Loader Installation screen during the Red Hat Linux installation, choose to install the boot loader. You can use a 3rd-party boot loader (such as System Commander or Partition Magic) to boot both Red Hat Linux and Windows. Red Hat does not support alternate boot loaders. Thus, this section will discuss how to configure GRUB or LILO to boot both operating systems. 
+
+The Red Hat Linux installation program will usually detect Windows and automatically configure the boot loader (GRUB or LILO) to boot either Red Hat Linux or Windows. This can be seen on the boot loader screen of the installation program. An entry named DOS appears in the list of operating systems to boot. 
+
+G.2.3. Post-Installation
+After the installation, whenever you start the computer, you can indicate whether you want to start Red Hat Linux or the other operating system from the boot loader screen. Choose Red Hat Linux to boot into Red Hat Linux, and choose DOS to boot into Windows. 
+
+If you did not partition all the free space on your hard drive for Red Hat Linux, you can partition it for Windows after installing Red Hat Linux. You can use parted to create these partitions. For example, to view the partition table, you type print in parted. For more information about parted, refer to Section G.3 Partitioning with parted or to the Red Hat Linux Customization Guide. 
+
+
+ Warning 
+  It is highly recommended that you use parted to create partitions after installing Red Hat Linux. Other partitioning software has been known to change the partitioning table of the hard drive and move the Linux partitions. If this happens, the boot loader will not be able to find the Linux partitions and will not boot into Red Hat Linux. 
+ 
+
+To access the files on the Windows partitions while using Red Hat Linux, refer to the Accessing a Windows Partition FAQ in the Red Hat Linux Getting Started Guide. If you formatted the Windows partitions in NTFS format, this method will not work. 
+
+G.3. Partitioning with parted
+As a convenience to our customers, we provide the parted utility. This is a freely available program that can resize partitions.
+
+If you decide to repartition your hard drive with parted, it is important that you do two things: 
+
+
+Perform a Backup — Make two copies of all the important data on your computer. These copies should be to removable media (such as tape, CD-ROM, or diskettes), and you should make sure they are readable before proceeding. 
+
+Read the Documentation — Completely read the parted documentation; refer to the chapter titled Managing Disk Storage in the Red Hat Linux Customization Guide. 
+
+G.3.1. Partitioning a Windows System
+On a Windows-only box, you may need to repartition the system to make room for Red Hat Linux.
+
+First, insert the Red Hat Linux CD #1 and reboot your system. You need to boot off the CD in order to access parted in rescue mode. If you cannot boot off the CD, you may need to edit your BIOS settings. For more information about editing your BIOS, see Section 3.3.1 Booting the Installation Program.
+
+Once you have booted off the CD, you will receive a boot prompt. At the boot prompt, type: linux rescue. This will start the rescue mode program.
+
+You will be prompted for your keyboard and language preferences. Select these values as you would during the installation of Red Hat Linux.
+
+Next, a screen will appear telling you that the program will now attempt to find a Red Hat Linux install to rescue. Select Skip on this screen.
+
+After selecting Skip, you will be given a command prompt where you can access the partitions you would like to repartition.
+
+At the prompt, type parted /dev/hdX or parted /dev/sdX (for whichever drive you want to repartition), where X is the partition number of that hard drive.
+
+View the current partition table using the print command to determine the minor number of the partition to remove as well as the start and end points for the partition: 
+
+print
+ 
+
+The used space of the partition to resize must not be larger than the new size. 
+
+
+ Warning 
+  Any changes that you make with parted take place immediately. 
+ 
+
+To resize the partition, use the resize command followed by the minor number for the partition, the starting place in megabytes, and the end place in megabytes. For example: 
+
+resize 3 1024 2048
+ 
+
+After resizing the partition, use the print command to confirm that the partition has been resized correctly, is the correct partition type, and is the correct file system type. 
+
+Once you have completed your repartitioning tasks, type exit to shutdown your system.
+
+Finally, reboot your system. Rebooting may occur automatically, but if it does not, manually reboot your system.
+
+You are now ready to install Red Hat Linux.
+

@@ -1,0 +1,16 @@
+;; A simple fact base for our prolog simulator
+
+(loves john mary)
+(rich katy)
+(rich jane)
+(near katy mall)
+(near jane landfill)
+(man tim)
+(man hank)
+(food quiche)
+(hungry hank)
+(hungry katy)
+((loves ?x ?y) :- (man ?x) (woman ?y))
+((woman ?z) :- (likes ?z shopping) (eats ?z quiche))
+((likes ?x shopping) :- (rich ?x) (near ?x mall))
+((eats ?x ?y) :- (hungry ?x) (food ?y))

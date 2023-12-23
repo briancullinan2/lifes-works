@@ -1,0 +1,270 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="IV.B.2_files/styles.css" type="text/css">
+
+<script language="javascript" src="IV.B.2_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=STQvLcTWvQkvQy1w2pQWCGVg4jkyh4cwhpDJnnppbHHxS3fggm1k!-1292065854!prd5.vista.nau.edu!80!443!2077950845!prd6.vista.nau.edu!80!443!1272763190745";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=STQvLcTWvQkvQy1w2pQWCGVg4jkyh4cwhpDJnnppbHHxS3fggm1k!-1292065854!prd5.vista.nau.edu!80!443!2077950845!prd6.vista.nau.edu!80!443!1272763190745";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Modal and Free Jazz (late 1950s and beyond)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="IV.B.2_files/moduleIV.css" rel="stylesheet" type="text/css">
+<script language="JavaScript">
+<!-- Hide from non-Javascript browsers
+function windowOpen(url)
+{
+open(url, "remote", "directories=no,location=no,menubar=no,resizable=yes,scrollbars=no,status=yes,toolbar=no,width=315,height=315"); 
+}
+// -->
+</script></head><body>
+<p><img src="IV.B.2_files/moduleIV.gif" alt="module banner" height="125"
+ width="600"> </p>
+<h3><strong>Miles Davis</strong></h3>
+<p>In "So What," recorded by Miles' sextet on the album Kind
+  of Blue (1959) and performed live by them at the time, Miles and Bill 
+Evans
+  developed a piece that is formally structured around a single shift 
+from an
+  opening mode to a second mode that is based on a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113989071"
+ class="glossarylink" target="_blank">pitch</a> one <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113946071"
+ class="glossarylink" target="_blank">half step</a> away from
+  the first mode with a later return to the original mode. Both modes in
+ "So
+  What" are built on the diatonic modal pattern known as Dorian (which
+  hss an <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113975071"
+ class="glossarylink" target="_blank">interval</a> pattern of W H W W W H
+ W). Dorian sounds a half step
+  early on like the minor mode, characteristically sounds a half step 
+between
+  scale steps 6-7, and closes with a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113940071"
+ class="glossarylink" target="_blank">whole step</a> for scale steps 
+7-8.</p>
+<p>"So What" uses two Dorian modes built a half step from one another
+  (on <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113949071"
+ class="glossarylink" target="_blank">pitches</a> D and Eb, 
+respectively).</p>
+<p>D Dorian</p>
+<p>D&nbsp;&nbsp;&nbsp;&nbsp; E&nbsp;&nbsp;&nbsp;&nbsp; F&nbsp;&nbsp; 
+G&nbsp;&nbsp;&nbsp; A&nbsp;&nbsp;&nbsp; B&nbsp;&nbsp;&nbsp; 
+C&nbsp;&nbsp;&nbsp; D</p>
+<p>&nbsp;&nbsp;&nbsp; W&nbsp;&nbsp; H&nbsp;&nbsp;&nbsp; W&nbsp; 
+W&nbsp;&nbsp; W&nbsp;&nbsp; H&nbsp;&nbsp;&nbsp; W</p>
+<p>Eb Dorian</p>
+<p>Eb&nbsp;&nbsp;&nbsp; F&nbsp;&nbsp;&nbsp; Gb&nbsp;&nbsp;&nbsp; 
+Ab&nbsp;&nbsp;&nbsp; Bb&nbsp;&nbsp;&nbsp; C&nbsp;&nbsp;&nbsp; 
+Db&nbsp;&nbsp;&nbsp; Eb</p>
+<p>&nbsp;&nbsp;&nbsp; W&nbsp;&nbsp; H&nbsp;&nbsp;&nbsp;&nbsp; 
+W&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; W&nbsp;&nbsp;&nbsp;&nbsp; 
+W&nbsp;&nbsp;&nbsp; H&nbsp;&nbsp;&nbsp;&nbsp; W</p>
+<p>"So What" opens with an <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113967071"
+ class="glossarylink" target="_blank">Intro</a> by <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> bass. The <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a> kicks
+  in with eight <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113941071"
+ class="glossarylink" target="_blank">measures</a> in D Dorian, which is
+ then repeated.&nbsp; Eb Dorian
+  is sounded for eight measures which gives way to a return to D Dorian 
+for eight
+  measures to close.&nbsp; Basically the form is a 32 bar AABA or <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113935071"
+ class="glossarylink" target="_blank">Song Form</a> and
+  is generated not by the tune or <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113922071"
+ class="glossarylink" target="_blank">chord</a> changes, but by modal 
+changes which then
+  spin out accompanimental <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113931071"
+ class="glossarylink" target="_blank">harmonic</a> and melodic figures 
+or motives that are used
+  throughout (dotted quarter-eight on beats three and four).</p>
+<p><strong>Form of "So What"</strong></p>
+<p>A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+8mm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; D
+  Dorian</p>
+<p>A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+8mm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; D
+  Dorian</p>
+<p>B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+8mm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eb
+  Dorian</p>
+<p>A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+8mm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; D
+  Dorian</p>
+<p>Again, what is important in modal jazz is that things are no longer 
+based
+  upon a series of chord changes. Rather, it is a modal scale form that 
+defines
+  a span of music.&nbsp; And in the hands of Miles, things slowed and 
+were built
+  of repeating melodic and harmonic gestures.</p>
+<p>As said earlier, we will return to Kind of Blue in much more detail 
+in Topic
+  4.&nbsp; For now, watch Miles Davis' quintet, without saxophonist 
+Julian 'Cannonball' Adderly but with Wynton Kelly on piano, perform<a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/%7Emus333-c/video/davis_sowhat.html')">"So
+
+  What."</a>
+</p></body></html>

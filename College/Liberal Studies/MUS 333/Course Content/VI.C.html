@@ -1,0 +1,285 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="VI.C_files/styles.css" type="text/css">
+
+<script language="javascript" src="VI.C_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=G6KhLjSN2hgCqdpnDmWsJqclLYDLw33N21lp062TVm8p1s1xll31!-17407148!prd4.vista.nau.edu!80!443!1458923980!prd5.vista.nau.edu!80!443!1273172685143";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=G6KhLjSN2hgCqdpnDmWsJqclLYDLw33N21lp062TVm8p1s1xll31!-17407148!prd4.vista.nau.edu!80!443!1458923980!prd5.vista.nau.edu!80!443!1273172685143";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Bebop and swing: style characteristics</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="VI.C_files/moduleVI.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="VI.C_files/moduleVI.gif" alt="module banner" height="125" 
+width="600"> </p>
+<h3><strong> </strong><strong> Bebop and swing: style characteristics</strong></h3>
+<p> The swing <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113954071"
+ class="glossarylink" target="_blank">big band</a>, as we will discuss 
+in more detail in the next <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> of the course, was 
+quite large with up to twenty musicians performing together mostly 
+reading pre-written arrangements that allowed little opportunity for <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113976071"
+ class="glossarylink" target="_blank">improvisation</a>. While there 
+were a few great bebop big bands, like those lead by Billy Eckstein and 
+Dizzy Gillespie, most of the action in bebop occurred within a quartet 
+or quintet. </p>
+<p>Bebop was ‘ear’ music, or music that was created to be listened to 
+(like <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113977071"
+ class="glossarylink" target="_blank">art music</a>). Its tempos were 
+often very fast and the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113963071"
+ class="glossarylink" target="_blank">rhythmic</a> motion was frequently
+ doubled so that either the rate that the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a> and <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a> went by or the amount 
+of rhythmic activity per second dramatically increased. Swing and 
+earlier jazz was dance music that used moderate tempos that were good 
+for dancing. </p>
+<p>The <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113991071"
+ class="glossarylink" target="_blank">rhythm section</a> in swing 
+outlined a four-beat pattern that was very stable and danceable. Bebop’s
+ <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113947071"
+ class="glossarylink" target="_blank">rhythm</a> section created stacked
+ layers of syncopation that created <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113934071"
+ class="glossarylink" target="_blank">polyrhythms</a> and polymeters, or
+ the effect of multiple rhythms or meters played simultaneously. </p>
+<p>Even different instruments were emphasized in the two style periods. 
+Benny Goodman’s swing clarinet virtually disappeared in bebop (the bass 
+clarinet would surface in some modal recording played most prominently 
+by Eric Dolphy, but the clarinet has never come back to the level of 
+prominence that it experienced in swing). In bebop, there is a focus on 
+saxes and trumpet as solo instruments, with the electric guitar also 
+gaining attention. </p>
+<p>As mentioned before, swing musicians had little opportunity for solo 
+improvisation in the complex arrangements played by swing big bands, 
+while bebop <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113921071"
+ class="glossarylink" target="_blank">combo</a> performances were built 
+exclusively around improvisation with a ‘tune’ sounded at the top and 
+close of a piece that was often simply voiced by the soloists in unison.
+ </p>
+<p>Virtuosic display was a hallmark of bebop improvisation that was writ
+ by being able to play technically challenging and rapid figures that 
+were generated from many chromatic <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113922071"
+ class="glossarylink" target="_blank">chord</a> substitutions to an 
+original <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113997071"
+ class="glossarylink" target="_blank">chord progression</a> in difficult
+ or non-<a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113933071"
+ class="glossarylink" target="_blank">standard</a> keys. Bebop 
+improvisers also used a number of musical ideas per solo break. Both 
+later and earlier jazz styles usually focused on a single idea or two to
+ develop into a solo passage. </p>
+<p>Swing improvisation tended to be more like embellishing a popular 
+song melody. This was a smart move for commercial music that was 
+dependent upon consumers recognizing the original hit melody and 
+following it throughout the improvisation. Bebop performers completely 
+discarded the melody after an initial statement. This process gives rise
+ to the modern concept of improvisation as truly composing and 
+performing in the moment. </p>
+<p>Even the type of tunes that were composed and used in performance 
+differed between swing and bebop. Swing melodies were well-known (or 
+soon to be) popular hit songs of the day that were usually simple and 
+easy to understand at first listening (again, this was a smart strategy 
+for music that was meant to be sold as a <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113938071"
+ class="glossarylink" target="_blank">commodity</a>). Bebop melodies, 
+however, were much more complex, convoluted, and full of contrasts and 
+surprises. </p>
+<p>The harmonies used as chord sources for improvisation or as the basis
+ for the arrangements in a swing big band piece were also relatively 
+simple compared to what would be used by bebop musicians. Swing <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113968071"
+ class="glossarylink" target="_blank">harmony</a>, with the exception of
+ the likes of Duke Ellington, was straight-forward material generated 
+from the <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113949071"
+ class="glossarylink" target="_blank">pitches</a> of a particular 
+diatonic scale. Chord progressions were usually simple triads (three 
+note chords built from the pitches of a scale), seventh chords (four 
+note chords), some augmented or diminished chords (chords that are 
+stacks of all major thirds or minor thirds), and the occasional added 
+sixth chord (C-E-G-Ab, or scale degrees 1-3-5-lowered 6, where the Ab is
+ added to a C major triad as a lowered sixth scale degree in C major). </p>
+<p>Bebop harmonies were much more complex and chromatic (introducing 
+pitches from other scales), than swing harmony. Bebop harmonies extended
+ traditional, swing-based harmonies by using more complex chords by 
+stacking additional thirds to chords (creating ninth, eleventh, 
+thirteenth chords) that were frequently also populated by chromatic 
+borrowings from other scales. Further, bebop musicians often substituted
+ more complex chords for simpler ones found in standard popular song 
+chord progressions. </p>
+<p>Swing used closed phrasing, where the melody, improvisation, or chord
+ progressions all articulated or closed (cadenced) together in lockstep.
+ With bebop, things were much more ambiguous and musicians cultivated a 
+more open-ended and unresolved quality. There was a sense of whimsy to 
+many bebop performances that were full of twists and turns and 
+unexpected surprises. </p>
+</body></html>

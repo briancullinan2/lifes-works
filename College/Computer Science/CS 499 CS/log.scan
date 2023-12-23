@@ -1,0 +1,2262 @@
+
+Starting Nmap 4.53 ( http://insecure.org ) at 2010-12-06 20:13 MST
+All 1714 scanned ports on cse-gw.net.nau.edu (134.114.64.1) are closed
+MAC Address: 00:15:2C:14:5C:00 (Cisco Systems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: switch|router|WAP
+Running: Cisco IOS 12.X
+OS details: Cisco 2924M-XL switch (IOS 12.0), Cisco 2960G switch (IOS 12.2), Cisco 3548XL switch (IOS 12.0), Cisco Catalyst C2900-series or C3750 switch, or 4500 router (IOS 12.1 - 12.2), Cisco Aironet 1200 WAP (IOS 12.3)
+Network Distance: 1 hop
+
+Interesting ports on ftp.cefns.nau.edu (134.114.64.2):
+Not shown: 1710 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+22/tcp   open  ssh
+111/tcp  open  rpcbind
+4045/tcp open  lockd
+MAC Address: 00:14:4F:83:4A:3A (Sun Microsystems)
+Device type: general purpose
+Running: Sun Solaris 9
+OS details: Sun Solaris 9 or 10 (SPARC)
+Uptime: 133.321 days (since Mon Jul 26 13:33:57 2010)
+Network Distance: 1 hop
+
+Interesting ports on bespin.cefns.nau.edu (134.114.64.3):
+Not shown: 1697 closed ports
+PORT      STATE SERVICE
+22/tcp    open  ssh
+25/tcp    open  smtp
+80/tcp    open  http
+111/tcp   open  rpcbind
+443/tcp   open  https
+587/tcp   open  submission
+4045/tcp  open  lockd
+6112/tcp  open  dtspc
+7100/tcp  open  font-service
+13782/tcp open  VeritasNetbackup
+32771/tcp open  sometimes-rpc5
+32772/tcp open  sometimes-rpc7
+32773/tcp open  sometimes-rpc9
+32774/tcp open  sometimes-rpc11
+32777/tcp open  sometimes-rpc17
+32778/tcp open  sometimes-rpc19
+32779/tcp open  sometimes-rpc21
+MAC Address: 00:14:4F:83:4A:3A (Sun Microsystems)
+Device type: general purpose
+Running: Sun Solaris 9|10
+OS details: Sun Solaris 9 or 10
+Uptime: 133.321 days (since Mon Jul 26 13:33:58 2010)
+Network Distance: 1 hop
+
+Interesting ports on kvm2.ucc.nau.edu (134.114.64.4):
+Not shown: 1713 closed ports
+PORT     STATE SERVICE
+2068/tcp open  advocentkvm
+MAC Address: 00:02:99:03:4A:DA (Apex)
+Device type: general purpose|software router|switch|PDA|WAP|broadband router|media device|VoIP gateway
+Running (JUST GUESSING) : Linux 2.4.X (97%), MikroTik RouterOS 2.X (95%), QLogic embedded (95%), Sharp Linux 2.4.X (95%), D-Link Linux 2.4.X (94%), Netgear embedded (94%)
+Aggressive OS guesses: Linux 2.4.2 (Red Hat 7.1) (97%), MicroTik RouterOS 2.9.46 (95%), QLogic SANbox2-8 FC switch or Sharp Zaurus PDA (Linux 2.4.18) (95%), D-Link DSL-G624T wireless ADSL router (Linux 2.4.17) (94%), Linux 2.4.9 - 2.4.18 (94%), Netgear DG834G WAP (firmware 4.01.19) (94%), Lexmark T522 or E332n printer (94%), Linux 2.4.21 - 2.4.33 (92%), Linux 2.4.28 - 2.4.30 (92%), Linux 2.4.18 - 2.4.32 (likely embedded) (91%)
+No exact OS matches for host (test conditions non-ideal).
+Uptime: 1.483 days (since Sun Dec  5 08:39:35 2010)
+Network Distance: 1 hop
+
+Interesting ports on ithor.cefns.nau.edu (134.114.64.5):
+Not shown: 1607 filtered ports, 102 closed ports
+PORT    STATE SERVICE
+22/tcp  open  ssh
+80/tcp  open  http
+443/tcp open  https
+902/tcp open  iss-realsecure-sensor
+903/tcp open  iss-console-mgr
+MAC Address: 00:50:56:47:C6:E2 (VMWare)
+Aggressive OS guesses: Fortinet FortiGate-60 firewall, Linksys NSLU2 NAS device running Unslung 5.8 (Linux 2.4.22), Netgear SPH200D VoIP phone, Secure Computing SnapGear SG565 firewall (Linux 2.4.31-uc0), or Adaptec Snap Server 520 NAS device (99%), Linux 2.4.31 (Slackware 10.2) (96%), Linux 2.4.22 (Fedora Core 1, x86) (95%), MikroTik RouterOS software router 3.0beta5 (95%), ThingMagic Mercury RFID reader running Yagi OS 2.4 (Linux 2.4.27-uc1) (95%), Netgear KWRGR614 wireless broadband router (Linux 2.4) (95%), Linux 2.6.19 - 2.6.20 (Gentoo) (94%), Secure Computing SG560 Firewall (Linux 2.4.31-uc0 based) (94%), Xerox WorkCentre Pro 265 multifunction printer (94%), Linux 2.4.21 - 2.4.33 (93%)
+No exact OS matches for host (test conditions non-ideal).
+Uptime: 133.288 days (since Mon Jul 26 14:21:10 2010)
+Network Distance: 1 hop
+
+Interesting ports on balance64-6.cefns.nau.edu (134.114.64.6):
+Not shown: 1710 closed ports
+PORT    STATE SERVICE
+22/tcp  open  ssh
+80/tcp  open  http
+199/tcp open  smux
+443/tcp open  https
+MAC Address: 00:06:5B:38:68:70 (Dell Computer)
+No exact OS matches for host (If you know what OS is running on it, see http://insecure.org/nmap/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=4.53%D=12/6%OT=22%CT=1%CU=30235%PV=N%DS=1%G=Y%M=00065B%TM=4CFDA74
+OS:D%P=i686-pc-linux-gnu)SEQ(SP=C8%GCD=1%ISR=CF%TI=Z%II=I%TS=7)SEQ(SP=C9%GC
+OS:D=1%ISR=D0%TI=Z%II=I%TS=7)OPS(O1=M5A0ST11NW7%O2=M5A0ST11NW7%O3=M5A0NNT11
+OS:NW7%O4=M5A0ST11NW7%O5=M5A0ST11NW7%O6=M5A0ST11)WIN(W1=16A0%W2=16A0%W3=16A
+OS:0%W4=16A0%W5=16A0%W6=16A0)ECN(R=Y%DF=Y%T=3D%W=16D0%O=M5A0NNSNW7%CC=N%Q=)
+OS:T1(R=Y%DF=Y%T=3D%S=O%A=S+%F=AS%RD=0%Q=)T2(R=Y%DF=Y%T=40%W=0%S=Z%A=S%F=AR
+OS:%O=%RD=0%Q=)T3(R=Y%DF=Y%T=3D%W=16A0%S=O%A=S+%F=AS%O=M5A0ST11NW7%RD=0%Q=)
+OS:T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S
+OS:+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=
+OS:Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%TOS=0%IPL=164%UN=0%
+OS:RIPL=G%RID=G%RIPCK=G%RUCK=G%RUL=G%RUD=G)IE(R=Y%DFI=N%T=40%TOSI=Z%CD=S%SI
+OS:=S%DLI=S)
+
+
+Uptime: 125.178 days (since Tue Aug  3 17:01:56 2010)
+Network Distance: 1 hop
+
+Interesting ports on qsp.nau.edu (134.114.64.7):
+Not shown: 1711 closed ports
+PORT    STATE SERVICE
+80/tcp  open  http
+199/tcp open  smux
+443/tcp open  https
+MAC Address: 00:06:5B:38:68:70 (Dell Computer)
+No exact OS matches for host (If you know what OS is running on it, see http://insecure.org/nmap/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=4.53%D=12/6%OT=80%CT=1%CU=34037%PV=N%DS=1%G=Y%M=00065B%TM=4CFDA74
+OS:D%P=i686-pc-linux-gnu)SEQ(SP=8F%GCD=1%ISR=AA%TI=I%II=I%SS=O%TS=7)SEQ(SP=
+OS:98%GCD=1%ISR=A2%TI=I%II=I%SS=O%TS=7)SEQ(SP=82%GCD=1%ISR=A2%TI=I%II=I%SS=
+OS:O%TS=7)SEQ(SP=94%GCD=2%ISR=A5%TI=I%II=I%SS=O%TS=7)SEQ(SP=99%GCD=1%ISR=A4
+OS:%TI=I%II=I%SS=O%TS=7)OPS(O1=NNT11M5B4NW0NNS%O2=NNT11M5B4NW0NNS%O3=NNT11M
+OS:5B4NW0%O4=NNT11M5B4NW0NNS%O5=NNT11M5B4NW0NNS%O6=NNT11M5B4NNS)WIN(W1=C050
+OS:%W2=C330%W3=C1CC%W4=C068%W5=C068%W6=C0B7)ECN(R=Y%DF=Y%T=40%W=C1E8%O=M5B4
+OS:NW0NNS%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=Y%DF=Y%T=40%W
+OS:=0%S=Z%A=S%F=AR%O=%RD=0%Q=)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD
+OS:=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0
+OS:%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1
+OS:(R=Y%DF=N%T=40%TOS=0%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUL=G%RUD=
+OS:G)IE(R=Y%DFI=N%T=40%TOSI=Z%CD=S%SI=S%DLI=S)
+
+
+Uptime: 133.322 days (since Mon Jul 26 13:33:57 2010)
+Network Distance: 1 hop
+
+Interesting ports on drudonna.cefns.nau.edu (134.114.64.8):
+Not shown: 1708 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+111/tcp  open  rpcbind
+199/tcp  open  smux
+443/tcp  open  https
+3306/tcp open  mysql
+MAC Address: 00:06:5B:38:4E:42 (Dell Computer)
+No exact OS matches for host (If you know what OS is running on it, see http://insecure.org/nmap/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=4.53%D=12/6%OT=22%CT=1%CU=41253%PV=N%DS=1%G=Y%M=00065B%TM=4CFDA74
+OS:D%P=i686-pc-linux-gnu)SEQ(SP=C5%GCD=1%ISR=D2%TI=Z%II=I%TS=7)SEQ(SP=C6%GC
+OS:D=1%ISR=D3%TI=Z%II=I%TS=7)OPS(O1=M5B4ST11NW7%O2=M5B4ST11NW7%O3=M5B4NNT11
+OS:NW7%O4=M5B4ST11NW7%O5=M5B4ST11NW7%O6=M5B4ST11)WIN(W1=16A0%W2=16A0%W3=16A
+OS:0%W4=16A0%W5=16A0%W6=16A0)ECN(R=Y%DF=Y%T=40%W=16D0%O=M5B4NNSNW7%CC=N%Q=)
+OS:T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=Y%DF=Y%T=40%W=16A0%S=
+OS:O%A=S+%F=AS%O=M5B4ST11NW7%RD=0%Q=)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD
+OS:=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0
+OS:%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1
+OS:(R=Y%DF=N%T=40%TOS=0%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUL=G%RUD=
+OS:G)IE(R=Y%DFI=N%T=40%TOSI=Z%CD=S%SI=S%DLI=S)
+
+
+Uptime: 71.909 days (since Sat Sep 25 23:28:52 2010)
+Network Distance: 1 hop
+
+Interesting ports on tatooine.cefns.nau.edu (134.114.64.9):
+Not shown: 1705 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+111/tcp  open  rpcbind
+199/tcp  open  smux
+4045/tcp open  lockd
+6017/tcp open  xmail-ctrl
+7007/tcp open  afs3-bos
+7008/tcp open  afs3-update
+7009/tcp open  afs3-rmtsys
+7010/tcp open  ups-onlinet
+MAC Address: 00:14:4F:49:EB:12 (Sun Microsystems)
+Device type: general purpose
+Running: Sun Solaris 9|10
+OS details: Sun Solaris 9 or 10
+Uptime: 80.156 days (since Fri Sep 17 17:32:16 2010)
+Network Distance: 1 hop
+
+Interesting ports on bryx.cefns.nau.edu (134.114.64.10):
+Not shown: 1701 closed ports
+PORT      STATE SERVICE
+22/tcp    open  ssh
+25/tcp    open  smtp
+111/tcp   open  rpcbind
+587/tcp   open  submission
+898/tcp   open  sun-manageconsole
+4045/tcp  open  lockd
+13722/tcp open  VeritasNetbackup
+13782/tcp open  VeritasNetbackup
+13783/tcp open  VeritasNetbackup
+32771/tcp open  sometimes-rpc5
+32774/tcp open  sometimes-rpc11
+32776/tcp open  sometimes-rpc15
+32777/tcp open  sometimes-rpc17
+MAC Address: 00:03:BA:51:96:51 (Sun Microsystems)
+Device type: general purpose
+Running: Sun Solaris 9|10
+OS details: Sun Solaris 9 or 10 (SPARC)
+Uptime: 46.420 days (since Thu Oct 21 11:12:17 2010)
+Network Distance: 1 hop
+
+Interesting ports on balance64-11.cefns.nau.edu (134.114.64.11):
+Not shown: 1712 closed ports
+PORT     STATE SERVICE
+199/tcp  open  smux
+3306/tcp open  mysql
+MAC Address: 00:06:5B:38:68:70 (Dell Computer)
+No exact OS matches for host (If you know what OS is running on it, see http://insecure.org/nmap/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=4.53%D=12/6%OT=199%CT=1%CU=36440%PV=N%DS=1%G=Y%M=00065B%TM=4CFDA7
+OS:4D%P=i686-pc-linux-gnu)SEQ(SP=CA%GCD=1%ISR=C7%TI=Z%II=I%TS=7)SEQ(SP=C9%G
+OS:CD=1%ISR=C6%TI=Z%II=I%TS=7)OPS(O1=M5B4ST11NW7%O2=M5B4ST11NW7%O3=M5B4NNT1
+OS:1NW7%O4=M5B4ST11NW7%O5=M5B4ST11NW7%O6=M5B4ST11)WIN(W1=16A0%W2=16A0%W3=16
+OS:A0%W4=16A0%W5=16A0%W6=16A0)ECN(R=Y%DF=Y%T=40%W=16D0%O=M5B4NNSNW7%CC=N%Q=
+OS:)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=Y%DF=Y%T=40%W=16A0%S
+OS:=O%A=S+%F=AS%O=M5B4ST11NW7%RD=0%Q=)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%R
+OS:D=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=
+OS:0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U
+OS:1(R=Y%DF=N%T=40%TOS=0%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUL=G%RUD
+OS:=G)IE(R=Y%DFI=N%T=40%TOSI=Z%CD=S%SI=S%DLI=S)
+
+
+Uptime: 139.144 days (since Tue Jul 20 17:50:06 2010)
+Network Distance: 1 hop
+
+Interesting ports on mygeeto64.cefns.nau.edu (134.114.64.12):
+Not shown: 1713 closed ports
+PORT    STATE SERVICE
+199/tcp open  smux
+MAC Address: 00:06:5B:38:68:70 (Dell Computer)
+No exact OS matches for host (If you know what OS is running on it, see http://insecure.org/nmap/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=4.53%D=12/6%OT=199%CT=1%CU=36292%PV=N%DS=1%G=Y%M=00065B%TM=4CFDA7
+OS:4D%P=i686-pc-linux-gnu)SEQ(SP=C8%GCD=1%ISR=CE%TI=Z%II=I%TS=7)SEQ(SP=C9%G
+OS:CD=1%ISR=CE%TI=Z%II=I%TS=7)OPS(O1=M5B4ST11NW7%O2=M5B4ST11NW7%O3=M5B4NNT1
+OS:1NW7%O4=M5B4ST11NW7%O5=M5B4ST11NW7%O6=M5B4ST11)WIN(W1=16A0%W2=16A0%W3=16
+OS:A0%W4=16A0%W5=16A0%W6=16A0)ECN(R=Y%DF=Y%T=40%W=16D0%O=M5B4NNSNW7%CC=N%Q=
+OS:)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=Y%DF=Y%T=40%W=16A0%S
+OS:=O%A=S+%F=AS%O=M5B4ST11NW7%RD=0%Q=)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%R
+OS:D=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=
+OS:0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U
+OS:1(R=Y%DF=N%T=40%TOS=0%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUL=G%RUD
+OS:=G)IE(R=Y%DFI=N%T=40%TOSI=Z%CD=S%SI=S%DLI=S)
+
+
+Uptime: 139.144 days (since Tue Jul 20 17:50:06 2010)
+Network Distance: 1 hop
+
+Interesting ports on bestine.cefns.nau.edu (134.114.64.13):
+Not shown: 1710 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+111/tcp  open  rpcbind
+804/tcp  open  unknown
+1006/tcp open  unknown
+MAC Address: 00:22:19:BA:2B:C2 (Unknown)
+No exact OS matches for host (If you know what OS is running on it, see http://insecure.org/nmap/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=4.53%D=12/6%OT=22%CT=1%CU=43875%PV=N%DS=1%G=Y%M=002219%TM=4CFDA74
+OS:D%P=i686-pc-linux-gnu)SEQ(SP=CB%GCD=2%ISR=CB%TI=Z%II=I%TS=A)SEQ(SP=CA%GC
+OS:D=1%ISR=CA%TI=Z%II=I%TS=A)SEQ(SP=CB%GCD=1%ISR=CB%TI=Z%II=I%TS=A)OPS(O1=M
+OS:5B4ST11NW7%O2=M5B4ST11NW7%O3=M5B4NNT11NW7%O4=M5B4ST11NW7%O5=M5B4ST11NW7%
+OS:O6=M5B4ST11)WIN(W1=16A0%W2=16A0%W3=16A0%W4=16A0%W5=16A0%W6=16A0)ECN(R=Y%
+OS:DF=Y%T=40%W=16D0%O=M5B4NNSNW7%CC=N%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=
+OS:0%Q=)T2(R=N)T3(R=Y%DF=Y%T=40%W=16A0%S=O%A=S+%F=AS%O=M5B4ST11NW7%RD=0%Q=)
+OS:T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S
+OS:+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=
+OS:Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%TOS=0%IPL=164%UN=0%
+OS:RIPL=G%RID=G%RIPCK=G%RUCK=G%RUL=G%RUD=G)IE(R=Y%DFI=N%T=40%TOSI=Z%CD=S%SI
+OS:=S%DLI=S)
+
+
+Uptime: 39.004 days (since Thu Oct 28 21:11:38 2010)
+Network Distance: 1 hop
+
+All 1714 scanned ports on joralla64.cefns.nau.edu (134.114.64.14) are filtered
+MAC Address: 00:06:5B:38:19:AC (Dell Computer)
+Too many fingerprints match this host to give specific OS details
+Network Distance: 1 hop
+
+Interesting ports on naboo.cefns.nau.edu (134.114.64.15):
+Not shown: 1710 closed ports
+PORT      STATE SERVICE
+22/tcp    open  ssh
+111/tcp   open  rpcbind
+4045/tcp  open  lockd
+27000/tcp open  flexlm0
+MAC Address: 00:14:4F:83:4A:3A (Sun Microsystems)
+Device type: general purpose
+Running: Sun Solaris 9
+OS details: Sun Solaris 9 or 10 (SPARC)
+Uptime: 133.322 days (since Mon Jul 26 13:33:58 2010)
+Network Distance: 1 hop
+
+Interesting ports on neimoidia.cefns.nau.edu (134.114.64.16):
+Not shown: 1713 closed ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 00:B0:D0:E1:AB:DC (Dell Computer)
+No exact OS matches for host (If you know what OS is running on it, see http://insecure.org/nmap/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=4.53%D=12/6%OT=22%CT=1%CU=30902%PV=N%DS=1%G=Y%M=00B0D0%TM=4CFDA74
+OS:D%P=i686-pc-linux-gnu)SEQ(SP=CA%GCD=1%ISR=D1%TI=Z%II=I%TS=7)SEQ(SP=CC%GC
+OS:D=1%ISR=D1%TI=Z%II=I%TS=7)SEQ(SP=CB%GCD=1%ISR=D2%TI=Z%II=I%TS=7)OPS(O1=M
+OS:5B4ST11NW7%O2=M5B4ST11NW7%O3=M5B4NNT11NW7%O4=M5B4ST11NW7%O5=M5B4ST11NW7%
+OS:O6=M5B4ST11)WIN(W1=16A0%W2=16A0%W3=16A0%W4=16A0%W5=16A0%W6=16A0)ECN(R=Y%
+OS:DF=Y%T=40%W=16D0%O=M5B4NNSNW7%CC=N%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=
+OS:0%Q=)T2(R=N)T3(R=Y%DF=Y%T=40%W=16A0%S=O%A=S+%F=AS%O=M5B4ST11NW7%RD=0%Q=)
+OS:T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S
+OS:+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=
+OS:Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%TOS=0%IPL=164%UN=0%
+OS:RIPL=G%RID=G%RIPCK=G%RUCK=G%RUL=G%RUD=G)IE(R=Y%DFI=N%T=40%TOSI=Z%CD=S%SI
+OS:=S%DLI=S)
+
+
+Uptime: 144.320 days (since Thu Jul 15 13:36:35 2010)
+Network Distance: 1 hop
+
+Interesting ports on sol.egr.nau.edu (134.114.64.17):
+Not shown: 1699 closed ports
+PORT      STATE SERVICE
+22/tcp    open  ssh
+111/tcp   open  rpcbind
+634/tcp   open  ginad
+820/tcp   open  unknown
+829/tcp   open  unknown
+909/tcp   open  unknown
+925/tcp   open  unknown
+1270/tcp  open  ssserver
+2040/tcp  open  lam
+2049/tcp  open  nfs
+13782/tcp open  VeritasNetbackup
+32772/tcp open  sometimes-rpc7
+32775/tcp open  sometimes-rpc13
+32776/tcp open  sometimes-rpc15
+32777/tcp open  sometimes-rpc17
+MAC Address: 00:09:3D:11:87:DC (Newisys)
+Device type: general purpose
+Running: Linux 2.6.X
+OS details: Linux 2.6.9 - 2.6.11
+Uptime: 3.360 days (since Fri Dec  3 11:39:04 2010)
+Network Distance: 1 hop
+
+Interesting ports on geonosis.cefns.nau.edu (134.114.64.18):
+Not shown: 1710 closed ports
+PORT    STATE SERVICE
+22/tcp  open  ssh
+111/tcp open  rpcbind
+625/tcp open  apple-xsrvr-admin
+906/tcp open  unknown
+MAC Address: 00:22:19:BB:F8:58 (Unknown)
+No exact OS matches for host (If you know what OS is running on it, see http://insecure.org/nmap/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=4.53%D=12/6%OT=22%CT=1%CU=39140%PV=N%DS=1%G=Y%M=002219%TM=4CFDA74
+OS:D%P=i686-pc-linux-gnu)SEQ(SP=CA%GCD=1%ISR=D0%TI=Z%II=I%TS=A)SEQ(SP=CB%GC
+OS:D=1%ISR=D1%TI=Z%II=I%TS=A)SEQ(SP=CB%GCD=2%ISR=D1%TI=Z%II=I%TS=A)OPS(O1=M
+OS:5B4ST11NW7%O2=M5B4ST11NW7%O3=M5B4NNT11NW7%O4=M5B4ST11NW7%O5=M5B4ST11NW7%
+OS:O6=M5B4ST11)WIN(W1=16A0%W2=16A0%W3=16A0%W4=16A0%W5=16A0%W6=16A0)ECN(R=Y%
+OS:DF=Y%T=40%W=16D0%O=M5B4NNSNW7%CC=N%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=
+OS:0%Q=)T2(R=N)T3(R=Y%DF=Y%T=40%W=16A0%S=O%A=S+%F=AS%O=M5B4ST11NW7%RD=0%Q=)
+OS:T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S
+OS:+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=
+OS:Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%TOS=0%IPL=164%UN=0%
+OS:RIPL=G%RID=G%RIPCK=G%RUCK=G%RUL=G%RUD=G)IE(R=Y%DFI=N%T=40%TOSI=Z%CD=S%SI
+OS:=S%DLI=S)
+
+
+Uptime: 38.908 days (since Thu Oct 28 23:29:51 2010)
+Network Distance: 1 hop
+
+Interesting ports on balance64-19.cefns.nau.edu (134.114.64.19):
+Not shown: 1712 closed ports
+PORT    STATE    SERVICE
+80/tcp  filtered http
+199/tcp open     smux
+MAC Address: 00:06:5B:38:68:6F (Dell Computer)
+No exact OS matches for host (If you know what OS is running on it, see http://insecure.org/nmap/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=4.53%D=12/6%OT=199%CT=1%CU=32120%PV=N%DS=1%G=Y%M=00065B%TM=4CFDA7
+OS:4D%P=i686-pc-linux-gnu)SEQ(SP=CE%GCD=1%ISR=CF%TI=Z%II=I%TS=7)SEQ(SP=CD%G
+OS:CD=1%ISR=CF%TI=Z%II=I%TS=7)SEQ(SP=CE%GCD=2%ISR=CF%TI=Z%II=I%TS=7)OPS(O1=
+OS:M5B4ST11NW7%O2=M5B4ST11NW7%O3=M5B4NNT11NW7%O4=M5B4ST11NW7%O5=M5B4ST11NW7
+OS:%O6=M5B4ST11)WIN(W1=16A0%W2=16A0%W3=16A0%W4=16A0%W5=16A0%W6=16A0)ECN(R=Y
+OS:%DF=Y%T=40%W=16D0%O=M5B4NNSNW7%CC=N%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD
+OS:=0%Q=)T2(R=N)T3(R=Y%DF=Y%T=40%W=16A0%S=O%A=S+%F=AS%O=M5B4ST11NW7%RD=0%Q=
+OS:)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=
+OS:S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF
+OS:=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%TOS=0%IPL=164%UN=0
+OS:%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUL=G%RUD=G)IE(R=Y%DFI=N%T=40%TOSI=Z%CD=S%S
+OS:I=S%DLI=S)
+
+
+Uptime: 139.144 days (since Tue Jul 20 17:50:06 2010)
+Network Distance: 1 hop
+
+Interesting ports on sullust.cefns.nau.edu (134.114.64.20):
+Not shown: 1702 closed ports
+PORT      STATE SERVICE
+22/tcp    open  ssh
+25/tcp    open  smtp
+80/tcp    open  http
+111/tcp   open  rpcbind
+199/tcp   open  smux
+443/tcp   open  https
+2049/tcp  open  nfs
+7070/tcp  open  realserver
+9090/tcp  open  zeus-admin
+13722/tcp open  VeritasNetbackup
+13782/tcp open  VeritasNetbackup
+13783/tcp open  VeritasNetbackup
+MAC Address: 00:06:5B:38:1B:01 (Dell Computer)
+No exact OS matches for host (If you know what OS is running on it, see http://insecure.org/nmap/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=4.53%D=12/6%OT=22%CT=1%CU=30094%PV=N%DS=1%G=Y%M=00065B%TM=4CFDA74
+OS:D%P=i686-pc-linux-gnu)SEQ(SP=CA%GCD=1%ISR=D0%TI=Z%II=I%TS=7)SEQ(SP=CC%GC
+OS:D=1%ISR=D0%TI=Z%II=I%TS=7)OPS(O1=M5B4ST11NW7%O2=M5B4ST11NW7%O3=M5B4NNT11
+OS:NW7%O4=M5B4ST11NW7%O5=M5B4ST11NW7%O6=M5B4ST11)WIN(W1=16A0%W2=16A0%W3=16A
+OS:0%W4=16A0%W5=16A0%W6=16A0)ECN(R=Y%DF=Y%T=40%W=16D0%O=M5B4NNSNW7%CC=N%Q=)
+OS:T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=Y%DF=Y%T=40%W=16A0%S=
+OS:O%A=S+%F=AS%O=M5B4ST11NW7%RD=0%Q=)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD
+OS:=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0
+OS:%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1
+OS:(R=Y%DF=N%T=40%TOS=0%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUL=G%RUD=
+OS:G)IE(R=Y%DFI=N%T=40%TOSI=Z%CD=S%SI=S%DLI=S)
+
+
+Uptime: 32.149 days (since Thu Nov  4 17:43:41 2010)
+Network Distance: 1 hop
+
+Interesting ports on helska.cefns.nau.edu (134.114.64.22):
+Not shown: 1712 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+3306/tcp open  mysql
+MAC Address: 00:B0:D0:68:72:35 (Dell Computer)
+No exact OS matches for host (If you know what OS is running on it, see http://insecure.org/nmap/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=4.53%D=12/6%OT=22%CT=1%CU=32489%PV=N%DS=1%G=Y%M=00B0D0%TM=4CFDA74
+OS:D%P=i686-pc-linux-gnu)SEQ(SP=CB%GCD=1%ISR=CC%TI=Z%II=I%TS=7)SEQ(SP=CA%GC
+OS:D=1%ISR=CB%TI=Z%II=I%TS=7)OPS(O1=M5B4ST11NW7%O2=M5B4ST11NW7%O3=M5B4NNT11
+OS:NW7%O4=M5B4ST11NW7%O5=M5B4ST11NW7%O6=M5B4ST11)WIN(W1=16A0%W2=16A0%W3=16A
+OS:0%W4=16A0%W5=16A0%W6=16A0)ECN(R=Y%DF=Y%T=40%W=16D0%O=M5B4NNSNW7%CC=N%Q=)
+OS:T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=Y%DF=Y%T=40%W=16A0%S=
+OS:O%A=S+%F=AS%O=M5B4ST11NW7%RD=0%Q=)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD
+OS:=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0
+OS:%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1
+OS:(R=Y%DF=N%T=40%TOS=0%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUL=G%RUD=
+OS:G)IE(R=Y%DFI=N%T=40%TOSI=Z%CD=S%SI=S%DLI=S)
+
+
+Uptime: 19.450 days (since Wed Nov 17 09:29:55 2010)
+Network Distance: 1 hop
+
+Interesting ports on barkhesh.cefns.nau.edu (134.114.64.23):
+Not shown: 1711 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+199/tcp  open  smux
+3306/tcp open  mysql
+MAC Address: 00:B0:D0:68:72:61 (Dell Computer)
+No exact OS matches for host (If you know what OS is running on it, see http://insecure.org/nmap/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=4.53%D=12/6%OT=22%CT=1%CU=31921%PV=N%DS=1%G=Y%M=00B0D0%TM=4CFDA74
+OS:D%P=i686-pc-linux-gnu)SEQ(SP=CC%GCD=1%ISR=CA%TI=Z%II=I%TS=7)SEQ(SP=CD%GC
+OS:D=1%ISR=CB%TI=Z%II=I%TS=7)OPS(O1=M5B4ST11NW7%O2=M5B4ST11NW7%O3=M5B4NNT11
+OS:NW7%O4=M5B4ST11NW7%O5=M5B4ST11NW7%O6=M5B4ST11)WIN(W1=16A0%W2=16A0%W3=16A
+OS:0%W4=16A0%W5=16A0%W6=16A0)ECN(R=Y%DF=Y%T=40%W=16D0%O=M5B4NNSNW7%CC=N%Q=)
+OS:T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=Y%DF=Y%T=40%W=16A0%S=
+OS:O%A=S+%F=AS%O=M5B4ST11NW7%RD=0%Q=)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD
+OS:=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0
+OS:%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1
+OS:(R=Y%DF=N%T=40%TOS=0%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUL=G%RUD=
+OS:G)IE(R=Y%DFI=N%T=40%TOSI=Z%CD=S%SI=S%DLI=S)
+
+
+Uptime: 184.797 days (since Sat Jun  5 02:10:13 2010)
+Network Distance: 1 hop
+
+Interesting ports on dantooine.cefns.nau.edu (134.114.64.24):
+Not shown: 1706 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+111/tcp  open  rpcbind
+199/tcp  open  smux
+4045/tcp open  lockd
+7007/tcp open  afs3-bos
+7008/tcp open  afs3-update
+7009/tcp open  afs3-rmtsys
+7010/tcp open  ups-onlinet
+MAC Address: 00:14:4F:8D:DA:94 (Sun Microsystems)
+Device type: general purpose
+Running: Sun Solaris 9|10
+OS details: Sun Solaris 9 or 10
+Uptime: 105.428 days (since Mon Aug 23 11:00:34 2010)
+Network Distance: 1 hop
+
+Interesting ports on taanab.cefns.nau.edu (134.114.64.25):
+Not shown: 1713 closed ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 00:06:5B:38:4C:EA (Dell Computer)
+No exact OS matches for host (If you know what OS is running on it, see http://insecure.org/nmap/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=4.53%D=12/6%OT=22%CT=1%CU=31093%PV=N%DS=1%G=Y%M=00065B%TM=4CFDA74
+OS:D%P=i686-pc-linux-gnu)SEQ(SP=C8%GCD=1%ISR=D3%TI=Z%II=I%TS=7)SEQ(SP=C6%GC
+OS:D=1%ISR=D3%TI=Z%II=I%TS=7)SEQ(SP=C8%GCD=1%ISR=D4%TI=Z%II=I%TS=7)OPS(O1=M
+OS:5B4ST11NW7%O2=M5B4ST11NW7%O3=M5B4NNT11NW7%O4=M5B4ST11NW7%O5=M5B4ST11NW7%
+OS:O6=M5B4ST11)WIN(W1=16A0%W2=16A0%W3=16A0%W4=16A0%W5=16A0%W6=16A0)ECN(R=Y%
+OS:DF=Y%T=40%W=16D0%O=M5B4NNSNW7%CC=N%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=
+OS:0%Q=)T2(R=N)T3(R=Y%DF=Y%T=40%W=16A0%S=O%A=S+%F=AS%O=M5B4ST11NW7%RD=0%Q=)
+OS:T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S
+OS:+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=
+OS:Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%TOS=0%IPL=164%UN=0%
+OS:RIPL=G%RID=G%RIPCK=G%RUCK=G%RUL=G%RUD=G)IE(R=Y%DFI=N%T=40%TOSI=Z%CD=S%SI
+OS:=S%DLI=S)
+
+
+Uptime: 144.300 days (since Thu Jul 15 14:05:12 2010)
+Network Distance: 1 hop
+
+Interesting ports on raxus.cefns.nau.edu (134.114.64.26):
+Not shown: 1713 closed ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 00:12:3F:EC:EE:EE (Dell)
+No exact OS matches for host (If you know what OS is running on it, see http://insecure.org/nmap/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=4.53%D=12/6%OT=22%CT=1%CU=43072%PV=N%DS=1%G=Y%M=00123F%TM=4CFDA74
+OS:D%P=i686-pc-linux-gnu)SEQ(SP=C5%GCD=1%ISR=C8%TI=Z%II=I%TS=7)OPS(O1=M5B4S
+OS:T11NW7%O2=M5B4ST11NW7%O3=M5B4NNT11NW7%O4=M5B4ST11NW7%O5=M5B4ST11NW7%O6=M
+OS:5B4ST11)WIN(W1=16A0%W2=16A0%W3=16A0%W4=16A0%W5=16A0%W6=16A0)ECN(R=Y%DF=Y
+OS:%T=40%W=16D0%O=M5B4NNSNW7%CC=N%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=
+OS:)T2(R=N)T3(R=Y%DF=Y%T=40%W=16A0%S=O%A=S+%F=AS%O=M5B4ST11NW7%RD=0%Q=)T4(R
+OS:=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=
+OS:AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=
+OS:40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%TOS=0%IPL=164%UN=0%RIPL
+OS:=G%RID=G%RIPCK=G%RUCK=G%RUL=G%RUD=G)IE(R=Y%DFI=N%T=40%TOSI=Z%CD=S%SI=S%D
+OS:LI=S)
+
+
+Uptime: 133.303 days (since Mon Jul 26 14:01:21 2010)
+Network Distance: 1 hop
+
+Interesting ports on talor.cefns.nau.edu (134.114.64.27):
+Not shown: 1703 closed ports
+PORT      STATE SERVICE
+22/tcp    open  ssh
+111/tcp   open  rpcbind
+4045/tcp  open  lockd
+6002/tcp  open  X11:2
+7007/tcp  open  afs3-bos
+7008/tcp  open  afs3-update
+7009/tcp  open  afs3-rmtsys
+7010/tcp  open  ups-onlinet
+32771/tcp open  sometimes-rpc5
+32772/tcp open  sometimes-rpc7
+32773/tcp open  sometimes-rpc9
+MAC Address: 00:C0:9F:3A:EA:CE (Quanta Computer)
+Device type: general purpose
+Running: Sun Solaris 9|10
+OS details: Sun Solaris 9 or 10
+Uptime: 39.314 days (since Thu Oct 28 13:45:23 2010)
+Network Distance: 1 hop
+
+Interesting ports on talus.cefns.nau.edu (134.114.64.28):
+Not shown: 1702 closed ports
+PORT      STATE SERVICE
+22/tcp    open  ssh
+111/tcp   open  rpcbind
+4045/tcp  open  lockd
+6002/tcp  open  X11:2
+6003/tcp  open  X11:3
+7007/tcp  open  afs3-bos
+7008/tcp  open  afs3-update
+7009/tcp  open  afs3-rmtsys
+7010/tcp  open  ups-onlinet
+32771/tcp open  sometimes-rpc5
+32772/tcp open  sometimes-rpc7
+32773/tcp open  sometimes-rpc9
+MAC Address: 00:C0:9F:3A:EB:08 (Quanta Computer)
+Device type: general purpose
+Running: Sun Solaris 9|10
+OS details: Sun Solaris 9 or 10
+Uptime: 39.314 days (since Thu Oct 28 13:45:26 2010)
+Network Distance: 1 hop
+
+Interesting ports on vortex.cefns.nau.edu (134.114.64.29):
+Not shown: 1709 filtered ports
+PORT      STATE SERVICE
+135/tcp   open  msrpc
+139/tcp   open  netbios-ssn
+445/tcp   open  microsoft-ds
+3389/tcp  open  ms-term-serv
+10005/tcp open  stel
+MAC Address: 00:11:43:DA:DC:8B (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows 2003
+OS details: Microsoft Windows Server 2003 SP1 or SP2, Microsoft Windows Server 2003 SP2
+Network Distance: 1 hop
+
+Interesting ports on corellia.cefns.nau.edu (134.114.64.30):
+Not shown: 1706 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+111/tcp  open  rpcbind
+4045/tcp open  lockd
+6017/tcp open  xmail-ctrl
+7007/tcp open  afs3-bos
+7008/tcp open  afs3-update
+7009/tcp open  afs3-rmtsys
+7010/tcp open  ups-onlinet
+MAC Address: 00:14:4F:02:15:A0 (Sun Microsystems)
+Device type: general purpose
+Running: Sun Solaris 9|10
+OS details: Sun Solaris 9 or 10
+Uptime: 133.310 days (since Mon Jul 26 13:50:58 2010)
+Network Distance: 1 hop
+
+Interesting ports on dagobah.cefns.nau.edu (134.114.64.31):
+Not shown: 1705 closed ports
+PORT      STATE SERVICE
+22/tcp    open  ssh
+111/tcp   open  rpcbind
+678/tcp   open  unknown
+826/tcp   open  unknown
+13701/tcp open  VeritasNetbackup
+13711/tcp open  VeritasNetbackup
+13720/tcp open  VeritasNetbackup
+13721/tcp open  VeritasNetbackup
+13782/tcp open  VeritasNetbackup
+MAC Address: A4:BA:DB:44:AB:C5 (Unknown)
+No exact OS matches for host (If you know what OS is running on it, see http://insecure.org/nmap/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=4.53%D=12/6%OT=22%CT=1%CU=42740%PV=N%DS=1%G=Y%M=A4BADB%TM=4CFDA74
+OS:D%P=i686-pc-linux-gnu)SEQ(SP=C8%GCD=1%ISR=C9%TI=Z%II=I%TS=A)OPS(O1=M5B4S
+OS:T11NW7%O2=M5B4ST11NW7%O3=M5B4NNT11NW7%O4=M5B4ST11NW7%O5=M5B4ST11NW7%O6=M
+OS:5B4ST11)WIN(W1=16A0%W2=16A0%W3=16A0%W4=16A0%W5=16A0%W6=16A0)ECN(R=Y%DF=Y
+OS:%T=40%W=16D0%O=M5B4NNSNW7%CC=N%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=
+OS:)T2(R=N)T3(R=Y%DF=Y%T=40%W=16A0%S=O%A=S+%F=AS%O=M5B4ST11NW7%RD=0%Q=)T4(R
+OS:=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=
+OS:AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=
+OS:40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%TOS=0%IPL=164%UN=0%RIPL
+OS:=G%RID=G%RIPCK=G%RUCK=G%RUL=G%RUD=G)IE(R=Y%DFI=N%T=40%TOSI=Z%CD=S%SI=S%D
+OS:LI=S)
+
+
+Uptime: 32.200 days (since Thu Nov  4 16:29:05 2010)
+Network Distance: 1 hop
+
+Interesting ports on ator.cefns.nau.edu (134.114.64.32):
+Not shown: 1709 filtered ports
+PORT     STATE SERVICE
+80/tcp   open  http
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:1E:C9:D7:30:B6 (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 17.312 days (since Fri Nov 19 12:48:37 2010)
+Network Distance: 1 hop
+
+Interesting ports on acm.cefns.nau.edu (134.114.64.33):
+Not shown: 1706 closed ports
+PORT    STATE SERVICE
+22/tcp  open  ssh
+25/tcp  open  smtp
+80/tcp  open  http
+111/tcp open  rpcbind
+139/tcp open  netbios-ssn
+443/tcp open  https
+445/tcp open  microsoft-ds
+771/tcp open  rtip
+No exact OS matches for host (If you know what OS is running on it, see http://insecure.org/nmap/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=4.53%D=12/6%OT=22%CT=1%CU=31786%PV=N%DS=0%G=Y%TM=4CFDA75C%P=i686-
+OS:pc-linux-gnu)SEQ(SP=CD%GCD=1%ISR=D4%TI=Z%II=I%TS=7)OPS(O1=M400CST11NW7%O
+OS:2=M400CST11NW7%O3=M400CNNT11NW7%O4=M400CST11NW7%O5=M400CST11NW7%O6=M400C
+OS:ST11)WIN(W1=8000%W2=8000%W3=8000%W4=8000%W5=8000%W6=8000)ECN(R=Y%DF=Y%T=
+OS:40%W=8018%O=M400CNNSNW7%CC=N%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T
+OS:2(R=N)T3(R=Y%DF=Y%T=40%W=8000%S=O%A=S+%F=AS%O=M400CST11NW7%RD=0%Q=)T4(R=
+OS:Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=A
+OS:R%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=4
+OS:0%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%TOS=C0%IPL=164%UN=0%RIPL
+OS:=G%RID=G%RIPCK=G%RUCK=G%RUL=G%RUD=G)IE(R=Y%DFI=N%T=40%TOSI=S%CD=S%SI=S%D
+OS:LI=S)
+
+
+Uptime: 80.242 days (since Fri Sep 17 15:28:50 2010)
+Network Distance: 0 hops
+
+Interesting ports on egrprt235.egr.nau.edu (134.114.64.77):
+Not shown: 1706 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+23/tcp   open  telnet
+80/tcp   open  http
+280/tcp  open  http-mgmt
+443/tcp  open  https
+515/tcp  open  printer
+631/tcp  open  ipp
+9100/tcp open  jetdirect
+MAC Address: 00:23:7D:7B:8E:A9 (Unknown)
+Device type: printer
+Running: HP embedded
+OS details: HP LaserJet P3005 or CP4005 printer
+Uptime: 4.104 days (since Thu Dec  2 17:49:16 2010)
+Network Distance: 1 hop
+
+Interesting ports on hp2420-69-223.egr.nau.edu (134.114.64.78):
+Not shown: 1706 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+23/tcp   open  telnet
+80/tcp   open  http
+280/tcp  open  http-mgmt
+443/tcp  open  https
+515/tcp  open  printer
+631/tcp  open  ipp
+9100/tcp open  jetdirect
+MAC Address: 00:14:38:E3:AE:09 (Hewlett Packard)
+Device type: printer
+Running: HP embedded
+OS details: HP LaserJet 4250 printer (J7949E)
+Uptime: 4.324 days (since Thu Dec  2 12:32:17 2010)
+Network Distance: 1 hop
+
+Interesting ports on egrprt100a.egr.nau.edu (134.114.64.79):
+Not shown: 1706 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+23/tcp   open  telnet
+80/tcp   open  http
+280/tcp  open  http-mgmt
+443/tcp  open  https
+515/tcp  open  printer
+631/tcp  open  ipp
+9100/tcp open  jetdirect
+MAC Address: 00:14:38:DF:61:F7 (Hewlett Packard)
+Device type: printer
+Running: HP embedded
+OS details: HP LaserJet P3005 or CP4005 printer
+Uptime: 4.290 days (since Thu Dec  2 13:21:57 2010)
+Network Distance: 1 hop
+
+Interesting ports on egrprt100aB.egr.nau.edu (134.114.64.80):
+Not shown: 1706 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+23/tcp   open  telnet
+80/tcp   open  http
+280/tcp  open  http-mgmt
+443/tcp  open  https
+515/tcp  open  printer
+631/tcp  open  ipp
+9100/tcp open  jetdirect
+MAC Address: 00:23:7D:82:E4:9A (Unknown)
+Device type: printer
+Running: HP embedded
+OS details: HP LaserJet P3005 or CP4005 printer
+Uptime: 1.019 days (since Sun Dec  5 19:51:59 2010)
+Network Distance: 1 hop
+
+Interesting ports on egrprt234.egr.nau.edu (134.114.64.83):
+Not shown: 1706 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+23/tcp   open  telnet
+80/tcp   open  http
+280/tcp  open  http-mgmt
+443/tcp  open  https
+515/tcp  open  printer
+631/tcp  open  ipp
+9100/tcp open  jetdirect
+MAC Address: 00:23:7D:7C:62:E4 (Unknown)
+Device type: printer
+Running: HP embedded
+OS details: HP LaserJet P3005 or CP4005 printer
+Uptime: 4.276 days (since Thu Dec  2 13:41:07 2010)
+Network Distance: 1 hop
+
+Interesting ports on hp2420-225.egr.nau.edu (134.114.64.85):
+Not shown: 1710 closed ports
+PORT     STATE SERVICE
+80/tcp   open  http
+280/tcp  open  http-mgmt
+443/tcp  open  https
+9100/tcp open  jetdirect
+MAC Address: 00:14:38:E3:BF:28 (Hewlett Packard)
+No exact OS matches for host (If you know what OS is running on it, see http://insecure.org/nmap/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=4.53%D=12/6%OT=80%CT=1%CU=31131%PV=N%DS=1%G=Y%M=001438%TM=4CFDA7B
+OS:4%P=i686-pc-linux-gnu)SEQ(SP=18%GCD=FA00%ISR=9D%TI=I%II=I%SS=S%TS=1)SEQ(
+OS:SP=19%GCD=FA00%ISR=9E%TI=I%II=I%SS=S%TS=1)OPS(O1=M5B4NW0NNT11%O2=M5B4NW0
+OS:NNT11%O3=M5B4NW0NNT11%O4=M5B4NW0NNT11%O5=M5B4NW0NNT11%O6=M5B4NNT11)WIN(W
+OS:1=16D0%W2=16D0%W3=16D0%W4=16D0%W5=16D0%W6=16D0)ECN(R=Y%DF=N%T=40%W=16D0%
+OS:O=M5B4NW0%CC=N%Q=)T1(R=Y%DF=N%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=Y%D
+OS:F=N%T=40%W=16D0%S=O%A=O%F=A%O=NNT11%RD=0%Q=)T4(R=Y%DF=N%T=40%W=16D0%S=A%
+OS:A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=N%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%
+OS:DF=N%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=N%T=40%W=0%S=Z%A=S%F=AR%O
+OS:=%RD=0%Q=)U1(R=Y%DF=N%T=40%TOS=0%IPL=38%UN=0%RIPL=G%RID=1042%RIPCK=Z%RUC
+OS:K=0%RUL=G%RUD=G)IE(R=Y%DFI=S%T=40%TOSI=Z%CD=S%SI=S%DLI=S)
+
+
+Uptime: 4.324 days (since Thu Dec  2 12:32:12 2010)
+Network Distance: 1 hop
+
+Interesting ports on egrprt106.egr.nau.edu (134.114.64.88):
+Not shown: 1706 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+23/tcp   open  telnet
+80/tcp   open  http
+280/tcp  open  http-mgmt
+443/tcp  open  https
+515/tcp  open  printer
+631/tcp  open  ipp
+9100/tcp open  jetdirect
+MAC Address: 00:23:7D:7B:4F:76 (Unknown)
+Device type: printer
+Running: HP embedded
+OS details: HP LaserJet P3005 or CP4005 printer
+Uptime: 4.276 days (since Thu Dec  2 13:41:10 2010)
+Network Distance: 1 hop
+
+Interesting ports on hp2300-210.egr.nau.edu (134.114.64.91):
+Not shown: 1706 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+23/tcp   open  telnet
+80/tcp   open  http
+280/tcp  open  http-mgmt
+443/tcp  open  https
+515/tcp  open  printer
+631/tcp  open  ipp
+9100/tcp open  jetdirect
+MAC Address: 00:0E:7F:E0:4A:6A (Hewlett Packard)
+Device type: printer
+Running: HP embedded
+OS details: HP LaserJet 4050/4200/4600/5100 (JetDirect) printer
+Uptime: 4.303 days (since Thu Dec  2 13:02:40 2010)
+Network Distance: 1 hop
+
+Interesting ports on egrprt317.egr.nau.edu (134.114.64.93):
+Not shown: 1706 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+23/tcp   open  telnet
+80/tcp   open  http
+280/tcp  open  http-mgmt
+443/tcp  open  https
+515/tcp  open  printer
+631/tcp  open  ipp
+9100/tcp open  jetdirect
+MAC Address: 00:21:5A:E6:C3:67 (Unknown)
+Device type: printer
+Running: HP embedded
+OS details: HP LaserJet P3005 or CP4005 printer
+Uptime: 4.098 days (since Thu Dec  2 17:57:49 2010)
+Network Distance: 1 hop
+
+Interesting ports on profiles.cefns.nau.edu (134.114.64.100):
+Not shown: 1709 filtered ports
+PORT     STATE SERVICE
+80/tcp   open  http
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:18:8B:2F:EB:E1 (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 51.713 days (since Sat Oct 16 04:12:43 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr246-05.egr.nau.edu (134.114.64.106):
+Not shown: 1708 filtered ports
+PORT      STATE  SERVICE
+135/tcp   open   msrpc
+139/tcp   open   netbios-ssn
+445/tcp   open   microsoft-ds
+3389/tcp  open   ms-term-serv
+27000/tcp closed flexlm0
+27004/tcp closed flexlm4
+MAC Address: 00:21:9B:73:B8:7A (Unknown)
+Device type: general purpose
+Running: Microsoft Windows XP
+OS details: Microsoft Windows XP SP2
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu53.egr.nau.edu (134.114.64.110) are closed
+MAC Address: 00:14:4F:7C:CF:72 (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+Interesting ports on egr112-16.egr.nau.edu (134.114.64.111):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:1A:A0:AD:FC:36 (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows Vista (98%)
+Aggressive OS guesses: Microsoft Windows Vista Home Basic (98%), Microsoft Windows Vista (97%)
+No exact OS matches for host (test conditions non-ideal).
+Uptime: 0.762 days (since Mon Dec  6 02:01:39 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr108-03.egr.nau.edu (134.114.64.113):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:1A:A0:E5:AE:5C (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 0.762 days (since Mon Dec  6 02:02:00 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr315-14.egr.nau.edu (134.114.64.114):
+Not shown: 1709 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+2105/tcp open  eklogin
+3389/tcp open  ms-term-serv
+MAC Address: 00:25:64:39:7F:ED (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 0.296 days (since Mon Dec  6 13:12:22 2010)
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu57.egr.nau.edu (134.114.64.116) are closed
+MAC Address: 00:14:4F:7C:CE:1F (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu38.egr.nau.edu (134.114.64.118) are closed
+MAC Address: 00:14:4F:57:A9:0C (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu94.egr.nau.edu (134.114.64.121) are closed
+MAC Address: 00:14:4F:7F:C8:27 (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+Interesting ports on egrl213-02.egr.nau.edu (134.114.64.122):
+Not shown: 1708 filtered ports
+PORT      STATE  SERVICE
+135/tcp   open   msrpc
+139/tcp   open   netbios-ssn
+445/tcp   open   microsoft-ds
+3389/tcp  open   ms-term-serv
+13782/tcp closed VeritasNetbackup
+27000/tcp closed flexlm0
+MAC Address: 00:1D:09:B4:D3:84 (Dell)
+Device type: general purpose
+Running: Microsoft Windows XP
+OS details: Microsoft Windows XP SP2
+Network Distance: 1 hop
+
+Interesting ports on egr237-08.egr.nau.edu (134.114.64.123):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:25:64:39:00:E2 (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista Home Basic
+Uptime: 0.762 days (since Mon Dec  6 02:01:27 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr112-01.egr.nau.edu (134.114.64.124):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:13:72:9D:F0:58 (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 0.762 days (since Mon Dec  6 02:01:27 2010)
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu21.egr.nau.edu (134.114.64.125) are closed
+MAC Address: 00:14:4F:48:8A:2C (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu11.egr.nau.edu (134.114.64.127) are closed
+MAC Address: 00:14:4F:94:74:3F (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+Interesting ports on egr100a-01.egr.nau.edu (134.114.64.129):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:24:E8:3E:81:AA (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 0.762 days (since Mon Dec  6 02:01:27 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr317-01.egr.nau.edu (134.114.64.130):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:24:E8:35:10:00 (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 0.762 days (since Mon Dec  6 02:01:33 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr239-01.egr.nau.edu (134.114.64.132):
+Not shown: 1708 filtered ports
+PORT      STATE  SERVICE
+135/tcp   open   msrpc
+139/tcp   open   netbios-ssn
+445/tcp   open   microsoft-ds
+3389/tcp  open   ms-term-serv
+13782/tcp closed VeritasNetbackup
+27000/tcp closed flexlm0
+MAC Address: 00:08:74:0E:E8:57 (Dell Computer)
+Device type: general purpose
+Running: Microsoft Windows XP
+OS details: Microsoft Windows XP SP2
+Network Distance: 1 hop
+
+Interesting ports on egr322g-01.egr.nau.edu (134.114.64.133):
+Not shown: 1707 filtered ports
+PORT      STATE  SERVICE
+135/tcp   open   msrpc
+139/tcp   open   netbios-ssn
+445/tcp   open   microsoft-ds
+3389/tcp  open   ms-term-serv
+13782/tcp closed VeritasNetbackup
+27000/tcp closed flexlm0
+27004/tcp closed flexlm4
+MAC Address: 00:14:22:44:98:01 (Dell)
+Device type: general purpose
+Running: Microsoft Windows XP
+OS details: Microsoft Windows XP SP2
+Network Distance: 1 hop
+
+Interesting ports on egr108-06.egr.nau.edu (134.114.64.134):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:1A:A0:E7:A1:9C (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 0.762 days (since Mon Dec  6 02:01:57 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr235-15.egr.nau.edu (134.114.64.135):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:1A:A0:DB:1D:12 (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 4.306 days (since Thu Dec  2 12:58:02 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr249a-04.egr.nau.edu (134.114.64.137):
+Not shown: 1708 filtered ports
+PORT      STATE  SERVICE
+135/tcp   open   msrpc
+139/tcp   open   netbios-ssn
+445/tcp   open   microsoft-ds
+3389/tcp  open   ms-term-serv
+27000/tcp closed flexlm0
+27004/tcp closed flexlm4
+MAC Address: 00:24:E8:32:91:D0 (Unknown)
+Device type: general purpose|authentication server
+Running (JUST GUESSING) : Microsoft Windows XP|2000|2003 (99%), Juniper Windows 2000 (89%)
+Aggressive OS guesses: Microsoft Windows XP SP2 (99%), Microsoft Windows 2000 SP4 or Windows XP SP2 (95%), Microsoft Windows 2003 Small Business Server (95%), Microsoft Windows XP Professional SP2 (95%), Microsoft Windows Server 2003 SP1 or SP2 (94%), Microsoft Windows XP Professional SP2 (firewall enabled) (93%), Microsoft Windows Server 2003 SP2 (93%), Microsoft Windows XP SP2 (firewall disabled) (92%), Microsoft Windows 2000 SP4 (91%), Microsoft Windows XP Embedded SP2 (89%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+Interesting ports on egr317-lec.egr.nau.edu (134.114.64.139):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:24:E8:35:23:38 (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 0.780 days (since Mon Dec  6 02:01:34 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr112-11.egr.nau.edu (134.114.64.140):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:13:72:9E:82:02 (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 0.781 days (since Mon Dec  6 02:01:27 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr246-04.egr.nau.edu (134.114.64.142):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:21:9B:73:BA:71 (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 4.324 days (since Thu Dec  2 12:58:40 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr234-15.egr.nau.edu (134.114.64.143):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:13:72:9E:85:70 (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 0.781 days (since Mon Dec  6 02:01:23 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr224-lec.egr.nau.edu (134.114.64.144):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:1E:4F:F4:29:BA (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows Vista (98%)
+Aggressive OS guesses: Microsoft Windows Vista (98%), Microsoft Windows Vista Home Basic (97%)
+No exact OS matches for host (test conditions non-ideal).
+Uptime: 0.780 days (since Mon Dec  6 02:01:31 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr235-lec.egr.nau.edu (134.114.64.145):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:1E:4F:F4:25:B0 (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 0.781 days (since Mon Dec  6 02:01:26 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr234-07.egr.nau.edu (134.114.64.146):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:13:72:9E:7E:1E (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows Vista (98%)
+Aggressive OS guesses: Microsoft Windows Vista (98%), Microsoft Windows Vista Home Basic (98%)
+No exact OS matches for host (test conditions non-ideal).
+Uptime: 0.781 days (since Mon Dec  6 02:01:25 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr301-02.egr.nau.edu (134.114.64.148):
+Not shown: 1708 filtered ports
+PORT      STATE  SERVICE
+135/tcp   open   msrpc
+139/tcp   open   netbios-ssn
+445/tcp   open   microsoft-ds
+3389/tcp  open   ms-term-serv
+13782/tcp closed VeritasNetbackup
+27000/tcp closed flexlm0
+MAC Address: 00:21:9B:49:27:AC (Unknown)
+Device type: general purpose
+Running: Microsoft Windows XP
+OS details: Microsoft Windows XP SP2
+Network Distance: 1 hop
+
+Interesting ports on egr302a-01.egr.nau.edu (134.114.64.149):
+Not shown: 1711 filtered ports
+PORT    STATE SERVICE
+135/tcp open  msrpc
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+MAC Address: 00:13:72:92:4E:90 (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: specialized|general purpose
+Running: Captor embedded, QNX 4.X
+OS details: Captor Omni-Clock (employee timeclock), QNX 4.24
+Network Distance: 1 hop
+
+Interesting ports on egr104-06.egr.nau.edu (134.114.64.150):
+Not shown: 1708 filtered ports
+PORT      STATE  SERVICE
+135/tcp   open   msrpc
+139/tcp   open   netbios-ssn
+445/tcp   open   microsoft-ds
+3389/tcp  open   ms-term-serv
+27000/tcp closed flexlm0
+27004/tcp closed flexlm4
+MAC Address: 00:1A:A0:A7:83:59 (Dell)
+Device type: general purpose
+Running: Microsoft Windows XP
+OS details: Microsoft Windows XP SP2
+Network Distance: 1 hop
+
+Interesting ports on egr317-21.egr.nau.edu (134.114.64.151):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:24:E8:36:01:6B (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 0.780 days (since Mon Dec  6 02:01:30 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr113b-01.egr.nau.edu (134.114.64.152):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: A4:BA:DB:ED:41:46 (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows Vista (98%)
+Aggressive OS guesses: Microsoft Windows Vista (98%), Microsoft Windows Vista Home Basic (98%)
+No exact OS matches for host (test conditions non-ideal).
+Uptime: 4.324 days (since Thu Dec  2 12:58:23 2010)
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu86.cefns.nau.edu (134.114.64.153) are closed
+MAC Address: 00:14:4F:7F:5F:3B (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+Interesting ports on egr250-03.egr.nau.edu (134.114.64.155):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:12:3F:7B:43:44 (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista, Microsoft Windows Vista Home Basic
+Uptime: 4.287 days (since Thu Dec  2 13:51:28 2010)
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu43.egr.nau.edu (134.114.64.157) are closed
+MAC Address: 00:14:4F:7C:CE:08 (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+Interesting ports on egr206-01.egr.nau.edu (134.114.64.158):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:18:8B:73:6F:55 (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: specialized|general purpose
+Running: Captor embedded, QNX 4.X
+OS details: Captor Omni-Clock (employee timeclock), QNX 4.24
+Network Distance: 1 hop
+
+Interesting ports on egr235-14.egr.nau.edu (134.114.64.159):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:1A:A0:DA:9E:8E (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 0.252 days (since Mon Dec  6 14:42:45 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr235-05.egr.nau.edu (134.114.64.160):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:1A:A0:DA:95:39 (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows Vista (98%)
+Aggressive OS guesses: Microsoft Windows Vista Home Basic (98%), Microsoft Windows Vista (97%)
+No exact OS matches for host (test conditions non-ideal).
+Uptime: 4.324 days (since Thu Dec  2 12:58:13 2010)
+Network Distance: 1 hop
+
+Interesting ports on flagstaff.egr.nau.edu (134.114.64.161):
+Not shown: 1702 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+22/tcp   open  ssh
+139/tcp  open  netbios-ssn
+311/tcp  open  asip-webadmin
+445/tcp  open  microsoft-ds
+548/tcp  open  afpovertcp
+554/tcp  open  rtsp
+625/tcp  open  apple-xsrvr-admin
+5900/tcp open  vnc
+7070/tcp open  realserver
+8000/tcp open  http-alt
+8888/tcp open  sun-answerbook
+MAC Address: 00:0D:93:42:B6:78 (Apple Computer)
+No exact OS matches for host (If you know what OS is running on it, see http://insecure.org/nmap/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=4.53%D=12/6%OT=21%CT=1%CU=36588%PV=N%DS=1%G=Y%M=000D93%TM=4CFDADD
+OS:5%P=i686-pc-linux-gnu)SEQ(SP=106%GCD=1%ISR=102%TI=I%II=I%SS=S%TS=1)SEQ(S
+OS:P=105%GCD=1%ISR=FF%TI=I%II=I%SS=S%TS=1)SEQ(SP=DF%GCD=C%ISR=F3%TI=I%II=I%
+OS:SS=S%TS=1)SEQ(SP=104%GCD=1%ISR=FC%TI=I%II=I%SS=S%TS=1)SEQ(SP=108%GCD=1%I
+OS:SR=100%TI=I%II=I%SS=S%TS=1)OPS(O1=M5B4NW0NNT11SLL%O2=M5B4NW0NNT11SLL%O3=
+OS:M5B4NW0NNT11%O4=M5B4NW0NNT11SLL%O5=M5B4NW0NNT11SLL%O6=M5B4NNT11SLL)WIN(W
+OS:1=FFFF%W2=FFFF%W3=FFFF%W4=FFFF%W5=FFFF%W6=FFFF)ECN(R=Y%DF=Y%T=40%W=FFFF%
+OS:O=M5B4NW0SLL%CC=N%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=
+OS:N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=N%T=40%W=0%S=Z%A
+OS:=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%D
+OS:F=N%T=40%W=0%S=Z%A=S%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%TOS=0%IPL=38%UN=0%
+OS:RIPL=G%RID=G%RIPCK=G%RUCK=0%RUL=G%RUD=G)IE(R=Y%DFI=S%T=40%TOSI=Z%CD=S%SI
+OS:=S%DLI=S)
+
+
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu48.egr.nau.edu (134.114.64.162) are closed
+MAC Address: 00:14:4F:7C:CD:BB (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu59.egr.nau.edu (134.114.64.164) are closed
+MAC Address: 00:14:4F:66:AC:A8 (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu17.egr.nau.edu (134.114.64.165) are closed
+MAC Address: 00:14:4F:48:93:E1 (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+Interesting ports on egr234-12.egr.nau.edu (134.114.64.166):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:13:72:9E:9A:55 (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista, Microsoft Windows Vista Home Basic
+Uptime: 0.781 days (since Mon Dec  6 02:01:26 2010)
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu106.egr.nau.edu (134.114.64.167) are closed
+MAC Address: 00:14:4F:94:75:7F (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu100.egr.nau.edu (134.114.64.168) are closed
+MAC Address: 00:14:4F:7F:BD:29 (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+Interesting ports on egr119-02.egr.nau.edu (134.114.64.169):
+Not shown: 1708 filtered ports
+PORT      STATE  SERVICE
+135/tcp   open   msrpc
+139/tcp   open   netbios-ssn
+445/tcp   open   microsoft-ds
+3389/tcp  open   ms-term-serv
+27000/tcp closed flexlm0
+27004/tcp closed flexlm4
+MAC Address: 00:23:AE:8E:CB:B5 (Unknown)
+Device type: general purpose
+Running: Microsoft Windows XP
+OS details: Microsoft Windows XP SP2
+Network Distance: 1 hop
+
+Interesting ports on egr315-13.egr.nau.edu (134.114.64.170):
+Not shown: 1709 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+2105/tcp open  eklogin
+3389/tcp open  ms-term-serv
+MAC Address: 00:25:64:39:86:50 (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows Vista (98%)
+Aggressive OS guesses: Microsoft Windows Vista (98%), Microsoft Windows Vista Home Basic (97%)
+No exact OS matches for host (test conditions non-ideal).
+Uptime: 4.325 days (since Thu Dec  2 12:57:59 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr112-08.egr.nau.edu (134.114.64.171):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:13:72:9E:AD:85 (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 0.781 days (since Mon Dec  6 02:01:24 2010)
+Network Distance: 1 hop
+
+Interesting ports on wisard-serv1.egr.nau.edu (134.114.64.173):
+Not shown: 1708 filtered ports
+PORT     STATE  SERVICE
+21/tcp   open   ftp
+22/tcp   open   ssh
+80/tcp   open   http
+1337/tcp closed waste
+3306/tcp open   mysql
+4000/tcp closed remoteanything
+MAC Address: 00:E0:81:49:AE:92 (Tyan Computer)
+Device type: general purpose
+Running: Linux 2.6.X
+OS details: Linux 2.6.17 - 2.6.18 (x86_64, SMP)
+Uptime: 4.409 days (since Thu Dec  2 10:56:03 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr315-15.egr.nau.edu (134.114.64.174):
+Not shown: 1707 filtered ports
+PORT     STATE  SERVICE
+135/tcp  open   msrpc
+139/tcp  open   netbios-ssn
+445/tcp  open   microsoft-ds
+623/tcp  closed unknown
+664/tcp  open   unknown
+2105/tcp open   eklogin
+3389/tcp open   ms-term-serv
+MAC Address: B8:AC:6F:84:92:AF (Unknown)
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows Vista (90%)
+Aggressive OS guesses: Microsoft Windows Vista (90%)
+No exact OS matches for host (test conditions non-ideal).
+Uptime: 0.260 days (since Mon Dec  6 14:31:43 2010)
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu101.egr.nau.edu (134.114.64.176) are closed
+MAC Address: 00:14:4F:7F:B7:45 (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+Interesting ports on egr114-06.egr.nau.edu (134.114.64.178):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:14:22:51:79:17 (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 4.294 days (since Thu Dec  2 13:49:55 2010)
+Network Distance: 1 hop
+
+Interesting ports on ucc136.ucc.nau.edu (134.114.64.179):
+Not shown: 1709 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+1031/tcp open  iad2
+5900/tcp open  vnc
+MAC Address: 00:24:21:58:E6:92 (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 0.029 days (since Mon Dec  6 20:11:43 2010)
+Network Distance: 1 hop
+
+Interesting ports on turing.egr.nau.edu (134.114.64.180):
+Not shown: 1712 closed ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+MAC Address: 00:0C:29:69:7B:84 (VMware)
+No exact OS matches for host (If you know what OS is running on it, see http://insecure.org/nmap/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=4.53%D=12/6%OT=22%CT=1%CU=35740%PV=N%DS=1%G=Y%M=000C29%TM=4CFDAFC
+OS:D%P=i686-pc-linux-gnu)SEQ(SP=C2%GCD=1%ISR=CF%TI=Z%II=I%TS=7)SEQ(SP=C1%GC
+OS:D=1%ISR=CF%TI=Z%II=I%TS=7)OPS(O1=M5B4ST11NW5%O2=M5B4ST11NW5%O3=M5B4NNT11
+OS:NW5%O4=M5B4ST11NW5%O5=M5B4ST11NW5%O6=M5B4ST11)WIN(W1=16A0%W2=16A0%W3=16A
+OS:0%W4=16A0%W5=16A0%W6=16A0)ECN(R=Y%DF=Y%T=40%W=16D0%O=M5B4NNSNW5%CC=N%Q=)
+OS:T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=Y%DF=Y%T=40%W=16A0%S=
+OS:O%A=S+%F=AS%O=M5B4ST11NW5%RD=0%Q=)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD
+OS:=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0
+OS:%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1
+OS:(R=Y%DF=N%T=40%TOS=0%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUL=G%RUD=
+OS:G)IE(R=Y%DFI=N%T=40%TOSI=Z%CD=S%SI=S%DLI=S)
+
+
+Uptime: 108.558 days (since Fri Aug 20 08:30:57 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr317-14.egr.nau.edu (134.114.64.182):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:24:E8:35:E9:5C (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista, Microsoft Windows Vista Home Basic
+Uptime: 0.786 days (since Mon Dec  6 02:01:32 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr234-16.egr.nau.edu (134.114.64.183):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:13:72:9E:A1:11 (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 0.786 days (since Mon Dec  6 02:01:27 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr304-01.egr.nau.edu (134.114.64.185):
+Not shown: 1708 filtered ports
+PORT     STATE SERVICE
+80/tcp   open  http
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+443/tcp  open  https
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:26:B9:75:9E:AC (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 4.297 days (since Thu Dec  2 13:46:22 2010)
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu16.egr.nau.edu (134.114.64.186) are closed
+MAC Address: 00:14:4F:48:86:2B (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+Interesting ports on egr236-03.egr.nau.edu (134.114.64.189):
+Not shown: 1708 filtered ports
+PORT      STATE  SERVICE
+135/tcp   open   msrpc
+139/tcp   open   netbios-ssn
+445/tcp   open   microsoft-ds
+3389/tcp  open   ms-term-serv
+27000/tcp closed flexlm0
+27004/tcp closed flexlm4
+MAC Address: 00:11:43:07:F0:0B (Dell)
+Device type: general purpose
+Running: Microsoft Windows XP
+OS details: Microsoft Windows XP SP2
+Network Distance: 1 hop
+
+Interesting ports on HP2605-69-322p.cefns.nau.edu (134.114.64.190):
+Not shown: 1710 closed ports
+PORT     STATE SERVICE
+80/tcp   open  http
+139/tcp  open  netbios-ssn
+515/tcp  open  printer
+9100/tcp open  jetdirect
+MAC Address: 00:14:38:D7:4D:F8 (Hewlett Packard)
+Device type: printer
+Running: HP embedded, Brother embedded
+OS details: HP LaserJet (1020-, 2010-, 2600-, 2800-, 3050-, or 3390-series), or Brother HL-5250DN printer
+Uptime: 0.298 days (since Mon Dec  6 13:45:23 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr321-lec.egr.nau.edu (134.114.64.191):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:1E:4F:F4:25:B4 (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 0.786 days (since Mon Dec  6 02:01:41 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr235-06.egr.nau.edu (134.114.64.192):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:1A:A0:DA:8D:7B (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 4.330 days (since Thu Dec  2 12:58:11 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr212-01.egr.nau.edu (134.114.64.193):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:21:9B:4E:09:BF (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows Vista (98%)
+Aggressive OS guesses: Microsoft Windows Vista Home Basic (98%), Microsoft Windows Vista (97%)
+No exact OS matches for host (test conditions non-ideal).
+Uptime: 0.432 days (since Mon Dec  6 10:31:48 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr317-19.egr.nau.edu (134.114.64.194):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:24:E8:35:E0:B8 (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 0.786 days (since Mon Dec  6 02:01:32 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr234-09.egr.nau.edu (134.114.64.196):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:13:72:9E:A2:90 (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows Vista (98%)
+Aggressive OS guesses: Microsoft Windows Vista (98%), Microsoft Windows Vista Home Basic (98%)
+No exact OS matches for host (test conditions non-ideal).
+Uptime: 0.786 days (since Mon Dec  6 02:01:26 2010)
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu125.egr.nau.edu (134.114.64.197) are closed
+MAC Address: 00:14:4F:57:8B:18 (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+Interesting ports on egr255-02.egr.nau.edu (134.114.64.199):
+Not shown: 1711 closed ports
+PORT    STATE SERVICE
+135/tcp open  msrpc
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+MAC Address: 00:06:5B:A4:CB:A5 (Dell Computer)
+Device type: general purpose
+Running: Microsoft Windows XP
+OS details: Microsoft Windows XP SP2
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu41.egr.nau.edu (134.114.64.201) are closed
+MAC Address: 00:14:4F:57:A8:72 (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+Interesting ports on egr118-lec.egr.nau.edu (134.114.64.202):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:1E:4F:F4:2A:7E (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista, Microsoft Windows Vista Home Basic
+Uptime: 0.786 days (since Mon Dec  6 02:01:43 2010)
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu13.egr.nau.edu (134.114.64.206) are closed
+MAC Address: 00:14:4F:48:93:01 (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+Interesting ports on egr111-04.egr.nau.edu (134.114.64.208):
+Not shown: 1708 filtered ports
+PORT      STATE  SERVICE
+135/tcp   open   msrpc
+139/tcp   open   netbios-ssn
+445/tcp   open   microsoft-ds
+3389/tcp  open   ms-term-serv
+27000/tcp closed flexlm0
+27004/tcp closed flexlm4
+MAC Address: 00:11:43:B2:63:1D (Dell)
+Device type: general purpose
+Running: Microsoft Windows XP
+OS details: Microsoft Windows XP SP2
+Network Distance: 1 hop
+
+Interesting ports on egr111-05.egr.nau.edu (134.114.64.209):
+Not shown: 1708 filtered ports
+PORT      STATE  SERVICE
+135/tcp   open   msrpc
+139/tcp   open   netbios-ssn
+445/tcp   open   microsoft-ds
+3389/tcp  open   ms-term-serv
+27000/tcp closed flexlm0
+27004/tcp closed flexlm4
+MAC Address: 00:11:43:B2:25:56 (Dell)
+Device type: general purpose
+Running: Microsoft Windows XP
+OS details: Microsoft Windows XP SP2
+Network Distance: 1 hop
+
+Interesting ports on egr114-10.egr.nau.edu (134.114.64.210):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:14:22:51:78:85 (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 4.254 days (since Thu Dec  2 14:47:41 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr114-11.egr.nau.edu (134.114.64.211):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:14:22:3B:8E:CB (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 3.444 days (since Fri Dec  3 10:15:06 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr237-10.egr.nau.edu (134.114.64.212):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:25:64:39:01:24 (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows Vista (98%)
+Aggressive OS guesses: Microsoft Windows Vista (98%), Microsoft Windows Vista Home Basic (98%)
+No exact OS matches for host (test conditions non-ideal).
+Uptime: 0.786 days (since Mon Dec  6 02:01:38 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr98c-02.egr.nau.edu (134.114.64.213):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:08:74:92:54:6D (Dell Computer)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows Vista (98%)
+Aggressive OS guesses: Microsoft Windows Vista (98%), Microsoft Windows Vista Home Basic (97%)
+No exact OS matches for host (test conditions non-ideal).
+Uptime: 4.330 days (since Thu Dec  2 12:58:04 2010)
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu12.cefns.nau.edu (134.114.64.214) are closed
+MAC Address: 00:14:4F:3C:76:20 (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu62.egr.nau.edu (134.114.64.215) are closed
+MAC Address: 00:14:4F:7C:CD:05 (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+Interesting ports on egr317-30.egr.nau.edu (134.114.64.216):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:24:E8:36:03:22 (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista Home Basic
+Uptime: 0.786 days (since Mon Dec  6 02:01:32 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr317-28.egr.nau.edu (134.114.64.218):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:24:E8:35:17:13 (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista, Microsoft Windows Vista Home Basic
+Uptime: 0.786 days (since Mon Dec  6 02:01:33 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr237-09.egr.nau.edu (134.114.64.220):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:25:64:39:00:FF (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista, Microsoft Windows Vista Home Basic
+Uptime: 0.055 days (since Mon Dec  6 19:38:58 2010)
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu69.egr.nau.edu (134.114.64.221) are closed
+MAC Address: 00:14:4F:7C:D2:8C (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+Interesting ports on egr317-27.egr.nau.edu (134.114.64.223):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:24:E8:35:F9:DA (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 0.790 days (since Mon Dec  6 02:01:32 2010)
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu105.egr.nau.edu (134.114.64.224) are closed
+MAC Address: 00:14:4F:7F:BC:50 (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu15.egr.nau.edu (134.114.64.226) are closed
+MAC Address: 00:14:4F:48:8F:86 (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+Interesting ports on egrl313-02.egr.nau.edu (134.114.64.227):
+Not shown: 1708 filtered ports
+PORT      STATE  SERVICE
+135/tcp   open   msrpc
+139/tcp   open   netbios-ssn
+445/tcp   open   microsoft-ds
+3389/tcp  open   ms-term-serv
+13782/tcp closed VeritasNetbackup
+27000/tcp closed flexlm0
+MAC Address: 00:15:C5:4C:FA:EF (Dell)
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows 2003|XP|2000 (90%)
+Aggressive OS guesses: Microsoft Windows Server 2003 SP1 or SP2 (90%), Microsoft Windows Server 2003 SP2 (88%), Microsoft Windows XP SP2 (88%), Microsoft Windows 2000 SP4 or Windows XP SP2 (87%), Microsoft Windows 2003 Small Business Server (87%), Microsoft Windows 2000 Pro SP4 (87%), Microsoft Windows 2000 SP4 (87%), Microsoft Windows XP Home SP2 (Russian) (87%), Microsoft Windows XP Professional SP2 (87%), Microsoft Windows 2000 AS SP4 (85%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+Interesting ports on egr122l-03.egr.nau.edu (134.114.64.229):
+Not shown: 1713 filtered ports
+PORT    STATE SERVICE
+445/tcp open  microsoft-ds
+MAC Address: 00:13:72:92:4E:B9 (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: specialized|general purpose
+Running: Captor embedded, QNX 4.X
+OS details: Captor Omni-Clock (employee timeclock), QNX 4.24
+Network Distance: 1 hop
+
+Interesting ports on egr249a-10.egr.nau.edu (134.114.64.234):
+Not shown: 1708 filtered ports
+PORT      STATE  SERVICE
+135/tcp   open   msrpc
+139/tcp   open   netbios-ssn
+445/tcp   open   microsoft-ds
+3389/tcp  open   ms-term-serv
+27000/tcp closed flexlm0
+27004/tcp closed flexlm4
+MAC Address: 00:24:E8:36:7C:3B (Unknown)
+Device type: general purpose
+Running: Microsoft Windows XP
+OS details: Microsoft Windows XP SP2
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu70.egr.nau.edu (134.114.64.235) are closed
+MAC Address: 00:14:4F:7C:CD:0D (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+Interesting ports on egr112-12.egr.nau.edu (134.114.64.236):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:13:72:9D:F0:A7 (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 0.790 days (since Mon Dec  6 02:01:33 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr112-06.egr.nau.edu (134.114.64.238):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:13:72:9E:A1:64 (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 0.790 days (since Mon Dec  6 02:01:32 2010)
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu37.egr.nau.edu (134.114.64.239) are closed
+MAC Address: 00:14:4F:57:8B:17 (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu47.egr.nau.edu (134.114.64.240) are closed
+MAC Address: 00:14:4F:7C:CD:18 (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+Interesting ports on egr98c-06.egr.nau.edu (134.114.64.241):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: B8:AC:6F:8F:42:90 (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista, Microsoft Windows Vista Home Basic
+Uptime: 4.333 days (since Thu Dec  2 12:59:30 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr234-11.egr.nau.edu (134.114.64.242):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:13:72:9E:A0:51 (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING) : Microsoft Windows Vista (98%)
+Aggressive OS guesses: Microsoft Windows Vista (98%), Microsoft Windows Vista Home Basic (98%)
+No exact OS matches for host (test conditions non-ideal).
+Uptime: 0.790 days (since Mon Dec  6 02:01:23 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr114-08.egr.nau.edu (134.114.64.243):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:14:22:51:78:ED (Dell)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 4.233 days (since Thu Dec  2 15:23:37 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr317-07.egr.nau.edu (134.114.64.245):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:24:E8:37:04:94 (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista Home Basic
+Uptime: 0.790 days (since Mon Dec  6 02:01:32 2010)
+Network Distance: 1 hop
+
+Interesting ports on egr237-07.egr.nau.edu (134.114.64.246):
+Not shown: 1710 filtered ports
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-term-serv
+MAC Address: 00:22:19:1F:7A:B6 (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows Vista
+OS details: Microsoft Windows Vista
+Uptime: 0.790 days (since Mon Dec  6 02:01:27 2010)
+Network Distance: 1 hop
+
+All 1714 scanned ports on dtu14.egr.nau.edu (134.114.64.247) are closed
+MAC Address: 00:14:4F:48:93:C4 (Sun Microsystems)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|printer|router|switch
+Running (JUST GUESSING) : FreeBSD 6.X|5.X|5.x|7.X (96%), HP Tru64 UNIX 5.X (95%), Compaq Tru64 UNIX 5.X (94%), HP OpenVMS 7.X (94%), Lexmark embedded (93%), Huawei embedded (93%), QLogic embedded (93%)
+Aggressive OS guesses: FreeBSD 6.1-RELEASE - 6.2 (96%), HP Tru64 UNIX 5.1A (95%), FreeBSD 6.1-RELEASE-p10 (x86-64) (94%), Compaq Tru64 UNIX 5.1B (94%), FreeBSD 5.2.1-RELEASE (94%), FreeBSD 5.4 or 5.5 (x86) (94%), FreeBSD 5.4-RELEASE (94%), FreeBSD 5.5-STABLE (94%), FreeBSD 6.0-RELEASE - 6.2-RELEASE (94%), FreeBSD 6.0-STABLE - 6.2-RELEASE (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+Interesting ports on egr111-03.egr.nau.edu (134.114.64.250):
+Not shown: 1708 filtered ports
+PORT      STATE  SERVICE
+135/tcp   open   msrpc
+139/tcp   open   netbios-ssn
+445/tcp   open   microsoft-ds
+3389/tcp  open   ms-term-serv
+27000/tcp closed flexlm0
+27004/tcp closed flexlm4
+MAC Address: 00:11:43:B2:25:90 (Dell)
+Device type: general purpose
+Running: Microsoft Windows XP
+OS details: Microsoft Windows XP SP2
+Network Distance: 1 hop
+
+OS detection performed. Please report any incorrect results at http://insecure.org/nmap/submit/ .
+Nmap done: 256 IP addresses (142 hosts up) scanned in 2684.077 seconds

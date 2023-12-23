@@ -1,0 +1,18 @@
+Packaging for type
+1) PDIP -> Plastic dual inline packaging
+There is a notch for orientation, counter clockwise from notch	
+old school one
+plastic, ceramic, shrink plastic
+0.1" apart pins
+
+2) TSSOP -> Thin shrink small outline package
+Looks like the ones we have on ours
+0.025" apart pins
+
+3) QFN - quad filat no-lead 4mm square <- .025"
+
+
+Analog to digital, A0+ A0-, A1+, A1-
+
+
+Memory map is in the users guide.

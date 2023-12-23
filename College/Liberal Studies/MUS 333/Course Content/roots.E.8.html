@@ -1,0 +1,430 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="roots.E.8_files/styles.css" type="text/css">
+
+<script language="javascript" src="roots.E.8_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Blues in Jazz</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="roots.E.8_files/roots.css" rel="stylesheet" type="text/css">
+<script language="JavaScript">
+<!-- Hide from non-Javascript browsers
+function windowOpen(url)
+{
+open(url, "remote", "directories=no,location=no,menubar=no,resizable=yes,scrollbars=no,status=yes,toolbar=no,width=315,height=315"); 
+}
+// -->
+</script>
+</head><body>
+<p><img src="roots.E.8_files/roots.gif" alt="roots of jazz banner" 
+height="126" width="600"> 
+</p>
+<h3>Blues in Jazz</h3>
+<p>  Blues start to appear on jazz recordings by New Orleans musicians 
+during the
+    early 1920s. These New Orleans musicians seem to have been exposed 
+to the
+    blues more through the published blues of composer W.C Handy and 
+ragtime
+    blues sheet music than any other source. Some New Orleans jazz 
+musicians
+    had heard rural blues singers, but there was a sharp class divide 
+between
+    African American musicians working in cities like New Orleans and 
+those working
+    in the countryside or performing in a country style. For example, 
+most pianists
+    working in New Orleans bars and brothels were classically trained 
+and the
+blues was simply not part of that European <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113977071"
+ class="glossarylink" target="_blank">art music</a> repertory.</p>
+<p>New Orleans jazz musicians performing in what would be called the 
+dixieland
+  style--which featured group <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113976071"
+ class="glossarylink" target="_blank">improvisation</a> in a dense, 
+polyphonic weave (and
+  we will discuss this more completely in the dixieland <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> of the course)--were
+  soon adapting 12 bar blues in either slow or fast <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113985071"
+ class="glossarylink" target="_blank">tempo</a> and substituting altered
+  <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113937071"
+ class="glossarylink" target="_blank">chords</a> drawn from the 
+published blues tradition.</p>
+<p>As New Orleans-style dixieland moved northward to Chicago and New 
+York, it
+  brought along blues numbers as well as many others based on more 
+traditional
+  popular or folk songs. King Oliver, leader of the premiere dixieland 
+ensemble
+  the Creole Jazz Band which also included the young Louis Armstrong on 
+second
+  cornet, recorded their classic “Dippermouth Blues” in Richmond,
+  Indiana near Chicago in 1923.</p>
+<p>Follow along with the "Dippermouth Blues" listening guide below.
+  Each <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113953071"
+ class="glossarylink" target="_blank">chorus</a> will be twelve bars 
+long and is in <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=29145413736071"
+ class="glossarylink" target="_blank">12 bar blues </a><a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113978071"
+ class="glossarylink" target="_blank">form</a>. The performance
+  is easier to follow if you pick up the beat and count it in two beats 
+to the
+  bar (cut time), rather than a fast four beats to the bar. The 
+recording opens
+  with an Introduction that is only 4 bars long and closes with a 2 bar <a
+ 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113986071"
+ class="glossarylink" target="_blank">Tag ending</a>.</p>
+<p><img src="roots.E.8_files/kingolivers.gif" alt="King Oliver's Creole 
+Jazz Band" align="left" height="225" width="185">Listen and follow along
+ below to <strong>King Oliver's Creole Jazz Band’s “Dippermouth
+  Blues”</strong> (1923).</p>
+  <p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="weareclimb_jacobs" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/roots/kingoliver_dippermouth.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="roots.E.8_files/kingoliver_dippermouth.swf" quality="high" 
+bgcolor="#ffffff" name="weareclimb_jacobs" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/kingoliver_dippermouth.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/kingoliver_dippermouth.swf"></a>
+</object></p>
+<p> <br>
+  <strong>Form of "Dippermouth Blues"</strong></p>
+<p><strong>Introduction</strong>	ensemble	(0:00-0:06)<br>
+4 <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113965071"
+ class="glossarylink" target="_blank">mm</a></p>
+<p><strong>1st chorus</strong> ensemble	(0:06-0:22)<br>
+12 bar blues</p>
+<p><strong>2nd chorus</strong>	ensemble	(0:22-0:36)<br>
+12 bar blues</p>
+<p><strong>3rd chorus</strong>	clarinet <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113929071"
+ class="glossarylink" target="_blank">solo</a>	(0:37-0:53)<br>
+12 bar blues</p>
+<p><strong>4th chorus</strong>	clarinet solo	(0:53-1:10)<br>
+12 bar blues</p>
+<p><strong>5th chorus</strong> ensemble	(1:10-1:26)<br>
+12 bar blues</p>
+<p><strong>6th chorus</strong>	cornet solo (King Oliver)	(1:26-42)<br>
+12 bar blues</p>
+<p><strong>7th chorus</strong>	cornet solo	(1:42-1:58)<br>
+12 bar blues</p>
+<p><strong>8th chorus</strong>	cornet solo	(1:58-2:14)<br>
+12 bar blues</p>
+<p><strong>9th chorus</strong>	ensemble	(2:14-2:29)<br>
+12 bar blues</p>
+<p><strong>Tag ending</strong>	ensemble	(2:29-out)<br>
+2 mm</p>
+<p><br>
+  As we move from the edge of dixieland toward the next popular jazz 
+style called
+    swing, we find another wonderful 12 bar blues recording in "West End
+    Blues" by the now trumpet <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113970071"
+ class="glossarylink" target="_blank">soloist</a> and bandleader Louis 
+Armstrong. Like "Dippermouth
+    Blues," we will discuss "West End Blues" in more detail
+    later in the course. For now, listen to the choruses of 12 bar blues
+ as they
+    are animated in turn by various soloists in Armstrong's band, 
+including
+    the third chorus where Armstrong--singing rather than playing his 
+trumpet--trades
+    off every two beats with his clarinet player. </p>
+<p>The tempo is in a slow four beats to the bar. The Introduction and 
+the final
+  two <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113941071"
+ class="glossarylink" target="_blank">measures</a> are basically out of 
+time and are played free. Start counting
+  the beat with the opening of the first chorus.</p>
+<p><img src="roots.E.8_files/armstrong_hot5.gif" alt="Louis Armstrong 
+and His Hot Five" align="left" height="225" width="185">Listen and 
+follow along below to <strong>Louis Armstrong and His Hot Five's
+  "West End Blues"</strong> (1928).</p>
+  <p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="weareclimb_jacobs" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/roots/armstrongl_hot5_westend.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="roots.E.8_files/armstrongl_hot5_westend.swf" quality="high" 
+bgcolor="#ffffff" name="weareclimb_jacobs" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/armstrongl_hot5_westend.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/armstrongl_hot5_westend.swf"></a>
+</object></p>
+<p><br>
+  <strong>Form of "West End Blues"</strong></p>
+<p><strong>Introduction</strong>	trumpet solo (Louis Armstrong)	
+(0:00-0:16)<br>
+free</p>
+<p><strong>1st chorus</strong>	trumpet solo	(0:16-0:50)<br>
+12 bar blues</p>
+<p><strong>2nd chorus</strong> trombone solo	(0:51-1:25)<br>
+12 bar blues</p>
+<p><strong>3rd chorus</strong>	vocal solo (Louis Armstrong) and clarinet
+	(1:25-1:59)<br>
+12 bar blues</p>
+<p><strong>4th chorus</strong>	piano solo	(2:00-2:33) <br>
+12 bar blues</p>
+<p><strong>5th chorus</strong>	trumpet solo	(2:33-2:56)<br>
+12 bar blues</p>
+<p><strong>Ending</strong> piano trumpet (free Tag)	(2:56-end) <br>
+4 mm	2 mm</p>
+<p><img src="roots.E.8_files/holiday_billie.gif" alt="Billie Holiday" 
+align="right" height="225" width="185"><br>
+  Another example of vocal 12 bar blues can be found in the beautiful 
+recording
+    of "<a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113943071"
+ class="glossarylink" target="_blank">Fine</a> and Mellow" by the great 
+jazz singer Billie Holiday.</p>
+<p>Watch <strong><a 
+href="javascript:windowOpen('http://jan.ucc.nau.edu/%7Emus333-c/video/holidayb_finemellow.html')">Billie
+
+      Holiday and saxophonist Lester Young’s "Fine and
+  Mellow."</a></strong></p>
+<p><br>
+  Finally, one example of a more contemporary jazz performance of 12 bar
+ blues.
+    Soprano saxophonist John Coltrane recorded "Blues to Bechet" in
+    1970. The tempo is a moderate four beats to the bar. While Coltrane 
+starts
+    to move further afield, especially in the fourth chorus and beyond, 
+his group
+    still stays grounded by outlining a 12 bar blues progression.</p>
+<p>Listen and follow along below to the <strong><a 
+href="javascript:showPage(-1,%20-1,%20-1,%20'/roots/John%20Coltrane',%20'WEBCT_NO_ANCHOR_VALUE',%20'3');">John
+
+      Coltrane</a> Quartet’s
+  "Blues to Bechet."</strong></p>
+  <p>
+    <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="weareclimb_jacobs" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/roots/coltranej_bluesbechet.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="roots.E.8_files/coltranej_bluesbechet.swf" quality="high" 
+bgcolor="#ffffff" name="weareclimb_jacobs" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/coltranej_bluesbechet.swf"></a><a
+ class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/roots/coltranej_bluesbechet.swf"></a>
+</object></p>
+<p>  <strong><img src="roots.E.8_files/coltrane_john.gif" align="left" 
+height="225" width="185">Form of "Blues to Bechet"</strong></p>
+<p><strong>1st chorus</strong> <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113956071"
+ class="glossarylink" target="_blank">melody</a> (head)	(0:00-0:31)<br>
+12 bar blues</p>
+<p><strong>2nd chorus</strong>	soprano sax solo	(0:32-1:04)<br>
+12 bar blues</p>
+<p><strong>3rd chorus</strong>	soprano sax solo	(1:04-1:32)<br>
+12 bar blues</p>
+<p>*<strong>4th chorus</strong>	soprano sax solo	(1:32-2:03)<br>
+12 bar blues</p>
+<p><strong>5th chorus</strong>	soprano sax solo	(2:04-2:35)<br>
+12 bar blues</p>
+<p><strong>6th chorus</strong>	soprano sax solo	(2:35-3:05)<br>
+12 bar blues</p>
+<p><strong>7th chorus</strong>	soprano sax solo	(3:05-3:35)<br>
+12 bar blues</p>
+<p><strong>8th chorus</strong> return of head	(3:35-4:05)<br>
+12 bar blues</p>
+<p><strong>9th chorus</strong>	soprano sax solo	(4:05-4:35)<br>
+12 bar blues</p>
+<p><strong>10th chorus</strong>	soprano sax solo	(4:36-5:05)<br>
+12 bar blues</p>
+<p><strong>11th chorus</strong>	soprano sax solo	(5:06-end)<br>
+12 bar blues</p>
+<p><br>
+  We will discuss the blues in more detail as we encounter particular 
+examples
+    along the way in the course. For now, you should be able to follow a
+ 12 bar
+    blues progression in a variety of jazz styles.</p><br>
+<p>
+Please click now on EXAMS on the course homepage or in the navigation 
+bar to the left of the screen and take EXAM 1.
+</p>
+</body></html>

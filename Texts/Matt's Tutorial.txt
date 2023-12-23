@@ -1,0 +1,45 @@
+Ripping DVDs
+
+Using the DVD Decryptor:
+Set the copy to folder:
+Select 'Tools', then click 'Settings'
+On the right under the 'Default Destination' group
+Select the option 'Semi Automatic'
+Click the folder find button to the right of the text box and select the folder you would like to save your DVDs to
+I suggest 'My Documents', or click 'Make New Folder' and type in DVDs
+
+
+Insert the DVD to be ripped
+Select 'Mode' at the top, select ISO, the click 'Read'
+After the program detects the DVD that has been inserted you will be able to begin ripping.
+This software removes all types of Encryption and copy right protection, it is not legal
+
+Using Daemon Tools:
+Daemon Tools is a virtual drive manager.  It works by using special hacked drivers to make your computer think there is more drives then there really are.  The benifits of this are very extensive, most popular is playing DVDs from your computer, and Playing games from your computer.  Virtual Drive managers can 'Mount' CD image files such as ISO, normally these files would have to be burned to a CD, then inserted into your CD drive like normal.  With Daemon Tools, these CDs can be used right from your own hard drive.  Speed is greatly incresed by doing it this way.
+
+Playing the DVD:
+Instructions vary depending on the type of DVD.
+Most commonly these instructions will work:
+Go to the folder where your DVDs are ripped to
+Double click on the DVD file
+Open Windows Media Player
+At the top select 'Play', select DVD, VCD, or CD audio, then select the virtual drive the DVD is in
+
+To remove a DVD from the virtual drive, select the DVD file
+Right click, and select 'Unmount'
+
+Other types of DVDs:
+Some DVDs can not be played by Windows Media Player
+Some DVDs can only be played by Windows Media Player if the extensions are bought from the Plug-ins section of the WMP website.
+To avoid this problem we use Media Player Classic.
+This is already installed on your system
+Go to the folder that contains your DVD files
+Right click on the one you would like to play
+Select 'Open With...'
+When the list of programs opens, select 'Media Player Classic'
+The DVD will begin to play
+
+Ripping Other types of DVDs:
+Some types of DVDs use the format IFO
+When you use DVD Decrypter you will need to select 'Mode'
+Click IFO, and begin ripping from there

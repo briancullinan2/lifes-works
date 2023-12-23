@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><!-- page/javascriptfunctions.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+<!-- applicationframework/HeaderCSS1.jspi -->
+
+
+<link rel="stylesheet" href="II.C.5_files/styles.css" type="text/css">
+
+<script language="javascript" src="II.C.5_files/sniffer.js"></script>
+<script language="JavaScript">
+function doWindowOpen(win_url,win_name,win_features,set_parent) {
+var new_win
+new_win=window.open(win_url, win_name, win_features)
+if (new_win) {new_win.focus()}
+if (set_parent==1) {
+new_win.par=self
+}
+}
+function showPage(tocID, tocLinkID, pageID, relativePath, anchorValue, target) {
+var filename =relativePath;
+if (window.name == "TOCCONTENTFRAME"
+|| (window.parent != null && window.parent.name=="TOCCONTENTFRAME")) {
+if (tocLinkID > 0) {
+
+var tocURL = "/webct/urw/lc31076991628041.tp34387814934071/previewtoc.dowebct?TOCId=" + tocID + "&TOCLinkId=" + tocLinkID + "&displayBCInsideFrame=true&relativePath=" + relativePath + "&pageId=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+tocURL = tocURL + "&poundValue=" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.parent.location = tocURL + "&targetFrame=" + parent.parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+parent.location.href=tocURL;
+return false;
+}
+} else if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+location.href=pageURL;
+}
+}else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename= "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}
+} else {
+if (pageID > 0) {
+
+var pageURL = "/webct/urw/lc31076991628041.tp34387814934071/displayContentPage.dowebct?pageID=" + pageID;
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+pageURL = pageURL + "#" + anchorValue;
+}
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+parent.location = pageURL + "&targetFrame=" + parent.name + "&displayBCInsideFrame=true";
+return false;
+} else {
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(pageURL,win_name,win_features,set_parent);
+}else{
+location.href=pageURL;
+}
+}
+} else {
+if (null != relativePath && relativePath.indexOf("RelativeResourceManager?contentID")!= -1) {
+var resURL =  relativePath;
+filename = "page.link.content";
+}else{
+
+relativePath = relativePath.replace(/RelativeResourceManager\/Template\//, "");
+relativePath = escapeForIE(relativePath);
+var resURL = "/webct/urw/lc31076991628041.tp34387814934071/RelativeResourceManager/Template" + relativePath + ";JSESSIONIDVISTA=YG9JLkJGTyRrL75NrLcygnQWX4Gh5HjBQ466WKGngxBG2BhvfLkl!1458923980!prd5.vista.nau.edu!80!443!-1269150537!prd6.vista.nau.edu!80!443!1273255140859";
+}
+if (anchorValue != "WEBCT_NO_ANCHOR_VALUE") {
+resURL = resURL + "#" + anchorValue;
+}
+if (target == 2){
+var win_name = null;
+var win_features = "resizable, scrollbars";
+var set_parent = '1';
+doWindowOpen(resURL,win_name,win_features,set_parent);
+}else if (target == 3){
+
+if (parent!= null && parent.BREADCRUMBFRAME != null) {
+filename = filename.replace(/^.*\//, "");
+filename = escapeForIE(filename);
+var fsAction = "/webct/urw/lc31076991628041.tp34387814934071/simpleBreadcrumbFrameset.dowebct?BOTTOMFRAME_SRC="+resURL+"&BREADCRUMB_NAME="+filename;
+parent.location = fsAction;
+return false;
+} else {
+location.href=resURL;
+}
+}else{
+location.href=resURL;
+}
+}
+}
+}
+// IE has a feature where non-ascii urlencoded links are unencoded. For example, when passing a
+// japanese filename which has been uncoded we have to call this before generating URLs with the
+// filename
+function escapeForIE(name) {
+if (is_ie) {
+name = escape(name);
+}
+return name;
+}
+</script>
+
+
+
+<title>Us3</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+   
+<link href="II.C.5_files/moduleII.css" rel="stylesheet" type="text/css">
+</head><body>
+<p><img src="II.C.5_files/moduleII.gif" alt="module banner" height="125"
+ width="600"> </p>
+<h3><strong> Us3</strong><strong></strong></h3>
+<p>Us3, named after a 1950s Blue Note recording by Horace Parlan, was 
+formed in 1991 in London. This British jazz/rap group started to use 
+samples from classic Blue Note recordings, most notably on their hip-hop
+ single "The Band Played the Boogie" (Ninja Tune). Hearing of Us3's use 
+of their material without permission, Blue Note signed them to a 
+recording contract rather than taking legal action. "The next idea was 
+to put out another single on another independent [label]," said Tukka 
+Yoot, a Jamaican rapper and co-writer for the band. "But when you get an
+ offer from Blue Note, you don't turn it down" <strong><a 
+href="javascript:showPage(-1,%20-1,%20-1,%20'/mod2/Biblio.html',%20'WEBCT_NO_ANCHOR_VALUE',%20'3');">(Wentz
+ 1994, 34)</a></strong><strong>.</strong></p>
+<p>Some of Us3's records became big hits in Los Angeles clubs in late 
+1994—especially their single "Cantaloop (Flip Fantasia)"—which broke out
+ and charted number nine in Billboard (then the highest-charted hit 
+record in Blue Note history). The single went gold (sold over 500,000 
+units) in the US and sold nearly a million units overseas.</p>
+<p>"The music [of Us3's debut album, Hand on the Torch (1994)] is an 
+aural concoction," wrote Brooke Wentz, "with layers of partying grunts 
+and groans over infectious, <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113963071"
+ class="glossarylink" target="_blank">rhythmic</a> beats; no <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113933071"
+ class="glossarylink" target="_blank">standard</a> song forms can be 
+heard, just a groove with rap lyrics, 'lifted' background licks, and 
+'live' horn melodies noodling in and out" <strong><a 
+href="javascript:showPage(-1,%20-1,%20-1,%20'/mod2/Biblio.html',%20'WEBCT_NO_ANCHOR_VALUE',%20'3');">(Wentz
+ 1994, 34)</a></strong>.</p>
+<p>"Cantaloop (Flip Fantasia)" (1994) contains samples from Herbie 
+Hancock's "Cantaloupe Island" from his album Empyrean Isles (1964) and, 
+in hip-hop and <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113942071"
+ class="glossarylink" target="_blank">remix</a> versions of "Cantaloop 
+(Flip Fantasia)," there are also samples of announcer Pee Wee Marquette.</p>
+<p>Herbie Hancock's "Cantaloupe Island" features a great groove set up 
+by Hancock on piano, Ron Carter on bass, and Tony Williams on drums—that
+ Us3 basically uses whole cloth in "Cantaloop (Flip Fantasia)"—over 
+which Freddie Hubbard improvs on cornet, rather than his usual trumpet. </p>
+<p>Listen to <strong> Herbie Hancock's "</strong><strong> Cantaloupe</strong><strong></strong><strong>
+ Island</strong><strong> " (1964).</strong></p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="digableplanets_rebirth" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleII/hancockh_cantalope.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="II.C.5_files/hancockh_cantalope.swf" quality="high" 
+bgcolor="#ffffff" name="digableplanets_rebirth" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleII/hancockh_cantalope.swf"></a>
+</object></p>
+<p>Samples of announcer Pee Wee Marquette's introduction of Art Blakey 
+for his seminal, career-starting live album, A Night at Birdland, Volume
+ 1 (1954) are used on a hip-hop version of "Cantaloop (Flip Fantasia)." </p>
+<p>Listen to <strong> Pee Wee </strong><strong> Marquette</strong><strong>
+ 's
+    <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113967071"
+ class="glossarylink" target="_blank">intro</a> to Art Blakey's A Night 
+at Birdland, Volume 1</strong>.</p>
+<p> <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleII/peewee_blakeyart.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="II.C.5_files/peewee_blakeyart.swf" quality="high" 
+bgcolor="#ffffff" allowscriptaccess="sameDomain" 
+type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleII/peewee_blakeyart.swf"></a>
+</object></p>
+<p>We will return in a later Topics <a 
+href="https://vista.nau.edu/webct/mediadb/viewEntryFrameset.jsp?id=34388113982071"
+ class="glossarylink" target="_blank">section</a> in this course to 
+discuss in much more detail the relationship of these samples to Us3's 
+"Cantaloop (Flip Fantasia)."</p>
+<p><strong><img src="II.C.5_files/us3.gif" alt="Photo of Us3" 
+align="left" height="225" width="185"></strong>In the meantime, listen 
+to <strong> Us3's "Cantaloop (Radio Edit)" (1994).</strong></p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+ id="digableplanets_rebirth" align="middle" height="100" width="550">
+<param name="allowScriptAccess" value="sameDomain">
+<param name="movie" value="../audio/moduleII/us3_cantaloop_radio.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<embed src="II.C.5_files/us3_cantaloop_radio.swf" quality="high" 
+bgcolor="#ffffff" name="digableplanets_rebirth" 
+allowscriptaccess="sameDomain" type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="100" width="550"><a class="lbmypuufeyqkkttocprv" 
+href="https://vista.nau.edu/webct/RelativeResourceManager/Template/audio/moduleII/us3_cantaloop_radio.swf"></a>
+</object></p>
+<p>"Although the album [Hand on the Torch] was conceived as a studio 
+project," said Us3's Ed Jones, "we wanted to work the piece out from the
+ [Herbie Hancock] 'Canaloop' [Island] sample and see what we could do 
+with it. But the project changed slightly since then. We now have a live
+ band, and I see that's the way Us3 is going to develop. The band will 
+take over the role of playing the sample, and now we are putting much 
+more of a jazz element into it. The music will come from the band, not 
+the samples" <strong><a 
+href="https://vista.nau.edu/webct/urw/lc31076991628041.tp34387814934071/displayContentPageTargetedResource.dowebct?tocID=-1&amp;tocLinkID=-1&amp;pageID=-1&amp;newWindow=true&amp;relativePath=/mod2/Biblio.html"
+ target="_blank">(Wentz 1994, 35)</a></strong>.</p>
+</body></html>
